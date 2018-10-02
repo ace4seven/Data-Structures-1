@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+// MARK: - Variables
 
+class OverViewController: UIViewController {
+
+
+}
+
+// MARK: - LifeCycle
+
+extension OverViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
-
+    
 }
 
