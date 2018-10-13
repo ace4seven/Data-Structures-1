@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1615211E2168FEA800EF9330 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211D2168FEA800EF9330 /* Node.swift */; };
+		16152120216900B100EF9330 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211F216900B100EF9330 /* LinkedList.swift */; };
 		1654974A21634FF400D423FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974921634FF400D423FC /* AppDelegate.swift */; };
 		1654974C21634FF400D423FC /* OverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974B21634FF400D423FC /* OverViewController.swift */; };
 		1654974F21634FF400D423FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1654974D21634FF400D423FC /* Main.storyboard */; };
@@ -17,9 +19,14 @@
 		1654976921635A0A00D423FC /* OverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1654976821635A0A00D423FC /* OverViewController.storyboard */; };
 		1654976C21635BE100D423FC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654976B21635BE100D423FC /* Coordinator.swift */; };
 		1654976E21635D8500D423FC /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654976D21635D8500D423FC /* ApplicationCoordinator.swift */; };
+		169BC65721725262005C1696 /* AVLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65521725262005C1696 /* AVLNode.swift */; };
+		169BC65821725262005C1696 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65621725262005C1696 /* AVLTree.swift */; };
+		169BC65B21725771005C1696 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65A21725771005C1696 /* Stack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1615211D2168FEA800EF9330 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		1615211F216900B100EF9330 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		1654974621634FF400D423FC /* UDŠ Semestrálná práca 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UDŠ Semestrálná práca 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1654974921634FF400D423FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1654974B21634FF400D423FC /* OverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +39,9 @@
 		1654976821635A0A00D423FC /* OverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OverViewController.storyboard; sourceTree = "<group>"; };
 		1654976B21635BE100D423FC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1654976D21635D8500D423FC /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		169BC65521725262005C1696 /* AVLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLNode.swift; sourceTree = "<group>"; };
+		169BC65621725262005C1696 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
+		169BC65A21725771005C1696 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1615211C2168FE7600EF9330 /* LinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				1615211D2168FEA800EF9330 /* Node.swift */,
+				1615211F216900B100EF9330 /* LinkedList.swift */,
+			);
+			path = LinkedList;
+			sourceTree = "<group>";
+		};
 		1654973D21634FF400D423FC = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +129,9 @@
 		1654975F2163584B00D423FC /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				169BC65921725730005C1696 /* Stack */,
+				16C83FB1216BC34B00B048A1 /* AVLTree */,
+				1615211C2168FE7600EF9330 /* LinkedList */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -141,6 +163,23 @@
 				1654976D21635D8500D423FC /* ApplicationCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		169BC65921725730005C1696 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				169BC65A21725771005C1696 /* Stack.swift */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		16C83FB1216BC34B00B048A1 /* AVLTree */ = {
+			isa = PBXGroup;
+			children = (
+				169BC65521725262005C1696 /* AVLNode.swift */,
+				169BC65621725262005C1696 /* AVLTree.swift */,
+			);
+			path = AVLTree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +257,14 @@
 				165497652163596700D423FC /* OverViewViewModel.swift in Sources */,
 				1654974C21634FF400D423FC /* OverViewController.swift in Sources */,
 				1654976C21635BE100D423FC /* Coordinator.swift in Sources */,
+				169BC65721725262005C1696 /* AVLNode.swift in Sources */,
 				1654974A21634FF400D423FC /* AppDelegate.swift in Sources */,
+				169BC65B21725771005C1696 /* Stack.swift in Sources */,
 				165497672163597300D423FC /* OverViewDelegate.swift in Sources */,
 				1654976E21635D8500D423FC /* ApplicationCoordinator.swift in Sources */,
+				16152120216900B100EF9330 /* LinkedList.swift in Sources */,
+				1615211E2168FEA800EF9330 /* Node.swift in Sources */,
+				169BC65821725262005C1696 /* AVLTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +420,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jurajmacak.sk.UDS--Semestra-lna--pra-ca-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -394,7 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "jurajmacak.sk.UDS--Semestra-lna--pra-ca-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

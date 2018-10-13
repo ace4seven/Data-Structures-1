@@ -12,7 +12,6 @@ import UIKit
 
 class OverViewController: UIViewController {
 
-
 }
 
 // MARK: - LifeCycle
@@ -22,8 +21,30 @@ extension OverViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        testData()
     }
 
+    
+}
+
+// MARK: - Fileprivates
+
+extension OverViewController {
+    
+    fileprivate func testData() {
+        
+        var tree = AVLTree<Int>()
+        
+        for i in 0...1000000 {
+            tree.insert(i)
+        }
+        
+        tree.inOrder { value in
+            print(value)
+        }
+        
+    }
+    
     
 }
 
