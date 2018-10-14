@@ -1,0 +1,35 @@
+//
+//  Property.swift
+//  UDŠ Semestrálná práca 1
+//
+//  Created by Juraj Macák on 14/10/2018.
+//  Copyright © 2018 Juraj Macák. All rights reserved.
+//
+
+import Foundation
+
+struct Property {
+    
+    let registerNumber: Int
+    let address: String
+    let desc: String
+    
+    var owners: [Double : Person]
+    
+}
+
+extension Property: Comparable {
+    
+    static func < (lhs: Property, rhs: Property) -> Bool {
+        return lhs.registerNumber < rhs.registerNumber
+    }
+    
+    static func > (lhs: Property, rhs: Property) -> Bool {
+        return lhs.registerNumber > rhs.registerNumber
+    }
+    
+    static func == (lhs: Property, rhs: Property) -> Bool {
+        return lhs.registerNumber == rhs.registerNumber
+    }
+    
+}
