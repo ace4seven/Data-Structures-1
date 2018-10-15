@@ -19,6 +19,10 @@
 		1654976921635A0A00D423FC /* OverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1654976821635A0A00D423FC /* OverViewController.storyboard */; };
 		1654976C21635BE100D423FC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654976B21635BE100D423FC /* Coordinator.swift */; };
 		1654976E21635D8500D423FC /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654976D21635D8500D423FC /* ApplicationCoordinator.swift */; };
+		1660436E21738D8400333CD8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660436D21738D8400333CD8 /* Database.swift */; };
+		1660437021738DD500333CD8 /* NameStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660436F21738DD500333CD8 /* NameStorage.swift */; };
+		16604372217390CB00333CD8 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16604371217390CB00333CD8 /* Generator.swift */; };
+		1660437621739E4E00333CD8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660437521739E4E00333CD8 /* Errors.swift */; };
 		169BC65721725262005C1696 /* AVLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65521725262005C1696 /* AVLNode.swift */; };
 		169BC65821725262005C1696 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65621725262005C1696 /* AVLTree.swift */; };
 		169BC65B21725771005C1696 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65A21725771005C1696 /* Stack.swift */; };
@@ -43,6 +47,10 @@
 		1654976821635A0A00D423FC /* OverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OverViewController.storyboard; sourceTree = "<group>"; };
 		1654976B21635BE100D423FC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		1654976D21635D8500D423FC /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		1660436D21738D8400333CD8 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		1660436F21738DD500333CD8 /* NameStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameStorage.swift; sourceTree = "<group>"; };
+		16604371217390CB00333CD8 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		1660437521739E4E00333CD8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		169BC65521725262005C1696 /* AVLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLNode.swift; sourceTree = "<group>"; };
 		169BC65621725262005C1696 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
 		169BC65A21725771005C1696 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -91,6 +99,7 @@
 		1654974821634FF400D423FC /* UDŠ Semestrálná práca 1 */ = {
 			isa = PBXGroup;
 			children = (
+				1660436A21738D5700333CD8 /* Backend */,
 				1654976A21635BD800D423FC /* Coordinator */,
 				1654975F2163584B00D423FC /* Structures */,
 				1654975E216357FC00D423FC /* Application */,
@@ -134,6 +143,7 @@
 			children = (
 				1654974921634FF400D423FC /* AppDelegate.swift */,
 				1654975521634FF500D423FC /* Info.plist */,
+				1660437521739E4E00333CD8 /* Errors.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -176,6 +186,32 @@
 				1654976D21635D8500D423FC /* ApplicationCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		1660436A21738D5700333CD8 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				1660436C21738D6D00333CD8 /* Database */,
+				1660436B21738D5F00333CD8 /* Data */,
+				16604371217390CB00333CD8 /* Generator.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		1660436B21738D5F00333CD8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1660436F21738DD500333CD8 /* NameStorage.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1660436C21738D6D00333CD8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				1660436D21738D8400333CD8 /* Database.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		169BC65921725730005C1696 /* Stack */ = {
@@ -281,6 +317,7 @@
 				1654974A21634FF400D423FC /* AppDelegate.swift in Sources */,
 				169BC65B21725771005C1696 /* Stack.swift in Sources */,
 				169BC66021737FB9005C1696 /* Property.swift in Sources */,
+				1660437621739E4E00333CD8 /* Errors.swift in Sources */,
 				169BC65E21737E98005C1696 /* Person.swift in Sources */,
 				165497672163597300D423FC /* OverViewDelegate.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,
@@ -288,6 +325,9 @@
 				16152120216900B100EF9330 /* LinkedList.swift in Sources */,
 				169BC66221737FC0005C1696 /* Region.swift in Sources */,
 				1615211E2168FEA800EF9330 /* Node.swift in Sources */,
+				1660436E21738D8400333CD8 /* Database.swift in Sources */,
+				16604372217390CB00333CD8 /* Generator.swift in Sources */,
+				1660437021738DD500333CD8 /* NameStorage.swift in Sources */,
 				169BC65821725262005C1696 /* AVLTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
