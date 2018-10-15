@@ -14,8 +14,8 @@ struct Person {
     
     let firstName: String
     let lastName: String
-    let personID: String // Datum narodenia
-    let dateOfBirth: Int
+    let personID: UInt // Rodne cislo - unikatne - 16 znakove
+    let dateOfBirth: Int // Datum narodenia
     let permanentProperty: Property // Trvalý pobyt
     
 }
@@ -32,6 +32,14 @@ extension Person: Comparable {
     
     static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.personID == rhs.personID
+    }
+    
+}
+
+extension Person: CustomStringConvertible {
+    
+    public var description: String {
+        return "\(self.personID)"
     }
     
 }

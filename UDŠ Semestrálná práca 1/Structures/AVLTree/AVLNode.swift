@@ -4,6 +4,7 @@ public class AVLNode<Element> {
     
     public var value: Element
     
+    public var parrent: AVLNode?
     public var leftChild: AVLNode?
     public var rightChild: AVLNode?
     
@@ -30,27 +31,27 @@ extension AVLNode {
 
 // MARK: - Tree Traversions
 
-extension AVLNode {
-    
-    public func traverseInOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-        leftChild?.traverseInOrder(visit: visit)
-        visit(value)
-        rightChild?.traverseInOrder(visit: visit)
-    }
-    
-    public func traversePreOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-        visit(value)
-        leftChild?.traversePreOrder(visit: visit)
-        rightChild?.traversePreOrder(visit: visit)
-    }
-    
-    public func traversePostOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-        leftChild?.traversePostOrder(visit: visit)
-        rightChild?.traversePostOrder(visit: visit)
-        visit(value)
-    }
-    
-}
+//extension AVLNode {
+//
+//    public func traverseInOrder(visit: (Element) -> Void) { // prerobit, rekurzia
+//        leftChild?.traverseInOrder(visit: visit)
+//        visit(value)
+//        rightChild?.traverseInOrder(visit: visit)
+//    }
+//
+//    public func traversePreOrder(visit: (Element) -> Void) { // prerobit, rekurzia
+//        visit(value)
+//        leftChild?.traversePreOrder(visit: visit)
+//        rightChild?.traversePreOrder(visit: visit)
+//    }
+//
+//    public func traversePostOrder(visit: (Element) -> Void) { // prerobit, rekurzia
+//        leftChild?.traversePostOrder(visit: visit)
+//        rightChild?.traversePostOrder(visit: visit)
+//        visit(value)
+//    }
+//
+//}
 
 extension AVLNode: CustomStringConvertible {
     
@@ -66,10 +67,10 @@ extension AVLNode: CustomStringConvertible {
             return root + "nil\n"
         }
         if node.leftChild == nil && node.rightChild == nil {
-            return root + "\(node.value)\n"
+            return root + "\(node.value) b:\(node.balanceFactor) h:\(node.height)\n"
         }
         return diagram(for: node.rightChild, top + " ", top + "┌──", top + "│ ")
-            + root + "\(node.value)\n"
+            + root + "\(node.value) b:\(node.balanceFactor) h:\(node.height)\n"
             + diagram(for: node.leftChild, bottom + "│ ", bottom + "└──", bottom + " ")
     }
     

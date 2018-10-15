@@ -10,11 +10,11 @@ import Foundation
 
 struct Property {
     
-    let registerNumber: Int
+    let registerNumber: UInt
     let address: String
     let desc: String
     
-    var owners: [Double : Person]
+//    var owners: [Double : Person]
     
 }
 

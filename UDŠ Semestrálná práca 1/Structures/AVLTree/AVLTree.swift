@@ -5,6 +5,15 @@ public struct AVLTree<Element: Comparable> {
     public private(set) var root: AVLNode<Element>?
     
     public init() {}
+    
+    fileprivate enum RotationNode {
+        case left(node: AVLNode<Element>)
+        case right(node: AVLNode<Element>)
+        case rightLeft(node: AVLNode<Element>)
+        case leftRight(node: AVLNode<Element>)
+        case none(node: AVLNode<Element>)
+    }
+
 }
 
 extension AVLTree: CustomStringConvertible {
@@ -17,26 +26,115 @@ extension AVLTree: CustomStringConvertible {
 
 extension AVLTree {
     
-    public mutating func insert(_ value: Element) {
-        root = insert(from: root, value: value)
+    mutating
+    public func insert(_ value: Element) {
+        do { try insertData(value: value) }
+        catch(let error) {
+           debugPrint(error)
+        }
     }
     
-    private func insert(from node: AVLNode<Element>?, value: Element) -> AVLNode<Element> { // UPRAVIT NEREKURZIVNE
-        guard let node = node else {
-            return AVLNode(value: value)
+    mutating
+    private func insertData(value: Element) throws {
+        guard let root = self.root else {
+            self.root = AVLNode(value: value)
+            return
         }
         
-        if value < node.value {
-            node.leftChild = insert(from: node.leftChild, value: value)
-        } else {
-            node.rightChild = insert(from: node.rightChild, value: value)
+        var tempStack = Stack<AVLNode<Element>>()
+        tempStack.push(root)
+        
+        var pivot = root
+        while (true) {
+            if (value < pivot.value) {
+                guard let leftChild = pivot.leftChild else {
+                    let node = AVLNode(value: value)
+                    pivot.leftChild = node
+                    node.parrent = pivot
+                    tempStack.push(node)
+                    break
+                }
+                pivot = leftChild
+                tempStack.push(leftChild)
+            } else if (value > pivot.value) {
+                guard let rightChild = pivot.rightChild else {
+                    let node = AVLNode(value: value)
+                    pivot.rightChild = node
+                    node.parrent = pivot
+                    tempStack.push(node)
+                    break
+                }
+                pivot = rightChild
+                tempStack.push(rightChild)
+            } else if (value == pivot.value) {
+                throw AppError.identicalKey
+            }
         }
         
-        let balancedNode = balanced(node)
-        balancedNode.height = Swift.max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+//        while let current = pivot.parrent {
+//            
+//        }
+//        
+    
+        // MARK: - Asi nezmysel
+        while(!tempStack.isEmpty) {
+            guard let node = tempStack.pop() else {
+                break
+            }
+            let rotatedNode = balanced(node)
+            
+            switch rotatedNode {
+            case .left(let balancedNode):
+                balancedNode.height = Swift.max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+                fixPointers(parent: tempStack.peek(), node: balancedNode, joinLeft: false)
+            case .right(let balancedNode):
+                balancedNode.height = Swift.max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+                fixPointers(parent: tempStack.peek(), node: balancedNode, joinLeft: true)
+            case .leftRight(let balancedNode):
+                balancedNode.height = Swift.max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+                fixPointers(parent: tempStack.peek(), node: balancedNode, joinLeft: true)
+            case .rightLeft(let balancedNode):
+                balancedNode.height = Swift.max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+                fixPointers(parent: tempStack.peek(), node: balancedNode, joinLeft: false)
+            case .none(let noode):
+                node.height = Swift.max(noode.leftHeight, noode.rightHeight) + 1
+            }
+            
+        }
         
-        return balancedNode
     }
+    
+    mutating
+    private func fixPointers(parent: AVLNode<Element>?, node: AVLNode<Element>, joinLeft: Bool) {
+        guard let parent = parent else {
+            self.root = node
+            self.root?.height = Swift.max(node.leftHeight, node.rightHeight) + 1
+            return
+        }
+        
+        if joinLeft {
+            parent.leftChild = node
+        } else {
+            parent.rightChild = node
+        }
+    }
+    
+//    private func insert(from node: AVLNode<Element>?, value: Element) -> AVLNode<Element> { // UPRAVIT NEREKURZIVNE
+//        guard let node = node else {
+//            return AVLNode(value: value)
+//        }
+//
+//        if value < node.value {
+//            node.leftChild = insert(from: node.leftChild, value: value)
+//        } else {
+//            node.rightChild = insert(from: node.rightChild, value: value)
+//        }
+//
+//        let balancedNode = balanced(node)
+//        balancedNode.height = Swift.max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+//
+//        return balancedNode
+//    }
     
 }
 
@@ -69,21 +167,21 @@ private extension AVLNode {
 
 extension AVLTree {
     
-    fileprivate func balanced(_ node: AVLNode<Element>) -> AVLNode<Element> {
+    fileprivate func balanced(_ node: AVLNode<Element>) -> RotationNode {
         switch node.balanceFactor {
         case 2:
             if let leftChild = node.leftChild, leftChild.balanceFactor == -1 {
-                return leftRightRotate(node)
+                return RotationNode.leftRight(node: leftRightRotate(node))
             } else {
-                return rightRotate(node)
+                return RotationNode.right(node: rightRotate(node))
             }
         case -2:
             if let rightChild = node.rightChild, rightChild.balanceFactor == 1 {
-                return rightLeftRotate(node)
+                return RotationNode.rightLeft(node: rightLeftRotate(node))
             } else {
-                return leftRotate(node)
+                return RotationNode.left(node: leftRotate(node))
             }
-        default: return node }
+        default: return RotationNode.none(node: node) }
     }
     
 }
@@ -95,7 +193,7 @@ extension AVLTree {
     // LEFT ROTACIA
     
     fileprivate func leftRotate(_ node: AVLNode<Element>) -> AVLNode<Element> {
-        let pivot = node.rightChild! // NODE bude korenom v substrome
+        let pivot = node.rightChild!
         node.rightChild = pivot.leftChild
         pivot.leftChild = node
         node.height = Swift.max(node.leftHeight, node.rightHeight) + 1
