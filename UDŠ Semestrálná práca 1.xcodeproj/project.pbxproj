@@ -151,7 +151,6 @@
 		1654975F2163584B00D423FC /* Structures */ = {
 			isa = PBXGroup;
 			children = (
-				169BC65C21725F62005C1696 /* Queue */,
 				169BC65921725730005C1696 /* Stack */,
 				16C83FB1216BC34B00B048A1 /* AVLTree */,
 				1615211C2168FE7600EF9330 /* LinkedList */,
@@ -220,13 +219,6 @@
 				169BC65A21725771005C1696 /* Stack.swift */,
 			);
 			path = Stack;
-			sourceTree = "<group>";
-		};
-		169BC65C21725F62005C1696 /* Queue */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Queue;
 			sourceTree = "<group>";
 		};
 		16C83FB1216BC34B00B048A1 /* AVLTree */ = {
