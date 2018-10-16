@@ -21,7 +21,23 @@ extension OverViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testData()
+//        testData()
+        var tree = AVLTree<Int>()
+        
+        for i in 1...10 {
+            tree.insert(i)
+        }
+        
+        tree.inOrder() { value in
+            print(value)
+        }
+        
+        print(tree)
+        
+        tree.inOrder() { value in
+            print(value)
+        }
+        
     }
 
     
@@ -36,29 +52,41 @@ extension OverViewController {
 //        print(Database.shared.persons)
         
         var tree = AVLTree<Int>()
+        var testArray = [Int]()
+        var testTreeArray = [Int]()
         
-        for i in  stride(from: 20, to: 1, by: -1) {
-            tree.insert(Int.random(in: 1...1000))
-//            tree.insert(i)
+        var index = 0
+        
+        while(index < 100000) {
+            let number = Int.random(in: 1...10000000)
+            if tree.insert(number) {
+                index += 1
+                testArray.append(number)
+            }
         }
+    
+        var a = [Int]()
         
-//        tree.insert(10)
-//        tree.insert(9)
-//        tree.insert(8)
-//        tree.insert(7)
-//        tree.insert(6)
-//        tree.insert(5)
-//        tree.insert(4)
-//        tree.insert(3)
-//        tree.insert(2)
-//        tree.insert(1)
-//        tree.insert(3)
-//
         tree.inOrder() { value in
-            print(value)
+            a.append(value)
+            testTreeArray.append(value)
         }
         
-        print(tree)
+        var sorttedTestArray = testArray.sorted()
+        
+        for i in 0..<sorttedTestArray.count {
+            if (sorttedTestArray[i] != testTreeArray[i]) {
+                print("CHYBAAAAA")
+                break
+            }
+        }
+
+        print("TESTY OK")
+        
+        
+        
+        
+    
     }
     
     

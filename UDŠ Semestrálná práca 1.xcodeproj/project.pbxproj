@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160F0F2D217667BA00782AF9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F0F2C217667BA00782AF9 /* Extensions.swift */; };
 		1615211E2168FEA800EF9330 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211D2168FEA800EF9330 /* Node.swift */; };
 		16152120216900B100EF9330 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211F216900B100EF9330 /* LinkedList.swift */; };
 		1654974A21634FF400D423FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974921634FF400D423FC /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160F0F2C217667BA00782AF9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1615211D2168FEA800EF9330 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		1615211F216900B100EF9330 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		1654974621634FF400D423FC /* UDŠ Semestrálná práca 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UDŠ Semestrálná práca 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 				1654974921634FF400D423FC /* AppDelegate.swift */,
 				1654975521634FF500D423FC /* Info.plist */,
 				1660437521739E4E00333CD8 /* Errors.swift */,
+				160F0F2C217667BA00782AF9 /* Extensions.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				16152120216900B100EF9330 /* LinkedList.swift in Sources */,
 				169BC66221737FC0005C1696 /* Region.swift in Sources */,
 				1615211E2168FEA800EF9330 /* Node.swift in Sources */,
+				160F0F2D217667BA00782AF9 /* Extensions.swift in Sources */,
 				1660436E21738D8400333CD8 /* Database.swift in Sources */,
 				16604372217390CB00333CD8 /* Generator.swift in Sources */,
 				1660437021738DD500333CD8 /* NameStorage.swift in Sources */,

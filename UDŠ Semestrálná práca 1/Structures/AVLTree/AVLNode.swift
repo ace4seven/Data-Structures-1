@@ -1,6 +1,6 @@
 public class AVLNode<Element> {
     
-    public var height = 0
+    public var height = 1
     
     public var value: Element
     
@@ -21,10 +21,10 @@ extension AVLNode {
         return leftHeight - rightHeight
     }
     public var leftHeight: Int {
-        return leftChild?.height ?? -1
+        return leftChild?.height ?? 0
     }
     public var rightHeight: Int {
-        return rightChild?.height ?? -1
+        return rightChild?.height ?? 0
     }
     
 }
