@@ -18,17 +18,17 @@ public final class Generator {
 
 extension Generator {
     
-    func generatePerson() -> Person {
-        let randomName = NameStorage.firstNames[Int.random(in: 0..<NameStorage.firstNames.count)]
-        let randomSurname = NameStorage.lastNames[Int.random(in: 0..<NameStorage.lastNames.count)]
-        let randomPersonID = generatePersonID()
-        let randomDateOfBirth = 4442432423423423
-        let randomProperty = Property.init(registerNumber: UInt.random(in: 1..<10000000), address: "Lorem ipsum", desc: "Lorem ipsum")
-        
-        let person = Person.init(firstName: randomName, lastName: randomSurname, personID: randomPersonID, dateOfBirth: randomDateOfBirth, permanentProperty: randomProperty)
-        
-        return person
-    }
+//    func generatePerson() -> Person {
+//        let randomName = NameStorage.firstNames[Int.random(in: 0..<NameStorage.firstNames.count)]
+//        let randomSurname = NameStorage.lastNames[Int.random(in: 0..<NameStorage.lastNames.count)]
+//        let randomPersonID = generatePersonID()
+//        let randomDateOfBirth = 4442432423423423
+//        let randomProperty = Property.init(registerNumber: UInt.random(in: 1..<10000000), address: "Lorem ipsum", desc: "Lorem ipsum")
+//
+////        let person = Person.init(firstName: randomName, lastName: randomSurname, personID: randomPersonID, dateOfBirth: randomDateOfBirth, permanentProperty: randomProperty)
+//
+//        return person
+//    }
     
 }
 

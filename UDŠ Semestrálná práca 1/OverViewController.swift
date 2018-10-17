@@ -22,21 +22,7 @@ extension OverViewController {
         super.viewDidLoad()
         
 //        testData()
-        var tree = AVLTree<Int>()
         
-        for i in 1...10 {
-            tree.insert(i)
-        }
-        
-        tree.inOrder() { value in
-            print(value)
-        }
-        
-        print(tree)
-        
-        tree.inOrder() { value in
-            print(value)
-        }
         
     }
 
@@ -51,7 +37,7 @@ extension OverViewController {
 //        Database.shared.generatePersons(count: 100)
 //        print(Database.shared.persons)
         
-        var tree = AVLTree<Int>()
+        var tree = AVLTree<Int>(comparator: Person.compare)
         var testArray = [Int]()
         var testTreeArray = [Int]()
         

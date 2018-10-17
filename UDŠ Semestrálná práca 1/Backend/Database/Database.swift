@@ -12,7 +12,7 @@ public final class Database { // SINGLETON
     public static let shared = Database()
     private init() {}
     
-    internal var persons = AVLTree<Person>()
+//    internal var persons = AVLTree<Person>()
     
     private let generator = Generator()
 }
@@ -20,7 +20,7 @@ public final class Database { // SINGLETON
 extension Database {
     
     func addPerson(person: Person) {
-        self.persons.insert(person)
+//        self.persons.insert(person)
     }
     
 }
@@ -31,7 +31,7 @@ extension Database {
     
     func generatePersons(count: Int) {
         for _ in 0..<count {
-            addPerson(person: generator.generatePerson())
+//            addPerson(person: generator.generatePerson())
         }
     }
     

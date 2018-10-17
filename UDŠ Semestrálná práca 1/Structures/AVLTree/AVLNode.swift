@@ -23,6 +23,7 @@ extension AVLNode {
     public var leftHeight: Int {
         return leftChild?.height ?? 0
     }
+    
     public var rightHeight: Int {
         return rightChild?.height ?? 0
     }

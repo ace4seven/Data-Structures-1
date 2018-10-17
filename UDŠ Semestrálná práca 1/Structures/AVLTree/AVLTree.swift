@@ -8,11 +8,15 @@
 
 import Foundation
 
-public struct AVLTree<Element: Comparable> {
+public struct AVLTree<Element: CustomComparable> {
+    
+    private let comparator: Comparator
     
     public private(set) var root: AVLNode<Element>?
     
-    public init() {}
+    public init(comparator: @escaping Comparator) {
+        self.comparator = comparator
+    }
 }
 
 // MARK: - Operations
@@ -21,7 +25,8 @@ extension AVLTree {
     
     // MARK: - INSERT
     
-    mutating
+    
+    @discardableResult mutating
     public func insert(_ value: Element) -> Bool {
         guard let root = self.root else {
             self.root = AVLNode(value: value)
@@ -93,7 +98,42 @@ extension AVLTree {
         return false
     }
     
-    // MARK: - FIND
+    // MARK: - FIND BY KEY
+    
+    public func findBy(key: Any) -> Element? {
+        var pivot = self.root
+        while let current = pivot {
+            if key == current.value {
+                return current.value
+            } else if key > current.value {
+                pivot = pivot?.rightChild
+            } else if key < current.value {
+                pivot = pivot?.leftChild
+            } else {
+                return nil
+            }
+        }
+        
+        return nil
+    }
+    
+    // MARK: - FiND BY ELEMENT
+    
+    public func findBy(element: Element) -> Element? {
+        var pivot = self.root
+        while let current = pivot {
+            if element == current.value {
+                return current.value
+            } else if element > current.value {
+                pivot = pivot?.rightChild
+            } else if element < current.value {
+                pivot = pivot?.leftChild
+            } else {
+                return nil
+            }
+        }
+        return nil
+    }
     
 }
 
@@ -194,11 +234,20 @@ extension AVLTree {
 
 extension AVLTree {
     
-    public mutating func remove(_ value: Element) {
-        root = remove(node: root, value: value)
+    public mutating func remove(_ value: Element) -> Element? {
+        guard let pivot = self.root else {
+            return nil
+        }
+        
+        
+        while true {
+            
+        }
+        
+        return nil
     }
     
-    private func remove(node: AVLNode<Element>?, value: Element) -> AVLNode<Element>? { // Prerobit bez rekurzie
+    private func remove(node: AVLNode<Element>?, value: Element) -> AVLNode<Element>? {
         guard let node = node else {
             return nil
         }

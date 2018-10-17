@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+extension Int: CustomComparable {
+    
+    public static func == (lhs: Any, rhs: Int) -> Bool {
+        guard let lhs = lhs as? Int else { return false }
+        return lhs == rhs
+    }
+    
+    public static func > (lhs: Any, rhs: Int) -> Bool {
+        guard let lhs = lhs as? Int else { return false }
+        return lhs > rhs
+    }
+    
+    
+    public static func < (lhs: Any, rhs: Int) -> Bool {
+        guard let lhs = lhs as? Int else { return false }
+        return lhs < rhs
+    }
+    
+}

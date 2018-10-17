@@ -13,7 +13,7 @@ struct OwnedList {
     let uniqueNumber: UInt
     let region: Region
     
-    var properties: AVLTree<Property>
+//    var properties: AVLTree<Property>
     
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		160F0F2D217667BA00782AF9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F0F2C217667BA00782AF9 /* Extensions.swift */; };
+		160F0F2F2177707800782AF9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F0F2E2177707800782AF9 /* Protocols.swift */; };
 		1615211E2168FEA800EF9330 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211D2168FEA800EF9330 /* Node.swift */; };
 		16152120216900B100EF9330 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211F216900B100EF9330 /* LinkedList.swift */; };
 		1654974A21634FF400D423FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974921634FF400D423FC /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		160F0F2C217667BA00782AF9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		160F0F2E2177707800782AF9 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1615211D2168FEA800EF9330 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		1615211F216900B100EF9330 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		1654974621634FF400D423FC /* UDŠ Semestrálná práca 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UDŠ Semestrálná práca 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 				1654975521634FF500D423FC /* Info.plist */,
 				1660437521739E4E00333CD8 /* Errors.swift */,
 				160F0F2C217667BA00782AF9 /* Extensions.swift */,
+				160F0F2E2177707800782AF9 /* Protocols.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				169BC66021737FB9005C1696 /* Property.swift in Sources */,
 				1660437621739E4E00333CD8 /* Errors.swift in Sources */,
 				169BC65E21737E98005C1696 /* Person.swift in Sources */,
+				160F0F2F2177707800782AF9 /* Protocols.swift in Sources */,
 				165497672163597300D423FC /* OverViewDelegate.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,
 				1654976E21635D8500D423FC /* ApplicationCoordinator.swift in Sources */,
