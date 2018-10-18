@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct AVLTree<Element: CustomComparable> {
+public struct AVLTree<Element> {
     
     private let comparator: Comparator
     
@@ -35,48 +35,58 @@ extension AVLTree {
         
         var pivot = root
         while true {
-            if (value < pivot.value) {
+            var jumpOut = false
+            
+            switch (comparator(value, pivot.value)) {
+            case .orderedSame:
+                return false
+            case .orderedAscending:
                 guard let leftChild = pivot.leftChild else {
                     let node = AVLNode(value: value)
                     pivot.leftChild = node
                     node.parrent = pivot
+                    jumpOut = true
                     break
                 }
                 pivot = leftChild
-            } else if (value > pivot.value) {
+            case .orderedDescending:
                 guard let rightChild = pivot.rightChild else {
                     let node = AVLNode(value: value)
                     pivot.rightChild = node
                     node.parrent = pivot
+                    jumpOut = true
                     break
                 }
                 pivot = rightChild
-            } else if (value == pivot.value) {
-                return false
             }
+            
+            if jumpOut { break }
         }
         
-        while true {
-            let balandedNode = balanced(pivot)
-                
-            balandedNode.height = Swift.max(balandedNode.leftHeight, balandedNode.rightHeight) + 1
-            guard let parent = balandedNode.parrent else {
-                self.root = balandedNode
-                break
-            }
-            
-            if parent.value > balandedNode.value {
-                parent.leftChild = balandedNode
-            } else {
-                parent.rightChild = balandedNode
-            }
-            
-            if balandedNode.value != pivot.value {
-                break
-            }
-            
-            pivot = parent
-        }
+//        while true {
+//            let balandedNode = balanced(pivot)
+//
+//            balandedNode.height = Swift.max(balandedNode.leftHeight, balandedNode.rightHeight) + 1
+//            guard let parent = balandedNode.parrent else {
+//                self.root = balandedNode
+//                break
+//            }
+//
+//            switch comparator(parent.value, balandedNode.value) {
+//            case .orderedDescending:
+//                parent.leftChild = balandedNode
+//            default:
+//                parent.rightChild = balandedNode
+//            }
+//
+//
+//            if case .orderedSame = comparator(balandedNode.value, pivot.value) {
+//                pivot = parent
+//                continue
+//            }
+//
+//            break
+//        }
         
         return true
     }
@@ -86,35 +96,16 @@ extension AVLTree {
     public func contains(_ value: Element) -> Bool {
         var current = root
         while let node = current {
-            if node.value == value {
-                return true
-            }
-            if value < node.value {
+            switch comparator(node.value, value) {
+            case .orderedAscending:
                 current = node.leftChild
-            } else {
+            case .orderedDescending:
                 current = node.rightChild
+            case .orderedSame:
+                return true
             }
         }
         return false
-    }
-    
-    // MARK: - FIND BY KEY
-    
-    public func findBy(key: Any) -> Element? {
-        var pivot = self.root
-        while let current = pivot {
-            if key == current.value {
-                return current.value
-            } else if key > current.value {
-                pivot = pivot?.rightChild
-            } else if key < current.value {
-                pivot = pivot?.leftChild
-            } else {
-                return nil
-            }
-        }
-        
-        return nil
     }
     
     // MARK: - FiND BY ELEMENT
@@ -122,14 +113,14 @@ extension AVLTree {
     public func findBy(element: Element) -> Element? {
         var pivot = self.root
         while let current = pivot {
-            if element == current.value {
-                return current.value
-            } else if element > current.value {
-                pivot = pivot?.rightChild
-            } else if element < current.value {
+            
+            switch comparator(element, current.value) {
+            case .orderedAscending:
                 pivot = pivot?.leftChild
-            } else {
-                return nil
+            case .orderedDescending:
+                pivot = pivot?.rightChild
+            case .orderedSame:
+                return current.value
             }
         }
         return nil
@@ -235,41 +226,111 @@ extension AVLTree {
 extension AVLTree {
     
     public mutating func remove(_ value: Element) -> Element? {
-        guard let pivot = self.root else {
-            return nil
+        
+        var pivot = self.root
+        
+        while let current = pivot {
+            var found = false
+            switch comparator(value, current.value) {
+            case .orderedAscending:
+                pivot = current.leftChild
+            case .orderedDescending:
+                pivot = current.rightChild
+            case .orderedSame:
+                found = true
+                let result = current.value
+                removeElement(current)
+                return result
+            }
+            if found { break }
         }
         
-        
-        while true {
-            
-        }
         
         return nil
     }
     
-    private func remove(node: AVLNode<Element>?, value: Element) -> AVLNode<Element>? {
-        guard let node = node else {
-            return nil
-        }
-        if value == node.value {
-            if node.leftChild == nil && node.rightChild == nil {
-                return nil
+    private func removeElement(_ node: AVLNode<Element>) {
+        let parent = node.parrent
+        if (node.leftChild == nil && node.rightChild == nil) {
+            if let leftChildValue = parent?.leftChild?.value, case ComparisonResult.orderedSame = comparator(leftChildValue, node.value) {
+                parent?.leftChild = nil
+            } else {
+                parent?.rightChild = nil
             }
-            if node.leftChild == nil {
-                return node.rightChild
-            }
-            if node.rightChild == nil {
-                return node.leftChild
-            }
-            node.value = node.rightChild!.min.value
-            node.rightChild = remove(node: node.rightChild, value: node.value)
-        } else if value < node.value {
-            node.leftChild = remove(node: node.leftChild, value: value)
+            node.parrent = nil
+            // TODO REBALANCE
+        } else if (node.leftChild != nil && node.rightChild == nil) {
+            let child = node.leftChild
+            child?.parrent = parent
+            parent?.leftChild = child
+            node.leftChild = nil
+            node.parrent = nil
+        } else if (node.leftChild == nil && node.rightChild != nil) {
+            let child = node.rightChild
+            child?.parrent = parent
+            parent?.rightChild = child
+            node.rightChild = nil
+            node.parrent = nil
         } else {
-            node.rightChild = remove(node: node.rightChild, value: value)
+            let minNode = node.rightChild?.min
+            node.value = minNode!.value
+            
+            if minNode?.rightChild != nil {
+              minNode?.rightChild?.parrent = minNode?.parrent
+                minNode?.parrent?.rightChild = minNode?.rightChild
+                minNode?.rightChild = nil
+                minNode?.leftChild = nil
+            }
+            minNode?.parrent = nil
+        
+//            if let leftChild = minNode?.parrent?.leftChild?.value, let min = minNode?.value, case ComparisonResult.orderedSame = comparator(leftChild, min) {
+//                if minNode?.leftChild != nil {
+//                    minNode?.leftChild?.parrent = node
+//                    node.leftChild = minNode?.leftChild
+//                    minNode?.leftChild = nil
+//                    minNode?.parrent = nil
+//                }
+//
+//                minNode?.parrent?.leftChild = nil
+//                minNode?.parrent = nil
+//            } else if let rightChild = minNode?.parrent?.rightChild?.value, let min = minNode?.value, case ComparisonResult.orderedSame = comparator(rightChild, min) {
+//                if minNode?.rightChild != nil {
+//                    minNode?.rightChild?.parrent = node
+//                    node.rightChild = minNode?.rightChild
+//                    minNode?.rightChild = nil
+//                    minNode?.parrent = nil
+//                }
+//
+//                minNode?.parrent?.rightChild = nil
+//                minNode?.parrent = nil
+//            }
+            
         }
-        return node
     }
+    
+//    private func remove(node: AVLNode<Element>?, value: Element) -> AVLNode<Element>? {
+//        guard let node = node else {
+//            return nil
+//        }
+//        if value == node.value {
+//            if node.leftChild == nil && node.rightChild == nil {
+//                return nil
+//            }
+//            if node.leftChild == nil {
+//                return node.rightChild
+//            }
+//            if node.rightChild == nil {
+//                return node.leftChild
+//            }
+//            node.value = node.rightChild!.min.value
+//            node.rightChild = remove(node: node.rightChild, value: node.value)
+//        } else if value < node.value {
+//            node.leftChild = remove(node: node.leftChild, value: value)
+//        } else {
+//            node.rightChild = remove(node: node.rightChild, value: value)
+//        }
+//        return node
+//    }
     
 }
 
@@ -280,21 +341,32 @@ extension AVLTree {
     func inOrder(value:  (Element) -> Void) {
         var stack = Stack<AVLNode<Element>>()
         var current = self.root
-        
+
         while(current != nil || stack.isEmpty == false) {
             while(current != nil) {
                 stack.push(current!)
                 current = current?.leftChild
             }
-            
+
             current = stack.peek()
             stack.pop()
-            
+
             value(current!.value)
-            
+
             current = current?.rightChild
         }
     }
+//
+//    func inOrder(value:  (Element) -> Void) {
+//        var pivot = self.root
+//
+//        while let current = pivot {
+//            let min = current.min
+//            value(min.value)
+//
+//
+//        }
+//    }
     
 }
 

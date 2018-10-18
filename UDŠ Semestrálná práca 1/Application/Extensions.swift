@@ -8,22 +8,17 @@
 
 import Foundation
 
-extension Int: CustomComparable {
+extension Int {
     
-    public static func == (lhs: Any, rhs: Int) -> Bool {
-        guard let lhs = lhs as? Int else { return false }
-        return lhs == rhs
-    }
-    
-    public static func > (lhs: Any, rhs: Int) -> Bool {
-        guard let lhs = lhs as? Int else { return false }
-        return lhs > rhs
-    }
-    
-    
-    public static func < (lhs: Any, rhs: Int) -> Bool {
-        guard let lhs = lhs as? Int else { return false }
-        return lhs < rhs
+    public static let comparator: Comparator = { left, right in
+        guard let l = left as? Int, let r = right as? Int else { return ComparisonResult.orderedSame }
+        if l > r {
+            return ComparisonResult.orderedDescending
+        } else if l < r {
+            return ComparisonResult.orderedAscending
+        } else {
+            return ComparisonResult.orderedSame
+        }
     }
     
 }

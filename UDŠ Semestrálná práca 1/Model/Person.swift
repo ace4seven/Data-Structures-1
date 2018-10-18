@@ -20,27 +20,7 @@ struct Person {
     
 }
 
-extension Person: CustomComparable {
-    
-    static func == (lhs: Any, rhs: Person) -> Bool {
-        guard let lhs = lhs as? String else { return false }
-        return lhs == rhs.personID
-    }
-    
-    static func > (lhs: Any, rhs: Person) -> Bool {
-        guard let lhs = lhs as? String else { return false }
-        return lhs > rhs.personID
-    }
-    
-    static func < (lhs: Any, rhs: Person) -> Bool {
-        guard let lhs = lhs as? String else { return false }
-        return lhs < rhs.personID
-    }
-    
-    
-    var key: Any {
-        return self.personID
-    }
+extension Person: Comparable {
     
     static func < (lhs: Person, rhs: Person) -> Bool {
         return lhs.personID < rhs.personID
@@ -64,9 +44,11 @@ extension Person: CustomStringConvertible {
     
 }
 
+// MARK: - Custom comparator
+
 extension Person {
     
-    static let compare: Comparator = { lhs, rhs in
+    static let compareByID: Comparator = { lhs, rhs in
         guard let p1 = lhs as? Person, let p2 = rhs as? Person else { return ComparisonResult.orderedSame }
     
         if p1.personID == p2.personID {
