@@ -22,7 +22,7 @@ extension OverViewController {
         super.viewDidLoad()
         
         testData()
-        
+//        bugHunter()
 //        testDelete()
         
     }
@@ -41,14 +41,25 @@ extension OverViewController {
         var tree = AVLTree<Int>(comparator: Int.comparator)
         var testArray = [Int]()
         var testTreeArray = [Int]()
+        var deletedNumbers = [Int]()
         
         var index = 0
         
-        while(index < 10) {
-            let number = Int.random(in: 1...1000)
+        while(index < 100000) {
+            let number = Int.random(in: 1...5000000)
             if tree.insert(number) {
                 index += 1
                 testArray.append(number)
+            }
+        }
+        
+        var deleted = 0;
+        
+        for i in 0...100000 {
+            if (tree.remove(i) != nil) {
+                print("MAZEM \(i)")
+                deleted += 1;
+                deletedNumbers.append(i)
             }
         }
     
@@ -61,18 +72,41 @@ extension OverViewController {
         
         var sorttedTestArray = testArray.sorted()
         
-        for i in 0..<sorttedTestArray.count {
-            if (sorttedTestArray[i] != testTreeArray[i]) {
-                print("CHYBAAAAA")
-                break
-            }
+        if (sorttedTestArray.count - deleted) == testTreeArray.count {
+            print("TESTY OOOOK")
         }
         
         print(tree)
-
-        print("TESTY OK")
+        
+        print(deleted)
+        print(testTreeArray.count)
+        print(sorttedTestArray.count)
         
     
+    }
+    
+    fileprivate func bugHunter() {
+        var tree = AVLTree<Int>(comparator: Int.comparator)
+        tree.insert(29)
+        tree.insert(15)
+        tree.insert(42)
+        tree.insert(40)
+        tree.insert(13)
+        tree.insert(44)
+        tree.insert(21)
+        tree.insert(20)
+        tree.insert(33)
+        tree.insert(14)
+
+        tree.remove(13)
+        tree.remove(15)
+        tree.remove(29)
+        tree.remove(33)
+        tree.remove(40)
+        tree.remove(42)
+        tree.remove(44)
+        
+        print(tree)
     }
     
     fileprivate func testDelete() {
@@ -90,13 +124,12 @@ extension OverViewController {
         tree.insert(73)
         tree.insert(99)
         
-//        tree.remove(32)
-//        tree.remove(11)
-//        tree.remove(65)
+        tree.remove(32)
+        tree.remove(11)
+        tree.remove(65)
         tree.remove(91)
         tree.remove(41)
         tree.remove(50)
-        tree.remove(65)
         tree.remove(72)
         tree.remove(99)
 
