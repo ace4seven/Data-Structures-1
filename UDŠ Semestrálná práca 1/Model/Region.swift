@@ -12,23 +12,9 @@ import Foundation
 
 struct Region {
     
-    let id: UInt
-    let name: String
+    let regionID: UInt
+    let regionName: String
     
-}
-
-extension Region: Comparable {
-    
-    static func < (lhs: Region, rhs: Region) -> Bool {
-        return lhs.id < rhs.id
-    }
-    
-    static func > (lhs: Region, rhs: Region) -> Bool {
-        return lhs.id > rhs.id
-    }
-    
-    static func == (lhs: Region, rhs: Region) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
+    var ownedLists: AVLTree<OwnedList>?
+    var properties: AVLTree<Property>?
 }

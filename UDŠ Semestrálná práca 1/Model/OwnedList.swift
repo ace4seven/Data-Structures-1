@@ -10,25 +10,9 @@ import Foundation
 
 struct OwnedList {
     
-    let uniqueNumber: UInt
+    let id: UInt
     let region: Region
     
-//    var properties: AVLTree<Property>
-    
-}
-
-extension OwnedList: Comparable {
-    
-    static func < (lhs: OwnedList, rhs: OwnedList) -> Bool {
-        return lhs.uniqueNumber < rhs.uniqueNumber
-    }
-    
-    static func > (lhs: OwnedList, rhs: OwnedList) -> Bool {
-        return lhs.uniqueNumber > rhs.uniqueNumber
-    }
-    
-    static func == (lhs: OwnedList, rhs: OwnedList) -> Bool {
-        return lhs.uniqueNumber == rhs.uniqueNumber
-    }
+    var properties: AVLTree<Property>?
     
 }

@@ -10,26 +10,10 @@ import Foundation
 
 struct Property {
     
-    let registerNumber: UInt
+    let id: UInt
     let address: String
     let desc: String
     
-//    var owners: [Double : Person]
-    
-}
-
-extension Property: Comparable {
-    
-    static func < (lhs: Property, rhs: Property) -> Bool {
-        return lhs.registerNumber < rhs.registerNumber
-    }
-    
-    static func > (lhs: Property, rhs: Property) -> Bool {
-        return lhs.registerNumber > rhs.registerNumber
-    }
-    
-    static func == (lhs: Property, rhs: Property) -> Bool {
-        return lhs.registerNumber == rhs.registerNumber
-    }
+    var persons: AVLTree<Person>?
     
 }

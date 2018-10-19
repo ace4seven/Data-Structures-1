@@ -12,34 +12,21 @@ import Foundation
 
 struct Person {
     
+    let id: String // Rodne cislo - unikatne - 16 znakove
+    
     let firstName: String
     let lastName: String
-    let personID: String // Rodne cislo - unikatne - 16 znakove
-    let dateOfBirth: Int // Datum narodenia
-    let permanentProperty: Property // Trvalý pobyt
+    let dateOfBirth: Int
     
-}
-
-extension Person: Comparable {
+    var permanentProperty: Property?
     
-    static func < (lhs: Person, rhs: Person) -> Bool {
-        return lhs.personID < rhs.personID
-    }
-    
-    static func > (lhs: Person, rhs: Person) -> Bool {
-        return lhs.personID > rhs.personID
-    }
-    
-    static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.personID == rhs.personID
-    }
-    
-}
-
-extension Person: CustomStringConvertible {
-    
-    public var description: String {
-        return "\(self.personID)"
+    public static func random(property: Property? = nil) -> Person {
+        return Person(
+            id: DataSeeder.personPersonalID(),
+            firstName: DataSeeder.personName(),
+            lastName: DataSeeder.personLastName(),
+            dateOfBirth: DataSeeder.personRandomDateOfBirth(),
+            permanentProperty: property)
     }
     
 }
@@ -48,12 +35,12 @@ extension Person: CustomStringConvertible {
 
 extension Person {
     
-    static let compareByID: Comparator = { lhs, rhs in
+    static let comparator: Comparator = { lhs, rhs in
         guard let p1 = lhs as? Person, let p2 = rhs as? Person else { return ComparisonResult.orderedSame }
     
-        if p1.personID == p2.personID {
+        if p1.id == p2.id {
             return ComparisonResult.orderedSame
-        } else if p1.personID < p2.personID {
+        } else if p1.id < p2.id {
             return ComparisonResult.orderedAscending
         } else {
             return ComparisonResult.orderedDescending

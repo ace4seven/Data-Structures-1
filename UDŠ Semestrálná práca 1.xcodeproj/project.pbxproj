@@ -32,6 +32,9 @@
 		169BC66021737FB9005C1696 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65F21737FB9005C1696 /* Property.swift */; };
 		169BC66221737FC0005C1696 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC66121737FC0005C1696 /* Region.swift */; };
 		169BC66421737FEC005C1696 /* OwnedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC66321737FEC005C1696 /* OwnedList.swift */; };
+		16C1EED8217A0722009CEFF5 /* DataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1EED7217A0722009CEFF5 /* DataSeeder.swift */; };
+		16C1EEDA217A101D009CEFF5 /* RegionNamesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1EED9217A101D009CEFF5 /* RegionNamesStorage.swift */; };
+		16C1EEDC217A1CDC009CEFF5 /* PropertyDescStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C1EEDB217A1CDC009CEFF5 /* PropertyDescStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,9 @@
 		169BC65F21737FB9005C1696 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		169BC66121737FC0005C1696 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		169BC66321737FEC005C1696 /* OwnedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedList.swift; sourceTree = "<group>"; };
+		16C1EED7217A0722009CEFF5 /* DataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSeeder.swift; sourceTree = "<group>"; };
+		16C1EED9217A101D009CEFF5 /* RegionNamesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionNamesStorage.swift; sourceTree = "<group>"; };
+		16C1EEDB217A1CDC009CEFF5 /* PropertyDescStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDescStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,7 @@
 				1660437521739E4E00333CD8 /* Errors.swift */,
 				160F0F2C217667BA00782AF9 /* Extensions.swift */,
 				160F0F2E2177707800782AF9 /* Protocols.swift */,
+				16C1EED7217A0722009CEFF5 /* DataSeeder.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -207,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				1660436F21738DD500333CD8 /* NameStorage.swift */,
+				16C1EED9217A101D009CEFF5 /* RegionNamesStorage.swift */,
+				16C1EEDB217A1CDC009CEFF5 /* PropertyDescStorage.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -319,8 +328,11 @@
 				169BC65E21737E98005C1696 /* Person.swift in Sources */,
 				160F0F2F2177707800782AF9 /* Protocols.swift in Sources */,
 				165497672163597300D423FC /* OverViewDelegate.swift in Sources */,
+				16C1EED8217A0722009CEFF5 /* DataSeeder.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,
+				16C1EEDC217A1CDC009CEFF5 /* PropertyDescStorage.swift in Sources */,
 				1654976E21635D8500D423FC /* ApplicationCoordinator.swift in Sources */,
+				16C1EEDA217A101D009CEFF5 /* RegionNamesStorage.swift in Sources */,
 				16152120216900B100EF9330 /* LinkedList.swift in Sources */,
 				169BC66221737FC0005C1696 /* Region.swift in Sources */,
 				1615211E2168FEA800EF9330 /* Node.swift in Sources */,

@@ -46,7 +46,7 @@ extension OverViewController {
         var index = 0
         
         while(index < 100000) {
-            let number = Int.random(in: 1...5000000)
+            let number = Int.random(in: 1...50000000)
             if tree.insert(number) {
                 index += 1
                 testArray.append(number)
@@ -55,7 +55,7 @@ extension OverViewController {
         
         var deleted = 0;
         
-        for i in 0...100000 {
+        for i in 0...1000000 {
             if (tree.remove(i) != nil) {
                 print("MAZEM \(i)")
                 deleted += 1;

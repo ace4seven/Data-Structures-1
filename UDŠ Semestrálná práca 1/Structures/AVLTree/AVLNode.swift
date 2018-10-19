@@ -30,30 +30,6 @@ extension AVLNode {
     
 }
 
-// MARK: - Tree Traversions
-
-//extension AVLNode {
-//
-//    public func traverseInOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-//        leftChild?.traverseInOrder(visit: visit)
-//        visit(value)
-//        rightChild?.traverseInOrder(visit: visit)
-//    }
-//
-//    public func traversePreOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-//        visit(value)
-//        leftChild?.traversePreOrder(visit: visit)
-//        rightChild?.traversePreOrder(visit: visit)
-//    }
-//
-//    public func traversePostOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-//        leftChild?.traversePostOrder(visit: visit)
-//        rightChild?.traversePostOrder(visit: visit)
-//        visit(value)
-//    }
-//
-//}
-
 extension AVLNode: CustomStringConvertible {
     
     public var description: String {
