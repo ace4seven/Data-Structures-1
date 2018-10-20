@@ -8,10 +8,12 @@
 
 import Foundation
 
-struct Share {
+public struct Share {
     
     var percentage: Double
     var owners: [Double: Person] = [:]
     
     
 }
+
+

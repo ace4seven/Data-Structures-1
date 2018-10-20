@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Osoba
 
-struct Person {
+public struct Person {
     
     let id: String // Rodne cislo - unikatne - 16 znakove
     
@@ -21,7 +21,7 @@ struct Person {
     var home: Property?
     var ownedLists: AVLTree<OwnedList>?
     
-    public static func random(property: Property? = nil, ownedLists:  AVLTree<OwnedList>? = nil) -> Person {
+    static func random(property: Property? = nil, ownedLists:  AVLTree<OwnedList>? = nil) -> Person {
         return Person(
             id: DataSeeder.personPersonalID(),
             firstName: DataSeeder.personName(),

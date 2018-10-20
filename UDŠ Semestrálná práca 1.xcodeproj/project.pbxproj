@@ -24,6 +24,12 @@
 		1660437621739E4E00333CD8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660437521739E4E00333CD8 /* Errors.swift */; };
 		166707B2217B36BF0033CF43 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B1217B36BF0033CF43 /* Option.swift */; };
 		166707B4217B44370033CF43 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B3217B44370033CF43 /* Share.swift */; };
+		166707B7217B4CD70033CF43 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B6217B4CD70033CF43 /* SettingsController.swift */; };
+		166707B9217B4CDF0033CF43 /* SettingsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166707B8217B4CDF0033CF43 /* SettingsController.storyboard */; };
+		166707BE217B50400033CF43 /* GeneratorController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 166707BD217B50400033CF43 /* GeneratorController.storyboard */; };
+		166707C0217B50530033CF43 /* GeneratorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707BF217B50530033CF43 /* GeneratorViewDelegate.swift */; };
+		166707C2217B505B0033CF43 /* GeneratorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707C1217B505B0033CF43 /* GeneratorViewModel.swift */; };
+		166707C4217B50750033CF43 /* GeneratorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707C3217B50750033CF43 /* GeneratorController.swift */; };
 		168DE4BE217A410E00F68FE4 /* SearchOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4BD217A410E00F68FE4 /* SearchOptionsController.swift */; };
 		168DE4C0217A411A00F68FE4 /* SearchOptionsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168DE4BF217A411A00F68FE4 /* SearchOptionsController.storyboard */; };
 		168DE4C2217A412500F68FE4 /* SearchOptionsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4C1217A412500F68FE4 /* SearchOptionsViewDelegate.swift */; };
@@ -63,6 +69,12 @@
 		1660437521739E4E00333CD8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		166707B1217B36BF0033CF43 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		166707B3217B44370033CF43 /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		166707B6217B4CD70033CF43 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		166707B8217B4CDF0033CF43 /* SettingsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsController.storyboard; sourceTree = "<group>"; };
+		166707BD217B50400033CF43 /* GeneratorController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GeneratorController.storyboard; sourceTree = "<group>"; };
+		166707BF217B50530033CF43 /* GeneratorViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewDelegate.swift; sourceTree = "<group>"; };
+		166707C1217B505B0033CF43 /* GeneratorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewModel.swift; sourceTree = "<group>"; };
+		166707C3217B50750033CF43 /* GeneratorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorController.swift; sourceTree = "<group>"; };
 		168DE4BD217A410E00F68FE4 /* SearchOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsController.swift; sourceTree = "<group>"; };
 		168DE4BF217A411A00F68FE4 /* SearchOptionsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchOptionsController.storyboard; sourceTree = "<group>"; };
 		168DE4C1217A412500F68FE4 /* SearchOptionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewDelegate.swift; sourceTree = "<group>"; };
@@ -237,8 +249,30 @@
 		166707B5217B4B5E0033CF43 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				166707BA217B501D0033CF43 /* DataGenerator */,
+				166707B6217B4CD70033CF43 /* SettingsController.swift */,
+				166707B8217B4CDF0033CF43 /* SettingsController.storyboard */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		166707BA217B501D0033CF43 /* DataGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				166707C5217B511F0033CF43 /* Cell */,
+				166707BD217B50400033CF43 /* GeneratorController.storyboard */,
+				166707BF217B50530033CF43 /* GeneratorViewDelegate.swift */,
+				166707C1217B505B0033CF43 /* GeneratorViewModel.swift */,
+				166707C3217B50750033CF43 /* GeneratorController.swift */,
+			);
+			name = DataGenerator;
+			sourceTree = "<group>";
+		};
+		166707C5217B511F0033CF43 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		168DE4BB217A40B000F68FE4 /* Search */ = {
@@ -356,9 +390,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166707BE217B50400033CF43 /* GeneratorController.storyboard in Resources */,
 				168DE4C0217A411A00F68FE4 /* SearchOptionsController.storyboard in Resources */,
 				1654975421634FF500D423FC /* LaunchScreen.storyboard in Resources */,
 				1654975121634FF500D423FC /* Assets.xcassets in Resources */,
+				166707B9217B4CDF0033CF43 /* SettingsController.storyboard in Resources */,
 				168DE4C9217A415900F68FE4 /* OptionCell.xib in Resources */,
 				1654974F21634FF400D423FC /* Main.storyboard in Resources */,
 				1654976921635A0A00D423FC /* OverViewController.storyboard in Resources */,
@@ -426,6 +462,7 @@
 				165497652163596700D423FC /* OverViewViewModel.swift in Sources */,
 				1654974C21634FF400D423FC /* OverViewController.swift in Sources */,
 				168DE4C2217A412500F68FE4 /* SearchOptionsViewDelegate.swift in Sources */,
+				166707C4217B50750033CF43 /* GeneratorController.swift in Sources */,
 				169BC65721725262005C1696 /* AVLNode.swift in Sources */,
 				168DE4C4217A412F00F68FE4 /* SearchOptionsViewModel.swift in Sources */,
 				1654974A21634FF400D423FC /* AppDelegate.swift in Sources */,
@@ -439,14 +476,17 @@
 				168DE4C8217A415900F68FE4 /* OptionCell.swift in Sources */,
 				16C1EED8217A0722009CEFF5 /* DataSeeder.swift in Sources */,
 				166707B4217B44370033CF43 /* Share.swift in Sources */,
+				166707C2217B505B0033CF43 /* GeneratorViewModel.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,
 				16C1EEDC217A1CDC009CEFF5 /* PropertyDescStorage.swift in Sources */,
+				166707C0217B50530033CF43 /* GeneratorViewDelegate.swift in Sources */,
 				16C1EEDA217A101D009CEFF5 /* RegionNamesStorage.swift in Sources */,
 				16152120216900B100EF9330 /* LinkedList.swift in Sources */,
 				169BC66221737FC0005C1696 /* Region.swift in Sources */,
 				166707B2217B36BF0033CF43 /* Option.swift in Sources */,
 				1615211E2168FEA800EF9330 /* Node.swift in Sources */,
 				160F0F2D217667BA00782AF9 /* Extensions.swift in Sources */,
+				166707B7217B4CD70033CF43 /* SettingsController.swift in Sources */,
 				1660436E21738D8400333CD8 /* Database.swift in Sources */,
 				1660437021738DD500333CD8 /* NameStorage.swift in Sources */,
 				169BC65821725262005C1696 /* AVLTree.swift in Sources */,

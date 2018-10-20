@@ -10,7 +10,7 @@
 
 import Foundation
 
-struct Region {
+public struct Region {
     
     let regionID: UInt
     let regionName: String
@@ -18,7 +18,7 @@ struct Region {
     var ownedLists: AVLTree<OwnedList>?
     var properties: AVLTree<Property>?
     
-    public static func random(
+    static func random(
         ownedLists: AVLTree<OwnedList>? = nil,
         properties: AVLTree<Property>? = nil
         ) -> Region {

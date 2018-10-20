@@ -36,6 +36,8 @@ class SearchOptionsController: UIViewController {
         tableView.dataSource = self
         
         tableView.registerCell(fromClass: OptionCell.self)
+        
+        tableView.contentInset.top = 20
     }
     
     private func setupView() {

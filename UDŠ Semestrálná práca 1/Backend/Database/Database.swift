@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum RegionTreeType {
+    case sortedByID
+    case sortedByName
+}
+
 public final class Database { // SINGLETON
     public static let shared = Database()
     private init() {}
@@ -21,8 +26,13 @@ public final class Database { // SINGLETON
 
 extension Database {
     
-    func addPerson(person: Person) {
-//        self.persons.insert(person)
+    func getRegions(sortedBy type: RegionTreeType) -> AVLTree<Region> {
+        switch type {
+        case .sortedByID:
+            return _regionsByID
+        case .sortedByName:
+            return _regionsByName
+        }
     }
     
 }
@@ -31,10 +41,10 @@ extension Database {
 
 extension Database {
     
-    public func generateRegion(count: Int) {
+    public func generateRegion(count: Int, completion: () -> ()) {
         var index = count
     
-        while count > 0 {
+        while index > 0 {
             let region = Region.random()
             if _regionsByID.insert(region) {
                 if _regionsByName.insert(region) {
@@ -45,10 +55,26 @@ extension Database {
                 }
             }
         }
+        
+        completion()
     }
     
-    public func generateProperty(count: Int) {
+    public func generateProperty(count: Int, completion: () -> ()) {
+        _regionsByID.inOrder() { next in
+            var region = next
+            var propertyTree = AVLTree<Property>(Property.comparator)
+            
+            var index = count
+            
+            while index > 0 {
+                if propertyTree.insert(Property.random()) {
+                    index -= 1
+                }
+            }
+            region.properties = propertyTree
+        }
         
+        completion()
     }
     
 }
