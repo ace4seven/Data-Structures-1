@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Osoba
 
-public struct Person {
+public class Person {
     
     let id: String // Rodne cislo - unikatne - 16 znakove
     
@@ -20,6 +20,15 @@ public struct Person {
     
     var home: Property?
     var ownedLists: AVLTree<OwnedList>?
+    
+    init(id: String, firstName: String, lastName: String, dateOfBirth: Int, home: Property?, ownedLists: AVLTree<OwnedList>?) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.dateOfBirth = dateOfBirth
+        self.home = home
+        self.ownedLists = ownedLists
+    }
     
     static func random(property: Property? = nil, ownedLists:  AVLTree<OwnedList>? = nil) -> Person {
         return Person(

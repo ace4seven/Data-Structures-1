@@ -25,13 +25,8 @@ extension GeneratorViewModel: GeneratorVM {
         self.propertiesCount = properties
         self.regionsCount = regions
         
-        Database.shared.generateRegion(count: regionsCount) {
-            debugPrint("Regions has been generated")
-            Database.shared.generateProperty(count: propertiesCount) {
-                debugPrint("Properties for regions has been generated")
-                print(Database.shared.getRegions(sortedBy: .sortedByID))
-                print(Database.shared.getRegions(sortedBy: .sortedByName))
-            }
+        Database.shared.generateDatabase(regionCount: regionsCount, propertyCount: propertiesCount) { [weak self] in
+            
         }
     }
     

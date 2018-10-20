@@ -8,11 +8,15 @@
 
 import Foundation
 
-public struct Share {
+public class Share {
     
     var percentage: Double
     var owners: [Double: Person] = [:]
     
+    init(percentage: Double, owners: [Double: Person]) {
+        self.percentage = percentage
+        self.owners = owners
+    }
     
 }
 

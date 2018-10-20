@@ -39,3 +39,13 @@ extension UIColor {
     }()
     
 }
+
+extension String {
+    
+    func debugMessage() {
+        if C.Settings.DEBUGMODE {
+            print(self)
+        }
+    }
+    
+}

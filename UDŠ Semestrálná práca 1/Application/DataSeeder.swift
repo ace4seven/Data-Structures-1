@@ -57,7 +57,7 @@ class DataSeeder {
             result += !firstCapitalized ? word.capitalized : word
             
             firstCapitalized = true
-            if i < wordsCount {
+            if i < wordsCount - 1 {
                 result += " "
             }
         }
@@ -100,7 +100,7 @@ class DataSeeder {
             result += !firstCapitalized ? word.capitalized : word
             
             firstCapitalized = true
-            if i < wordsCount {
+            if i < wordsCount - 1 {
                 result += " "
             }
         }

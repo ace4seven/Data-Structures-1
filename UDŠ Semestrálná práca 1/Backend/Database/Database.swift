@@ -26,6 +26,19 @@ public final class Database { // SINGLETON
 
 extension Database {
     
+    func getRegionsSortedByName(completion: ([Region]) -> ()){
+        let regions = _regionsByName.inOrderToArray()
+        completion(regions)
+    }
+    
+    func getProperties(regionName: String, completion: ([Property]?) -> ()) {
+        if let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) {
+            let properties = region.properties?.inOrderToArray()
+            completion(properties)
+        }
+        completion(nil)
+    }
+    
     func getRegions(sortedBy type: RegionTreeType) -> AVLTree<Region> {
         switch type {
         case .sortedByID:
@@ -41,40 +54,35 @@ extension Database {
 
 extension Database {
     
-    public func generateRegion(count: Int, completion: () -> ()) {
-        var index = count
-    
-        while index > 0 {
+    public func generateDatabase(regionCount: Int, propertyCount: Int, completion: () -> ()) {
+        for var i in 0..<regionCount {
             let region = Region.random()
             if _regionsByID.insert(region) {
-                if _regionsByName.insert(region) {
-                    index -= 1
-                } else {
+                if !_regionsByName.insert(region) {
+                    i -= 1
+                    "WARNING - Region podla NAME: \(region.regionName) bol vymazaný z dôvodu duplicity".debugMessage()
                     _regionsByID.remove(region)
                     continue
                 }
+            } else {
+                "WARNING - Region podla ID: \(region.regionID) bol vymazaný z dôvodu duplicity".debugMessage()
+                i -= 1
+                continue
             }
-        }
-        
-        completion()
-    }
-    
-    public func generateProperty(count: Int, completion: () -> ()) {
-        _regionsByID.inOrder() { next in
-            var region = next
+            "Katastrálne územie MENO: \(region.regionName) ID: \(region.regionID) bolo úspešné pridané".debugMessage()
+            
             var propertyTree = AVLTree<Property>(Property.comparator)
-            
-            var index = count
-            
-            while index > 0 {
-                if propertyTree.insert(Property.random()) {
-                    index -= 1
+            for var j in 0..<propertyCount {
+                let property = Property.random()
+                if !propertyTree.insert(property) {
+                    "WARNING - Nehnuteľnost s ID: \(property.id) nebola pridaná z dôvodu duplicity ID".debugMessage()
+                    j -= 1
+                    continue
                 }
+                "Nehnuteľnost s ID: \(property.id) bola úspešne pridaná".debugMessage()
             }
             region.properties = propertyTree
         }
-        
-        completion()
     }
     
 }

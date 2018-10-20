@@ -1,35 +1,16 @@
-//
-//  SearchOptionsController.swift
-//  UDŠ Semestrálná práca 1
-//
-//  Created by Juraj Macák on 10/19/18.
-//  Copyright © 2018 Juraj Macák. All rights reserved.
-//
-
 import UIKit
 import GoodSwift
 
-// MARK: - Enums
-
-enum OptionType {
-    case task(Option)
-    case task3(Option)
-    case task7(Option)
-    case task8(Option)
-    case task9(Option)
-    case task15(Option)
-}
-
-class SearchOptionsController: UIViewController {
+class ListingOptionsController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate var items = [OptionType]()
-    fileprivate var viewModel = SearchOptionsViewModel()
+    fileprivate var viewModel = ListingOptionsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTable()
         setupView()
         
@@ -46,12 +27,12 @@ class SearchOptionsController: UIViewController {
     }
     
     private func setupView() {
-        title = "Vyhľadávanie"
+        title = "Výpisy"
     }
-
+    
 }
 
-extension SearchOptionsController: SearchOptionsViewDelegate {
+extension ListingOptionsController: ListingOptionsViewDelegate {
     
     func showOptions(tasks: [OptionType]) {
         self.items = tasks
@@ -61,18 +42,16 @@ extension SearchOptionsController: SearchOptionsViewDelegate {
     
 }
 
-extension SearchOptionsController: UITableViewDelegate, UITableViewDataSource {
+extension ListingOptionsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch items[indexPath.row] {
-        case .task(let option):
+        case .task3(let option), .task7(let option), .task8(let option), .task9(let option), .task15(let option):
             let cell = tableView.dequeueReusableCell(fromClass: OptionCell.self, for: indexPath)
             cell?.setupCell(option: option)
             return cell ?? UITableViewCell()
-        default: break
+        default: return UITableViewCell()
         }
-        
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +59,11 @@ extension SearchOptionsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        switch items[indexPath.row] {
+        case .task7:
+            performSegue(withIdentifier: String(describing: FormRegionNameController.self), sender: nil)
+        default: break
+        }
     }
     
 }

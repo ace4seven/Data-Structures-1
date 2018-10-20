@@ -356,6 +356,19 @@ extension AVLTree {
     
 }
 
+extension AVLTree {
+    
+    func inOrderToArray() -> [Element] {
+        var result = [Element]()
+        result.reserveCapacity(self._count)
+        self.inOrder() { value in
+            result.append(value)
+        }
+        return result
+    }
+    
+}
+
 extension AVLTree: CustomStringConvertible {
     
     public var description: String {

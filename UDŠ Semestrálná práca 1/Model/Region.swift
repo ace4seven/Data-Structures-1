@@ -10,13 +10,20 @@
 
 import Foundation
 
-public struct Region {
+public class Region {
     
     let regionID: UInt
     let regionName: String
     
     var ownedLists: AVLTree<OwnedList>?
     var properties: AVLTree<Property>?
+    
+    init(regionID: UInt, regionName: String, ownedLists: AVLTree<OwnedList>? = nil, properties: AVLTree<Property>? = nil) {
+        self.regionID = regionID
+        self.regionName = regionName
+        self.ownedLists = ownedLists
+        self.properties = properties
+    }
     
     static func random(
         ownedLists: AVLTree<OwnedList>? = nil,

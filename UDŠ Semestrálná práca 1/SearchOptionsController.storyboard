@@ -31,7 +31,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v2M-6w-E9f"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Vyhľadávanie" image="magnifier_ico" id="NAQ-gx-pzs"/>
+                    <tabBarItem key="tabBarItem" title="Vyhľadávanie" image="magnificier_tab_ico" id="NAQ-gx-pzs"/>
                     <navigationItem key="navigationItem" id="gSV-pQ-rxS">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="cog_ico" id="hVD-Zm-2Po">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,7 +83,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cog_ico" width="38" height="38"/>
-        <image name="magnifier_ico" width="35" height="35"/>
+        <image name="cog_ico" width="25" height="25"/>
+        <image name="magnificier_tab_ico" width="25" height="25"/>
     </resources>
 </document>

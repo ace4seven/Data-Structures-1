@@ -8,12 +8,18 @@
 
 import Foundation
 
-public struct OwnedList {
+public class OwnedList {
     
     let id: UInt
     let region: Region
     
     var properties: AVLTree<Property>?
+    
+    init(id: UInt, region: Region, properties: AVLTree<Property>? = nil) {
+        self.id = id
+        self.region = region
+        self.properties = properties
+    }
     
     static func random(region: Region, properties: AVLTree<Property>? = nil) -> OwnedList {
         return OwnedList(id: DataSeeder.ownedListID(),

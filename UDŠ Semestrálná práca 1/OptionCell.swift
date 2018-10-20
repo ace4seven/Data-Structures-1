@@ -31,6 +31,7 @@ class OptionCell: UITableViewCell {
         taskWrapper.layer.borderWidth = 1.0
         taskWrapper.layer.borderColor = UIColor.black.cgColor
         taskWrapper.backgroundColor = .secondary
+        icoImageView.tintColor = .white
         
     
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Property {
+public class Property {
     
     let id: UInt
     let address: String
@@ -16,6 +16,14 @@ public struct Property {
     
     var ownedList: OwnedList?
     var persons: AVLTree<Person>?
+    
+    init(id: UInt, address: String, desc: String, ownedList: OwnedList? = nil, persons: AVLTree<Person>? = nil) {
+        self.id = id
+        self.address = address
+        self.desc = desc
+        self.ownedList = ownedList
+        self.persons = persons
+    }
     
     static func random(persons: AVLTree<Person>? = nil, ownedList: OwnedList? = nil) -> Property {
         return Property(id: DataSeeder.propertyID(),

@@ -30,13 +30,17 @@ extension SearchOptionsViewModel {
         let image = UIImage(named: "magnifier_ico")!
         return [
             .task(
-                Option(number: 7,
-                       desc: "Výpis  nehnuteľností  v  zadanom  katastrálnom  území", image: image)),
+                Option(number: 1,
+                       desc: "Vyhľadanie  nehnuteľnosti  podľa  súpisného  čísla  a čísla  katastrálneho  územia", image: image)),
             .task(
-                Option(number: 8,
-            desc: "Výpis  všetkých  nehnuteľností  majiteľa  (definovaný  rodným  číslom)  v zadanom katastrálnom území (definované jeho číslom) aj s jeho majetkovými podielmi na nich", image: image)),
+                Option(number: 2,
+            desc: "Vyhľadanie  obyvateľa  podľa  rodného  čísla  a  výpis  jeho  trvalého  pobytu", image: image)),
             .task(
-                Option(number: 9, desc: "Výpis  všetkých  nehnuteľností  majiteľa  (definovaný  rodným  číslom)  aj  s jeho majetkovými podielmi na nich.", image: image))
+                Option(number: 4, desc: "Vyhľadanie  listu  vlastníctva  podľa  jeho  čísla  a čísla  katastrálneho  územia.", image: image)),
+            .task(
+                Option(number: 5, desc: "Vyhľadanie  nehnuteľnosti  podľa  súpisného  čísla  a názvu  katastrálneho  územia.", image: image)),
+            .task(
+                Option(number: 6, desc: "Vyhľadanie listu vlastníctva  podľa  jeho  čísla  a názvu  katastrálneho  územia.", image: image)),
             
         ]
     }
