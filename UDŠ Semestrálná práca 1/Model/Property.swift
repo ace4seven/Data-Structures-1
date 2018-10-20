@@ -14,12 +14,14 @@ struct Property {
     let address: String
     let desc: String
     
+    var ownedList: OwnedList?
     var persons: AVLTree<Person>?
     
-    public static func random(persons: AVLTree<Person>? = nil) -> Property {
+    public static func random(persons: AVLTree<Person>? = nil, ownedList: OwnedList? = nil) -> Property {
         return Property(id: DataSeeder.propertyID(),
                         address: DataSeeder.propertyAddress(),
                         desc: DataSeeder.propertyDesc(),
+                        ownedList: ownedList,
                         persons: persons)
     }
     

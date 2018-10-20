@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ctd-P6-I29">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Vyhľadávanie-->
+        <scene sceneID="BCB-c9-MTr">
+            <objects>
+                <viewController id="cax-U1-AZA" customClass="SearchOptionsController" customModule="UDS__Semestra_lna__pra_ca_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pWD-8C-j1N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vtc-VT-MNa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v2M-6w-E9f" firstAttribute="bottom" secondItem="Vtc-VT-MNa" secondAttribute="bottom" id="O2h-xf-m5X"/>
+                            <constraint firstItem="v2M-6w-E9f" firstAttribute="trailing" secondItem="Vtc-VT-MNa" secondAttribute="trailing" id="oQK-6X-aSi"/>
+                            <constraint firstItem="Vtc-VT-MNa" firstAttribute="top" secondItem="v2M-6w-E9f" secondAttribute="top" id="qLF-y3-1je"/>
+                            <constraint firstItem="Vtc-VT-MNa" firstAttribute="leading" secondItem="v2M-6w-E9f" secondAttribute="leading" id="xSX-Z6-uzb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v2M-6w-E9f"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Vyhľadávanie" image="magnifier_ico" id="NAQ-gx-pzs"/>
+                    <navigationItem key="navigationItem" id="gSV-pQ-rxS"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Vtc-VT-MNa" id="SM8-2d-SPQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w6k-BL-kJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="-564"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PdQ-ke-cmt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ctd-P6-I29" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kHX-vk-CAW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.59280736056612904" blue="0.27223655172633709" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cax-U1-AZA" kind="relationship" relationship="rootViewController" id="I64-DU-2wx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQJ-jh-kiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.599999999999994" y="-564.46776611694156"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifier_ico" width="35" height="35"/>
+    </resources>
+</document>

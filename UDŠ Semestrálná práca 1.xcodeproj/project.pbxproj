@@ -19,12 +19,17 @@
 		165497652163596700D423FC /* OverViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165497642163596700D423FC /* OverViewViewModel.swift */; };
 		165497672163597300D423FC /* OverViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165497662163597300D423FC /* OverViewDelegate.swift */; };
 		1654976921635A0A00D423FC /* OverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1654976821635A0A00D423FC /* OverViewController.storyboard */; };
-		1654976C21635BE100D423FC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654976B21635BE100D423FC /* Coordinator.swift */; };
-		1654976E21635D8500D423FC /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654976D21635D8500D423FC /* ApplicationCoordinator.swift */; };
 		1660436E21738D8400333CD8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660436D21738D8400333CD8 /* Database.swift */; };
 		1660437021738DD500333CD8 /* NameStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660436F21738DD500333CD8 /* NameStorage.swift */; };
-		16604372217390CB00333CD8 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16604371217390CB00333CD8 /* Generator.swift */; };
 		1660437621739E4E00333CD8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660437521739E4E00333CD8 /* Errors.swift */; };
+		166707B2217B36BF0033CF43 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B1217B36BF0033CF43 /* Option.swift */; };
+		166707B4217B44370033CF43 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B3217B44370033CF43 /* Share.swift */; };
+		168DE4BE217A410E00F68FE4 /* SearchOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4BD217A410E00F68FE4 /* SearchOptionsController.swift */; };
+		168DE4C0217A411A00F68FE4 /* SearchOptionsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168DE4BF217A411A00F68FE4 /* SearchOptionsController.storyboard */; };
+		168DE4C2217A412500F68FE4 /* SearchOptionsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4C1217A412500F68FE4 /* SearchOptionsViewDelegate.swift */; };
+		168DE4C4217A412F00F68FE4 /* SearchOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4C3217A412F00F68FE4 /* SearchOptionsViewModel.swift */; };
+		168DE4C8217A415900F68FE4 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4C6217A415900F68FE4 /* OptionCell.swift */; };
+		168DE4C9217A415900F68FE4 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 168DE4C7217A415900F68FE4 /* OptionCell.xib */; };
 		169BC65721725262005C1696 /* AVLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65521725262005C1696 /* AVLNode.swift */; };
 		169BC65821725262005C1696 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65621725262005C1696 /* AVLTree.swift */; };
 		169BC65B21725771005C1696 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65A21725771005C1696 /* Stack.swift */; };
@@ -38,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09AE9ECD73F1F20CC775A45D /* Pods-UDŠ Semestrálná práca 1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDŠ Semestrálná práca 1.release.xcconfig"; path = "Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1.release.xcconfig"; sourceTree = "<group>"; };
 		160F0F2C217667BA00782AF9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		160F0F2E2177707800782AF9 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1615211D2168FEA800EF9330 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -52,12 +58,17 @@
 		165497642163596700D423FC /* OverViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewViewModel.swift; sourceTree = "<group>"; };
 		165497662163597300D423FC /* OverViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewDelegate.swift; sourceTree = "<group>"; };
 		1654976821635A0A00D423FC /* OverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OverViewController.storyboard; sourceTree = "<group>"; };
-		1654976B21635BE100D423FC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		1654976D21635D8500D423FC /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		1660436D21738D8400333CD8 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		1660436F21738DD500333CD8 /* NameStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameStorage.swift; sourceTree = "<group>"; };
-		16604371217390CB00333CD8 /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		1660437521739E4E00333CD8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		166707B1217B36BF0033CF43 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		166707B3217B44370033CF43 /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		168DE4BD217A410E00F68FE4 /* SearchOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsController.swift; sourceTree = "<group>"; };
+		168DE4BF217A411A00F68FE4 /* SearchOptionsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchOptionsController.storyboard; sourceTree = "<group>"; };
+		168DE4C1217A412500F68FE4 /* SearchOptionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewDelegate.swift; sourceTree = "<group>"; };
+		168DE4C3217A412F00F68FE4 /* SearchOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewModel.swift; sourceTree = "<group>"; };
+		168DE4C6217A415900F68FE4 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		168DE4C7217A415900F68FE4 /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		169BC65521725262005C1696 /* AVLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLNode.swift; sourceTree = "<group>"; };
 		169BC65621725262005C1696 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
 		169BC65A21725771005C1696 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -68,6 +79,7 @@
 		16C1EED7217A0722009CEFF5 /* DataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSeeder.swift; sourceTree = "<group>"; };
 		16C1EED9217A101D009CEFF5 /* RegionNamesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionNamesStorage.swift; sourceTree = "<group>"; };
 		16C1EEDB217A1CDC009CEFF5 /* PropertyDescStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDescStorage.swift; sourceTree = "<group>"; };
+		1FE009C40E01DD90B760A9B3 /* Pods-UDŠ Semestrálná práca 1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDŠ Semestrálná práca 1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +107,7 @@
 			children = (
 				1654974821634FF400D423FC /* UDŠ Semestrálná práca 1 */,
 				1654974721634FF400D423FC /* Products */,
+				8ABED90AB9B0C0C0D81D2B7B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				1660436A21738D5700333CD8 /* Backend */,
-				1654976A21635BD800D423FC /* Coordinator */,
 				1654975F2163584B00D423FC /* Structures */,
 				1654975E216357FC00D423FC /* Application */,
 				1654975B216357C300D423FC /* Model */,
@@ -127,6 +139,8 @@
 				169BC65F21737FB9005C1696 /* Property.swift */,
 				169BC66121737FC0005C1696 /* Region.swift */,
 				169BC66321737FEC005C1696 /* OwnedList.swift */,
+				166707B1217B36BF0033CF43 /* Option.swift */,
+				166707B3217B44370033CF43 /* Share.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,8 +148,10 @@
 		1654975C216357C900D423FC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				165497612163587700D423FC /* Overview */,
+				166707B5217B4B5E0033CF43 /* Settings */,
+				168DE4BB217A40B000F68FE4 /* Search */,
 				165497602163585C00D423FC /* Initial */,
+				165497612163587700D423FC /* Overview */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -151,6 +167,7 @@
 		1654975E216357FC00D423FC /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				1660436B21738D5F00333CD8 /* Data */,
 				1654974921634FF400D423FC /* AppDelegate.swift */,
 				1654975521634FF500D423FC /* Info.plist */,
 				1660437521739E4E00333CD8 /* Errors.swift */,
@@ -191,21 +208,10 @@
 			name = Overview;
 			sourceTree = "<group>";
 		};
-		1654976A21635BD800D423FC /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				1654976B21635BE100D423FC /* Coordinator.swift */,
-				1654976D21635D8500D423FC /* ApplicationCoordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		1660436A21738D5700333CD8 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
 				1660436C21738D6D00333CD8 /* Database */,
-				1660436B21738D5F00333CD8 /* Data */,
-				16604371217390CB00333CD8 /* Generator.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -228,6 +234,42 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		166707B5217B4B5E0033CF43 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		168DE4BB217A40B000F68FE4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				168DE4BC217A40E100F68FE4 /* SearchOptions */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		168DE4BC217A40E100F68FE4 /* SearchOptions */ = {
+			isa = PBXGroup;
+			children = (
+				168DE4C5217A414200F68FE4 /* Cell */,
+				168DE4BD217A410E00F68FE4 /* SearchOptionsController.swift */,
+				168DE4BF217A411A00F68FE4 /* SearchOptionsController.storyboard */,
+				168DE4C1217A412500F68FE4 /* SearchOptionsViewDelegate.swift */,
+				168DE4C3217A412F00F68FE4 /* SearchOptionsViewModel.swift */,
+			);
+			name = SearchOptions;
+			sourceTree = "<group>";
+		};
+		168DE4C5217A414200F68FE4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				168DE4C6217A415900F68FE4 /* OptionCell.swift */,
+				168DE4C7217A415900F68FE4 /* OptionCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		169BC65921725730005C1696 /* Stack */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +287,15 @@
 			path = AVLTree;
 			sourceTree = "<group>";
 		};
+		8ABED90AB9B0C0C0D81D2B7B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1FE009C40E01DD90B760A9B3 /* Pods-UDŠ Semestrálná práca 1.debug.xcconfig */,
+				09AE9ECD73F1F20CC775A45D /* Pods-UDŠ Semestrálná práca 1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -252,9 +303,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1654975821634FF500D423FC /* Build configuration list for PBXNativeTarget "UDŠ Semestrálná práca 1" */;
 			buildPhases = (
+				DA2E6838D9D86EBBD5AFC001 /* [CP] Check Pods Manifest.lock */,
 				1654974221634FF400D423FC /* Sources */,
 				1654974321634FF400D423FC /* Frameworks */,
 				1654974421634FF400D423FC /* Resources */,
+				CD84F95FDCAA642FA62D0AA9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,14 +356,67 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				168DE4C0217A411A00F68FE4 /* SearchOptionsController.storyboard in Resources */,
 				1654975421634FF500D423FC /* LaunchScreen.storyboard in Resources */,
 				1654975121634FF500D423FC /* Assets.xcassets in Resources */,
+				168DE4C9217A415900F68FE4 /* OptionCell.xib in Resources */,
 				1654974F21634FF400D423FC /* Main.storyboard in Resources */,
 				1654976921635A0A00D423FC /* OverViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CD84F95FDCAA642FA62D0AA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoodSwift/GoodSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoodSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unbox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA2E6838D9D86EBBD5AFC001 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UDŠ Semestrálná práca 1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1654974221634FF400D423FC /* Sources */ = {
@@ -319,26 +425,29 @@
 			files = (
 				165497652163596700D423FC /* OverViewViewModel.swift in Sources */,
 				1654974C21634FF400D423FC /* OverViewController.swift in Sources */,
-				1654976C21635BE100D423FC /* Coordinator.swift in Sources */,
+				168DE4C2217A412500F68FE4 /* SearchOptionsViewDelegate.swift in Sources */,
 				169BC65721725262005C1696 /* AVLNode.swift in Sources */,
+				168DE4C4217A412F00F68FE4 /* SearchOptionsViewModel.swift in Sources */,
 				1654974A21634FF400D423FC /* AppDelegate.swift in Sources */,
 				169BC65B21725771005C1696 /* Stack.swift in Sources */,
 				169BC66021737FB9005C1696 /* Property.swift in Sources */,
+				168DE4BE217A410E00F68FE4 /* SearchOptionsController.swift in Sources */,
 				1660437621739E4E00333CD8 /* Errors.swift in Sources */,
 				169BC65E21737E98005C1696 /* Person.swift in Sources */,
 				160F0F2F2177707800782AF9 /* Protocols.swift in Sources */,
 				165497672163597300D423FC /* OverViewDelegate.swift in Sources */,
+				168DE4C8217A415900F68FE4 /* OptionCell.swift in Sources */,
 				16C1EED8217A0722009CEFF5 /* DataSeeder.swift in Sources */,
+				166707B4217B44370033CF43 /* Share.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,
 				16C1EEDC217A1CDC009CEFF5 /* PropertyDescStorage.swift in Sources */,
-				1654976E21635D8500D423FC /* ApplicationCoordinator.swift in Sources */,
 				16C1EEDA217A101D009CEFF5 /* RegionNamesStorage.swift in Sources */,
 				16152120216900B100EF9330 /* LinkedList.swift in Sources */,
 				169BC66221737FC0005C1696 /* Region.swift in Sources */,
+				166707B2217B36BF0033CF43 /* Option.swift in Sources */,
 				1615211E2168FEA800EF9330 /* Node.swift in Sources */,
 				160F0F2D217667BA00782AF9 /* Extensions.swift in Sources */,
 				1660436E21738D8400333CD8 /* Database.swift in Sources */,
-				16604372217390CB00333CD8 /* Generator.swift in Sources */,
 				1660437021738DD500333CD8 /* NameStorage.swift in Sources */,
 				169BC65821725262005C1696 /* AVLTree.swift in Sources */,
 			);
@@ -484,6 +593,7 @@
 		};
 		1654975921634FF500D423FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FE009C40E01DD90B760A9B3 /* Pods-UDŠ Semestrálná práca 1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -502,6 +612,7 @@
 		};
 		1654975A21634FF500D423FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09AE9ECD73F1F20CC775A45D /* Pods-UDŠ Semestrálná práca 1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

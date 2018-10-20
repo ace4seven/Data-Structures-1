@@ -18,15 +18,17 @@ struct Person {
     let lastName: String
     let dateOfBirth: Int
     
-    var permanentProperty: Property?
+    var home: Property?
+    var ownedLists: AVLTree<OwnedList>?
     
-    public static func random(property: Property? = nil) -> Person {
+    public static func random(property: Property? = nil, ownedLists:  AVLTree<OwnedList>? = nil) -> Person {
         return Person(
             id: DataSeeder.personPersonalID(),
             firstName: DataSeeder.personName(),
             lastName: DataSeeder.personLastName(),
             dateOfBirth: DataSeeder.personRandomDateOfBirth(),
-            permanentProperty: property)
+            home: property,
+            ownedLists: ownedLists)
     }
     
 }

@@ -38,15 +38,14 @@ extension OverViewController {
 //        Database.shared.generatePersons(count: 100)
 //        print(Database.shared.persons)
         
-        var tree = AVLTree<Int>(comparator: Int.comparator)
+        var tree = AVLTree<Int>(Int.comparator)
         var testArray = [Int]()
-        var testTreeArray = [Int]()
         var deletedNumbers = [Int]()
         
         var index = 0
         
-        while(index < 100000) {
-            let number = Int.random(in: 1...50000000)
+        while(index < 1000000) {
+            let number = Int.random(in: 1...500000000)
             if tree.insert(number) {
                 index += 1
                 testArray.append(number)
@@ -62,31 +61,32 @@ extension OverViewController {
                 deletedNumbers.append(i)
             }
         }
-    
-        var a = [Int]()
         
-        tree.inOrder() { value in
-            a.append(value)
-            testTreeArray.append(value)
+        index = 0
+        
+        while(index < 1000000) {
+            let number = Int.random(in: 1...500000000)
+            if tree.insert(number) {
+                index += 1
+                testArray.append(number)
+            }
         }
         
-        var sorttedTestArray = testArray.sorted()
-        
-        if (sorttedTestArray.count - deleted) == testTreeArray.count {
+        if (testArray.count - deleted) == tree.count {
             print("TESTY OOOOK")
         }
         
-        print(tree)
+//        print(tree)
         
         print(deleted)
-        print(testTreeArray.count)
-        print(sorttedTestArray.count)
+        print(tree.count)
+        print(testArray.count)
         
     
     }
     
     fileprivate func bugHunter() {
-        var tree = AVLTree<Int>(comparator: Int.comparator)
+        var tree = AVLTree<Int>(Int.comparator)
         tree.insert(29)
         tree.insert(15)
         tree.insert(42)
@@ -110,7 +110,7 @@ extension OverViewController {
     }
     
     fileprivate func testDelete() {
-        var tree = AVLTree<Int>(comparator: Int.comparator)
+        var tree = AVLTree<Int>(Int.comparator)
         
         tree.insert(41)
         tree.insert(20)

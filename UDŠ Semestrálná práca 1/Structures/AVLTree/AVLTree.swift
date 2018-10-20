@@ -14,8 +14,16 @@ public struct AVLTree<Element> {
     
     public private(set) var root: AVLNode<Element>?
     
-    public init(comparator: @escaping Comparator) {
+    public init(_ comparator: @escaping Comparator) {
         self.comparator = comparator
+    }
+    
+    private var _count = 0
+    
+    var count:Int {
+        get {
+            return self._count
+        }
     }
 }
 
@@ -25,11 +33,11 @@ extension AVLTree {
     
     // MARK: - INSERT
     
-    
     @discardableResult mutating
     public func insert(_ value: Element) -> Bool {
         guard let root = self.root else {
             self.root = AVLNode(value: value)
+            _count += 1
             return true
         }
         
@@ -63,6 +71,7 @@ extension AVLTree {
             if jumpOut { break }
         }
         
+        _count += 1
         rebalance(node: pivot)
         
         return true
@@ -231,26 +240,24 @@ extension AVLTree {
 
 extension AVLTree {
     
-    public mutating func remove(_ value: Element) -> Element? {
+    @discardableResult mutating
+    public func remove(_ value: Element) -> Element? {
         
         var pivot = self.root
         
         while let current = pivot {
-            var found = false
             switch comparator(value, current.value) {
             case .orderedAscending:
                 pivot = current.leftChild
             case .orderedDescending:
                 pivot = current.rightChild
             case .orderedSame:
-                found = true
                 let result = current.value
                 removeElement(current)
+                 _count -= 1
                 return result
             }
-            if found { break }
         }
-        
         
         return nil
     }

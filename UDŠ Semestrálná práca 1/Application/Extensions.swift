@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Int {
     
@@ -20,5 +21,21 @@ extension Int {
             return ComparisonResult.orderedSame
         }
     }
+    
+}
+
+extension UIColor {
+    
+    static let primary: UIColor = {
+        return UIColor(red: 242.0 / 255, green: 144.0 / 255.0, blue: 47.0 / 255, alpha: 1.0)
+    }()
+    
+    static let secondary: UIColor = {
+        return UIColor(red: 255.0 / 255, green: 232.0 / 255.0, blue: 193.0 / 255, alpha: 1.0)
+    }()
+    
+    static let background: UIColor = {
+        return UIColor(red: 242.0 / 255, green: 144.0 / 255.0, blue: 47.0 / 255, alpha: 0.20)
+    }()
     
 }
