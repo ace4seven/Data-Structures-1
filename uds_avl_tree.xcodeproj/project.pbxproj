@@ -78,7 +78,7 @@
 		16DC2D1A217BA1240036FA62 /* RegionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16DC2D18217BA1240036FA62 /* RegionCell.xib */; };
 		16DC2D1D217BA3040036FA62 /* FormRegionNameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC2D1C217BA3040036FA62 /* FormRegionNameController.swift */; };
 		16DC2D1F217BA30D0036FA62 /* FormRegionNameController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16DC2D1E217BA30D0036FA62 /* FormRegionNameController.storyboard */; };
-		8B47CCB4FCEEE2D7580F54FA /* Pods_UDS__Semestra_lna__pra_ca_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CACB11985572A0E858F911C /* Pods_UDS__Semestra_lna__pra_ca_1.framework */; };
+		99B5155780665B855C374696 /* Pods_uds_avl_tree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49EAE58B02265973BA80036 /* Pods_uds_avl_tree.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,7 +90,7 @@
 		161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateOptionsController.storyboard; sourceTree = "<group>"; };
 		161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewDelegate.swift; sourceTree = "<group>"; };
 		161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewModel.swift; sourceTree = "<group>"; };
-		1654974621634FF400D423FC /* UDŠ Semestrálná práca 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UDŠ Semestrálná práca 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1654974621634FF400D423FC /* uds_avl_tree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uds_avl_tree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1654974921634FF400D423FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1654974B21634FF400D423FC /* OverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
 		1654974E21634FF400D423FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -155,9 +155,9 @@
 		16DC2D18217BA1240036FA62 /* RegionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionCell.xib; sourceTree = "<group>"; };
 		16DC2D1C217BA3040036FA62 /* FormRegionNameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormRegionNameController.swift; sourceTree = "<group>"; };
 		16DC2D1E217BA30D0036FA62 /* FormRegionNameController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FormRegionNameController.storyboard; sourceTree = "<group>"; };
-		4CACB11985572A0E858F911C /* Pods_UDS__Semestra_lna__pra_ca_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_UDS__Semestra_lna__pra_ca_1.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/UDŠ_Semestrálná_práca_1-bqwmmypurkpajyekgyjjcesigyxk/Build/Products/Debug-iphoneos/Pods_UDS__Semestra_lna__pra_ca_1.framework"; sourceTree = SOURCE_ROOT; };
-		C08BD7569A955400A895FC3E /* Pods-UDŠ Semestrálná práca 1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDŠ Semestrálná práca 1.release.xcconfig"; path = "Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1.release.xcconfig"; sourceTree = "<group>"; };
-		C4831F126BD97211F6AF8D7C /* Pods-UDŠ Semestrálná práca 1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UDŠ Semestrálná práca 1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1.debug.xcconfig"; sourceTree = "<group>"; };
+		55B1154DC2AD20D65288B094 /* Pods-uds_avl_tree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uds_avl_tree.release.xcconfig"; path = "Pods/Target Support Files/Pods-uds_avl_tree/Pods-uds_avl_tree.release.xcconfig"; sourceTree = "<group>"; };
+		A49EAE58B02265973BA80036 /* Pods_uds_avl_tree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uds_avl_tree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F96A77F45F9015B4BD762BFB /* Pods-uds_avl_tree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uds_avl_tree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uds_avl_tree/Pods-uds_avl_tree.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,13 +165,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B47CCB4FCEEE2D7580F54FA /* Pods_UDS__Semestra_lna__pra_ca_1.framework in Frameworks */,
+				99B5155780665B855C374696 /* Pods_uds_avl_tree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13ED736D9E61AD6E627CCE3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A49EAE58B02265973BA80036 /* Pods_uds_avl_tree.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1615211C2168FE7600EF9330 /* LinkedList */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,15 +214,15 @@
 			children = (
 				1654974821634FF400D423FC /* UDŠ Semestrálná práca 1 */,
 				1654974721634FF400D423FC /* Products */,
-				F6570A885A9C8648096D356A /* Pods */,
-				62C17ED6CED2BE5D2DEB87E6 /* Frameworks */,
+				45245C3DC8B08022698BA39C /* Pods */,
+				13ED736D9E61AD6E627CCE3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		1654974721634FF400D423FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1654974621634FF400D423FC /* UDŠ Semestrálná práca 1.app */,
+				1654974621634FF400D423FC /* uds_avl_tree.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -501,19 +509,11 @@
 			name = ListingPropertyByName;
 			sourceTree = "<group>";
 		};
-		62C17ED6CED2BE5D2DEB87E6 /* Frameworks */ = {
+		45245C3DC8B08022698BA39C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4CACB11985572A0E858F911C /* Pods_UDS__Semestra_lna__pra_ca_1.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F6570A885A9C8648096D356A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C4831F126BD97211F6AF8D7C /* Pods-UDŠ Semestrálná práca 1.debug.xcconfig */,
-				C08BD7569A955400A895FC3E /* Pods-UDŠ Semestrálná práca 1.release.xcconfig */,
+				F96A77F45F9015B4BD762BFB /* Pods-uds_avl_tree.debug.xcconfig */,
+				55B1154DC2AD20D65288B094 /* Pods-uds_avl_tree.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -521,23 +521,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1654974521634FF400D423FC /* UDŠ Semestrálná práca 1 */ = {
+		1654974521634FF400D423FC /* uds_avl_tree */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1654975821634FF500D423FC /* Build configuration list for PBXNativeTarget "UDŠ Semestrálná práca 1" */;
+			buildConfigurationList = 1654975821634FF500D423FC /* Build configuration list for PBXNativeTarget "uds_avl_tree" */;
 			buildPhases = (
-				8A4DC6167017CE236F5CDF3C /* [CP] Check Pods Manifest.lock */,
+				0D93E3CD7A0E84D1825D6ADF /* [CP] Check Pods Manifest.lock */,
 				1654974221634FF400D423FC /* Sources */,
 				1654974321634FF400D423FC /* Frameworks */,
 				1654974421634FF400D423FC /* Resources */,
-				702EA8CE73A6DE011086FF7C /* [CP] Embed Pods Frameworks */,
+				815B56E9BE2F9A5A4CD7349C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "UDŠ Semestrálná práca 1";
+			name = uds_avl_tree;
 			productName = "UDŠ Semestrálná práca 1";
-			productReference = 1654974621634FF400D423FC /* UDŠ Semestrálná práca 1.app */;
+			productReference = 1654974621634FF400D423FC /* uds_avl_tree.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -555,7 +555,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1654974121634FF400D423FC /* Build configuration list for PBXProject "UDŠ Semestrálná práca 1" */;
+			buildConfigurationList = 1654974121634FF400D423FC /* Build configuration list for PBXProject "uds_avl_tree" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -568,7 +568,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1654974521634FF400D423FC /* UDŠ Semestrálná práca 1 */,
+				1654974521634FF400D423FC /* uds_avl_tree */,
 			);
 		};
 /* End PBXProject section */
@@ -602,33 +602,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		702EA8CE73A6DE011086FF7C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GoodSwift/GoodSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoodSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unbox.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UDŠ Semestrálná práca 1/Pods-UDŠ Semestrálná práca 1-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8A4DC6167017CE236F5CDF3C /* [CP] Check Pods Manifest.lock */ = {
+		0D93E3CD7A0E84D1825D6ADF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -643,11 +617,37 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UDŠ Semestrálná práca 1-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-uds_avl_tree-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		815B56E9BE2F9A5A4CD7349C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-uds_avl_tree/Pods-uds_avl_tree-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoodSwift/GoodSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Unbox/Unbox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoodSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Unbox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uds_avl_tree/Pods-uds_avl_tree-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -853,7 +853,7 @@
 		};
 		1654975921634FF500D423FC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4831F126BD97211F6AF8D7C /* Pods-UDŠ Semestrálná práca 1.debug.xcconfig */;
+			baseConfigurationReference = F96A77F45F9015B4BD762BFB /* Pods-uds_avl_tree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -872,7 +872,7 @@
 		};
 		1654975A21634FF500D423FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C08BD7569A955400A895FC3E /* Pods-UDŠ Semestrálná práca 1.release.xcconfig */;
+			baseConfigurationReference = 55B1154DC2AD20D65288B094 /* Pods-uds_avl_tree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -892,7 +892,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1654974121634FF400D423FC /* Build configuration list for PBXProject "UDŠ Semestrálná práca 1" */ = {
+		1654974121634FF400D423FC /* Build configuration list for PBXProject "uds_avl_tree" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1654975621634FF500D423FC /* Debug */,
@@ -901,7 +901,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1654975821634FF500D423FC /* Build configuration list for PBXNativeTarget "UDŠ Semestrálná práca 1" */ = {
+		1654975821634FF500D423FC /* Build configuration list for PBXNativeTarget "uds_avl_tree" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1654975921634FF500D423FC /* Debug */,

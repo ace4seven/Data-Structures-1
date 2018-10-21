@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_UDS__Semestra_lna__pra_ca_1VersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_UDS__Semestra_lna__pra_ca_1VersionString[];
+FOUNDATION_EXPORT double Pods_uds_avl_treeVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_uds_avl_treeVersionString[];
 
