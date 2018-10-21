@@ -1,5 +1,4 @@
 import UIKit
-import GoodSwift
 
 class ListingOptionsController: UIViewController {
     
@@ -62,6 +61,8 @@ extension ListingOptionsController: UITableViewDelegate, UITableViewDataSource {
         switch items[indexPath.row] {
         case .task7:
             performSegue(withIdentifier: String(describing: FormRegionNameController.self), sender: nil)
+        case .task8:
+            performSegue(withIdentifier: String(describing: FormOwnerPropertiesController.self), sender: nil)
         default: break
         }
         tableView.deselectRow(at: indexPath, animated: false)

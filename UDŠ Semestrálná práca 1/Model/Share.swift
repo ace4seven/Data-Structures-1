@@ -28,6 +28,15 @@ public class Share {
             return self._shareCount
         }
     }
+    
+}
+
+extension Share {
+    
+    func updateShareCount(value: Double) {
+        self._shareCount = value
+    }
+    
 }
 
 // MARK: - Custom comparator

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoodSwift
 
 class UpdateOptionsController: UIViewController {
     
@@ -68,8 +67,8 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch items[indexPath.row] {
-        case .task7:
-            performSegue(withIdentifier: String(describing: FormRegionNameController.self), sender: nil)
+        case .task12:
+            performSegue(withIdentifier: String(describing: FormChangeShare.self), sender: nil)
         default: break
         }
         tableView.deselectRow(at: indexPath, animated: false)

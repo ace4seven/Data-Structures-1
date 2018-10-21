@@ -50,9 +50,9 @@ public class Person {
         }
     }
     
-    var dateOfBirth: Int {
+    var dateOfBirth: Date {
         get {
-            return self._dateOfBirth
+            return Date(timeIntervalSince1970: TimeInterval(self._dateOfBirth))
         }
     }
     
@@ -65,6 +65,12 @@ public class Person {
     var ownedLists: AVLTree<OwnedList> {
         get {
             return self._ownedLists
+        }
+    }
+    
+    var fullName: String {
+        get {
+            return firstName + " " + lastName
         }
     }
     

@@ -1,12 +1,14 @@
 //
 //  Database.swift
-//  UDŠ Semestrálná práca 1
+//  UDŠ Semestrálná práca 1
 //
 //  Created by Juraj Macák on 14/10/2018.
 //  Copyright © 2018 Juraj Macák. All rights reserved.
 //
 
 import Foundation
+
+typealias PropertyShare = (property: Property, share: Double)
 
 enum RegionTreeType {
     case sortedByID
@@ -26,6 +28,11 @@ public final class Database { // SINGLETON
 
 extension Database {
     
+    func getPersons(completion: ([Person]) -> ()) {
+        let persons = _persons.inOrderToArray()
+        completion(persons)
+    }
+    
     func getRegionsSortedByName(completion: ([Region]) -> ()){
         let regions = _regionsByName.inOrderToArray()
         completion(regions)
@@ -40,12 +47,61 @@ extension Database {
         completion(nil)
     }
     
+    func getOwnerList(regionID: UInt, ownerListID: UInt, completion: @escaping (OwnedList?) -> ()) {
+        guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            completion(nil)
+            return
+        }
+        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownerListID)) else {
+            completion(nil)
+            return
+        }
+        
+        completion(ownedList)
+    }
+    
+    func getPerson(id: String) -> Person? {
+        return _persons.findBy(element: Person(id: id, firstName: "", lastName: "", dateOfBirth: 0))
+    }
+    
+    func savePersonToOwnerList(ownedList: OwnedList, person: Person) -> Bool {
+        return ownedList.addNewOwner(owner: person, share: 0.0)
+    }
+    
+    func getOwnerProperties(personalID: String, regionID: UInt, completion: @escaping ([PropertyShare]?) -> ()) {
+        let tempPerson = Person(id: personalID, firstName: "", lastName: "", dateOfBirth: 0)
+        guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            completion(nil)
+            return
+        }
+        var result = [PropertyShare]()
+        region.ownedLists.inOrder() { ownedList in
+            if let share = ownedList.shares.findBy(element: Share(person: tempPerson, shareCount: 0))?.shareCount {
+                ownedList.properties.inOrder() { property in
+                    result.append((property: property, share: share))
+                }
+            }
+        }
+        completion(result)
+    }
+    
     func getRegions(sortedBy type: RegionTreeType) -> AVLTree<Region> {
         switch type {
         case .sortedByID:
             return _regionsByID
         case .sortedByName:
             return _regionsByName
+        }
+    }
+    
+    func updateSharesInOwnedList(ownedList: OwnedList, newShares: [Double]) {
+        var index = 0
+        if ownedList.shares.count == newShares.count {
+            ownedList.nullPercentage()
+            ownedList.shares.inOrder() { share in
+                share.updateShareCount(value: newShares[index])
+            }
+            index += 1
         }
     }
     
@@ -126,9 +182,7 @@ extension Database {
                     }
                     
                     if Int.random(in: 1...1000) < 10 {
-                        if property.ownedList.addNewOwner(owner: person, share: Double.random(in: 0.0...1.0)) {
-                            person.addOwnedList(ownedList: property.ownedList)
-                        }
+                        property.ownedList.addNewOwner(owner: person, share: Double.random(in: 0.0...1.0))
                     }
                     
                     propertyIndex += 1
@@ -136,7 +190,7 @@ extension Database {
                 
             }
         }
-    
+        
         completion()
     }
     

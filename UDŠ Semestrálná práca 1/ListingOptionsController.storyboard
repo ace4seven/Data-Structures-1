@@ -37,6 +37,7 @@
                     <connections>
                         <outlet property="tableView" destination="fvU-XM-CM1" id="r66-mG-mIc"/>
                         <segue destination="pVI-gv-16L" kind="show" identifier="FormRegionNameController" id="lxx-OL-n0T"/>
+                        <segue destination="yc3-Bo-fwB" kind="show" identifier="FormOwnerPropertiesController" id="kG4-wo-Fzc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZP-Ds-Tdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,6 +75,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AlW-Qy-vy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-769" y="-262"/>
+        </scene>
+        <!--FormOwnerPropertiesController-->
+        <scene sceneID="Acf-dY-Oyg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FormOwnerPropertiesController" id="yc3-Bo-fwB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XH3-Uc-2zj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="-115"/>
         </scene>
     </scenes>
     <resources>

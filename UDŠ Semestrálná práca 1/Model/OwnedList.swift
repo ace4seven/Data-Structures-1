@@ -78,6 +78,7 @@ extension OwnedList {
         } else {
             if _shares.insert(Share(person: owner, shareCount: share)) {
                 _percentShareSum += share
+                owner.addOwnedList(ownedList: self)
                 return true
             }
             return false
@@ -96,6 +97,14 @@ extension OwnedList {
     
     func setRegion(region: Region) {
         self._region = region
+    }
+    
+    func nullPercentage() {
+        self._percentShareSum = 0
+    }
+    
+    func increasePercentate(value: Double) {
+        self._percentShareSum += value
     }
     
 }

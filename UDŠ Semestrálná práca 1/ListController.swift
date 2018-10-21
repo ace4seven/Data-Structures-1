@@ -29,6 +29,8 @@ class ListController: UIViewController {
         
         tableView.registerCell(fromClass: PropertyCell.self)
         tableView.registerCell(fromClass: RegionCell.self)
+        tableView.registerCell(fromClass: PersonCell.self)
+        tableView.registerCell(fromClass: PropertyShareCell.self)
     }
 
 }
@@ -58,6 +60,16 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
         case .region(let region):
             if let cell = tableView.dequeueReusableCell(fromClass: RegionCell.self, for: indexPath) {
                 cell.setupCell(region: region)
+                return cell
+            }
+        case .person(let person):
+            if let cell = tableView.dequeueReusableCell(fromClass: PersonCell.self, for: indexPath) {
+                cell.setupCell(person: person)
+                return cell
+            }
+        case .propertyWithShare(let propertyShare):
+            if let cell = tableView.dequeueReusableCell(fromClass: PropertyShareCell.self, for: indexPath) {
+                cell.setupCell(propertyShare: propertyShare)
                 return cell
             }
         }

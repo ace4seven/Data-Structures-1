@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoodSwift
 
 class SearchOptionsController: UIViewController {
     

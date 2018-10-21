@@ -59,3 +59,11 @@ extension String {
     }
     
 }
+
+extension Double {
+    
+    func roundString(makePercent: Bool) -> String {
+        return String(format: "%.2f", makePercent ? self * 100 : self)
+    }
+    
+}

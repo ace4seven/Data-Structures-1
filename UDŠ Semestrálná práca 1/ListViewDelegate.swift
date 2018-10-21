@@ -10,7 +10,9 @@ import Foundation
 
 enum ListType {
     case property(Property)
+    case propertyWithShare(PropertyShare)
     case region(Region)
+    case person(Person)
 }
 
 protocol ListVM: class {

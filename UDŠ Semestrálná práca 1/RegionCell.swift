@@ -20,6 +20,8 @@ class RegionCell: UITableViewCell {
         
         idLabel.text = "\(region.regionID)"
         nameLabel.text = region.regionName
+        
+        print(region.regionID)
     }
     
     private func setupUI() {
