@@ -78,6 +78,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="actionButton" destination="k5Q-Ec-j9w" id="EvS-Xf-mE7"/>
                         <outlet property="indicator" destination="4iA-wr-Ob5" id="wv8-3k-DGl"/>
                         <outlet property="nameTextField" destination="Hoo-nf-KR9" id="II3-qd-ior"/>
                         <segue destination="1vk-lB-kZs" kind="show" identifier="ListController" id="YFF-im-Ycd"/>

@@ -9,15 +9,45 @@
 import Foundation
 
 public class Share {
+    private let _person: Person
+    private var _shareCount: Double
     
-    var percentage: Double
-    var owners: [Double: Person] = [:]
+    init(person: Person, shareCount: Double) {
+        self._person = person
+        self._shareCount = shareCount
+    }
     
-    init(percentage: Double, owners: [Double: Person]) {
-        self.percentage = percentage
-        self.owners = owners
+    var person: Person {
+        get {
+            return self._person
+        }
+    }
+    
+    var shareCount: Double {
+        get {
+            return self._shareCount
+        }
+    }
+}
+
+// MARK: - Custom comparator
+
+extension Share {
+    
+    static let comparator: Comparator = { lhs, rhs in
+        guard let p1 = lhs as? Share, let p2 = rhs as? Share else { return ComparisonResult.orderedSame }
+        
+        if p1.person.id == p2.person.id {
+            return ComparisonResult.orderedSame
+        } else if p1.person.id < p2.person.id {
+            return ComparisonResult.orderedAscending
+        } else {
+            return ComparisonResult.orderedDescending
+        }
+        
     }
     
 }
+
 
 

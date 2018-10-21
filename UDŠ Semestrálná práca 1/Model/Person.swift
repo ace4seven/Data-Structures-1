@@ -12,32 +12,84 @@ import Foundation
 
 public class Person {
     
-    let id: String // Rodne cislo - unikatne - 16 znakove
+    private let _id: String // Rodne cislo - unikatne - 16 znakove
+    private let _firstName: String
+    private let _lastName: String
+    private let _dateOfBirth: Int
     
-    let firstName: String
-    let lastName: String
-    let dateOfBirth: Int
-    
-    var home: Property?
-    var ownedLists: AVLTree<OwnedList>?
-    
-    init(id: String, firstName: String, lastName: String, dateOfBirth: Int, home: Property?, ownedLists: AVLTree<OwnedList>?) {
-        self.id = id
-        self.firstName = firstName
-        self.lastName = lastName
-        self.dateOfBirth = dateOfBirth
-        self.home = home
-        self.ownedLists = ownedLists
+    public var hashValue: Int {
+        return id.hashValue
     }
     
-    static func random(property: Property? = nil, ownedLists:  AVLTree<OwnedList>? = nil) -> Person {
+    private var _home: Property
+    private var _ownedLists: AVLTree<OwnedList>
+    
+    init(id: String, firstName: String, lastName: String, dateOfBirth: Int, home: Property) {
+        self._id = id
+        self._firstName = firstName
+        self._lastName = lastName
+        self._dateOfBirth = dateOfBirth
+        self._home = home
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
+    }
+    
+    var id: String {
+        get {
+            return self._id
+        }
+    }
+    
+    var firstName: String {
+        get {
+            return self._firstName
+        }
+    }
+    
+    var lastName: String {
+        get {
+            return self._lastName
+        }
+    }
+    
+    var dateOfBirth: Int {
+        get {
+            return self._dateOfBirth
+        }
+    }
+    
+    var home: Property {
+        get {
+            return self._home
+        }
+    }
+    
+    var ownedLists: AVLTree<OwnedList> {
+        get {
+            return self._ownedLists
+        }
+    }
+    
+    static func random(property: Property) -> Person {
         return Person(
             id: DataSeeder.personPersonalID(),
             firstName: DataSeeder.personName(),
             lastName: DataSeeder.personLastName(),
             dateOfBirth: DataSeeder.personRandomDateOfBirth(),
-            home: property,
-            ownedLists: ownedLists)
+            home: property)
+    }
+    
+}
+
+// MARK: - Public
+
+extension Person {
+    
+    func setHome(property: Property) {
+        self._home = property
+    }
+    
+    func addOwnedList(ownedList: OwnedList) -> Bool {
+        return self._ownedLists.insert(ownedList)
     }
     
 }
@@ -57,6 +109,14 @@ extension Person {
             return ComparisonResult.orderedDescending
         }
         
+    }
+    
+}
+
+extension Person: Hashable {
+    
+    public static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.id == rhs.id
     }
     
 }

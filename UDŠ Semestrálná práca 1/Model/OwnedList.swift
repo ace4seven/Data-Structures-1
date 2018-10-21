@@ -10,21 +10,85 @@ import Foundation
 
 public class OwnedList {
     
-    let id: UInt
-    let region: Region
+    private let _id: UInt
+    private let _region: Region?
+    private var _properties: AVLTree<Property>
     
-    var properties: AVLTree<Property>?
+    private var _shares: AVLTree<Share>
+    private var _percentShareSum: Double = 0.0
     
-    init(id: UInt, region: Region, properties: AVLTree<Property>? = nil) {
-        self.id = id
-        self.region = region
-        self.properties = properties
+    init(id: UInt, region: Region? = nil) {
+        self._id = id
+        self._region = region
+        self._properties = AVLTree<Property>(Property.comparator)
+        self._shares = AVLTree<Share>(Share.comparator)
     }
     
-    static func random(region: Region, properties: AVLTree<Property>? = nil) -> OwnedList {
+    static func random(region: Region? = nil, properties: AVLTree<Property>? = nil) -> OwnedList {
         return OwnedList(id: DataSeeder.ownedListID(),
-                         region: region,
-                         properties: properties)
+                         region: region)
+    }
+    
+    var id: UInt {
+        get {
+            return self._id
+        }
+    }
+    
+    var region: Region {
+        get {
+            return self._region! // REGIUN HAVE TO BE SET TODO: Try catch handler
+        }
+    }
+    
+    var properties: AVLTree<Property> {
+        get {
+            return self._properties
+        }
+    }
+    
+    var shares: AVLTree<Share> {
+        get {
+            return self._shares
+        }
+    }
+    
+    var percentShareSum: Double {
+        get {
+            return self._percentShareSum
+        }
+    }
+    
+}
+
+// MARK: - Public
+
+extension OwnedList {
+    
+    @discardableResult
+    func addProperty(property: Property) -> Bool {
+        return self._properties.insert(property)
+    }
+    
+    @discardableResult
+    func addNewOwner(owner: Person, share: Double) -> Bool {
+        if percentShareSum + share > 1.0 {
+            return false
+        } else {
+            _shares.insert(Share(person: owner, shareCount: share))
+            _percentShareSum += share
+            return true
+        }
+    }
+    
+    @discardableResult
+    func removeOwner(oldOwner: Person) -> Bool {
+        if let removedOwner = _shares.remove(Share(person: oldOwner, shareCount: 0.0)) {
+            _percentShareSum -= removedOwner.shareCount
+            return true
+        }
+        
+        return false
     }
     
 }

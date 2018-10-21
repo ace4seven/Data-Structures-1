@@ -40,6 +40,16 @@ extension UIColor {
     
 }
 
+extension UIViewController {
+    
+    func composeAlert(title: String, message: String, completion: @escaping ((UIAlertAction) -> ())) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: completion))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
 extension String {
     
     func debugMessage() {

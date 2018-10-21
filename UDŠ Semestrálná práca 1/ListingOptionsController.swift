@@ -64,6 +64,7 @@ extension ListingOptionsController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: String(describing: FormRegionNameController.self), sender: nil)
         default: break
         }
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
 }

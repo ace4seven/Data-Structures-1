@@ -40,8 +40,10 @@
                             <constraint firstItem="REc-Dt-uz7" firstAttribute="top" secondItem="Ge9-GP-con" secondAttribute="top" constant="5" id="7SH-1I-moj"/>
                             <constraint firstAttribute="trailing" secondItem="REc-Dt-uz7" secondAttribute="trailing" constant="15" id="EyF-mm-8be"/>
                             <constraint firstAttribute="bottom" secondItem="REc-Dt-uz7" secondAttribute="bottom" constant="10" id="Q2j-FD-LU4"/>
+                            <constraint firstItem="LXC-CP-Lqf" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ge9-GP-con" secondAttribute="top" constant="15" id="Rmo-cg-qaA"/>
                             <constraint firstItem="LXC-CP-Lqf" firstAttribute="leading" secondItem="Ge9-GP-con" secondAttribute="leading" constant="10" id="bJF-65-OrW"/>
                             <constraint firstItem="REc-Dt-uz7" firstAttribute="leading" secondItem="LXC-CP-Lqf" secondAttribute="trailing" constant="10" id="bW9-hw-Bu8"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LXC-CP-Lqf" secondAttribute="bottom" constant="15" id="jiE-oO-MS0"/>
                             <constraint firstItem="LXC-CP-Lqf" firstAttribute="centerY" secondItem="Ge9-GP-con" secondAttribute="centerY" id="rP2-fj-j4v"/>
                         </constraints>
                     </view>

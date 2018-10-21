@@ -10,27 +10,70 @@ import Foundation
 
 public class Property {
     
-    let id: UInt
-    let address: String
-    let desc: String
+    private let _id: UInt
+    private let _address: String
+    private let _desc: String
     
-    var ownedList: OwnedList?
-    var persons: AVLTree<Person>?
+    private var _ownedList: OwnedList?
+    private var _persons: AVLTree<Person>
     
-    init(id: UInt, address: String, desc: String, ownedList: OwnedList? = nil, persons: AVLTree<Person>? = nil) {
-        self.id = id
-        self.address = address
-        self.desc = desc
-        self.ownedList = ownedList
-        self.persons = persons
+    init(id: UInt, address: String, desc: String, ownedList: OwnedList? = nil) {
+        self._id = id
+        self._address = address
+        self._desc = desc
+        self._ownedList = ownedList
+        self._persons = AVLTree<Person>(Person.comparator)
     }
     
     static func random(persons: AVLTree<Person>? = nil, ownedList: OwnedList? = nil) -> Property {
         return Property(id: DataSeeder.propertyID(),
                         address: DataSeeder.propertyAddress(),
                         desc: DataSeeder.propertyDesc(),
-                        ownedList: ownedList,
-                        persons: persons)
+                        ownedList: ownedList)
+    }
+    
+    var id: UInt {
+        get {
+            return self._id
+        }
+    }
+    
+    var address: String {
+        get {
+            return self._address
+        }
+    }
+    
+    var desc: String {
+        get {
+            return self._desc
+        }
+    }
+    
+    var ownedList: OwnedList {
+        get {
+            return self._ownedList! // List vlastnictva musi na nehnutelnosti existovat, ak to spadne, chyba // TODO: Try catch nadler
+        }
+    }
+    
+    var persons: AVLTree<Person> {
+        get {
+            return self._persons
+        }
+    }
+    
+}
+
+// MARK: - Public
+
+extension Property {
+    
+    func addPerson(person: Person) -> Bool {
+        return self._persons.insert(person)
+    }
+    
+    func addOwnedList(ownedList: OwnedList) {
+        return self._ownedList = ownedList
     }
     
 }

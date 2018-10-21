@@ -14,5 +14,5 @@ protocol GeneratorVM: class {
 }
 
 protocol GeneratorViewDelegate: class {
-    
+    func pop()
 }

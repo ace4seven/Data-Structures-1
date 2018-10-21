@@ -12,27 +12,65 @@ import Foundation
 
 public class Region {
     
-    let regionID: UInt
-    let regionName: String
+    fileprivate let _regionID: UInt
+    fileprivate let _regionName: String
     
-    var ownedLists: AVLTree<OwnedList>?
-    var properties: AVLTree<Property>?
+    private var _ownedLists: AVLTree<OwnedList>
+    private var _properties: AVLTree<Property>
     
-    init(regionID: UInt, regionName: String, ownedLists: AVLTree<OwnedList>? = nil, properties: AVLTree<Property>? = nil) {
-        self.regionID = regionID
-        self.regionName = regionName
-        self.ownedLists = ownedLists
-        self.properties = properties
+    init(regionID: UInt, regionName: String) {
+        self._regionID = regionID
+        self._regionName = regionName
+        
+        self._properties = AVLTree<Property>(Property.comparator)
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
     }
     
     static func random(
-        ownedLists: AVLTree<OwnedList>? = nil,
         properties: AVLTree<Property>? = nil
         ) -> Region {
         return Region(regionID: DataSeeder.regionRegionID(),
-                      regionName: DataSeeder.regionRegionName(),
-                      ownedLists: ownedLists,
-                      properties: properties)
+                      regionName: DataSeeder.regionRegionName())
+    }
+    
+    var regionID: UInt {
+        get {
+            return self._regionID
+        }
+    }
+    
+    var regionName: String {
+        get {
+            return self._regionName
+        }
+    }
+    
+    var ownedLists: AVLTree<OwnedList> {
+        get {
+            return self._ownedLists
+        }
+    }
+    
+    var properties: AVLTree<Property> {
+        get {
+            return self._properties
+        }
+    }
+    
+}
+
+// MARK: - Public
+
+extension Region {
+    
+    @discardableResult
+    func addProperty(property: Property) -> Bool {
+        return _properties.insert(property)
+    }
+    
+    @discardableResult
+    func addOwnedList(list: OwnedList) -> Bool {
+        return _ownedLists.insert(list)
     }
     
 }
@@ -44,9 +82,9 @@ extension Region {
     static let comparatorByID: Comparator = { lhs, rhs in
         guard let p1 = lhs as? Region, let p2 = rhs as? Region else { return ComparisonResult.orderedSame }
         
-        if p1.regionID == p2.regionID {
+        if p1._regionID == p2._regionID {
             return ComparisonResult.orderedSame
-        } else if p1.regionID < p2.regionID {
+        } else if p1._regionID < p2._regionID {
             return ComparisonResult.orderedAscending
         } else {
             return ComparisonResult.orderedDescending
@@ -57,9 +95,9 @@ extension Region {
     static let comparatorByName: Comparator = { lhs, rhs in
         guard let p1 = lhs as? Region, let p2 = rhs as? Region else { return ComparisonResult.orderedSame }
         
-        if p1.regionName == p2.regionName {
+        if p1._regionName == p2._regionName {
             return ComparisonResult.orderedSame
-        } else if p1.regionName < p2.regionName {
+        } else if p1._regionName < p2._regionName {
             return ComparisonResult.orderedAscending
         } else {
             return ComparisonResult.orderedDescending

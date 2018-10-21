@@ -13,6 +13,7 @@ class GeneratorViewModel {
     
     fileprivate var propertiesCount = 0
     fileprivate var regionsCount = 0
+    fileprivate var peopleCount = 0
 }
 
 extension GeneratorViewModel: GeneratorVM {
@@ -24,9 +25,10 @@ extension GeneratorViewModel: GeneratorVM {
     func generateData(regions: Int, properties: Int) {
         self.propertiesCount = properties
         self.regionsCount = regions
+        self.peopleCount = 100
         
-        Database.shared.generateDatabase(regionCount: regionsCount, propertyCount: propertiesCount) { [weak self] in
-            
+        Database.shared.generateDatabase(regionCount: regionsCount, propertyCount: propertiesCount, persons: peopleCount) { [weak self] in
+            self?.viewDelegate?.pop()
         }
     }
     

@@ -11,6 +11,7 @@ import UIKit
 class FormRegionNameController: UIViewController {
 
     
+    @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
@@ -36,22 +37,27 @@ class FormRegionNameController: UIViewController {
         }
     }
     
-    @IBAction func actionButtonPressed(_ sender: Any) {
+    @IBAction func actionButtonPressed(_ sender: UIButton) {
+        actionButton.isEnabled = false
         indicator.alpha = 1.0
         indicator.startAnimating()
         
         guard let name = nameTextField.text else { return }
+        
         Database.shared.getProperties(regionName: name) { [weak self] values in
             guard let properties = values else {
                 self?.indicator.alpha = 0.0
                 self?.indicator.stopAnimating()
+                self?.composeAlert(title: "Región nenájdený", message: "Ľutujeme, ale región s danými parametrami systém nenašiel", completion: { _ in
+                    self?.actionButton.isEnabled = true
+                })
                 return
             }
             self?.indicator.alpha = 0.0
             self?.indicator.stopAnimating()
             
-            performSegue(withIdentifier: String(describing: ListController.self), sender: properties)
-            
+            self?.actionButton.isEnabled = true
+            self?.performSegue(withIdentifier: String(describing: ListController.self), sender: properties)
         }
     }
     

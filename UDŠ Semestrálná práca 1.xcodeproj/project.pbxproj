@@ -11,6 +11,10 @@
 		160F0F2F2177707800782AF9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F0F2E2177707800782AF9 /* Protocols.swift */; };
 		1615211E2168FEA800EF9330 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211D2168FEA800EF9330 /* Node.swift */; };
 		16152120216900B100EF9330 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1615211F216900B100EF9330 /* LinkedList.swift */; };
+		161822F1217BC1F6000666D4 /* UpdateOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F0217BC1F6000666D4 /* UpdateOptionsController.swift */; };
+		161822F3217BC1FE000666D4 /* UpdateOptionsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */; };
+		161822F5217BC20A000666D4 /* UpdateOptionsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */; };
+		161822F7217BC21D000666D4 /* UpdateOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */; };
 		1654974A21634FF400D423FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974921634FF400D423FC /* AppDelegate.swift */; };
 		1654974C21634FF400D423FC /* OverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974B21634FF400D423FC /* OverViewController.swift */; };
 		1654974F21634FF400D423FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1654974D21634FF400D423FC /* Main.storyboard */; };
@@ -69,6 +73,10 @@
 		160F0F2E2177707800782AF9 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1615211D2168FEA800EF9330 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		1615211F216900B100EF9330 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		161822F0217BC1F6000666D4 /* UpdateOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsController.swift; sourceTree = "<group>"; };
+		161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateOptionsController.storyboard; sourceTree = "<group>"; };
+		161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewDelegate.swift; sourceTree = "<group>"; };
+		161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewModel.swift; sourceTree = "<group>"; };
 		1654974621634FF400D423FC /* UDŠ Semestrálná práca 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UDŠ Semestrálná práca 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1654974921634FF400D423FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1654974B21634FF400D423FC /* OverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +152,25 @@
 			path = LinkedList;
 			sourceTree = "<group>";
 		};
+		161822EF217BC1CD000666D4 /* ChangeUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				161822F8217BC22E000666D4 /* UpdateOptions */,
+			);
+			name = ChangeUpdate;
+			sourceTree = "<group>";
+		};
+		161822F8217BC22E000666D4 /* UpdateOptions */ = {
+			isa = PBXGroup;
+			children = (
+				161822F0217BC1F6000666D4 /* UpdateOptionsController.swift */,
+				161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */,
+				161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */,
+				161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */,
+			);
+			name = UpdateOptions;
+			sourceTree = "<group>";
+		};
 		1654973D21634FF400D423FC = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +217,7 @@
 		1654975C216357C900D423FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				161822EF217BC1CD000666D4 /* ChangeUpdate */,
 				16DC2CFD217B8FC90036FA62 /* Listing */,
 				166707B5217B4B5E0033CF43 /* Settings */,
 				168DE4BB217A40B000F68FE4 /* Search */,
@@ -481,6 +509,7 @@
 				16DC2D1F217BA30D0036FA62 /* FormRegionNameController.storyboard in Resources */,
 				16DC2D06217B90280036FA62 /* ListingOptionsController.storyboard in Resources */,
 				16DC2D0D217B96750036FA62 /* ListController.storyboard in Resources */,
+				161822F3217BC1FE000666D4 /* UpdateOptionsController.storyboard in Resources */,
 				1654975121634FF500D423FC /* Assets.xcassets in Resources */,
 				166707B9217B4CDF0033CF43 /* SettingsController.storyboard in Resources */,
 				168DE4C9217A415900F68FE4 /* OptionCell.xib in Resources */,
@@ -551,7 +580,9 @@
 			files = (
 				165497652163596700D423FC /* OverViewViewModel.swift in Sources */,
 				1654974C21634FF400D423FC /* OverViewController.swift in Sources */,
+				161822F7217BC21D000666D4 /* UpdateOptionsViewModel.swift in Sources */,
 				168DE4C2217A412500F68FE4 /* SearchOptionsViewDelegate.swift in Sources */,
+				161822F1217BC1F6000666D4 /* UpdateOptionsController.swift in Sources */,
 				166707C4217B50750033CF43 /* GeneratorController.swift in Sources */,
 				169BC65721725262005C1696 /* AVLNode.swift in Sources */,
 				168DE4C4217A412F00F68FE4 /* SearchOptionsViewModel.swift in Sources */,
@@ -588,6 +619,7 @@
 				16DC2D02217B90090036FA62 /* ListingOptionsViewDelegate.swift in Sources */,
 				1660436E21738D8400333CD8 /* Database.swift in Sources */,
 				16DC2D0F217B967F0036FA62 /* ListViewModel.swift in Sources */,
+				161822F5217BC20A000666D4 /* UpdateOptionsViewDelegate.swift in Sources */,
 				1660437021738DD500333CD8 /* NameStorage.swift in Sources */,
 				169BC65821725262005C1696 /* AVLTree.swift in Sources */,
 			);

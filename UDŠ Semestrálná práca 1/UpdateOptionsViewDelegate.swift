@@ -1,5 +1,5 @@
 //
-//  ListingOptionsViewDelegate.swift
+//  UpdateOptionsViewDelegate.swift
 //  UDŠ Semestrálná práca 1
 //
 //  Created by Juraj Macák on 10/20/18.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol ListingOptionsVM: class {
-    func setup(delegate: ListingOptionsViewDelegate)
+protocol UpdateOptionsVM: class {
+    func setup(delegate: UpdateOptionsViewDelegate)
 }
 
-protocol ListingOptionsViewDelegate: class {
+protocol UpdateOptionsViewDelegate: class {
     func showOptions(tasks: [OptionType])
 }

@@ -15,3 +15,4 @@ struct Option {
     let image: UIImage
     
 }
+

@@ -31,10 +31,11 @@ extension Database {
         completion(regions)
     }
     
-    func getProperties(regionName: String, completion: ([Property]?) -> ()) {
+    func getProperties(regionName: String, completion: @escaping ([Property]?) -> ()) {
         if let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) {
-            let properties = region.properties?.inOrderToArray()
+            let properties = region.properties.inOrderToArray()
             completion(properties)
+            return
         }
         completion(nil)
     }
@@ -54,7 +55,9 @@ extension Database {
 
 extension Database {
     
-    public func generateDatabase(regionCount: Int, propertyCount: Int, completion: () -> ()) {
+    public func generateDatabase(regionCount: Int, propertyCount: Int, persons: Int ,completion: () -> ()) {
+        var personsCount = persons
+        
         for var i in 0..<regionCount {
             let region = Region.random()
             if _regionsByID.insert(region) {
@@ -71,18 +74,33 @@ extension Database {
             }
             "Katastrálne územie MENO: \(region.regionName) ID: \(region.regionID) bolo úspešné pridané".debugMessage()
             
-            var propertyTree = AVLTree<Property>(Property.comparator)
+            var ownedList = OwnedList.random()
+            while region.addOwnedList(list: ownedList) != true {
+                ownedList = OwnedList.random()
+            }
+            
             for var j in 0..<propertyCount {
                 let property = Property.random()
-                if !propertyTree.insert(property) {
+                if region.addProperty(property: property) == false {
                     "WARNING - Nehnuteľnost s ID: \(property.id) nebola pridaná z dôvodu duplicity ID".debugMessage()
                     j -= 1
                     continue
                 }
                 "Nehnuteľnost s ID: \(property.id) bola úspešne pridaná".debugMessage()
+                
+                if Int.random(in: 0...100) < 30 { // 30 percent chance, that property appiear in new ownerList
+                    ownedList = OwnedList.random()
+                    while region.addOwnedList(list: ownedList) != true {
+                        ownedList = OwnedList.random()
+                    }
+                }
+                
+                property.addOwnedList(ownedList: ownedList)
+                ownedList.addProperty(property: property)
+                
             }
-            region.properties = propertyTree
         }
+        completion()
     }
     
 }
