@@ -11,7 +11,8 @@ import Foundation
 public class OwnedList {
     
     private let _id: UInt
-    private let _region: Region?
+    
+    private var _region: Region?
     private var _properties: AVLTree<Property>
     
     private var _shares: AVLTree<Share>
@@ -75,9 +76,11 @@ extension OwnedList {
         if percentShareSum + share > 1.0 {
             return false
         } else {
-            _shares.insert(Share(person: owner, shareCount: share))
-            _percentShareSum += share
-            return true
+            if _shares.insert(Share(person: owner, shareCount: share)) {
+                _percentShareSum += share
+                return true
+            }
+            return false
         }
     }
     
@@ -89,6 +92,10 @@ extension OwnedList {
         }
         
         return false
+    }
+    
+    func setRegion(region: Region) {
+        self._region = region
     }
     
 }

@@ -56,8 +56,6 @@ extension Database {
 extension Database {
     
     public func generateDatabase(regionCount: Int, propertyCount: Int, persons: Int ,completion: () -> ()) {
-        var personsCount = persons
-        
         for var i in 0..<regionCount {
             let region = Region.random()
             if _regionsByID.insert(region) {
@@ -78,28 +76,67 @@ extension Database {
             while region.addOwnedList(list: ownedList) != true {
                 ownedList = OwnedList.random()
             }
+            ownedList.setRegion(region: region)
+            
+            var propertyArray =  [Property]()
             
             for var j in 0..<propertyCount {
-                let property = Property.random()
+                var property = Property.random()
                 if region.addProperty(property: property) == false {
                     "WARNING - Nehnuteľnost s ID: \(property.id) nebola pridaná z dôvodu duplicity ID".debugMessage()
                     j -= 1
+                    property = Property.random()
                     continue
                 }
                 "Nehnuteľnost s ID: \(property.id) bola úspešne pridaná".debugMessage()
+                
                 
                 if Int.random(in: 0...100) < 30 { // 30 percent chance, that property appiear in new ownerList
                     ownedList = OwnedList.random()
                     while region.addOwnedList(list: ownedList) != true {
                         ownedList = OwnedList.random()
                     }
+                    ownedList.setRegion(region: region)
                 }
                 
-                property.addOwnedList(ownedList: ownedList)
-                ownedList.addProperty(property: property)
+                if ownedList.addProperty(property: property) {
+                    property.addOwnedList(ownedList: ownedList)
+                }
+                propertyArray.append(property)
+            }
+            
+            for _ in 0..<persons {
+                let person = Person.random()
+                _persons.insert(person)
+                var personPropertySet = false
+                
+                var propertyIndex = 0
+                for property in propertyArray {
+                    if !personPropertySet {
+                        if Int.random(in: 1...100) < 20 || (propertyIndex == propertyArray.count - 1) {
+                            if property.addPerson(person: person) {
+                                person.setHome(property: property)
+                                personPropertySet = true
+                            }
+                        }
+                    }
+                    
+                    if Int.random(in: 1...1000) < 20 {
+                        property.addPerson(person: person)
+                    }
+                    
+                    if Int.random(in: 1...1000) < 10 {
+                        if property.ownedList.addNewOwner(owner: person, share: Double.random(in: 0.0...1.0)) {
+                            person.addOwnedList(ownedList: property.ownedList)
+                        }
+                    }
+                    
+                    propertyIndex += 1
+                }
                 
             }
         }
+    
         completion()
     }
     

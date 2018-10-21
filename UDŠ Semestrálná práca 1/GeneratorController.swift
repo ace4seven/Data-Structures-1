@@ -15,6 +15,7 @@ class GeneratorController: UIViewController {
     @IBOutlet weak var propertiesTextField: UITextField!
     @IBOutlet weak var waitingWrapperView: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var personsTextField: UITextField!
     
     fileprivate var viewModel = GeneratorViewModel()
 
@@ -28,8 +29,9 @@ class GeneratorController: UIViewController {
     @IBAction func generateDataButtonPressed(_ sender: Any) {
         setWrapper {
             DispatchQueue.main.asyncAfter(seconds: 0.2) { [weak self] in
-                if let regionCount = Int(self?.regionTextfield.text ?? ""), let propertiesCount = Int(self?.propertiesTextField.text ?? "") {
-                    self?.viewModel.generateData(regions: regionCount, properties: propertiesCount)
+                if let regionCount = Int(self?.regionTextfield.text ?? ""), let propertiesCount = Int(self?.propertiesTextField.text ?? ""),
+                    let personsCount = Int(self?.personsTextField.text ?? "") {
+                    self?.viewModel.generateData(regions: regionCount, properties: propertiesCount, persons: personsCount)
                 } else {
                     self?.indicator.stopAnimating()
                     self?.waitingWrapperView.alpha = 0.0

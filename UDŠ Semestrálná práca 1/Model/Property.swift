@@ -68,6 +68,7 @@ public class Property {
 
 extension Property {
     
+    @discardableResult
     func addPerson(person: Person) -> Bool {
         return self._persons.insert(person)
     }

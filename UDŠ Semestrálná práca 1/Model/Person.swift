@@ -21,15 +21,14 @@ public class Person {
         return id.hashValue
     }
     
-    private var _home: Property
+    private var _home: Property?
     private var _ownedLists: AVLTree<OwnedList>
     
-    init(id: String, firstName: String, lastName: String, dateOfBirth: Int, home: Property) {
+    init(id: String, firstName: String, lastName: String, dateOfBirth: Int) {
         self._id = id
         self._firstName = firstName
         self._lastName = lastName
         self._dateOfBirth = dateOfBirth
-        self._home = home
         self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
     }
     
@@ -57,7 +56,7 @@ public class Person {
         }
     }
     
-    var home: Property {
+    var home: Property? {
         get {
             return self._home
         }
@@ -69,13 +68,12 @@ public class Person {
         }
     }
     
-    static func random(property: Property) -> Person {
+    static func random() -> Person {
         return Person(
             id: DataSeeder.personPersonalID(),
             firstName: DataSeeder.personName(),
             lastName: DataSeeder.personLastName(),
-            dateOfBirth: DataSeeder.personRandomDateOfBirth(),
-            home: property)
+            dateOfBirth: DataSeeder.personRandomDateOfBirth())
     }
     
 }
@@ -88,6 +86,7 @@ extension Person {
         self._home = property
     }
     
+    @discardableResult
     func addOwnedList(ownedList: OwnedList) -> Bool {
         return self._ownedLists.insert(ownedList)
     }

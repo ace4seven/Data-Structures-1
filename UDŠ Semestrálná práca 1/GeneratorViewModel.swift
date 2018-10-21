@@ -22,10 +22,10 @@ extension GeneratorViewModel: GeneratorVM {
         self.viewDelegate = viewDelegate
     }
     
-    func generateData(regions: Int, properties: Int) {
+    func generateData(regions: Int, properties: Int, persons: Int) {
         self.propertiesCount = properties
         self.regionsCount = regions
-        self.peopleCount = 100
+        self.peopleCount = persons
         
         Database.shared.generateDatabase(regionCount: regionsCount, propertyCount: propertiesCount, persons: peopleCount) { [weak self] in
             self?.viewDelegate?.pop()
