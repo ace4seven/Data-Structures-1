@@ -8,7 +8,13 @@
 
 import Foundation
 
+// TODO: Zmenit generator na jednoduchsie cisla
+
 class DataSeeder {
+    
+    public static var regionCount: UInt = 0
+    public static var propertyCount: UInt = 0
+    public static var ownedListCount: UInt = 0
     
     // MARK: - Person model seeder
     
@@ -44,7 +50,8 @@ class DataSeeder {
     // MARK: - Region model seeder
     
     public static func regionRegionID() -> UInt {
-        return UInt.random(in: 1...UInt.max)
+        DataSeeder.regionCount += 1
+        return DataSeeder.regionCount
     }
     
     public static func regionRegionName() -> String {
@@ -68,7 +75,8 @@ class DataSeeder {
     // MARK: - Property model seeder
     
     public static func propertyID() -> UInt {
-        return DataSeeder.regionRegionID()
+        DataSeeder.propertyCount += 1
+        return DataSeeder.propertyCount
     }
     
     public static func propertyAddress() -> String {
@@ -111,7 +119,8 @@ class DataSeeder {
     // MARK: - OwnedList model seeder
     
     public static func ownedListID() -> UInt {
-        return DataSeeder.regionRegionID()
+        DataSeeder.ownedListCount += 1
+        return DataSeeder.ownedListCount
     }
     
 }

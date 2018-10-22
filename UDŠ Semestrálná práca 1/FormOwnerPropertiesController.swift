@@ -45,25 +45,28 @@ class FormOwnerPropertiesController: UIViewController {
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        actionButton.isEnabled = false
         indicator.alpha = 1.0
         indicator.startAnimating()
         
-        guard let regionID = UInt(regionIDTextfield.text ?? ""), let personalID = personalIDTextfield.text else { return }
+        guard let regionID = UInt(regionIDTextfield.text ?? ""), let personalID = personalIDTextfield.text else {
+            composeAlert(title: "Chyba", message: "Zadajte správne ID regionu") { [weak self] _ in
+                self?.indicator.alpha = 0.0
+                self?.indicator.stopAnimating()
+            }
+            return
+        }
         
         Database.shared.getOwnerProperties(personalID: personalID, regionID: regionID) { [weak self] values in
             guard let properties = values else {
                 self?.indicator.alpha = 0.0
                 self?.indicator.stopAnimating()
                 self?.composeAlert(title: "Región nenájdený", message: "Ľutujeme, ale región s danými parametrami systém nenašiel", completion: { _ in
-                    self?.actionButton.isEnabled = true
                 })
                 return
             }
             self?.indicator.alpha = 0.0
             self?.indicator.stopAnimating()
             
-            self?.actionButton.isEnabled = true
             self?.performSegue(withIdentifier: String(describing: ListController.self), sender: properties)
         }
     }

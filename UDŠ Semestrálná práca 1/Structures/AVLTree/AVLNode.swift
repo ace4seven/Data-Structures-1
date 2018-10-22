@@ -8,9 +8,16 @@ public class AVLNode<Element> {
     public var leftChild: AVLNode?
     public var rightChild: AVLNode?
     
+    var min: AVLNode {
+        get {
+            return leftChild?.min ?? self
+        }
+    }
+    
     public init(value: Element) {
         self.value = value
     }
+    
 }
 
 // MARK: - Balance Factor

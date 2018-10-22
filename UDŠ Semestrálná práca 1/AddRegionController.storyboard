@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fdJ-U7-rD5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Region Controller-->
+        <scene sceneID="t3R-Qh-NMy">
+            <objects>
+                <viewController id="fdJ-U7-rD5" customClass="AddRegionController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vS8-N9-cpf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiR-Ye-jtY">
+                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="X3j-vf-ypa"/>
+                                </constraints>
+                                <state key="normal" title="Pridať nový región">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addRegionButtonPressed:" destination="fdJ-U7-rD5" eventType="touchUpInside" id="isL-xZ-K58"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sEt-45-Zs4">
+                                <rect key="frame" x="15" y="299" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Názov regiónu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vL0-YL-40D">
+                                        <rect key="frame" x="107.5" y="0.0" width="130" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uaq-ks-rxy">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uaq-ks-rxy" firstAttribute="leading" secondItem="sEt-45-Zs4" secondAttribute="leading" id="7UW-fu-CYC"/>
+                                    <constraint firstAttribute="trailing" secondItem="uaq-ks-rxy" secondAttribute="trailing" id="Hl9-UJ-zOF"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FiR-Ye-jtY" firstAttribute="trailing" secondItem="bZ5-KZ-jav" secondAttribute="trailing" id="3T9-Ki-spP"/>
+                            <constraint firstItem="sEt-45-Zs4" firstAttribute="centerX" secondItem="vS8-N9-cpf" secondAttribute="centerX" id="7zb-II-jgV"/>
+                            <constraint firstItem="bZ5-KZ-jav" firstAttribute="trailing" secondItem="sEt-45-Zs4" secondAttribute="trailing" constant="15" id="8rF-q7-YqF"/>
+                            <constraint firstItem="FiR-Ye-jtY" firstAttribute="leading" secondItem="bZ5-KZ-jav" secondAttribute="leading" id="K6F-vo-yv5"/>
+                            <constraint firstItem="sEt-45-Zs4" firstAttribute="leading" secondItem="bZ5-KZ-jav" secondAttribute="leading" constant="15" id="WsQ-GI-9rb"/>
+                            <constraint firstItem="sEt-45-Zs4" firstAttribute="centerY" secondItem="vS8-N9-cpf" secondAttribute="centerY" id="bQL-np-Iqo"/>
+                            <constraint firstItem="bZ5-KZ-jav" firstAttribute="bottom" secondItem="FiR-Ye-jtY" secondAttribute="bottom" id="pe6-XM-dbu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bZ5-KZ-jav"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Fng-eE-Y4h">
+                        <barButtonItem key="rightBarButtonItem" image="person_menu_ico" id="Odk-Sz-MXM">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="regionNameTextField" destination="uaq-ks-rxy" id="JeI-hN-ieK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XSu-4a-21x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person_menu_ico" width="25" height="25"/>
+    </resources>
+</document>

@@ -32,6 +32,17 @@ extension Database {
         return _persons.insert(Person(id: personalID, firstName: name, lastName: surname, dateOfBirth: dateOfBirth))
     }
     
+    func addRegion(name: String) -> Bool {
+        let regionID: UInt = UInt(_regionsByID.count + 1)
+        let region = Region(regionID: regionID, regionName: name)
+    
+        if _regionsByName.insert(region) {
+            _regionsByID.insert(region)
+            return true
+        }
+        return false
+    }
+    
     func getPersons(completion: ([Person]) -> ()) {
         let persons = _persons.inOrderToArray()
         completion(persons)

@@ -12,6 +12,7 @@ enum C {
     
     enum Settings {
         static let DEBUGMODE = false
+        static let TEST_STRUCTURE = true
     }
 }
 

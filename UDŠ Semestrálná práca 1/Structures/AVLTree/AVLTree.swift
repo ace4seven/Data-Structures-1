@@ -8,15 +8,13 @@
 
 import Foundation
 
-public struct AVLTree<Element> {
+// MARK: - VARIABLES
+
+public class AVLTree<Element> {
     
     private let comparator: Comparator
     
     public private(set) var root: AVLNode<Element>?
-    
-    public init(_ comparator: @escaping Comparator) {
-        self.comparator = comparator
-    }
     
     private var _count = 0
     
@@ -25,6 +23,11 @@ public struct AVLTree<Element> {
             return self._count
         }
     }
+    
+    public init(_ comparator: @escaping Comparator) {
+        self.comparator = comparator
+    }
+    
 }
 
 // MARK: - Operations
@@ -32,8 +35,7 @@ public struct AVLTree<Element> {
 extension AVLTree {
     
     // MARK: - INSERT
-    
-    @discardableResult mutating
+    @discardableResult
     public func insert(_ value: Element) -> Bool {
         guard let root = self.root else {
             self.root = AVLNode(value: value)
@@ -77,35 +79,6 @@ extension AVLTree {
         return true
     }
     
-    mutating
-    private func rebalance(node: AVLNode<Element>) {
-        var pivot = node
-        while true {
-            let balandedNode = balanced(pivot)
-            
-            balandedNode.height = Swift.max(balandedNode.leftHeight, balandedNode.rightHeight) + 1
-            guard let parent = balandedNode.parrent else {
-                self.root = balandedNode
-                break
-            }
-            
-            switch comparator(parent.value, balandedNode.value) {
-            case .orderedDescending:
-                parent.leftChild = balandedNode
-            default:
-                parent.rightChild = balandedNode
-            }
-            
-            
-            if case .orderedSame = comparator(balandedNode.value, pivot.value) {
-                pivot = parent
-                continue
-            }
-            
-            break
-        }
-    }
-    
     // MARK: - CONTAINS
     
     public func contains(_ value: Element) -> Bool {
@@ -143,13 +116,6 @@ extension AVLTree {
     
 }
 
-private extension AVLNode {
-    
-    var min: AVLNode {
-        return leftChild?.min ?? self
-    }
-}
-
 // MARK: - Fileprivates
 
 extension AVLTree {
@@ -169,6 +135,34 @@ extension AVLTree {
                 return leftRotate(node)
             }
         default: return node
+        }
+    }
+    
+    fileprivate func rebalance(node: AVLNode<Element>) {
+        var pivot = node
+        while true {
+            let balandedNode = balanced(pivot)
+            
+            balandedNode.height = Swift.max(balandedNode.leftHeight, balandedNode.rightHeight) + 1
+            guard let parent = balandedNode.parrent else {
+                self.root = balandedNode
+                break
+            }
+            
+            switch comparator(parent.value, balandedNode.value) {
+            case .orderedDescending:
+                parent.leftChild = balandedNode
+            default:
+                parent.rightChild = balandedNode
+            }
+            
+            
+            if case .orderedSame = comparator(balandedNode.value, pivot.value) {
+                pivot = parent
+                continue
+            }
+            
+            break
         }
     }
     
@@ -240,7 +234,7 @@ extension AVLTree {
 
 extension AVLTree {
     
-    @discardableResult mutating
+    @discardableResult
     public func remove(_ value: Element) -> Element? {
         
         var pivot = self.root
@@ -262,7 +256,6 @@ extension AVLTree {
         return nil
     }
     
-    mutating
     private func removeElement(_ node: AVLNode<Element>) {
         let parent = node.parrent
         if (node.leftChild == nil && node.rightChild == nil) {
@@ -280,25 +273,36 @@ extension AVLTree {
         } else if (node.leftChild != nil && node.rightChild == nil) {
             let child = node.leftChild
             child?.parrent = parent
-            parent?.leftChild = child
-            node.leftChild = nil
+            
+            if let parentLeftChild = parent?.leftChild, case ComparisonResult.orderedSame = comparator(parentLeftChild.value, node.value) {
+                parent?.leftChild = child
+            } else if let parentRightChild = parent?.rightChild, case ComparisonResult.orderedSame = comparator(parentRightChild.value, node.value) {
+                parent?.rightChild = child
+            }
+            
+            node.parrent = nil
+            
             if parent == nil {
                 self.root = child
             } else {
-                rebalance(node: parent!)
+                rebalance(node: child!)
             }
-            node.parrent = nil
         } else if (node.leftChild == nil && node.rightChild != nil) {
             let child = node.rightChild
             child?.parrent = parent
-            parent?.leftChild = child
-            node.rightChild = nil
+            
+            if let parentLeftChild = parent?.leftChild, case ComparisonResult.orderedSame = comparator(parentLeftChild.value, node.value) {
+                parent?.leftChild = child
+            } else if let parentRightChild = parent?.rightChild?.value, case ComparisonResult.orderedSame = comparator(parentRightChild, node.value) {
+                parent?.rightChild = child
+            }
+            
+            node.parrent = nil
             if parent == nil {
                 self.root = child
             } else {
-                rebalance(node: parent!)
+                rebalance(node: child!)
             }
-            node.parrent = nil
         } else {
             let minNode = node.rightChild?.min
             let minValue = minNode?.value
@@ -324,7 +328,9 @@ extension AVLTree {
                     minParrent?.leftChild = nil
                 }
             }
-            rebalance(node: minParrent!)
+            if let parent = minParrent {
+                rebalance(node: parent)
+            }
             minNode?.parrent = nil
         }
     }
@@ -342,6 +348,14 @@ extension AVLTree {
         while(current != nil || stack.isEmpty == false) {
             while(current != nil) {
                 stack.push(current!)
+                
+                if C.Settings.TEST_STRUCTURE {
+                    if abs(maxHeight(node: current?.leftChild) - maxHeight(node: current?.rightChild)) >= 2 {
+                        print("CHYBA - BALANCE NIEJE KOREKTNE NASTAVENY")
+                        return
+                    }
+                }
+                
                 current = current?.leftChild
             }
 
@@ -356,6 +370,8 @@ extension AVLTree {
     
 }
 
+// MARK: - ARRAY TRANSFORM
+
 extension AVLTree {
     
     func inOrderToArray() -> [Element] {
@@ -365,6 +381,19 @@ extension AVLTree {
             result.append(value)
         }
         return result
+    }
+    
+}
+
+// MARK: - TESTING PURPUSE
+
+extension AVLTree {
+    
+    fileprivate func maxHeight(node: AVLNode<Element>?) -> Int {
+        return node == nil ?
+            0 : Swift.max(
+                maxHeight(node: node?.leftChild),
+                maxHeight(node: node?.rightChild))
     }
     
 }

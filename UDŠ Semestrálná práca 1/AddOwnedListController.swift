@@ -13,6 +13,7 @@ class AddOwnedListController: UIViewController {
     @IBOutlet weak var ownerListIDTextField: UITextField!
     @IBOutlet weak var regionIDTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
