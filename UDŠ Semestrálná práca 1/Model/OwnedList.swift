@@ -12,20 +12,20 @@ public class OwnedList {
     
     private let _id: UInt
     
-    private var _region: Region?
+    private var _region: Region
     private var _properties: AVLTree<Property>
     
     private var _shares: AVLTree<Share>
     private var _percentShareSum: Double = 0.0
     
-    init(id: UInt, region: Region? = nil) {
+    init(id: UInt, region: Region) {
         self._id = id
         self._region = region
         self._properties = AVLTree<Property>(Property.comparator)
         self._shares = AVLTree<Share>(Share.comparator)
     }
     
-    static func random(region: Region? = nil, properties: AVLTree<Property>? = nil) -> OwnedList {
+    static func random(region: Region, properties: AVLTree<Property>? = nil) -> OwnedList {
         return OwnedList(id: DataSeeder.ownedListID(),
                          region: region)
     }
@@ -38,7 +38,7 @@ public class OwnedList {
     
     var region: Region {
         get {
-            return self._region! // REGIUN HAVE TO BE SET TODO: Try catch handler
+            return self._region
         }
     }
     

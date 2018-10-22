@@ -14,10 +14,10 @@ public class Property {
     private let _address: String
     private let _desc: String
     
-    private var _ownedList: OwnedList?
+    private var _ownedList: OwnedList
     private var _persons: AVLTree<Person>
     
-    init(id: UInt, address: String, desc: String, ownedList: OwnedList? = nil) {
+    init(id: UInt, address: String, desc: String, ownedList: OwnedList) {
         self._id = id
         self._address = address
         self._desc = desc
@@ -25,7 +25,7 @@ public class Property {
         self._persons = AVLTree<Person>(Person.comparator)
     }
     
-    static func random(persons: AVLTree<Person>? = nil, ownedList: OwnedList? = nil) -> Property {
+    static func random(persons: AVLTree<Person>? = nil, ownedList: OwnedList) -> Property {
         return Property(id: DataSeeder.propertyID(),
                         address: DataSeeder.propertyAddress(),
                         desc: DataSeeder.propertyDesc(),
@@ -52,7 +52,7 @@ public class Property {
     
     var ownedList: OwnedList {
         get {
-            return self._ownedList! // List vlastnictva musi na nehnutelnosti existovat, ak to spadne, chyba // TODO: Try catch nadler
+            return self._ownedList
         }
     }
     
@@ -71,10 +71,6 @@ extension Property {
     @discardableResult
     func addPerson(person: Person) -> Bool {
         return self._persons.insert(person)
-    }
-    
-    func addOwnedList(ownedList: OwnedList) {
-        return self._ownedList = ownedList
     }
     
 }

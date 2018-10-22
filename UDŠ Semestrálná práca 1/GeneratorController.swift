@@ -22,6 +22,7 @@ class GeneratorController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        hideKeyboardWhenTappedAround()
         waitingWrapperView.alpha = 0.0
         viewModel.setup(viewDelegate: self)
     }

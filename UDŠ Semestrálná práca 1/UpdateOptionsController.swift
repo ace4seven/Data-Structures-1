@@ -69,6 +69,10 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
         switch items[indexPath.row] {
         case .task12:
             performSegue(withIdentifier: String(describing: FormChangeShare.self), sender: nil)
+        case .task16:
+            performSegue(withIdentifier: String(describing: AddPersonController.self), sender: nil)
+        case .task17:
+            performSegue(withIdentifier: String(describing: AddOwnedListController.self), sender: nil)
         default: break
         }
         tableView.deselectRow(at: indexPath, animated: false)

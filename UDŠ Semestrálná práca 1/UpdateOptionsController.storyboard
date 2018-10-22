@@ -12,7 +12,7 @@
         <!--Úpravy-->
         <scene sceneID="OJ4-p4-l73">
             <objects>
-                <viewController id="l91-jm-IUN" customClass="UpdateOptionsController" customModule="UDS__Semestra_lna__pra_ca_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="l91-jm-IUN" customClass="UpdateOptionsController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="giK-Pb-Pmd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,6 +37,8 @@
                     <connections>
                         <outlet property="tableView" destination="z9U-sa-LEi" id="bf5-cl-lOj"/>
                         <segue destination="x62-6d-icU" kind="show" identifier="FormChangeShare" id="gOs-aj-3hN"/>
+                        <segue destination="b9L-9e-Tee" kind="show" identifier="AddPersonController" id="Aac-JU-upk"/>
+                        <segue destination="cgr-k8-NO8" kind="show" identifier="AddOwnedListController" id="UY0-uW-daQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVA-c9-Irs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,7 +51,7 @@
                 <viewControllerPlaceholder storyboardName="FormChangeShare" id="x62-6d-icU" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHC-Rv-94s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="-418"/>
+            <point key="canvasLocation" x="764" y="-391"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bbJ-PC-ydo">
@@ -74,6 +76,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOO-Qu-BeU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-769" y="-262"/>
+        </scene>
+        <!--AddPersonController-->
+        <scene sceneID="H4Y-Na-u0F">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddPersonController" id="b9L-9e-Tee" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybC-Hx-K2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-198"/>
+        </scene>
+        <!--AddOwnedListController-->
+        <scene sceneID="mdA-jT-22g">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddOwnedListController" id="cgr-k8-NO8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cO-IB-DOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-94"/>
         </scene>
     </scenes>
     <resources>

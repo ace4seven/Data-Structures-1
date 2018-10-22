@@ -10,7 +10,7 @@ import Foundation
 
 final class Formatters {
     
-    static let formater = DateFormatter.init(format: "DDDD.MM.YYYY")
+    static let formater = DateFormatter.init(format: "dd.MM.YYYY")
     
     static func dateToString(date: Date) -> String {
         return formater.string(from: date)

@@ -28,9 +28,21 @@ public final class Database { // SINGLETON
 
 extension Database {
     
+    func addPerson(personalID: String, name: String, surname: String, dateOfBirth: Int) -> Bool {
+        return _persons.insert(Person(id: personalID, firstName: name, lastName: surname, dateOfBirth: dateOfBirth))
+    }
+    
     func getPersons(completion: ([Person]) -> ()) {
         let persons = _persons.inOrderToArray()
         completion(persons)
+    }
+    
+    func addNewOwnerList(ownerListID: UInt, for region: Region) -> Bool {
+        return region.addOwnedList(list: OwnedList(id: ownerListID, region: region))
+    }
+    
+    func getRegion(regionID: UInt) -> Region? {
+        return _regionsByID.findBy(element: Region(regionID: regionID, regionName: ""))
     }
     
     func getRegionsSortedByName(completion: ([Region]) -> ()){
@@ -52,7 +64,7 @@ extension Database {
             completion(nil)
             return
         }
-        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownerListID)) else {
+        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) else {
             completion(nil)
             return
         }
@@ -128,35 +140,34 @@ extension Database {
             }
             "Katastrálne územie MENO: \(region.regionName) ID: \(region.regionID) bolo úspešné pridané".debugMessage()
             
-            var ownedList = OwnedList.random()
+            var ownedList = OwnedList.random(region: region)
             while region.addOwnedList(list: ownedList) != true {
-                ownedList = OwnedList.random()
+                ownedList = OwnedList.random(region: region)
             }
             ownedList.setRegion(region: region)
             
             var propertyArray =  [Property]()
             
             for var j in 0..<propertyCount {
-                var property = Property.random()
+                var property = Property.random(ownedList: ownedList)
                 if region.addProperty(property: property) == false {
                     "WARNING - Nehnuteľnost s ID: \(property.id) nebola pridaná z dôvodu duplicity ID".debugMessage()
                     j -= 1
-                    property = Property.random()
+                    property = Property.random(ownedList: ownedList)
                     continue
                 }
                 "Nehnuteľnost s ID: \(property.id) bola úspešne pridaná".debugMessage()
                 
                 
                 if Int.random(in: 0...100) < 30 { // 30 percent chance, that property appiear in new ownerList
-                    ownedList = OwnedList.random()
+                    ownedList = OwnedList.random(region: region)
                     while region.addOwnedList(list: ownedList) != true {
-                        ownedList = OwnedList.random()
+                        ownedList = OwnedList.random(region: region)
                     }
                     ownedList.setRegion(region: region)
                 }
                 
                 if ownedList.addProperty(property: property) {
-                    property.addOwnedList(ownedList: ownedList)
                 }
                 propertyArray.append(property)
             }

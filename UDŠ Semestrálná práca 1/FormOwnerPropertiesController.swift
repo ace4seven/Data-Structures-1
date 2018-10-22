@@ -20,6 +20,7 @@ class FormOwnerPropertiesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
         indicator.alpha = 0.0
         title = "Výpisy nehnuteľností majiteľa"
     }
