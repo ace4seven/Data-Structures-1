@@ -32,8 +32,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sEt-45-Zs4">
                                 <rect key="frame" x="15" y="299" width="345" height="69.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Názov regiónu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vL0-YL-40D">
-                                        <rect key="frame" x="107.5" y="0.0" width="130" height="25.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Názov katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vL0-YL-40D">
+                                        <rect key="frame" x="45" y="0.0" width="255" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -65,21 +65,33 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Fng-eE-Y4h">
-                        <barButtonItem key="rightBarButtonItem" image="person_menu_ico" id="Odk-Sz-MXM">
+                        <barButtonItem key="rightBarButtonItem" image="region_menu_ico" id="Odk-Sz-MXM">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="regionListButtonPressed:" destination="fdJ-U7-rD5" id="Ecr-HT-iBE"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="regionNameTextField" destination="uaq-ks-rxy" id="JeI-hN-ieK"/>
+                        <segue destination="bgP-DF-vQ5" kind="show" identifier="ListController" id="zna-Mu-wr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSu-4a-21x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
         </scene>
+        <!--ListController-->
+        <scene sceneID="Fir-4D-m0N">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListController" id="bgP-DF-vQ5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBI-GI-b6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504" y="-124"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="person_menu_ico" width="25" height="25"/>
+        <image name="region_menu_ico" width="25" height="25"/>
     </resources>
 </document>

@@ -42,8 +42,9 @@ extension ConfirmNewSharesController: ConfirmNewSharesViewDelegate {
     }
     
     func confirmSuccessMessage() {
-        composeAlert(title: "Úspech", message: "Úprava bola úspešne dokončená", completion: { _ in })
-        dismiss(animated: true, completion: nil)
+        composeAlert(title: "Úspech", message: "Úprava bola úspešne dokončená", completion: { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        })
     }
     
     

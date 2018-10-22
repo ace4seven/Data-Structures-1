@@ -20,8 +20,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-EU-Q2F">
                                 <rect key="frame" x="15" y="129.5" width="345" height="69.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID katastralného územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86o-jl-h9G">
-                                        <rect key="frame" x="64" y="0.0" width="217.5" height="25.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Názov katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86o-jl-h9G">
+                                        <rect key="frame" x="45" y="0.0" width="255" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ownerListIDTextField" destination="cDX-si-r3U" id="1Aj-xh-34t"/>
-                        <outlet property="regionIDTextField" destination="OO1-xb-95k" id="1wT-3u-znG"/>
+                        <outlet property="regionNameTextField" destination="OO1-xb-95k" id="1wT-3u-znG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9cj-5c-5qV" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -56,7 +56,9 @@ class AddPersonController: UIViewController {
         }
         
         if Database.shared.addPerson(personalID: personalID, name: name, surname: surname, dateOfBirth: Int(datePicker.date.timeIntervalSince1970)) {
-            navigationController?.dismiss(animated: true, completion: nil)
+            composeAlert(title: "Uspech", message: "Obcan bol úspešne vytvorený") { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
         } else {
             composeAlert(title: "Chyba", message: "Občan so zadaným rodným číslom už je v systéme evidovaný", completion: {_ in})
         }

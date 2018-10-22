@@ -17,7 +17,22 @@ class AddRegionController: UIViewController {
         super.viewDidLoad()
 
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ListController {
+            if let regions = sender as? [Region] {
+                let viewModel = ListViewModel(values: regions.map { .region($0) })
+                vc.viewModel = viewModel
+            }
+        }
+    }
+    
+    @IBAction func regionListButtonPressed(_ sender: Any) {
+        Database.shared.getRegionsSortedByName() { [weak self] regions in
+            self?.performSegue(withIdentifier: String(describing: ListController.self), sender: regions)
+        }
+    }
+    
     @IBAction func addRegionButtonPressed(_ sender: Any) {
         guard let regionName = regionNameTextField.text else { return }
         

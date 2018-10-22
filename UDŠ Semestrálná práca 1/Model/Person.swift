@@ -32,6 +32,14 @@ public class Person {
         self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
     }
     
+    init(id: String) {
+        self._id = id
+        self._firstName = ""
+        self._lastName = ""
+        self._dateOfBirth = 0
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
+    }
+    
     var id: String {
         get {
             return self._id

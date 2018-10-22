@@ -23,7 +23,7 @@ class PropertyShareCell: UITableViewCell {
         idLabel.text = "\(propertyShare.property.id)"
         descLabel.text = propertyShare.property.desc
         addressLabel.text = propertyShare.property.address
-        self.shareLabel.text = "Podiel: \(String(format: "%.2f", propertyShare.share)) %"
+        self.shareLabel.text = "Podiel: \(propertyShare.share.roundString(makePercent: true)) %"
     }
     
     private func setupUI() {

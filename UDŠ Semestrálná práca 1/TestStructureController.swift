@@ -16,13 +16,12 @@ class TestStructureController: UIViewController {
         super.viewDidLoad()
         
         testData(
-            values: 5000,
+            values: 1000,
             range: 1..<1000000,
-            removePropability: 0.5,
-            drawConsoleTree: false
+            removePropability: 0.4,
+            drawConsoleTree: true
         )
      
-//        custom()
     }
     
 }
@@ -49,17 +48,11 @@ extension TestStructureController {
                 tree.inOrder { _ in} //INORDER KONTROLA BALANCE FAKTORA
                 numberOfElements += 1
                 
-//                print("PRIDAVAM - \(number)")
-                
                 if Double.random(in: 0...1) <= removePropability {
                     var numberToDelete = addedElements[Int.random(in: 0..<addedElements.count)]
-//                    print(tree)
                     while tree.remove(numberToDelete) == nil {
                         numberToDelete = addedElements[Int.random(in: 0..<addedElements.count)]
                     }
-//                    print("MAZEM - \(numberToDelete)")
-//                    print()
-//                    print(tree)
                     
                     var count = 0
                     tree.inOrder { _ in
@@ -79,12 +72,11 @@ extension TestStructureController {
                         addedElements.remove(at: index)
                     }
                 }
-                
                 index += 1
             }
         }
         
-        print("TEST 1 USPECH")
+        print("TEST 1 - USPECH")
         
         // TEST 2 INORDER PORADIE MUSI SEDIET - ZORADENIE OD NAJMENSIEHO PO NAJVACSIE
         
@@ -125,17 +117,5 @@ extension TestStructureController {
         }
     }
     
-    func custom() {
-        let tree = AVLTree<Int>(Int.comparator)
-       tree.insert(58)
-        tree.insert(96)
-        tree.insert(27)
-        tree.insert(48)
-        tree.insert(21)
-        tree.insert(64)
-        tree.remove(96)
-        
-        print(tree)
-    }
 }
 

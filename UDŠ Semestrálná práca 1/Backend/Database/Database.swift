@@ -43,17 +43,31 @@ extension Database {
         return false
     }
     
-    func getPersons(completion: ([Person]) -> ()) {
-        let persons = _persons.inOrderToArray()
-        completion(persons)
+    func addProperty(regionID: UInt, ownerListID: UInt, address: String, desc: String) -> Bool {
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: ""))
+            , let ownerList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) else {
+                return false
+        }
+        
+        let property = Property(id: DataSeeder.propertyID(), address: address, desc: desc, ownedList: ownerList)
+        return ownerList.addProperty(property: property) && region.addProperty(property: property)
     }
     
     func addNewOwnerList(ownerListID: UInt, for region: Region) -> Bool {
         return region.addOwnedList(list: OwnedList(id: ownerListID, region: region))
     }
     
+    func getPersons(completion: ([Person]) -> ()) {
+        let persons = _persons.inOrderToArray()
+        completion(persons)
+    }
+    
     func getRegion(regionID: UInt) -> Region? {
         return _regionsByID.findBy(element: Region(regionID: regionID, regionName: ""))
+    }
+    
+    func getRegion(regionName: String) -> Region? {
+        return _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName))
     }
     
     func getRegionsSortedByName(completion: ([Region]) -> ()){
@@ -92,6 +106,7 @@ extension Database {
     }
     
     func getOwnerProperties(personalID: String, regionID: UInt, completion: @escaping ([PropertyShare]?) -> ()) {
+        
         let tempPerson = Person(id: personalID, firstName: "", lastName: "", dateOfBirth: 0)
         guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             completion(nil)

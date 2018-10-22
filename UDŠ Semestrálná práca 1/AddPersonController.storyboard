@@ -130,14 +130,7 @@
                         <viewLayoutGuide key="safeArea" id="1Xq-cm-drj"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="sjI-Gn-KiU">
-                        <barButtonItem key="rightBarButtonItem" image="person_menu_ico" id="zVj-H5-2XD">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="regionListButtonPressed:" destination="6di-mt-FnO" id="T6W-8q-Hf1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="sjI-Gn-KiU"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="actionButton" destination="yRt-hC-y0i" id="Vai-cf-E6W"/>
@@ -161,7 +154,4 @@
             <point key="canvasLocation" x="1444" y="18"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="person_menu_ico" width="25" height="25"/>
-    </resources>
 </document>
