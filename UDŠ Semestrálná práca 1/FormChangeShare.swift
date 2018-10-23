@@ -24,7 +24,7 @@ class FormChangeShare: UIViewController {
         
         hideKeyboardWhenTappedAround()
         indicator.alpha = 0.0
-        title = "Výpisy nehnuteľností majiteľa"
+        title = "Pridanie osoby do listu vlastníctva"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

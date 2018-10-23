@@ -10,9 +10,9 @@ import Foundation
 
 typealias PropertyShare = (property: Property, share: Double)
 
-enum RegionTreeType {
-    case sortedByID
-    case sortedByName
+enum RegionSearchKey {
+    case id(UInt)
+    case name(String)
 }
 
 public final class Database { // SINGLETON
@@ -27,6 +27,32 @@ public final class Database { // SINGLETON
 // MARK: - Database operations
 
 extension Database {
+    
+    // MARK: - Search operations
+    
+    func searchProperty(key: RegionSearchKey, propertyID: UInt, completion: ((Property)?) -> ()) {
+        var tempRegion: Region?
+        switch key {
+        case .id(let id):
+            tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
+        case .name(let name):
+            tempRegion = _regionsByName.findBy(element: Region.init(regionID: 0, regionName: name))
+        }
+        
+        guard let region = tempRegion else {
+            completion(nil)
+            return
+        }
+        
+        guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
+            completion(nil)
+            return
+        }
+        
+        completion(property)
+    }
+    
+    // MARK: - Data modificators
     
     func addPerson(personalID: String, name: String, surname: String, dateOfBirth: Int) -> Bool {
         return _persons.insert(Person(id: personalID, firstName: name, lastName: surname, dateOfBirth: dateOfBirth))
@@ -49,6 +75,7 @@ extension Database {
                 return false
         }
         
+        // TODO: Property ID custom form
         let property = Property(id: DataSeeder.propertyID(), address: address, desc: desc, ownedList: ownerList)
         return ownerList.addProperty(property: property) && region.addProperty(property: property)
     }
@@ -123,11 +150,11 @@ extension Database {
         completion(result)
     }
     
-    func getRegions(sortedBy type: RegionTreeType) -> AVLTree<Region> {
+    func getRegions(sortedBy type: RegionSearchKey) -> AVLTree<Region> {
         switch type {
-        case .sortedByID:
+        case .id:
             return _regionsByID
-        case .sortedByName:
+        case .name:
             return _regionsByName
         }
     }

@@ -77,3 +77,11 @@ extension Double {
     }
     
 }
+
+extension UInt {
+    
+    var toString: String {
+        return "\(self)"
+    }
+    
+}

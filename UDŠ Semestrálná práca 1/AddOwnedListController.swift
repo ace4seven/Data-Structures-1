@@ -17,6 +17,7 @@ class AddOwnedListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
     }
     @IBAction func actionButtonPressed(_ sender: Any) {
         guard let ownerID = UInt(ownerListIDTextField.text ?? ""), let regionName = regionNameTextField.text else {
@@ -25,7 +26,7 @@ class AddOwnedListController: UIViewController {
         }
         
         guard let region = Database.shared.getRegion(regionName: regionName) else {
-            composeAlert(title: "Pozor", message: "Region s daným ID neexistuje", completion: {_ in})
+            composeAlert(title: "Pozor", message: "Region s daným menom neexistuje", completion: {_ in})
             return
         }
         

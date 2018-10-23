@@ -12,12 +12,12 @@
         <!--Vyhľadávanie-->
         <scene sceneID="BCB-c9-MTr">
             <objects>
-                <viewController id="cax-U1-AZA" customClass="SearchOptionsController" customModule="UDS__Semestra_lna__pra_ca_1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cax-U1-AZA" customClass="SearchOptionsController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pWD-8C-j1N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vtc-VT-MNa">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vtc-VT-MNa">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -42,7 +42,8 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="Vtc-VT-MNa" id="SM8-2d-SPQ"/>
+                        <outlet property="tableView" destination="Vtc-VT-MNa" id="AgJ-yT-m0h"/>
+                        <segue destination="znR-rA-1jt" kind="show" identifier="SearchPropertyController" id="GAU-OI-DKY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6k-BL-kJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -80,6 +81,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQJ-jh-kiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.599999999999994" y="-564.46776611694156"/>
+        </scene>
+        <!--SearchPropertyController-->
+        <scene sceneID="U3r-hW-aCP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchPropertyController" id="znR-rA-1jt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mW-KM-J2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="-601"/>
         </scene>
     </scenes>
     <resources>

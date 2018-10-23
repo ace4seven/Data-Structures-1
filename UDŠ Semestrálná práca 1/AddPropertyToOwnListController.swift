@@ -18,7 +18,7 @@ class AddPropertyToOwnListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        hideKeyboardWhenTappedAround()
     }
     
     @IBAction func addPropertyButtonPressed(_ sender: Any) {
@@ -32,7 +32,9 @@ class AddPropertyToOwnListController: UIViewController {
         }
         
         if Database.shared.addProperty(regionID: regionID, ownerListID: ownerListID, address: address, desc: desc) {
-            composeAlert(title: "Úspech", message: "Nehnuteľnosť úspešne zapísaná") { _ in }
+            composeAlert(title: "Úspech", message: "Nehnuteľnosť úspešne zapísaná") { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
         } else {
             composeAlert(title: "Chyba", message: "Nehnutelnost nieje mozne zapísať") { _ in }
         }
@@ -40,10 +42,4 @@ class AddPropertyToOwnListController: UIViewController {
     }
     
 
-}
-
-extension AddPropertyToOwnListController {
-    
-    
-    
 }

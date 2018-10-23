@@ -72,6 +72,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
                 cell.setupCell(propertyShare: propertyShare)
                 return cell
             }
+        return UITableViewCell()
         }
         
         return UITableViewCell()

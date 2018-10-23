@@ -13,6 +13,10 @@
 		161822F3217BC1FE000666D4 /* UpdateOptionsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */; };
 		161822F5217BC20A000666D4 /* UpdateOptionsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */; };
 		161822F7217BC21D000666D4 /* UpdateOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */; };
+		16441DE8217F3EA9001D1199 /* SearchPropertyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16441DE7217F3EA9001D1199 /* SearchPropertyController.swift */; };
+		16441DEA217F3F16001D1199 /* SearchPropertyController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16441DE9217F3F16001D1199 /* SearchPropertyController.storyboard */; };
+		16441DEC217F40A9001D1199 /* SearchPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16441DEB217F40A9001D1199 /* SearchPropertyViewModel.swift */; };
+		16441DEE217F40B0001D1199 /* SearchPropertyViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16441DED217F40B0001D1199 /* SearchPropertyViewDelegate.swift */; };
 		1654974A21634FF400D423FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974921634FF400D423FC /* AppDelegate.swift */; };
 		1654974C21634FF400D423FC /* TestStructureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974B21634FF400D423FC /* TestStructureController.swift */; };
 		1654974F21634FF400D423FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1654974D21634FF400D423FC /* Main.storyboard */; };
@@ -42,6 +46,10 @@
 		168DE4C4217A412F00F68FE4 /* SearchOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4C3217A412F00F68FE4 /* SearchOptionsViewModel.swift */; };
 		168DE4C8217A415900F68FE4 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DE4C6217A415900F68FE4 /* OptionCell.swift */; };
 		168DE4C9217A415900F68FE4 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 168DE4C7217A415900F68FE4 /* OptionCell.xib */; };
+		169B68A9217FAAF1003BE2B9 /* PropertyDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68A8217FAAF1003BE2B9 /* PropertyDetailController.swift */; };
+		169B68AB217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68AA217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift */; };
+		169B68AD217FAB07003BE2B9 /* PropertyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68AC217FAB07003BE2B9 /* PropertyDetailViewModel.swift */; };
+		169B68AF217FAC73003BE2B9 /* SharePersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68AE217FAC73003BE2B9 /* SharePersonCell.swift */; };
 		169BC65721725262005C1696 /* AVLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65521725262005C1696 /* AVLNode.swift */; };
 		169BC65821725262005C1696 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65621725262005C1696 /* AVLTree.swift */; };
 		169BC65B21725771005C1696 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65A21725771005C1696 /* Stack.swift */; };
@@ -92,6 +100,10 @@
 		161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateOptionsController.storyboard; sourceTree = "<group>"; };
 		161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewDelegate.swift; sourceTree = "<group>"; };
 		161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewModel.swift; sourceTree = "<group>"; };
+		16441DE7217F3EA9001D1199 /* SearchPropertyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPropertyController.swift; sourceTree = "<group>"; };
+		16441DE9217F3F16001D1199 /* SearchPropertyController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPropertyController.storyboard; sourceTree = "<group>"; };
+		16441DEB217F40A9001D1199 /* SearchPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPropertyViewModel.swift; sourceTree = "<group>"; };
+		16441DED217F40B0001D1199 /* SearchPropertyViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPropertyViewDelegate.swift; sourceTree = "<group>"; };
 		1654974621634FF400D423FC /* uds_avl_tree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uds_avl_tree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1654974921634FF400D423FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1654974B21634FF400D423FC /* TestStructureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStructureController.swift; sourceTree = "<group>"; };
@@ -123,6 +135,10 @@
 		168DE4C3217A412F00F68FE4 /* SearchOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewModel.swift; sourceTree = "<group>"; };
 		168DE4C6217A415900F68FE4 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		168DE4C7217A415900F68FE4 /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
+		169B68A8217FAAF1003BE2B9 /* PropertyDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailController.swift; sourceTree = "<group>"; };
+		169B68AA217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewDelegate.swift; sourceTree = "<group>"; };
+		169B68AC217FAB07003BE2B9 /* PropertyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewModel.swift; sourceTree = "<group>"; };
+		169B68AE217FAC73003BE2B9 /* SharePersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePersonCell.swift; sourceTree = "<group>"; };
 		169BC65521725262005C1696 /* AVLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLNode.swift; sourceTree = "<group>"; };
 		169BC65621725262005C1696 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
 		169BC65A21725771005C1696 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -259,10 +275,10 @@
 		1654975C216357C900D423FC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				168DE4BB217A40B000F68FE4 /* Search */,
 				161822EF217BC1CD000666D4 /* ChangeUpdate */,
 				16DC2CFD217B8FC90036FA62 /* Listing */,
 				166707B5217B4B5E0033CF43 /* Settings */,
-				168DE4BB217A40B000F68FE4 /* Search */,
 				165497602163585C00D423FC /* Initial */,
 				165497612163587700D423FC /* Test */,
 				16DC2D09217B963E0036FA62 /* Common */,
@@ -406,6 +422,7 @@
 		168DE4BB217A40B000F68FE4 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				168EE73D217F34A200B4277C /* SearchProperty */,
 				168DE4BC217A40E100F68FE4 /* SearchOptions */,
 			);
 			name = Search;
@@ -430,6 +447,40 @@
 				168DE4C7217A415900F68FE4 /* OptionCell.xib */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		168EE73D217F34A200B4277C /* SearchProperty */ = {
+			isa = PBXGroup;
+			children = (
+				169B68A7217FAAC1003BE2B9 /* PropertyDetail */,
+				16441DE7217F3EA9001D1199 /* SearchPropertyController.swift */,
+				16441DE9217F3F16001D1199 /* SearchPropertyController.storyboard */,
+				16441DEB217F40A9001D1199 /* SearchPropertyViewModel.swift */,
+				16441DED217F40B0001D1199 /* SearchPropertyViewDelegate.swift */,
+			);
+			name = SearchProperty;
+			sourceTree = "<group>";
+		};
+		169B68A6217F9711003BE2B9 /* ListController */ = {
+			isa = PBXGroup;
+			children = (
+				16DC2D0A217B966E0036FA62 /* ListController.swift */,
+				16DC2D0C217B96750036FA62 /* ListController.storyboard */,
+				16DC2D0E217B967F0036FA62 /* ListViewModel.swift */,
+				16DC2D10217B96880036FA62 /* ListViewDelegate.swift */,
+			);
+			name = ListController;
+			sourceTree = "<group>";
+		};
+		169B68A7217FAAC1003BE2B9 /* PropertyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				169B68A8217FAAF1003BE2B9 /* PropertyDetailController.swift */,
+				169B68AA217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift */,
+				169B68AC217FAB07003BE2B9 /* PropertyDetailViewModel.swift */,
+				169B68AE217FAC73003BE2B9 /* SharePersonCell.swift */,
+			);
+			name = PropertyDetail;
 			sourceTree = "<group>";
 		};
 		169BC65921725730005C1696 /* Stack */ = {
@@ -503,11 +554,8 @@
 		16DC2D09217B963E0036FA62 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				169B68A6217F9711003BE2B9 /* ListController */,
 				16DC2D12217B9C060036FA62 /* Cell */,
-				16DC2D0A217B966E0036FA62 /* ListController.swift */,
-				16DC2D0C217B96750036FA62 /* ListController.storyboard */,
-				16DC2D0E217B967F0036FA62 /* ListViewModel.swift */,
-				16DC2D10217B96880036FA62 /* ListViewDelegate.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -633,6 +681,7 @@
 				16F075CC217DE4160072287E /* AddRegionController.storyboard in Resources */,
 				1654976921635A0A00D423FC /* TestStructureController.storyboard in Resources */,
 				16DC2D16217B9C560036FA62 /* PropertyCell.xib in Resources */,
+				16441DEA217F3F16001D1199 /* SearchPropertyController.storyboard in Resources */,
 				16DC2D1A217BA1240036FA62 /* RegionCell.xib in Resources */,
 				167FB9D7217DB4550037A390 /* AddPropertyToOwnListController.storyboard in Resources */,
 				16D7B8FA217CBE4500A19243 /* FormOwnerPropertiesController.storyboard in Resources */,
@@ -698,6 +747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16F075CA217DE3E80072287E /* AddRegionController.swift in Sources */,
+				16441DEC217F40A9001D1199 /* SearchPropertyViewModel.swift in Sources */,
 				16D7B8F8217CBE3E00A19243 /* FormOwnerPropertiesController.swift in Sources */,
 				1654974C21634FF400D423FC /* TestStructureController.swift in Sources */,
 				161822F7217BC21D000666D4 /* UpdateOptionsViewModel.swift in Sources */,
@@ -713,8 +763,10 @@
 				16DC2D11217B96880036FA62 /* ListViewDelegate.swift in Sources */,
 				16D7B90E217CD74400A19243 /* ConfirmNewSharesController.swift in Sources */,
 				169BC66021737FB9005C1696 /* Property.swift in Sources */,
+				16441DE8217F3EA9001D1199 /* SearchPropertyController.swift in Sources */,
 				168DE4BE217A410E00F68FE4 /* SearchOptionsController.swift in Sources */,
 				16D7B910217CD75100A19243 /* ConfirmNewSharesViewDelegate.swift in Sources */,
+				169B68AD217FAB07003BE2B9 /* PropertyDetailViewModel.swift in Sources */,
 				16DC2D0B217B966E0036FA62 /* ListController.swift in Sources */,
 				1660437621739E4E00333CD8 /* Errors.swift in Sources */,
 				16D7B914217CD87000A19243 /* EditShareCell.swift in Sources */,
@@ -727,11 +779,13 @@
 				16DC2D1D217BA3040036FA62 /* FormRegionNameController.swift in Sources */,
 				16DC2D04217B90120036FA62 /* ListingOptionsViewModel.swift in Sources */,
 				16C1EED8217A0722009CEFF5 /* DataSeeder.swift in Sources */,
+				16441DEE217F40B0001D1199 /* SearchPropertyViewDelegate.swift in Sources */,
 				166707B4217B44370033CF43 /* Share.swift in Sources */,
 				166707C2217B505B0033CF43 /* GeneratorViewModel.swift in Sources */,
 				167FB9CB217D9F7C0037A390 /* AddPersonController.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,
 				16DC2D19217BA1240036FA62 /* RegionCell.swift in Sources */,
+				169B68AB217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift in Sources */,
 				16D7B8FF217CC06400A19243 /* PersonCell.swift in Sources */,
 				16C1EEDC217A1CDC009CEFF5 /* PropertyDescStorage.swift in Sources */,
 				166707C0217B50530033CF43 /* GeneratorViewDelegate.swift in Sources */,
@@ -741,6 +795,7 @@
 				16DC2D15217B9C560036FA62 /* PropertyCell.swift in Sources */,
 				166707B2217B36BF0033CF43 /* Option.swift in Sources */,
 				160F0F2D217667BA00782AF9 /* Extensions.swift in Sources */,
+				169B68A9217FAAF1003BE2B9 /* PropertyDetailController.swift in Sources */,
 				166707B7217B4CD70033CF43 /* SettingsController.swift in Sources */,
 				16DC2D02217B90090036FA62 /* ListingOptionsViewDelegate.swift in Sources */,
 				16D7B905217CC66F00A19243 /* PropertyShareCell.swift in Sources */,
@@ -749,6 +804,7 @@
 				167FB9D5217DB44C0037A390 /* AddPropertyToOwnListController.swift in Sources */,
 				161822F5217BC20A000666D4 /* UpdateOptionsViewDelegate.swift in Sources */,
 				1660437021738DD500333CD8 /* NameStorage.swift in Sources */,
+				169B68AF217FAC73003BE2B9 /* SharePersonCell.swift in Sources */,
 				169BC65821725262005C1696 /* AVLTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

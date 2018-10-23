@@ -8,6 +8,26 @@
 
 import UIKit
 
+enum TestHardnes {
+    
+    case soft
+    case medium
+    case hard
+    
+    var probability: Double {
+        switch self {
+        case .hard:
+            return 1.0
+        case .medium:
+            return 0.6
+        case .soft:
+            return 0.3
+        }
+        
+    }
+    
+}
+
 // MARK: - Variables
 
 class TestStructureController: UIViewController {
@@ -16,10 +36,11 @@ class TestStructureController: UIViewController {
         super.viewDidLoad()
         
         testData(
-            values: 1000,
-            range: 1..<1000000,
+            testHardnes: .soft,
+            values: 10000,
+            range: 1..<100000000,
             removePropability: 0.4,
-            drawConsoleTree: true
+            drawConsoleTree: false
         )
      
     }
@@ -30,7 +51,7 @@ class TestStructureController: UIViewController {
 
 extension TestStructureController {
     
-    fileprivate func testData(values: Int, range: Range<Int>, removePropability: Double, drawConsoleTree: Bool) {
+    fileprivate func testData(testHardnes: TestHardnes, values: Int, range: Range<Int>, removePropability: Double, drawConsoleTree: Bool) {
         
         let tree = AVLTree<Int>(Int.comparator)
         var numberOfElements = 0;
@@ -38,14 +59,17 @@ extension TestStructureController {
         var deletedNumbers: Array = [Int]()
         var addedElements: Array = [Int]()
         
-        // NAPLNENIE STROMU PRVKAMI a TEST 1 - KONTROLA BALANCE FAKTORA
+        // TEST 1 - KONTROLA BALANCE FAKTORA
         
         var index = 0
         while index < values {
             let number = Int.random(in: range)
             if tree.insert(number) {
                 addedElements.append(number)
-                tree.inOrder { _ in} //INORDER KONTROLA BALANCE FAKTORA
+                
+                if Double.random(in: 0...1) <= testHardnes.probability {
+                    tree.inOrder { _ in} //INORDER KONTROLA BALANCE FAKTORA
+                }
                 numberOfElements += 1
                 
                 if Double.random(in: 0...1) <= removePropability {
@@ -54,14 +78,16 @@ extension TestStructureController {
                         numberToDelete = addedElements[Int.random(in: 0..<addedElements.count)]
                     }
                     
-                    var count = 0
-                    tree.inOrder { _ in
-                        count += 1
-                    }
-                    
-                    if count != tree.count {
-                        print("CHYBA")
-                        return
+                    if Double.random(in: 0...1) <= testHardnes.probability {
+                        var count = 0
+                        tree.inOrder { _ in
+                            count += 1
+                        }
+                        
+                        if count != tree.count {
+                            print("CHYBA")
+                            return
+                        }
                     }
                     
                     numberOfElements -= 1

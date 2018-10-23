@@ -36,6 +36,13 @@ class SearchOptionsController: UIViewController {
     private func setupView() {
         title = "Vyhľadávanie"
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SearchPropertyController, let isID = sender as? Bool {
+            let viewModel = SearchPropertyViewModel(searchByID: isID)
+            vc.viewModel = viewModel
+        }
+    }
 
 }
 
@@ -68,7 +75,13 @@ extension SearchOptionsController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        switch items[indexPath.row] {
+        case .task1:
+            performSegue(withIdentifier: String(describing: SearchPropertyController.self), sender: true)
+        case .task5:
+            performSegue(withIdentifier: String(describing: SearchPropertyController.self), sender: false)
+        default: return
+        }
     }
     
 }

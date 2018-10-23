@@ -25,6 +25,14 @@ public class Property {
         self._persons = AVLTree<Person>(Person.comparator)
     }
     
+    init(id: UInt) {
+        self._id = id
+        self._address = ""
+        self._desc = ""
+        self._ownedList = OwnedList(id: 0, region: Region(regionID: 0, regionName: ""))
+        self._persons = AVLTree<Person>(Person.comparator)
+    }
+    
     static func random(persons: AVLTree<Person>? = nil, ownedList: OwnedList) -> Property {
         return Property(id: DataSeeder.propertyID(),
                         address: DataSeeder.propertyAddress(),
