@@ -34,6 +34,7 @@ class PropertyDetailController: UIViewController {
         tableView.dataSource = self
         
         tableView.tableHeaderView = self.tableHeaderView
+        tableView.registerCell(fromClass: ShareCell.self)
     }
     
 }
@@ -41,7 +42,7 @@ class PropertyDetailController: UIViewController {
 extension PropertyDetailController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(fromClass: SharePersonCell.self, for: indexPath) {
+        if let cell = tableView.dequeueReusableCell(fromClass: ShareCell.self, for: indexPath) {
             cell.setup(share: items[indexPath.row])
             return cell
         }

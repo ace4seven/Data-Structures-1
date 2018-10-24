@@ -94,6 +94,7 @@ public class Person {
 
 // MARK: - Public
 
+
 extension Person {
     
     func setHome(property: Property) {

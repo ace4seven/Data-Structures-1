@@ -41,6 +41,9 @@ class SearchOptionsController: UIViewController {
         if let vc = segue.destination as? SearchPropertyController, let isID = sender as? Bool {
             let viewModel = SearchPropertyViewModel(searchByID: isID)
             vc.viewModel = viewModel
+        } else if let vc = segue.destination as? SearchOwnedListController, let isID = sender as? Bool {
+            let viewModel = SearchOwnedListViewModel(searchByID: isID)
+            vc.viewModel = viewModel
         }
     }
 
@@ -78,8 +81,14 @@ extension SearchOptionsController: UITableViewDelegate, UITableViewDataSource {
         switch items[indexPath.row] {
         case .task1:
             performSegue(withIdentifier: String(describing: SearchPropertyController.self), sender: true)
+        case .task2:
+             performSegue(withIdentifier: String(describing: SearchPersonController.self), sender: true)
+        case .task4:
+            performSegue(withIdentifier: String(describing: SearchOwnedListController.self), sender: true)
         case .task5:
             performSegue(withIdentifier: String(describing: SearchPropertyController.self), sender: false)
+        case .task6:
+            performSegue(withIdentifier: String(describing: SearchOwnedListController.self), sender: false)
         default: return
         }
     }

@@ -1,35 +1,34 @@
 //
-//  SearchPropertyController.swift
+//  SearchOwnedListController.swift
 //  uds_avl_tree
 //
-//  Created by Juraj Macák on 10/23/18.
+//  Created by Juraj Macák on 10/24/18.
 //  Copyright © 2018 Juraj Macák. All rights reserved.
 //
 
 import UIKit
 
-class SearchPropertyController: UIViewController {
+class SearchOwnedListController: UIViewController {
     
     @IBOutlet weak var searchRegionTitle: UILabel!
     @IBOutlet weak var retionOrNameTextfield: UITextField!
-    @IBOutlet weak var propertyIDTextField: UITextField!
     
+    @IBOutlet weak var ownedListIDTextField: UITextField!
     fileprivate var searchByID: Bool!
     
-    var viewModel: SearchPropertyViewModel?
+    var viewModel: SearchOwnedListVM?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         hideKeyboardWhenTappedAround()
         title = "Vyhľadávanie nehnuteľností"
-        
         self.viewModel?.setup(viewDelegate: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? PropertyDetailController, let data = sender as? Property {
-            let viewModel = PropertyDetailViewModel(property: data)
+        if let vc = segue.destination as? OwnedListDetailController, let data = sender as? OwnedListData {
+            let viewModel = OwnedListDetailViewModel(ownedList: data.ownedList, properties: data.properties, shares: data.shares)
             vc.viewModel = viewModel
         }
     }
@@ -38,25 +37,24 @@ class SearchPropertyController: UIViewController {
         let regionID = UInt(retionOrNameTextfield.text ?? "")
         let regionName = retionOrNameTextfield.text
         
-        guard let propertyID = UInt(propertyIDTextField.text ?? "") else {
-            composeAlert(title: "Chyba", message: "Súpisné číslo musí byť číslo", completion: { _ in} )
+        guard let ownedListID = UInt(ownedListIDTextField.text ?? "") else {
+            composeAlert(title: "Chyba", message: "Číslo listu vlastníctva musí byť číslo", completion: { _ in} )
             return
         }
         
-        Database.shared.searchProperty(key: searchByID ? .id(regionID ?? 0) : .name(regionName ?? ""), propertyID: propertyID) { [weak self] findedProperty in
-            guard let property = findedProperty else {
-                composeAlert(title: "Upozornienie", message: "Nehnuteľnosť sa nenašla", completion: { _ in })
-                return
-            }
-            
-            self?.performSegue(withIdentifier: String(describing: PropertyDetailController.self), sender: property)
+        guard let ownerListData = Database.shared.searchOwnedList(key: searchByID ? RegionSearchKey.id(regionID ?? 0) : RegionSearchKey.name(regionName ?? ""), ownedListID: ownedListID) else {
+            composeAlert(title: "Upzornenie", message: "List vlastnictva sa nenasiel", completion: { _ in})
+            return
         }
+        
+        performSegue(withIdentifier: String(describing: OwnedListDetailController.self), sender: ownerListData)
+        
     }
     
-
+    
 }
 
-extension SearchPropertyController: SearchPropertyViewDelegate {
+extension SearchOwnedListController: SearchOwnedListViewDelegate {
     
     func setupView(searchByID: Bool) {
         self.searchByID = searchByID

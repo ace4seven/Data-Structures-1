@@ -15,6 +15,8 @@ enum RegionSearchKey {
     case name(String)
 }
 
+typealias OwnedListData = (ownedList: OwnedList, properties: [Property], shares: [Share])
+
 public final class Database { // SINGLETON
     public static let shared = Database()
     private init() {}
@@ -29,6 +31,38 @@ public final class Database { // SINGLETON
 extension Database {
     
     // MARK: - Search operations
+    
+    func searchPerson(personID: String, completion: (Person?) -> Void) {
+        guard let person = _persons.findBy(element: Person(id: personID)) else {
+            completion(nil)
+            return
+        }
+        completion(person)
+    }
+    
+    func searchOwnedList(key: RegionSearchKey, ownedListID: UInt) -> OwnedListData? {
+        var tempRegion: Region?
+        switch key {
+        case .id(let id):
+            tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
+        case .name(let name):
+            tempRegion = _regionsByName.findBy(element: Region.init(regionID: 0, regionName: name))
+        }
+        
+        guard let region = tempRegion else {
+            return nil
+        }
+        
+        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownedListID, region: region)) else {
+            return nil
+        }
+        
+        return (
+            ownedList: ownedList,
+            properties: ownedList.properties.inOrderToArray(),
+            shares: ownedList.shares.inOrderToArray()
+        )
+    }
     
     func searchProperty(key: RegionSearchKey, propertyID: UInt, completion: ((Property)?) -> ()) {
         var tempRegion: Region?
@@ -168,6 +202,24 @@ extension Database {
             }
             index += 1
         }
+    }
+    
+    // MARK: - Listing
+    
+    func getPersonList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> [Person]? {
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            return nil
+        }
+        
+        guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
+            return nil
+        }
+        
+        if property.ownedList.id !=  ownedListID {
+            return nil
+        }
+        
+        return property.persons.inOrderToArray()
     }
     
 }

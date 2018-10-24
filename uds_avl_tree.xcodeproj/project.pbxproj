@@ -13,6 +13,24 @@
 		161822F3217BC1FE000666D4 /* UpdateOptionsController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */; };
 		161822F5217BC20A000666D4 /* UpdateOptionsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */; };
 		161822F7217BC21D000666D4 /* UpdateOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */; };
+		164364922180AAAE00B1A50A /* SearchPersonController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164364912180AAAE00B1A50A /* SearchPersonController.storyboard */; };
+		164364942180AB0D00B1A50A /* SearchPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364932180AB0D00B1A50A /* SearchPersonController.swift */; };
+		164364972180AC8E00B1A50A /* PersonDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364962180AC8E00B1A50A /* PersonDetailController.swift */; };
+		164364992180AC9600B1A50A /* PersonDetailController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164364982180AC9600B1A50A /* PersonDetailController.storyboard */; };
+		1643649B2180ACA300B1A50A /* PersonDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643649A2180ACA300B1A50A /* PersonDetailViewDelegate.swift */; };
+		1643649D2180ACAD00B1A50A /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643649C2180ACAD00B1A50A /* PersonDetailViewModel.swift */; };
+		164364A02180B57B00B1A50A /* ListingPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643649F2180B57B00B1A50A /* ListingPersonController.swift */; };
+		164364A22180B58200B1A50A /* ListingPersonController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164364A12180B58200B1A50A /* ListingPersonController.storyboard */; };
+		164364A72180BBBB00B1A50A /* SearchOwnedListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364A62180BBBB00B1A50A /* SearchOwnedListController.swift */; };
+		164364A92180BBC400B1A50A /* SearchOwnedListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164364A82180BBC400B1A50A /* SearchOwnedListController.storyboard */; };
+		164364AB2180BBD000B1A50A /* SearchOwnedListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364AA2180BBD000B1A50A /* SearchOwnedListViewDelegate.swift */; };
+		164364AD2180BBDA00B1A50A /* SearchOwnedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364AC2180BBDA00B1A50A /* SearchOwnedListViewModel.swift */; };
+		164364B02180BDA700B1A50A /* OwnedListDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364AF2180BDA700B1A50A /* OwnedListDetailController.swift */; };
+		164364B22180BDAF00B1A50A /* OwnedListDetailController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164364B12180BDAF00B1A50A /* OwnedListDetailController.storyboard */; };
+		164364B42180BDBB00B1A50A /* OwnedListDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364B32180BDBB00B1A50A /* OwnedListDetailViewModel.swift */; };
+		164364B62180BDC400B1A50A /* OwnedListDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364B52180BDC400B1A50A /* OwnedListDetailViewDelegate.swift */; };
+		164364B92180C11500B1A50A /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364B72180C11500B1A50A /* ShareCell.swift */; };
+		164364BA2180C11500B1A50A /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 164364B82180C11500B1A50A /* ShareCell.xib */; };
 		16441DE8217F3EA9001D1199 /* SearchPropertyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16441DE7217F3EA9001D1199 /* SearchPropertyController.swift */; };
 		16441DEA217F3F16001D1199 /* SearchPropertyController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16441DE9217F3F16001D1199 /* SearchPropertyController.storyboard */; };
 		16441DEC217F40A9001D1199 /* SearchPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16441DEB217F40A9001D1199 /* SearchPropertyViewModel.swift */; };
@@ -49,7 +67,6 @@
 		169B68A9217FAAF1003BE2B9 /* PropertyDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68A8217FAAF1003BE2B9 /* PropertyDetailController.swift */; };
 		169B68AB217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68AA217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift */; };
 		169B68AD217FAB07003BE2B9 /* PropertyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68AC217FAB07003BE2B9 /* PropertyDetailViewModel.swift */; };
-		169B68AF217FAC73003BE2B9 /* SharePersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169B68AE217FAC73003BE2B9 /* SharePersonCell.swift */; };
 		169BC65721725262005C1696 /* AVLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65521725262005C1696 /* AVLNode.swift */; };
 		169BC65821725262005C1696 /* AVLTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65621725262005C1696 /* AVLTree.swift */; };
 		169BC65B21725771005C1696 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169BC65A21725771005C1696 /* Stack.swift */; };
@@ -100,6 +117,24 @@
 		161822F2217BC1FE000666D4 /* UpdateOptionsController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateOptionsController.storyboard; sourceTree = "<group>"; };
 		161822F4217BC20A000666D4 /* UpdateOptionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewDelegate.swift; sourceTree = "<group>"; };
 		161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsViewModel.swift; sourceTree = "<group>"; };
+		164364912180AAAE00B1A50A /* SearchPersonController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPersonController.storyboard; sourceTree = "<group>"; };
+		164364932180AB0D00B1A50A /* SearchPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPersonController.swift; sourceTree = "<group>"; };
+		164364962180AC8E00B1A50A /* PersonDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailController.swift; sourceTree = "<group>"; };
+		164364982180AC9600B1A50A /* PersonDetailController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonDetailController.storyboard; sourceTree = "<group>"; };
+		1643649A2180ACA300B1A50A /* PersonDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewDelegate.swift; sourceTree = "<group>"; };
+		1643649C2180ACAD00B1A50A /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
+		1643649F2180B57B00B1A50A /* ListingPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPersonController.swift; sourceTree = "<group>"; };
+		164364A12180B58200B1A50A /* ListingPersonController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListingPersonController.storyboard; sourceTree = "<group>"; };
+		164364A62180BBBB00B1A50A /* SearchOwnedListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOwnedListController.swift; sourceTree = "<group>"; };
+		164364A82180BBC400B1A50A /* SearchOwnedListController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchOwnedListController.storyboard; sourceTree = "<group>"; };
+		164364AA2180BBD000B1A50A /* SearchOwnedListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOwnedListViewDelegate.swift; sourceTree = "<group>"; };
+		164364AC2180BBDA00B1A50A /* SearchOwnedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOwnedListViewModel.swift; sourceTree = "<group>"; };
+		164364AF2180BDA700B1A50A /* OwnedListDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedListDetailController.swift; sourceTree = "<group>"; };
+		164364B12180BDAF00B1A50A /* OwnedListDetailController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OwnedListDetailController.storyboard; sourceTree = "<group>"; };
+		164364B32180BDBB00B1A50A /* OwnedListDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedListDetailViewModel.swift; sourceTree = "<group>"; };
+		164364B52180BDC400B1A50A /* OwnedListDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedListDetailViewDelegate.swift; sourceTree = "<group>"; };
+		164364B72180C11500B1A50A /* ShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCell.swift; sourceTree = "<group>"; };
+		164364B82180C11500B1A50A /* ShareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShareCell.xib; sourceTree = "<group>"; };
 		16441DE7217F3EA9001D1199 /* SearchPropertyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPropertyController.swift; sourceTree = "<group>"; };
 		16441DE9217F3F16001D1199 /* SearchPropertyController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPropertyController.storyboard; sourceTree = "<group>"; };
 		16441DEB217F40A9001D1199 /* SearchPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPropertyViewModel.swift; sourceTree = "<group>"; };
@@ -138,7 +173,6 @@
 		169B68A8217FAAF1003BE2B9 /* PropertyDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailController.swift; sourceTree = "<group>"; };
 		169B68AA217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewDelegate.swift; sourceTree = "<group>"; };
 		169B68AC217FAB07003BE2B9 /* PropertyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewModel.swift; sourceTree = "<group>"; };
-		169B68AE217FAC73003BE2B9 /* SharePersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePersonCell.swift; sourceTree = "<group>"; };
 		169BC65521725262005C1696 /* AVLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLNode.swift; sourceTree = "<group>"; };
 		169BC65621725262005C1696 /* AVLTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVLTree.swift; sourceTree = "<group>"; };
 		169BC65A21725771005C1696 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -226,6 +260,59 @@
 				161822F6217BC21D000666D4 /* UpdateOptionsViewModel.swift */,
 			);
 			name = UpdateOptions;
+			sourceTree = "<group>";
+		};
+		1643648E2180AA7700B1A50A /* SearchPerson */ = {
+			isa = PBXGroup;
+			children = (
+				164364952180AB6500B1A50A /* SearchPersonDetail */,
+				164364912180AAAE00B1A50A /* SearchPersonController.storyboard */,
+				164364932180AB0D00B1A50A /* SearchPersonController.swift */,
+			);
+			name = SearchPerson;
+			sourceTree = "<group>";
+		};
+		164364952180AB6500B1A50A /* SearchPersonDetail */ = {
+			isa = PBXGroup;
+			children = (
+				164364962180AC8E00B1A50A /* PersonDetailController.swift */,
+				164364982180AC9600B1A50A /* PersonDetailController.storyboard */,
+				1643649A2180ACA300B1A50A /* PersonDetailViewDelegate.swift */,
+				1643649C2180ACAD00B1A50A /* PersonDetailViewModel.swift */,
+			);
+			name = SearchPersonDetail;
+			sourceTree = "<group>";
+		};
+		1643649E2180B53D00B1A50A /* ListingPersons */ = {
+			isa = PBXGroup;
+			children = (
+				1643649F2180B57B00B1A50A /* ListingPersonController.swift */,
+				164364A12180B58200B1A50A /* ListingPersonController.storyboard */,
+			);
+			name = ListingPersons;
+			sourceTree = "<group>";
+		};
+		164364A32180BB8900B1A50A /* SearchOwnedList */ = {
+			isa = PBXGroup;
+			children = (
+				164364AE2180BD8B00B1A50A /* OwnedListDetail */,
+				164364A62180BBBB00B1A50A /* SearchOwnedListController.swift */,
+				164364A82180BBC400B1A50A /* SearchOwnedListController.storyboard */,
+				164364AA2180BBD000B1A50A /* SearchOwnedListViewDelegate.swift */,
+				164364AC2180BBDA00B1A50A /* SearchOwnedListViewModel.swift */,
+			);
+			name = SearchOwnedList;
+			sourceTree = "<group>";
+		};
+		164364AE2180BD8B00B1A50A /* OwnedListDetail */ = {
+			isa = PBXGroup;
+			children = (
+				164364AF2180BDA700B1A50A /* OwnedListDetailController.swift */,
+				164364B12180BDAF00B1A50A /* OwnedListDetailController.storyboard */,
+				164364B32180BDBB00B1A50A /* OwnedListDetailViewModel.swift */,
+				164364B52180BDC400B1A50A /* OwnedListDetailViewDelegate.swift */,
+			);
+			name = OwnedListDetail;
 			sourceTree = "<group>";
 		};
 		1654973D21634FF400D423FC = {
@@ -422,6 +509,8 @@
 		168DE4BB217A40B000F68FE4 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				164364A32180BB8900B1A50A /* SearchOwnedList */,
+				1643648E2180AA7700B1A50A /* SearchPerson */,
 				168EE73D217F34A200B4277C /* SearchProperty */,
 				168DE4BC217A40E100F68FE4 /* SearchOptions */,
 			);
@@ -478,7 +567,6 @@
 				169B68A8217FAAF1003BE2B9 /* PropertyDetailController.swift */,
 				169B68AA217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift */,
 				169B68AC217FAB07003BE2B9 /* PropertyDetailViewModel.swift */,
-				169B68AE217FAC73003BE2B9 /* SharePersonCell.swift */,
 			);
 			name = PropertyDetail;
 			sourceTree = "<group>";
@@ -533,6 +621,7 @@
 		16DC2CFD217B8FC90036FA62 /* Listing */ = {
 			isa = PBXGroup;
 			children = (
+				1643649E2180B53D00B1A50A /* ListingPersons */,
 				16D7B8F6217CBDFE00A19243 /* ListingOwnerProperties */,
 				16DC2D1B217BA2900036FA62 /* ListingPropertyByName */,
 				16DC2CFE217B8FEB0036FA62 /* ListingOptions */,
@@ -571,6 +660,8 @@
 				16D7B8FE217CC06400A19243 /* PersonCell.xib */,
 				16D7B903217CC66F00A19243 /* PropertyShareCell.swift */,
 				16D7B904217CC66F00A19243 /* PropertyShareCell.xib */,
+				164364B72180C11500B1A50A /* ShareCell.swift */,
+				164364B82180C11500B1A50A /* ShareCell.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -666,11 +757,15 @@
 				166707BE217B50400033CF43 /* GeneratorController.storyboard in Resources */,
 				168DE4C0217A411A00F68FE4 /* SearchOptionsController.storyboard in Resources */,
 				1654975421634FF500D423FC /* LaunchScreen.storyboard in Resources */,
+				164364A92180BBC400B1A50A /* SearchOwnedListController.storyboard in Resources */,
 				16DC2D1F217BA30D0036FA62 /* FormRegionNameController.storyboard in Resources */,
+				164364922180AAAE00B1A50A /* SearchPersonController.storyboard in Resources */,
 				16D7B906217CC66F00A19243 /* PropertyShareCell.xib in Resources */,
 				167FB9D2217DACD20037A390 /* AddOwnedListController.storyboard in Resources */,
+				164364A22180B58200B1A50A /* ListingPersonController.storyboard in Resources */,
 				16DC2D06217B90280036FA62 /* ListingOptionsController.storyboard in Resources */,
 				16DC2D0D217B96750036FA62 /* ListController.storyboard in Resources */,
+				164364992180AC9600B1A50A /* PersonDetailController.storyboard in Resources */,
 				16D7B900217CC06400A19243 /* PersonCell.xib in Resources */,
 				16D7B90B217CD44300A19243 /* FormChangeShare.storyboard in Resources */,
 				161822F3217BC1FE000666D4 /* UpdateOptionsController.storyboard in Resources */,
@@ -681,7 +776,9 @@
 				16F075CC217DE4160072287E /* AddRegionController.storyboard in Resources */,
 				1654976921635A0A00D423FC /* TestStructureController.storyboard in Resources */,
 				16DC2D16217B9C560036FA62 /* PropertyCell.xib in Resources */,
+				164364B22180BDAF00B1A50A /* OwnedListDetailController.storyboard in Resources */,
 				16441DEA217F3F16001D1199 /* SearchPropertyController.storyboard in Resources */,
+				164364BA2180C11500B1A50A /* ShareCell.xib in Resources */,
 				16DC2D1A217BA1240036FA62 /* RegionCell.xib in Resources */,
 				167FB9D7217DB4550037A390 /* AddPropertyToOwnListController.storyboard in Resources */,
 				16D7B8FA217CBE4500A19243 /* FormOwnerPropertiesController.storyboard in Resources */,
@@ -751,6 +848,7 @@
 				16D7B8F8217CBE3E00A19243 /* FormOwnerPropertiesController.swift in Sources */,
 				1654974C21634FF400D423FC /* TestStructureController.swift in Sources */,
 				161822F7217BC21D000666D4 /* UpdateOptionsViewModel.swift in Sources */,
+				164364B42180BDBB00B1A50A /* OwnedListDetailViewModel.swift in Sources */,
 				168DE4C2217A412500F68FE4 /* SearchOptionsViewDelegate.swift in Sources */,
 				16D7B902217CC10B00A19243 /* Formatters.swift in Sources */,
 				161822F1217BC1F6000666D4 /* UpdateOptionsController.swift in Sources */,
@@ -758,6 +856,7 @@
 				169BC65721725262005C1696 /* AVLNode.swift in Sources */,
 				168DE4C4217A412F00F68FE4 /* SearchOptionsViewModel.swift in Sources */,
 				1654974A21634FF400D423FC /* AppDelegate.swift in Sources */,
+				1643649D2180ACAD00B1A50A /* PersonDetailViewModel.swift in Sources */,
 				16DC2CFC217B89EA0036FA62 /* Constants.swift in Sources */,
 				169BC65B21725771005C1696 /* Stack.swift in Sources */,
 				16DC2D11217B96880036FA62 /* ListViewDelegate.swift in Sources */,
@@ -767,23 +866,31 @@
 				168DE4BE217A410E00F68FE4 /* SearchOptionsController.swift in Sources */,
 				16D7B910217CD75100A19243 /* ConfirmNewSharesViewDelegate.swift in Sources */,
 				169B68AD217FAB07003BE2B9 /* PropertyDetailViewModel.swift in Sources */,
+				164364B62180BDC400B1A50A /* OwnedListDetailViewDelegate.swift in Sources */,
 				16DC2D0B217B966E0036FA62 /* ListController.swift in Sources */,
+				164364A72180BBBB00B1A50A /* SearchOwnedListController.swift in Sources */,
 				1660437621739E4E00333CD8 /* Errors.swift in Sources */,
+				164364A02180B57B00B1A50A /* ListingPersonController.swift in Sources */,
 				16D7B914217CD87000A19243 /* EditShareCell.swift in Sources */,
+				164364B92180C11500B1A50A /* ShareCell.swift in Sources */,
 				167FB9D0217DACC50037A390 /* AddOwnedListController.swift in Sources */,
 				169BC65E21737E98005C1696 /* Person.swift in Sources */,
+				164364AB2180BBD000B1A50A /* SearchOwnedListViewDelegate.swift in Sources */,
 				160F0F2F2177707800782AF9 /* Protocols.swift in Sources */,
 				16D7B909217CD43900A19243 /* FormChangeShare.swift in Sources */,
 				16D7B912217CD75A00A19243 /* ConfirmNewSharesViewModel.swift in Sources */,
 				168DE4C8217A415900F68FE4 /* OptionCell.swift in Sources */,
 				16DC2D1D217BA3040036FA62 /* FormRegionNameController.swift in Sources */,
+				164364972180AC8E00B1A50A /* PersonDetailController.swift in Sources */,
 				16DC2D04217B90120036FA62 /* ListingOptionsViewModel.swift in Sources */,
+				164364942180AB0D00B1A50A /* SearchPersonController.swift in Sources */,
 				16C1EED8217A0722009CEFF5 /* DataSeeder.swift in Sources */,
 				16441DEE217F40B0001D1199 /* SearchPropertyViewDelegate.swift in Sources */,
 				166707B4217B44370033CF43 /* Share.swift in Sources */,
 				166707C2217B505B0033CF43 /* GeneratorViewModel.swift in Sources */,
 				167FB9CB217D9F7C0037A390 /* AddPersonController.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,
+				164364AD2180BBDA00B1A50A /* SearchOwnedListViewModel.swift in Sources */,
 				16DC2D19217BA1240036FA62 /* RegionCell.swift in Sources */,
 				169B68AB217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift in Sources */,
 				16D7B8FF217CC06400A19243 /* PersonCell.swift in Sources */,
@@ -804,7 +911,8 @@
 				167FB9D5217DB44C0037A390 /* AddPropertyToOwnListController.swift in Sources */,
 				161822F5217BC20A000666D4 /* UpdateOptionsViewDelegate.swift in Sources */,
 				1660437021738DD500333CD8 /* NameStorage.swift in Sources */,
-				169B68AF217FAC73003BE2B9 /* SharePersonCell.swift in Sources */,
+				164364B02180BDA700B1A50A /* OwnedListDetailController.swift in Sources */,
+				1643649B2180ACA300B1A50A /* PersonDetailViewDelegate.swift in Sources */,
 				169BC65821725262005C1696 /* AVLTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

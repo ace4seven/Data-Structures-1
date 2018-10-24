@@ -44,6 +44,8 @@
                     <connections>
                         <outlet property="tableView" destination="Vtc-VT-MNa" id="AgJ-yT-m0h"/>
                         <segue destination="znR-rA-1jt" kind="show" identifier="SearchPropertyController" id="GAU-OI-DKY"/>
+                        <segue destination="JoK-9b-8h3" kind="show" identifier="SearchPersonController" id="MmL-dk-uG0"/>
+                        <segue destination="Jew-UT-EHH" kind="show" identifier="SearchOwnedListController" id="02H-pT-laN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w6k-BL-kJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,7 +90,23 @@
                 <viewControllerPlaceholder storyboardName="SearchPropertyController" id="znR-rA-1jt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mW-KM-J2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="-601"/>
+            <point key="canvasLocation" x="1510" y="-780"/>
+        </scene>
+        <!--SearchPersonController-->
+        <scene sceneID="adc-5C-7B3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchPersonController" id="JoK-9b-8h3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uwu-NQ-LTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="-739"/>
+        </scene>
+        <!--SearchOwnedListController-->
+        <scene sceneID="T1Z-Kx-LUM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchOwnedListController" id="Jew-UT-EHH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWT-hr-g5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="-589"/>
         </scene>
     </scenes>
     <resources>

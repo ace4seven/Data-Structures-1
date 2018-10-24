@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CXj-Kk-nZK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Owned List Controller-->
+        <scene sceneID="QCG-Wf-KFK">
+            <objects>
+                <viewController id="CXj-Kk-nZK" customClass="SearchOwnedListController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MP0-Mn-E7K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="etR-GK-hNW">
+                                <rect key="frame" x="15" y="40" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Názov ID katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmB-OX-SO2">
+                                        <rect key="frame" x="33" y="0.0" width="279.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="plG-3f-kxg">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="plG-3f-kxg" secondAttribute="trailing" id="4mv-8a-jCA"/>
+                                    <constraint firstItem="plG-3f-kxg" firstAttribute="leading" secondItem="etR-GK-hNW" secondAttribute="leading" id="gSo-ua-Ioj"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mew-gO-KeZ">
+                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TTe-KF-s8E"/>
+                                </constraints>
+                                <state key="normal" title="Vyhľadať nehnuteľnosť">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="CXj-Kk-nZK" eventType="touchUpInside" id="lBc-O0-hB6"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="epX-zd-Org">
+                                <rect key="frame" x="15" y="129.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Číslo listu vlastníctva" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzu-uM-v0v">
+                                        <rect key="frame" x="77.5" y="0.0" width="190.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GIk-g4-ots">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GIk-g4-ots" secondAttribute="trailing" id="B29-1i-tSp"/>
+                                    <constraint firstItem="GIk-g4-ots" firstAttribute="leading" secondItem="epX-zd-Org" secondAttribute="leading" id="xM2-F1-Piy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QkD-jp-FKR" firstAttribute="trailing" secondItem="etR-GK-hNW" secondAttribute="trailing" constant="15" id="2hM-x4-TaO"/>
+                            <constraint firstItem="QkD-jp-FKR" firstAttribute="bottom" secondItem="mew-gO-KeZ" secondAttribute="bottom" id="95g-fU-7pe"/>
+                            <constraint firstItem="etR-GK-hNW" firstAttribute="top" secondItem="QkD-jp-FKR" secondAttribute="top" constant="20" id="K8C-Rc-E8m"/>
+                            <constraint firstItem="QkD-jp-FKR" firstAttribute="trailing" secondItem="epX-zd-Org" secondAttribute="trailing" constant="15" id="Q19-pr-vh8"/>
+                            <constraint firstItem="mew-gO-KeZ" firstAttribute="leading" secondItem="QkD-jp-FKR" secondAttribute="leading" id="XiP-2t-BJo"/>
+                            <constraint firstItem="epX-zd-Org" firstAttribute="leading" secondItem="QkD-jp-FKR" secondAttribute="leading" constant="15" id="iJa-HI-yVW"/>
+                            <constraint firstItem="epX-zd-Org" firstAttribute="top" secondItem="etR-GK-hNW" secondAttribute="bottom" constant="20" id="ptj-mM-f7o"/>
+                            <constraint firstItem="mew-gO-KeZ" firstAttribute="trailing" secondItem="QkD-jp-FKR" secondAttribute="trailing" id="q2W-bd-Jbp"/>
+                            <constraint firstItem="etR-GK-hNW" firstAttribute="leading" secondItem="QkD-jp-FKR" secondAttribute="leading" constant="15" id="ytQ-B6-uzb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QkD-jp-FKR"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gZ8-Km-sFo"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ownedListIDTextField" destination="GIk-g4-ots" id="3Oq-SH-TV6"/>
+                        <outlet property="retionOrNameTextfield" destination="plG-3f-kxg" id="XrK-Dm-XUq"/>
+                        <outlet property="searchRegionTitle" destination="xmB-OX-SO2" id="DEx-et-pcy"/>
+                        <segue destination="u4H-xy-Bao" kind="show" identifier="OwnedListDetailController" id="6dK-d4-grg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1W-7I-vJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+        <!--OwnedListDetailController-->
+        <scene sceneID="9ed-fa-oip">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OwnedListDetailController" id="u4H-xy-Bao" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HqU-95-4bm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1535" y="35"/>
+        </scene>
+    </scenes>
+</document>

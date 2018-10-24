@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KtK-LE-oDe">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Listing Person Controller-->
+        <scene sceneID="MWT-Ac-Npo">
+            <objects>
+                <viewController id="KtK-LE-oDe" customClass="ListingPersonController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bEp-bh-5UK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="61c-Fn-05d">
+                                <rect key="frame" x="15" y="40" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Čislo katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIP-aq-6ny">
+                                        <rect key="frame" x="51" y="0.0" width="243.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FcL-WN-9YR">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FcL-WN-9YR" secondAttribute="trailing" id="VcI-4z-9ee"/>
+                                    <constraint firstItem="FcL-WN-9YR" firstAttribute="leading" secondItem="61c-Fn-05d" secondAttribute="leading" id="qOg-KJ-qLN"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9D-Xy-1BI">
+                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Lgt-GZ-sbI"/>
+                                </constraints>
+                                <state key="normal" title="Vypísanie osôb">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="KtK-LE-oDe" eventType="touchUpInside" id="q6N-Ua-8bI"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-js-yty">
+                                <rect key="frame" x="15" y="129.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Súpisné číslo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnm-ww-gj9">
+                                        <rect key="frame" x="112.5" y="0.0" width="120" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Yd-tU-I3N">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5Yd-tU-I3N" firstAttribute="leading" secondItem="eC4-js-yty" secondAttribute="leading" id="MCc-lb-zMf"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Yd-tU-I3N" secondAttribute="trailing" id="tKb-5f-Smp"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vkc-gb-9KT">
+                                <rect key="frame" x="15" y="214" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Číslo listu vlastníctva" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtB-aY-tqJ">
+                                        <rect key="frame" x="77.5" y="0.0" width="190.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k0Y-vg-Avk">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="k0Y-vg-Avk" firstAttribute="leading" secondItem="vkc-gb-9KT" secondAttribute="leading" id="AYb-fW-MUR"/>
+                                    <constraint firstAttribute="trailing" secondItem="k0Y-vg-Avk" secondAttribute="trailing" id="YpM-vn-g1h"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vkc-gb-9KT" firstAttribute="leading" secondItem="GN0-GK-aqk" secondAttribute="leading" constant="15" id="30g-bU-W62"/>
+                            <constraint firstItem="61c-Fn-05d" firstAttribute="top" secondItem="GN0-GK-aqk" secondAttribute="top" constant="20" id="5J9-Jt-IN7"/>
+                            <constraint firstItem="eC4-js-yty" firstAttribute="leading" secondItem="GN0-GK-aqk" secondAttribute="leading" constant="15" id="5sf-cU-SDp"/>
+                            <constraint firstItem="GN0-GK-aqk" firstAttribute="bottom" secondItem="a9D-Xy-1BI" secondAttribute="bottom" id="AWe-d4-kAW"/>
+                            <constraint firstItem="a9D-Xy-1BI" firstAttribute="leading" secondItem="GN0-GK-aqk" secondAttribute="leading" id="CXf-Zj-XVT"/>
+                            <constraint firstItem="vkc-gb-9KT" firstAttribute="top" secondItem="eC4-js-yty" secondAttribute="bottom" constant="15" id="Ein-FA-nBZ"/>
+                            <constraint firstItem="eC4-js-yty" firstAttribute="top" secondItem="61c-Fn-05d" secondAttribute="bottom" constant="20" id="Id6-T4-J3t"/>
+                            <constraint firstItem="GN0-GK-aqk" firstAttribute="trailing" secondItem="61c-Fn-05d" secondAttribute="trailing" constant="15" id="Lt7-v8-aUZ"/>
+                            <constraint firstItem="61c-Fn-05d" firstAttribute="leading" secondItem="GN0-GK-aqk" secondAttribute="leading" constant="15" id="Vvo-ay-MRG"/>
+                            <constraint firstItem="GN0-GK-aqk" firstAttribute="trailing" secondItem="eC4-js-yty" secondAttribute="trailing" constant="15" id="buy-5j-2Ex"/>
+                            <constraint firstItem="a9D-Xy-1BI" firstAttribute="trailing" secondItem="GN0-GK-aqk" secondAttribute="trailing" id="cxL-NB-tZK"/>
+                            <constraint firstItem="GN0-GK-aqk" firstAttribute="trailing" secondItem="vkc-gb-9KT" secondAttribute="trailing" constant="15" id="gwY-XM-uo6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GN0-GK-aqk"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="f9G-M7-hAo"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ownedListIDTextField" destination="k0Y-vg-Avk" id="hcy-O7-L6K"/>
+                        <outlet property="propertyIDTextField" destination="5Yd-tU-I3N" id="H3V-sd-fgF"/>
+                        <outlet property="regionIDTextField" destination="FcL-WN-9YR" id="0YL-8k-zaY"/>
+                        <segue destination="gbP-0X-cpp" kind="show" identifier="ListController" id="XVN-yB-zrA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XRU-5z-gUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+        <!--ListController-->
+        <scene sceneID="8Ah-vF-1xe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListController" id="gbP-0X-cpp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KYG-pI-Lwq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1540" y="35"/>
+        </scene>
+    </scenes>
+</document>

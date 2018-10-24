@@ -1,14 +1,14 @@
 //
-//  SharePersonCell.swift
+//  ShareCell.swift
 //  uds_avl_tree
 //
-//  Created by Juraj Macák on 10/23/18.
+//  Created by Juraj Macák on 10/24/18.
 //  Copyright © 2018 Juraj Macák. All rights reserved.
 //
 
 import UIKit
 
-class SharePersonCell: UITableViewCell {
+class ShareCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var shareLabel: UILabel!
@@ -17,5 +17,5 @@ class SharePersonCell: UITableViewCell {
         self.nameLabel.text = share.person.fullName
         self.shareLabel.text = "\(share.shareCount.roundString(makePercent: true)) %"
     }
-
+    
 }
