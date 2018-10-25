@@ -103,7 +103,7 @@
         <!--Property Detail Controller-->
         <scene sceneID="ebJ-Cz-ooQ">
             <objects>
-                <viewController id="YkN-JF-yqk" customClass="PropertyDetailController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PropertyDetailCo" id="YkN-JF-yqk" customClass="PropertyDetailController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NgU-eK-bQu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

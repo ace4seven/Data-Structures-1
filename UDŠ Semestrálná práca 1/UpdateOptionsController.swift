@@ -67,6 +67,8 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch items[indexPath.row] {
+        case .task10:
+            performSegue(withIdentifier: String(describing: PersonNewHomeController.self), sender: nil)
         case .task12:
             performSegue(withIdentifier: String(describing: FormChangeShare.self), sender: nil)
         case .task16:

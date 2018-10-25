@@ -77,7 +77,7 @@
         <!--Person Detail Controller-->
         <scene sceneID="BJO-RV-64p">
             <objects>
-                <viewController id="4Qd-4x-f0R" customClass="PersonDetailController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PersonDetailController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Qd-4x-f0R" customClass="PersonDetailController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EOI-eM-4QG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

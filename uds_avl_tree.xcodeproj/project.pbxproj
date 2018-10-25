@@ -16,7 +16,6 @@
 		164364922180AAAE00B1A50A /* SearchPersonController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164364912180AAAE00B1A50A /* SearchPersonController.storyboard */; };
 		164364942180AB0D00B1A50A /* SearchPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364932180AB0D00B1A50A /* SearchPersonController.swift */; };
 		164364972180AC8E00B1A50A /* PersonDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164364962180AC8E00B1A50A /* PersonDetailController.swift */; };
-		164364992180AC9600B1A50A /* PersonDetailController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164364982180AC9600B1A50A /* PersonDetailController.storyboard */; };
 		1643649B2180ACA300B1A50A /* PersonDetailViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643649A2180ACA300B1A50A /* PersonDetailViewDelegate.swift */; };
 		1643649D2180ACAD00B1A50A /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643649C2180ACAD00B1A50A /* PersonDetailViewModel.swift */; };
 		164364A02180B57B00B1A50A /* ListingPersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1643649F2180B57B00B1A50A /* ListingPersonController.swift */; };
@@ -47,6 +46,8 @@
 		1660437621739E4E00333CD8 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660437521739E4E00333CD8 /* Errors.swift */; };
 		16664E372181D88A00B6EADA /* ListingOwnerPropertiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16664E362181D88A00B6EADA /* ListingOwnerPropertiesController.swift */; };
 		16664E392181D92500B6EADA /* ListingOwnerPropertiesController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16664E382181D92500B6EADA /* ListingOwnerPropertiesController.storyboard */; };
+		16664E3C2181E0E300B6EADA /* PersonNewHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16664E3B2181E0E300B6EADA /* PersonNewHomeController.swift */; };
+		16664E3E2181E0EA00B6EADA /* PersonNewHomeController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16664E3D2181E0EA00B6EADA /* PersonNewHomeController.storyboard */; };
 		166707B2217B36BF0033CF43 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B1217B36BF0033CF43 /* Option.swift */; };
 		166707B4217B44370033CF43 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B3217B44370033CF43 /* Share.swift */; };
 		166707B7217B4CD70033CF43 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166707B6217B4CD70033CF43 /* SettingsController.swift */; };
@@ -123,7 +124,6 @@
 		164364912180AAAE00B1A50A /* SearchPersonController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPersonController.storyboard; sourceTree = "<group>"; };
 		164364932180AB0D00B1A50A /* SearchPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPersonController.swift; sourceTree = "<group>"; };
 		164364962180AC8E00B1A50A /* PersonDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailController.swift; sourceTree = "<group>"; };
-		164364982180AC9600B1A50A /* PersonDetailController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonDetailController.storyboard; sourceTree = "<group>"; };
 		1643649A2180ACA300B1A50A /* PersonDetailViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewDelegate.swift; sourceTree = "<group>"; };
 		1643649C2180ACAD00B1A50A /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
 		1643649F2180B57B00B1A50A /* ListingPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingPersonController.swift; sourceTree = "<group>"; };
@@ -156,6 +156,8 @@
 		1660437521739E4E00333CD8 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		16664E362181D88A00B6EADA /* ListingOwnerPropertiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingOwnerPropertiesController.swift; sourceTree = "<group>"; };
 		16664E382181D92500B6EADA /* ListingOwnerPropertiesController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ListingOwnerPropertiesController.storyboard; sourceTree = "<group>"; };
+		16664E3B2181E0E300B6EADA /* PersonNewHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonNewHomeController.swift; sourceTree = "<group>"; };
+		16664E3D2181E0EA00B6EADA /* PersonNewHomeController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonNewHomeController.storyboard; sourceTree = "<group>"; };
 		166707B1217B36BF0033CF43 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		166707B3217B44370033CF43 /* Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		166707B6217B4CD70033CF43 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		161822EF217BC1CD000666D4 /* ChangeUpdate */ = {
 			isa = PBXGroup;
 			children = (
+				16664E3A2181E0C200B6EADA /* PersonNewHome */,
 				16F075C8217DE3C50072287E /* AddRegion */,
 				167FB9D3217DB42A0037A390 /* AddPropertyToOwnList */,
 				167FB9CE217DACAE0037A390 /* AddOwnerList */,
@@ -282,7 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				164364962180AC8E00B1A50A /* PersonDetailController.swift */,
-				164364982180AC9600B1A50A /* PersonDetailController.storyboard */,
 				1643649A2180ACA300B1A50A /* PersonDetailViewDelegate.swift */,
 				1643649C2180ACAD00B1A50A /* PersonDetailViewModel.swift */,
 			);
@@ -471,6 +473,15 @@
 				16664E382181D92500B6EADA /* ListingOwnerPropertiesController.storyboard */,
 			);
 			name = ListingOwnerProperties;
+			sourceTree = "<group>";
+		};
+		16664E3A2181E0C200B6EADA /* PersonNewHome */ = {
+			isa = PBXGroup;
+			children = (
+				16664E3B2181E0E300B6EADA /* PersonNewHomeController.swift */,
+				16664E3D2181E0EA00B6EADA /* PersonNewHomeController.storyboard */,
+			);
+			name = PersonNewHome;
 			sourceTree = "<group>";
 		};
 		166707B5217B4B5E0033CF43 /* Settings */ = {
@@ -791,7 +802,6 @@
 				164364A22180B58200B1A50A /* ListingPersonController.storyboard in Resources */,
 				16DC2D06217B90280036FA62 /* ListingOptionsController.storyboard in Resources */,
 				16DC2D0D217B96750036FA62 /* ListController.storyboard in Resources */,
-				164364992180AC9600B1A50A /* PersonDetailController.storyboard in Resources */,
 				16D7B900217CC06400A19243 /* PersonCell.xib in Resources */,
 				16D7B90B217CD44300A19243 /* FormChangeShare.storyboard in Resources */,
 				161822F3217BC1FE000666D4 /* UpdateOptionsController.storyboard in Resources */,
@@ -805,6 +815,7 @@
 				164364B22180BDAF00B1A50A /* OwnedListDetailController.storyboard in Resources */,
 				16441DEA217F3F16001D1199 /* SearchPropertyController.storyboard in Resources */,
 				164364BA2180C11500B1A50A /* ShareCell.xib in Resources */,
+				16664E3E2181E0EA00B6EADA /* PersonNewHomeController.storyboard in Resources */,
 				16DC2D1A217BA1240036FA62 /* RegionCell.xib in Resources */,
 				167FB9D7217DB4550037A390 /* AddPropertyToOwnListController.storyboard in Resources */,
 				16D7B8FA217CBE4500A19243 /* FormOwnerPropertiesController.storyboard in Resources */,
@@ -913,6 +924,7 @@
 				16C1EED8217A0722009CEFF5 /* DataSeeder.swift in Sources */,
 				16441DEE217F40B0001D1199 /* SearchPropertyViewDelegate.swift in Sources */,
 				166707B4217B44370033CF43 /* Share.swift in Sources */,
+				16664E3C2181E0E300B6EADA /* PersonNewHomeController.swift in Sources */,
 				166707C2217B505B0033CF43 /* GeneratorViewModel.swift in Sources */,
 				167FB9CB217D9F7C0037A390 /* AddPersonController.swift in Sources */,
 				169BC66421737FEC005C1696 /* OwnedList.swift in Sources */,

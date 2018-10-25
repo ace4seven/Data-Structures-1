@@ -88,6 +88,23 @@ extension Database {
     
     // MARK: - Data modificators
     
+    func changeAddHome(for personID: String, regionName: String, propertyID: UInt) -> Person? { // TASK 10
+        guard let person = _persons.findBy(element: Person(id: personID)) else {
+            return nil
+        }
+        
+        guard let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) else {
+            return nil
+        }
+        
+        guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
+            return nil
+        }
+        
+        person.setHome(property: property)
+        return person
+    }
+    
     func addPerson(personalID: String, name: String, surname: String, dateOfBirth: Int) -> Bool {
         return _persons.insert(Person(id: personalID, firstName: name, lastName: surname, dateOfBirth: dateOfBirth))
     }
