@@ -13,8 +13,10 @@ class SettingsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.contentInset.top = 10
+        tableView.contentInset.top = 15
         title = "Nastavenia"
+        
+        tableView.tableFooterView = UIView(frame: .zero)
     }
 
 }

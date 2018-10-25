@@ -33,7 +33,15 @@ class OptionCell: UITableViewCell {
         taskWrapper.backgroundColor = .secondary
         icoImageView.tintColor = .white
         
+        selectionStyle = .none
+    }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        if highlighted {
+            cellWrapper.backgroundColor = .gray
+        } else {
+            cellWrapper.backgroundColor = .primary
+        }
     }
     
 }

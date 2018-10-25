@@ -39,6 +39,7 @@
                         <segue destination="pVI-gv-16L" kind="show" identifier="FormRegionNameController" id="lxx-OL-n0T"/>
                         <segue destination="yc3-Bo-fwB" kind="show" identifier="FormOwnerPropertiesController" id="kG4-wo-Fzc"/>
                         <segue destination="Ygi-VL-sa8" kind="show" identifier="ListingPersonController" id="ZdV-zU-MXa"/>
+                        <segue destination="LFJ-4W-zbo" kind="show" identifier="ListingOwnerPropertiesController" id="CGJ-AW-bAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZP-Ds-Tdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,6 +93,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f60-0O-40l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="843" y="-263"/>
+        </scene>
+        <!--ListingOwnerPropertiesController-->
+        <scene sceneID="awG-kQ-cqb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListingOwnerPropertiesController" id="LFJ-4W-zbo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64F-ji-fQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="807" y="-166"/>
         </scene>
     </scenes>
     <resources>

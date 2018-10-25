@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qqx-GD-MgO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Listing Owner Properties Controller-->
+        <scene sceneID="gr9-I1-iYR">
+            <objects>
+                <viewController id="qqx-GD-MgO" customClass="ListingOwnerPropertiesController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z5E-IP-hdO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BAq-v6-8su">
+                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="i6n-1b-e35"/>
+                                </constraints>
+                                <state key="normal" title="Vypísať nehnuteľnosti">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ListingButtonPressed:" destination="qqx-GD-MgO" eventType="touchUpInside" id="8cm-ni-fkQ"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="8LF-Dc-r1W">
+                                <rect key="frame" x="15" y="120" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rodné číslo občana" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4h-o3-TRi">
+                                        <rect key="frame" x="83.5" y="0.0" width="178" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dWy-sc-iVa">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dWy-sc-iVa" secondAttribute="trailing" id="1pP-tt-2XY"/>
+                                    <constraint firstItem="dWy-sc-iVa" firstAttribute="leading" secondItem="8LF-Dc-r1W" secondAttribute="leading" id="4Lc-Bi-KYw"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BAq-v6-8su" firstAttribute="leading" secondItem="rbl-71-Q5x" secondAttribute="leading" id="0oU-HU-jzC"/>
+                            <constraint firstItem="BAq-v6-8su" firstAttribute="bottom" secondItem="rbl-71-Q5x" secondAttribute="bottom" id="BUd-8j-y3x"/>
+                            <constraint firstItem="rbl-71-Q5x" firstAttribute="trailing" secondItem="8LF-Dc-r1W" secondAttribute="trailing" constant="15" id="a3f-2G-UBc"/>
+                            <constraint firstItem="rbl-71-Q5x" firstAttribute="trailing" secondItem="BAq-v6-8su" secondAttribute="trailing" id="fyE-Az-Gz9"/>
+                            <constraint firstItem="8LF-Dc-r1W" firstAttribute="leading" secondItem="rbl-71-Q5x" secondAttribute="leading" constant="15" id="j3s-Aj-Dcr"/>
+                            <constraint firstItem="8LF-Dc-r1W" firstAttribute="centerX" secondItem="Z5E-IP-hdO" secondAttribute="centerX" id="uXj-e4-sI8"/>
+                            <constraint firstItem="8LF-Dc-r1W" firstAttribute="top" secondItem="rbl-71-Q5x" secondAttribute="top" multiplier="3" constant="60" id="vox-hz-osx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rbl-71-Q5x"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xiv-dx-PkQ">
+                        <barButtonItem key="leftBarButtonItem" title="Občania" image="person_menu_ico" id="4Bz-Hv-AJi"/>
+                        <barButtonItem key="rightBarButtonItem" image="region_menu_ico" id="vc6-Gn-ss3">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="personIDTextField" destination="dWy-sc-iVa" id="TIj-ws-CUI"/>
+                        <segue destination="tot-e4-8Pf" kind="show" identifier="ListController" id="5fo-13-lVU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="elZ-aW-nnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+        <!--ListController-->
+        <scene sceneID="saY-Rl-PaO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListController" id="tot-e4-8Pf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1RM-Yg-rbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1433" y="35"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person_menu_ico" width="25" height="25"/>
+        <image name="region_menu_ico" width="25" height="25"/>
+    </resources>
+</document>

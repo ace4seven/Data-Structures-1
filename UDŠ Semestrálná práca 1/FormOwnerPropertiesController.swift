@@ -56,7 +56,7 @@ class FormOwnerPropertiesController: UIViewController {
             return
         }
         
-        Database.shared.getOwnerProperties(personalID: personalID, regionID: regionID) { [weak self] values in
+        Database.shared.listOwnerProperties(personalID: personalID, regionID: regionID) { [weak self] values in
             guard let properties = values else {
                 self?.indicator.alpha = 0.0
                 self?.indicator.stopAnimating()

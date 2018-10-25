@@ -166,7 +166,27 @@ extension Database {
         return ownedList.addNewOwner(owner: person, share: 0.0)
     }
     
-    func getOwnerProperties(personalID: String, regionID: UInt, completion: @escaping ([PropertyShare]?) -> ()) {
+    func listOwnerProperties(personalID: String, regionID: UInt? = nil) -> [PropertyShare]? { // TASK 9
+        guard let person = _persons.findBy(element: Person(id: personalID)) else {
+            return nil
+        }
+        
+        var result = [PropertyShare]()
+        person.ownedLists.inOrder() { list in
+            guard let share = list.shares.findBy(element: Share(person: person, shareCount: 0)) else {
+                print("Chyba, vlastnik nema nastaveny podiel")
+                return
+            }
+            
+            list.properties.inOrder { property in
+                result.append((property: property, share: share.shareCount))
+            }
+        }
+        
+        return result
+    }
+    
+    func listOwnerProperties(personalID: String, regionID: UInt, completion: @escaping ([PropertyShare]?) -> ()) {
         
         let tempPerson = Person(id: personalID, firstName: "", lastName: "", dateOfBirth: 0)
         guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {

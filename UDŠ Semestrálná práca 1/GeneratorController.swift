@@ -10,6 +10,12 @@ import UIKit
 
 class GeneratorController: UIViewController {
     
+    @IBOutlet weak var regionSliderView: SliderView!
+    @IBOutlet weak var propertySliderview: SliderView!
+    
+    @IBOutlet weak var ownedListSliderView: SliderView!
+    @IBOutlet weak var personSliderView: SliderView!
+    
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var regionTextfield: UITextField!
     @IBOutlet weak var propertiesTextField: UITextField!
@@ -21,25 +27,31 @@ class GeneratorController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        regionSliderView.step = 50
+        propertySliderview.step = 1000
+        ownedListSliderView.step = 100
+        personSliderView.step = 500
 
         hideKeyboardWhenTappedAround()
-        waitingWrapperView.alpha = 0.0
+//        waitingWrapperView.alpha = 0.0
         viewModel.setup(viewDelegate: self)
     }
     
     @IBAction func generateDataButtonPressed(_ sender: Any) {
-        setWrapper {
-            DispatchQueue.main.asyncAfter(seconds: 0.2) { [weak self] in
-                if let regionCount = Int(self?.regionTextfield.text ?? ""), let propertiesCount = Int(self?.propertiesTextField.text ?? ""),
-                    let personsCount = Int(self?.personsTextField.text ?? "") {
-                    self?.viewModel.generateData(regions: regionCount, properties: propertiesCount, persons: personsCount)
-                } else {
-                    self?.indicator.stopAnimating()
-                    self?.waitingWrapperView.alpha = 0.0
-                }
-            }
-        }
+//        setWrapper {
+//            DispatchQueue.main.asyncAfter(seconds: 0.2) { [weak self] in
+//                if let regionCount = Int(self?.regionTextfield.text ?? ""), let propertiesCount = Int(self?.propertiesTextField.text ?? ""),
+//                    let personsCount = Int(self?.personsTextField.text ?? "") {
+//                    self?.viewModel.generateData(regions: regionCount, properties: propertiesCount, persons: personsCount)
+//                } else {
+//                    self?.indicator.stopAnimating()
+//                    self?.waitingWrapperView.alpha = 0.0
+//                }
+//            }
+//        }
         
+        self.viewModel.generateData(regions: 10, properties: 100, persons: 1000)
     }
     
     private func setWrapper(completion: @escaping () -> ()) {
@@ -57,7 +69,6 @@ class GeneratorController: UIViewController {
 extension GeneratorController: GeneratorViewDelegate {
     
     func pop() {
-        indicator.alpha = 0.0
         composeAlert(title: "Úspech", message: "Testovacie dáta boli úspešne vygenerované") { [weak self] _ in
             self?.navigationController?.popToRootViewController(animated: true)
         }
