@@ -29,9 +29,20 @@ class ListingOptionsController: UIViewController {
         title = "Výpisy"
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ListController, let regions = sender as? [Region] {
+            let viewModel = ListViewModel(values: regions.map{ ListType.region($0) })
+            vc.viewModel = viewModel
+        }
+    }
+    
 }
 
 extension ListingOptionsController: ListingOptionsViewDelegate {
+    
+    func goToRegionList(regions: [Region]) {
+        performSegue(withIdentifier: String(describing: ListController.self), sender: regions)
+    }
     
     func showOptions(tasks: [OptionType]) {
         self.items = tasks
@@ -67,6 +78,8 @@ extension ListingOptionsController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: String(describing: FormOwnerPropertiesController.self), sender: nil)
         case .task9:
             performSegue(withIdentifier: String(describing: ListingOwnerPropertiesController.self), sender: nil)
+        case .task15:
+            viewModel.showRegionsOrderedByName()
         default: break
         }
         tableView.deselectRow(at: indexPath, animated: false)

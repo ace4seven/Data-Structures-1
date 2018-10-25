@@ -15,6 +15,11 @@ enum RegionSearchKey {
     case name(String)
 }
 
+enum SortKey {
+    case id
+    case name
+}
+
 typealias OwnedListData = (ownedList: OwnedList, properties: [Property], shares: [Share])
 
 public final class Database { // SINGLETON
@@ -153,6 +158,15 @@ extension Database {
         completion(regions)
     }
     
+    func getRegions(key: SortKey) -> [Region] {
+        switch key {
+        case .id:
+            return _regionsByID.inOrderToArray()
+        case .name:
+            return _regionsByName.inOrderToArray()
+        }
+    }
+    
     func getProperties(regionName: String, completion: @escaping ([Property]?) -> ()) {
         if let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) {
             let properties = region.properties.inOrderToArray()
@@ -160,6 +174,26 @@ extension Database {
             return
         }
         completion(nil)
+    }
+    
+    func deletePersonShare(personID: String, regionID: UInt, ownerListID: UInt) -> OwnedList? { // TASK 13
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            return nil
+        }
+        
+        guard let person = _persons.findBy(element: Person(id: personID)) else {
+            return nil
+        }
+        
+        if let ownedList = person.ownedLists.remove(OwnedList(id: ownerListID, region: region)) {
+            if ownedList.shares.remove(Share(person: person, shareCount: 0.0)) != nil {
+                return ownedList
+            } else {
+                print("Chyba v nastaveni smernika - DELETE PERSON TASK 13")
+            }
+        }
+        
+        return nil
     }
     
     func getOwnerList(regionID: UInt, ownerListID: UInt, completion: @escaping (OwnedList?) -> ()) {

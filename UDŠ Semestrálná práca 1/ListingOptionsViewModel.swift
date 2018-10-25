@@ -22,6 +22,11 @@ extension ListingOptionsViewModel: ListingOptionsVM {
         viewDelegate?.showOptions(tasks: optionTypes())
     }
     
+    func showRegionsOrderedByName() {
+        let regions = Database.shared.getRegions(key: .name)
+        viewDelegate?.goToRegionList(regions: regions)
+    }
+    
 }
 
 extension ListingOptionsViewModel {

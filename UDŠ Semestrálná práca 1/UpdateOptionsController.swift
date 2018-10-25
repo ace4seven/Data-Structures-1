@@ -71,6 +71,8 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: String(describing: PersonNewHomeController.self), sender: nil)
         case .task12:
             performSegue(withIdentifier: String(describing: FormChangeShare.self), sender: nil)
+        case .task13:
+            performSegue(withIdentifier: String(describing: DeleteShareController.self), sender: nil)
         case .task16:
             performSegue(withIdentifier: String(describing: AddPersonController.self), sender: nil)
         case .task17:

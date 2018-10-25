@@ -94,6 +94,8 @@
 		16D7B910217CD75100A19243 /* ConfirmNewSharesViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B90F217CD75100A19243 /* ConfirmNewSharesViewDelegate.swift */; };
 		16D7B912217CD75A00A19243 /* ConfirmNewSharesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B911217CD75A00A19243 /* ConfirmNewSharesViewModel.swift */; };
 		16D7B914217CD87000A19243 /* EditShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D7B913217CD87000A19243 /* EditShareCell.swift */; };
+		16DAB1B32182204C00FD12E9 /* DeleteShareController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DAB1B22182204C00FD12E9 /* DeleteShareController.swift */; };
+		16DAB1B52182205500FD12E9 /* DeleteShareController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16DAB1B42182205500FD12E9 /* DeleteShareController.storyboard */; };
 		16DC2CFC217B89EA0036FA62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC2CFB217B89EA0036FA62 /* Constants.swift */; };
 		16DC2D02217B90090036FA62 /* ListingOptionsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC2D01217B90090036FA62 /* ListingOptionsViewDelegate.swift */; };
 		16DC2D04217B90120036FA62 /* ListingOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DC2D03217B90120036FA62 /* ListingOptionsViewModel.swift */; };
@@ -204,6 +206,8 @@
 		16D7B90F217CD75100A19243 /* ConfirmNewSharesViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNewSharesViewDelegate.swift; sourceTree = "<group>"; };
 		16D7B911217CD75A00A19243 /* ConfirmNewSharesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmNewSharesViewModel.swift; sourceTree = "<group>"; };
 		16D7B913217CD87000A19243 /* EditShareCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditShareCell.swift; sourceTree = "<group>"; };
+		16DAB1B22182204C00FD12E9 /* DeleteShareController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteShareController.swift; sourceTree = "<group>"; };
+		16DAB1B42182205500FD12E9 /* DeleteShareController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeleteShareController.storyboard; sourceTree = "<group>"; };
 		16DC2CFB217B89EA0036FA62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		16DC2D01217B90090036FA62 /* ListingOptionsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingOptionsViewDelegate.swift; sourceTree = "<group>"; };
 		16DC2D03217B90120036FA62 /* ListingOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingOptionsViewModel.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		161822EF217BC1CD000666D4 /* ChangeUpdate */ = {
 			isa = PBXGroup;
 			children = (
+				16DAB1B12182202000FD12E9 /* DeleteShare */,
 				16664E3A2181E0C200B6EADA /* PersonNewHome */,
 				16F075C8217DE3C50072287E /* AddRegion */,
 				167FB9D3217DB42A0037A390 /* AddPropertyToOwnList */,
@@ -653,6 +658,15 @@
 			name = ConfirmNewShares;
 			sourceTree = "<group>";
 		};
+		16DAB1B12182202000FD12E9 /* DeleteShare */ = {
+			isa = PBXGroup;
+			children = (
+				16DAB1B22182204C00FD12E9 /* DeleteShareController.swift */,
+				16DAB1B42182205500FD12E9 /* DeleteShareController.storyboard */,
+			);
+			name = DeleteShare;
+			sourceTree = "<group>";
+		};
 		16DC2CFD217B8FC90036FA62 /* Listing */ = {
 			isa = PBXGroup;
 			children = (
@@ -799,6 +813,7 @@
 				164364922180AAAE00B1A50A /* SearchPersonController.storyboard in Resources */,
 				16D7B906217CC66F00A19243 /* PropertyShareCell.xib in Resources */,
 				167FB9D2217DACD20037A390 /* AddOwnedListController.storyboard in Resources */,
+				16DAB1B52182205500FD12E9 /* DeleteShareController.storyboard in Resources */,
 				164364A22180B58200B1A50A /* ListingPersonController.storyboard in Resources */,
 				16DC2D06217B90280036FA62 /* ListingOptionsController.storyboard in Resources */,
 				16DC2D0D217B96750036FA62 /* ListController.storyboard in Resources */,
@@ -905,6 +920,7 @@
 				169B68AD217FAB07003BE2B9 /* PropertyDetailViewModel.swift in Sources */,
 				164364B62180BDC400B1A50A /* OwnedListDetailViewDelegate.swift in Sources */,
 				16DC2D0B217B966E0036FA62 /* ListController.swift in Sources */,
+				16DAB1B32182204C00FD12E9 /* DeleteShareController.swift in Sources */,
 				164364A72180BBBB00B1A50A /* SearchOwnedListController.swift in Sources */,
 				1660437621739E4E00333CD8 /* Errors.swift in Sources */,
 				164364A02180B57B00B1A50A /* ListingPersonController.swift in Sources */,

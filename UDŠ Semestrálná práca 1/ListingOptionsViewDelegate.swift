@@ -10,8 +10,10 @@ import Foundation
 
 protocol ListingOptionsVM: class {
     func setup(delegate: ListingOptionsViewDelegate)
+    func showRegionsOrderedByName()
 }
 
 protocol ListingOptionsViewDelegate: class {
     func showOptions(tasks: [OptionType])
+    func goToRegionList(regions: [Region])
 }
