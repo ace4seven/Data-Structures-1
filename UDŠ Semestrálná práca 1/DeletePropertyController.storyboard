@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoA-1I-yBx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Delete Property Controller-->
+        <scene sceneID="NGl-r1-BPP">
+            <objects>
+                <viewController id="DoA-1I-yBx" customClass="DeletePropertyController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JFD-Da-S2e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0og-oA-Ptc">
+                                <rect key="frame" x="15" y="209" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popisné číslo nehnuteľností." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDD-h2-334">
+                                        <rect key="frame" x="45" y="0.0" width="255" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D79-Me-rrZ">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="D79-Me-rrZ" firstAttribute="leading" secondItem="0og-oA-Ptc" secondAttribute="leading" id="qKB-hj-su0"/>
+                                    <constraint firstAttribute="trailing" secondItem="D79-Me-rrZ" secondAttribute="trailing" id="x07-wM-ziA"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8n-ZK-Qlp">
+                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="mdU-mD-ngO"/>
+                                </constraints>
+                                <state key="normal" title="Vymazať nehnuteľnosť">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPressed:" destination="DoA-1I-yBx" eventType="touchUpInside" id="WnH-hN-Suj"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D5P-Wh-Reh">
+                                <rect key="frame" x="15" y="109.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Čislo listu vlastníctva" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bw1-oD-eRW">
+                                        <rect key="frame" x="77.5" y="0.0" width="190.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ap-Wm-f9s">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5ap-Wm-f9s" secondAttribute="trailing" id="0iT-BM-0vL"/>
+                                    <constraint firstItem="5ap-Wm-f9s" firstAttribute="leading" secondItem="D5P-Wh-Reh" secondAttribute="leading" id="zUi-GT-0Eo"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="wa3-dN-f50">
+                                <rect key="frame" x="15" y="30" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Číslo katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnx-ZS-YPu">
+                                        <rect key="frame" x="51" y="0.0" width="243.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D42-CT-xJx">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="D42-CT-xJx" secondAttribute="trailing" id="2OQ-Mt-N5g"/>
+                                    <constraint firstItem="D42-CT-xJx" firstAttribute="leading" secondItem="wa3-dN-f50" secondAttribute="leading" id="Q9n-tR-FpQ"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D5P-Wh-Reh" firstAttribute="top" secondItem="wa3-dN-f50" secondAttribute="bottom" constant="10" id="KRj-j4-VMC"/>
+                            <constraint firstItem="q8n-ZK-Qlp" firstAttribute="leading" secondItem="rp2-sH-CEL" secondAttribute="leading" id="T0a-xp-ovj"/>
+                            <constraint firstItem="D5P-Wh-Reh" firstAttribute="leading" secondItem="rp2-sH-CEL" secondAttribute="leading" constant="15" id="TTQ-FC-fem"/>
+                            <constraint firstItem="0og-oA-Ptc" firstAttribute="leading" secondItem="rp2-sH-CEL" secondAttribute="leading" constant="15" id="X8S-2h-6hB"/>
+                            <constraint firstItem="rp2-sH-CEL" firstAttribute="trailing" secondItem="q8n-ZK-Qlp" secondAttribute="trailing" id="a5w-rv-4Z1"/>
+                            <constraint firstItem="rp2-sH-CEL" firstAttribute="trailing" secondItem="0og-oA-Ptc" secondAttribute="trailing" constant="15" id="dYu-SL-i5m"/>
+                            <constraint firstItem="rp2-sH-CEL" firstAttribute="trailing" secondItem="D5P-Wh-Reh" secondAttribute="trailing" constant="15" id="fbX-dZ-beD"/>
+                            <constraint firstItem="rp2-sH-CEL" firstAttribute="bottom" secondItem="q8n-ZK-Qlp" secondAttribute="bottom" id="odI-nk-REc"/>
+                            <constraint firstItem="wa3-dN-f50" firstAttribute="top" secondItem="rp2-sH-CEL" secondAttribute="top" constant="10" id="tRM-xP-SLe"/>
+                            <constraint firstItem="wa3-dN-f50" firstAttribute="leading" secondItem="rp2-sH-CEL" secondAttribute="leading" constant="15" id="xZX-fe-Jc1"/>
+                            <constraint firstItem="rp2-sH-CEL" firstAttribute="trailing" secondItem="wa3-dN-f50" secondAttribute="trailing" constant="15" id="xpp-Ql-HNz"/>
+                            <constraint firstItem="0og-oA-Ptc" firstAttribute="top" secondItem="D5P-Wh-Reh" secondAttribute="bottom" constant="30" id="yex-II-t9Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rp2-sH-CEL"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="ZfH-lL-4jf"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="actionButton" destination="q8n-ZK-Qlp" id="GE8-PD-yzW"/>
+                        <outlet property="ownerListIdTextField" destination="5ap-Wm-f9s" id="uxz-Lz-zMX"/>
+                        <outlet property="properyIDTextField" destination="D79-Me-rrZ" id="Axl-S8-7QJ"/>
+                        <outlet property="regionIDTextfield" destination="D42-CT-xJx" id="5ly-lf-3LH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OPr-mf-v5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+    </scenes>
+</document>

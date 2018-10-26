@@ -95,6 +95,11 @@ extension OwnedList {
         return false
     }
     
+    @discardableResult
+    func removeProperty(property: Property) -> Property? {
+        return self._properties.remove(property)
+    }
+    
     func setRegion(region: Region) {
         self._region = region
     }

@@ -196,6 +196,18 @@ extension Database {
         return nil
     }
     
+    func deletePropertyFromOwnedList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> Property? { // TASK 20
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            return nil
+        }
+        
+        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownedListID, region: region)) else {
+            return nil
+        }
+        
+        return ownedList.removeProperty(property: Property(id: propertyID))
+    }
+    
     func getOwnerList(regionID: UInt, ownerListID: UInt, completion: @escaping (OwnedList?) -> ()) {
         guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             completion(nil)

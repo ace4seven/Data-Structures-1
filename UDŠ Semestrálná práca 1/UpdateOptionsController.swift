@@ -79,6 +79,8 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: String(describing: AddOwnedListController.self), sender: nil)
         case .task18:
             performSegue(withIdentifier: String(describing: AddPropertyToOwnListController.self), sender: nil)
+        case .task20:
+            performSegue(withIdentifier: String(describing: DeletePropertyController.self), sender: nil)
         case .task21:
             performSegue(withIdentifier: String(describing: AddRegionController.self), sender: nil)
         default: break
