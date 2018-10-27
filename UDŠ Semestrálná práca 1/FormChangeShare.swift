@@ -47,7 +47,6 @@ class FormChangeShare: UIViewController {
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        actionButton.isEnabled = false
         indicator.alpha = 1.0
         indicator.startAnimating()
         
@@ -63,26 +62,30 @@ class FormChangeShare: UIViewController {
                 self?.indicator.alpha = 0.0
                 self?.indicator.stopAnimating()
                 self?.composeAlert(title: "List vlastníctva sa nenašiel", message: "Skontrlujte, či ste zadali správne číslo katastrálneho územia, alebo číslo vlastníctva", completion: { _ in
-                    self?.actionButton.isEnabled = true
                 })
                 return
             }
             
             guard let person = Database.shared.getPerson(id: personalID) else {
                 self?.composeAlert(title: "Osoba nenájdená", message: "Osoba s daným rodným číslom sa nenašla", completion: { _ in })
+                
+                self?.indicator.alpha = 0.0
+                self?.indicator.stopAnimating()
+                
                 return
             }
             
             if Database.shared.savePersonToOwnerList(ownedList: ownedList, person: person) {
                 self?.composeAlert(title: "Osoba pridaná", message: "Osoba úspešne pridaná do listu vlastníctva", completion: { _ in })
-                self?.navigationController?.popToRootViewController(animated: true)
+                
+                self?.indicator.alpha = 0.0
+                self?.indicator.stopAnimating()
             }
             
             
             
             self?.indicator.alpha = 0.0
             self?.indicator.stopAnimating()
-            self?.actionButton.isEnabled = true
             self?.performSegue(withIdentifier: String(describing: ConfirmNewSharesController.self), sender: ownedList)
         }
     }

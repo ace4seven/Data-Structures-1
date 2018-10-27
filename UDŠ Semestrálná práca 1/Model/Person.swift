@@ -106,6 +106,11 @@ extension Person {
         return self._ownedLists.insert(ownedList)
     }
     
+    @discardableResult
+    func removeOwnedList(ownedList: OwnedList) -> OwnedList? {
+        return self._ownedLists.remove(ownedList)
+    }
+    
 }
 
 // MARK: - Custom comparator

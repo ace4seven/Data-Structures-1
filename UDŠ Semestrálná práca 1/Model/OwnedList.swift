@@ -68,6 +68,7 @@ extension OwnedList {
     
     @discardableResult
     func addProperty(property: Property) -> Bool {
+        property.changeOwnerList(ownerList: self)
         return self._properties.insert(property)
     }
     

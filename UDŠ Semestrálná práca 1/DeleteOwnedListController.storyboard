@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uQc-7W-aiF">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Delete Owned List Controller-->
+        <scene sceneID="iAv-Bg-4eB">
+            <objects>
+                <viewController id="uQc-7W-aiF" customClass="DeleteOwnedListController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dVg-cR-UYU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ibA-8K-t2n">
+                                <rect key="frame" x="15" y="30" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List vlastníctva na vymazanie - ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xg-0S-YUU">
+                                        <rect key="frame" x="21.5" y="0.0" width="302.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sg4-Jw-PXd">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="sg4-Jw-PXd" secondAttribute="trailing" id="8EX-j7-8Xr"/>
+                                    <constraint firstItem="sg4-Jw-PXd" firstAttribute="leading" secondItem="ibA-8K-t2n" secondAttribute="leading" id="HGl-cZ-aMn"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xE0-Ct-udA">
+                                <rect key="frame" x="15" y="129.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katastrálne územie (ID)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWg-ah-lzU">
+                                        <rect key="frame" x="67" y="0.0" width="211.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZYJ-Ss-Cz7">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZYJ-Ss-Cz7" secondAttribute="trailing" id="711-9A-O6e"/>
+                                    <constraint firstItem="ZYJ-Ss-Cz7" firstAttribute="leading" secondItem="xE0-Ct-udA" secondAttribute="leading" id="CH1-WO-Fbm"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-tY-6hQ">
+                                <rect key="frame" x="15" y="209" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List vlastníctva(presun) - ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZA7-1p-P2Q">
+                                        <rect key="frame" x="47.5" y="0.0" width="250" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2tI-X5-Jf3">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2tI-X5-Jf3" firstAttribute="leading" secondItem="XiY-tY-6hQ" secondAttribute="leading" id="GdB-tE-0sa"/>
+                                    <constraint firstAttribute="trailing" secondItem="2tI-X5-Jf3" secondAttribute="trailing" id="vYW-bU-JSg"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGF-kw-OL2">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4uv-s4-P6g"/>
+                                </constraints>
+                                <state key="normal" title="Zmazanie listu vlastníctva">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeButtonPressed:" destination="uQc-7W-aiF" eventType="touchUpInside" id="Dyp-hM-UrR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q6q-vF-67S" firstAttribute="trailing" secondItem="bGF-kw-OL2" secondAttribute="trailing" id="2vH-Ao-VVz"/>
+                            <constraint firstItem="XiY-tY-6hQ" firstAttribute="top" secondItem="xE0-Ct-udA" secondAttribute="bottom" constant="10" id="3ra-hY-a8e"/>
+                            <constraint firstItem="bGF-kw-OL2" firstAttribute="leading" secondItem="dVg-cR-UYU" secondAttribute="leading" id="944-gf-M2P"/>
+                            <constraint firstItem="xE0-Ct-udA" firstAttribute="leading" secondItem="q6q-vF-67S" secondAttribute="leading" constant="15" id="AlH-Ez-Yi6"/>
+                            <constraint firstItem="q6q-vF-67S" firstAttribute="trailing" secondItem="XiY-tY-6hQ" secondAttribute="trailing" constant="15" id="C3J-bq-lQf"/>
+                            <constraint firstItem="ibA-8K-t2n" firstAttribute="leading" secondItem="q6q-vF-67S" secondAttribute="leading" constant="15" id="FDR-ee-HfK"/>
+                            <constraint firstItem="q6q-vF-67S" firstAttribute="bottom" secondItem="bGF-kw-OL2" secondAttribute="bottom" id="OcI-uI-MWu"/>
+                            <constraint firstItem="XiY-tY-6hQ" firstAttribute="leading" secondItem="q6q-vF-67S" secondAttribute="leading" constant="15" id="jHw-i3-Grp"/>
+                            <constraint firstItem="q6q-vF-67S" firstAttribute="trailing" secondItem="ibA-8K-t2n" secondAttribute="trailing" constant="15" id="qr7-0F-xLs"/>
+                            <constraint firstItem="ibA-8K-t2n" firstAttribute="top" secondItem="q6q-vF-67S" secondAttribute="top" constant="10" id="sa0-Es-yi0"/>
+                            <constraint firstItem="q6q-vF-67S" firstAttribute="trailing" secondItem="xE0-Ct-udA" secondAttribute="trailing" constant="15" id="sa5-HH-Cl1"/>
+                            <constraint firstItem="xE0-Ct-udA" firstAttribute="top" secondItem="ibA-8K-t2n" secondAttribute="bottom" constant="30" id="xO9-Pb-QOV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q6q-vF-67S"/>
+                    </view>
+                    <connections>
+                        <outlet property="deletedOwnedListIDTextField" destination="sg4-Jw-PXd" id="Jjy-FO-9iw"/>
+                        <outlet property="newOwnedListIDTextField" destination="2tI-X5-Jf3" id="fdu-TX-zdD"/>
+                        <outlet property="regionIDTextField" destination="ZYJ-Ss-Cz7" id="FIa-HV-jaJ"/>
+                        <segue destination="56j-Ze-8ka" kind="show" identifier="OwnedListDetailController" id="1nY-bG-KuI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qh8-SI-1sw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="1"/>
+        </scene>
+        <!--OwnedListDetailController-->
+        <scene sceneID="tPQ-ec-59q">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OwnedListDetailController" id="56j-Ze-8ka" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fol-Kq-Gnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="498" y="0.0"/>
+        </scene>
+    </scenes>
+</document>

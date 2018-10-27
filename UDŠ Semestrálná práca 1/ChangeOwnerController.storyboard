@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uxj-2H-sDM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Change Owner Controller-->
+        <scene sceneID="Tpo-5h-Emi">
+            <objects>
+                <viewController id="uxj-2H-sDM" customClass="ChangeOwnerController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="puH-Fj-jMD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vou-JO-XY0">
+                                <rect key="frame" x="15" y="30" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nový majiteľ (rodné číslo)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lE3-vP-esm">
+                                        <rect key="frame" x="57" y="0.0" width="231" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q7B-yV-OfT">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Q7B-yV-OfT" firstAttribute="leading" secondItem="vou-JO-XY0" secondAttribute="leading" id="Ok7-70-Uuh"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q7B-yV-OfT" secondAttribute="trailing" id="coV-xZ-Z9X"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tou-gi-MNe">
+                                <rect key="frame" x="15" y="129.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katastrálne územie (ID)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvA-pu-9Yd">
+                                        <rect key="frame" x="67" y="0.0" width="211.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bE-gq-bLQ">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0bE-gq-bLQ" secondAttribute="trailing" id="61P-bM-rSM"/>
+                                    <constraint firstItem="0bE-gq-bLQ" firstAttribute="leading" secondItem="Tou-gi-MNe" secondAttribute="leading" id="xfS-q5-FPc"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="T37-rv-c2e">
+                                <rect key="frame" x="15" y="209" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Súpisné číslo nehnuteľností(ID)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKK-Jx-uhO">
+                                        <rect key="frame" x="30.5" y="0.0" width="284" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LIn-bq-sLx">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LIn-bq-sLx" secondAttribute="trailing" id="elJ-00-3dN"/>
+                                    <constraint firstItem="LIn-bq-sLx" firstAttribute="leading" secondItem="T37-rv-c2e" secondAttribute="leading" id="h9H-Xo-Rsc"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Cl7-Mh-KZ1">
+                                <rect key="frame" x="15" y="288.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starý majiteľ (rodné číslo)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7H-on-n0E">
+                                        <rect key="frame" x="57" y="0.0" width="231.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Bl-qu-JfI">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5Bl-qu-JfI" firstAttribute="leading" secondItem="Cl7-Mh-KZ1" secondAttribute="leading" id="jPX-HS-Kzr"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Bl-qu-JfI" secondAttribute="trailing" id="tpc-NX-AXJ"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQH-Mi-MTn">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="bvX-w4-M6Q"/>
+                                </constraints>
+                                <state key="normal" title="Zmena majiteľa nehnuteľností">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeButtonPressed:" destination="uxj-2H-sDM" eventType="touchUpInside" id="e16-JF-ppa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vou-JO-XY0" firstAttribute="leading" secondItem="5g7-LH-uR5" secondAttribute="leading" constant="15" id="2Km-9W-TkC"/>
+                            <constraint firstItem="T37-rv-c2e" firstAttribute="leading" secondItem="5g7-LH-uR5" secondAttribute="leading" constant="15" id="6Gd-sl-QZv"/>
+                            <constraint firstItem="Tou-gi-MNe" firstAttribute="leading" secondItem="5g7-LH-uR5" secondAttribute="leading" constant="15" id="9nh-o5-BZX"/>
+                            <constraint firstItem="Tou-gi-MNe" firstAttribute="top" secondItem="vou-JO-XY0" secondAttribute="bottom" constant="30" id="EGD-y0-MYD"/>
+                            <constraint firstItem="5g7-LH-uR5" firstAttribute="trailing" secondItem="Tou-gi-MNe" secondAttribute="trailing" constant="15" id="GYW-po-YFY"/>
+                            <constraint firstItem="5g7-LH-uR5" firstAttribute="trailing" secondItem="Cl7-Mh-KZ1" secondAttribute="trailing" constant="15" id="Q49-zT-J8d"/>
+                            <constraint firstItem="5g7-LH-uR5" firstAttribute="trailing" secondItem="VQH-Mi-MTn" secondAttribute="trailing" id="SJm-cu-m1l"/>
+                            <constraint firstItem="5g7-LH-uR5" firstAttribute="trailing" secondItem="vou-JO-XY0" secondAttribute="trailing" constant="15" id="TdL-Sy-0YT"/>
+                            <constraint firstItem="T37-rv-c2e" firstAttribute="top" secondItem="Tou-gi-MNe" secondAttribute="bottom" constant="10" id="UO5-ni-wff"/>
+                            <constraint firstItem="Cl7-Mh-KZ1" firstAttribute="top" secondItem="T37-rv-c2e" secondAttribute="bottom" constant="10" id="cNO-ya-aiQ"/>
+                            <constraint firstItem="VQH-Mi-MTn" firstAttribute="leading" secondItem="puH-Fj-jMD" secondAttribute="leading" id="fih-c6-pPG"/>
+                            <constraint firstItem="vou-JO-XY0" firstAttribute="top" secondItem="5g7-LH-uR5" secondAttribute="top" constant="10" id="gV6-rX-Jae"/>
+                            <constraint firstItem="5g7-LH-uR5" firstAttribute="trailing" secondItem="T37-rv-c2e" secondAttribute="trailing" constant="15" id="msG-yE-kpR"/>
+                            <constraint firstItem="Cl7-Mh-KZ1" firstAttribute="leading" secondItem="5g7-LH-uR5" secondAttribute="leading" constant="15" id="nV0-Qr-cwp"/>
+                            <constraint firstItem="5g7-LH-uR5" firstAttribute="bottom" secondItem="VQH-Mi-MTn" secondAttribute="bottom" id="xrT-RS-tJ2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5g7-LH-uR5"/>
+                    </view>
+                    <connections>
+                        <outlet property="newPersonIDTextField" destination="Q7B-yV-OfT" id="one-xd-dUg"/>
+                        <outlet property="oldPersonIDTextField" destination="5Bl-qu-JfI" id="4WZ-9f-d1M"/>
+                        <outlet property="propertyIDTextField" destination="LIn-bq-sLx" id="xEj-rt-EQ1"/>
+                        <outlet property="regionIDTextField" destination="0bE-gq-bLQ" id="L7N-0t-Knb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MbY-dQ-fDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="1"/>
+        </scene>
+    </scenes>
+</document>

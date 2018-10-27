@@ -69,6 +69,8 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
         switch items[indexPath.row] {
         case .task10:
             performSegue(withIdentifier: String(describing: PersonNewHomeController.self), sender: nil)
+        case .task11:
+            performSegue(withIdentifier: String(describing: ChangeOwnerController.self), sender: nil)
         case .task12:
             performSegue(withIdentifier: String(describing: FormChangeShare.self), sender: nil)
         case .task13:
@@ -79,6 +81,8 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: String(describing: AddOwnedListController.self), sender: nil)
         case .task18:
             performSegue(withIdentifier: String(describing: AddPropertyToOwnListController.self), sender: nil)
+        case .task19:
+            performSegue(withIdentifier: String(describing: DeleteOwnedListController.self), sender: nil)
         case .task20:
             performSegue(withIdentifier: String(describing: DeletePropertyController.self), sender: nil)
         case .task21:

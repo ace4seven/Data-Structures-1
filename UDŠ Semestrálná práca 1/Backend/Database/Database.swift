@@ -140,6 +140,110 @@ extension Database {
         return region.addOwnedList(list: OwnedList(id: ownerListID, region: region))
     }
     
+    func changePropertyOwner(oldPersonID: String, newPersonID: String, regionID: UInt, propertyID: UInt) -> Bool { // TASK 11
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            return false
+        }
+        
+        guard let oldOwner = _persons.findBy(element: Person(id: oldPersonID)) else {
+            return false
+        }
+        
+        guard let newOwner = _persons.findBy(element: Person(id: newPersonID)) else {
+            return false
+        }
+        
+        guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
+            return false
+        }
+        
+        let ownedList = property.ownedList
+        
+        if let share = ownedList.shares.findBy(element: Share(person: oldOwner, shareCount: 0)) {
+            if ownedList.shares.findBy(element: Share(person: newOwner, shareCount: 0)) == nil { // New owner have not to be listed
+                share.changeOwner(person: newOwner)
+                oldOwner.removeOwnedList(ownedList: ownedList)
+                newOwner.addOwnedList(ownedList: ownedList)
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func removeOwnedList(oldOwnerListID: UInt, newOnwerListID: UInt, regionID: UInt) -> OwnedList? { // TASK 19
+        
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            return nil
+        }
+        
+        guard let newOwnerList = region.ownedLists.findBy(element: OwnedList(id: newOnwerListID, region: region)) else {
+            return nil
+        }
+        
+        guard let deletedOwnerList = region.ownedLists.remove(OwnedList(id: oldOwnerListID, region: region)) else {
+            return nil
+        }
+        
+        deletedOwnerList.properties.inOrder { property in
+            if !newOwnerList.addProperty(property: property) {
+                print("Problem pridania nehnutelnost, dana nehnutelnost uz EXISTUJE a nemala by")
+            }
+        }
+        
+        deletedOwnerList.shares.inOrder { share in
+            let incrementShare = share.shareCount + newOwnerList.percentShareSum <= 1
+            if newOwnerList.shares.insert(incrementShare ? share : Share(person: share.person, shareCount: 0.0)) { 
+                share.person.ownedLists.insert(newOwnerList)
+            } else {
+                if incrementShare {
+                    newOwnerList.shares.findBy(element: share)?.updateShareCount(value: share.shareCount)
+                    newOwnerList.increasePercentate(value: share.shareCount)
+                }
+            }
+            newOwnerList.increasePercentate(value: incrementShare ? share.shareCount : 0.0)
+            share.person.removeOwnedList(ownedList: deletedOwnerList)
+        }
+        
+        return newOwnerList
+    }
+    
+    
+    func deletePersonShare(personID: String, regionID: UInt, ownerListID: UInt) -> OwnedList? { // TASK 13
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            return nil
+        }
+        
+        guard let person = _persons.findBy(element: Person(id: personID)) else {
+            return nil
+        }
+        
+        if let ownedList = person.ownedLists.remove(OwnedList(id: ownerListID, region: region)) {
+            if ownedList.shares.remove(Share(person: person, shareCount: 0.0)) != nil {
+                return ownedList
+            } else {
+                print("Chyba v nastaveni smernika - DELETE PERSON TASK 13")
+            }
+        }
+        
+        return nil
+    }
+    
+    func deletePropertyFromOwnedList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> Property? { // TASK 20
+        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
+            return nil
+        }
+        
+        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownedListID, region: region)) else {
+            return nil
+        }
+        
+        return ownedList.removeProperty(property: Property(id: propertyID))
+    }
+    
+    
+    // MARK: - GET from database
+    
     func getPersons(completion: ([Person]) -> ()) {
         let persons = _persons.inOrderToArray()
         completion(persons)
@@ -174,38 +278,6 @@ extension Database {
             return
         }
         completion(nil)
-    }
-    
-    func deletePersonShare(personID: String, regionID: UInt, ownerListID: UInt) -> OwnedList? { // TASK 13
-        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
-            return nil
-        }
-        
-        guard let person = _persons.findBy(element: Person(id: personID)) else {
-            return nil
-        }
-        
-        if let ownedList = person.ownedLists.remove(OwnedList(id: ownerListID, region: region)) {
-            if ownedList.shares.remove(Share(person: person, shareCount: 0.0)) != nil {
-                return ownedList
-            } else {
-                print("Chyba v nastaveni smernika - DELETE PERSON TASK 13")
-            }
-        }
-        
-        return nil
-    }
-    
-    func deletePropertyFromOwnedList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> Property? { // TASK 20
-        guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
-            return nil
-        }
-        
-        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownedListID, region: region)) else {
-            return nil
-        }
-        
-        return ownedList.removeProperty(property: Property(id: propertyID))
     }
     
     func getOwnerList(regionID: UInt, ownerListID: UInt, completion: @escaping (OwnedList?) -> ()) {
@@ -282,6 +354,7 @@ extension Database {
             ownedList.nullPercentage()
             ownedList.shares.inOrder() { share in
                 share.updateShareCount(value: newShares[index])
+                ownedList.increasePercentate(value:  newShares[index])
             }
             index += 1
         }

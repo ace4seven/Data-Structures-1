@@ -9,7 +9,7 @@
 import Foundation
 
 public class Share {
-    private let _person: Person
+    private var _person: Person
     private var _shareCount: Double
     
     init(person: Person, shareCount: Double) {
@@ -35,6 +35,10 @@ extension Share {
     
     func updateShareCount(value: Double) {
         self._shareCount = value
+    }
+    
+    func changeOwner(person: Person) {
+        self._person = person
     }
     
 }

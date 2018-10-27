@@ -44,7 +44,6 @@ extension ConfirmNewSharesViewModel: ConfirmNewSharesVM {
             viewDelegate?.errorSaveMessage()
         } else {
             Database.shared.updateSharesInOwnedList(ownedList: self.ownedList, newShares: shares)
-            
             viewDelegate?.confirmSuccessMessage()
         }
     }

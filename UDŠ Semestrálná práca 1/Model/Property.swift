@@ -81,6 +81,10 @@ extension Property {
         return self._persons.insert(person)
     }
     
+    func changeOwnerList(ownerList: OwnedList) {
+        self._ownedList = ownerList
+    }
+    
 }
 
 // MARK: - Custom comparator
