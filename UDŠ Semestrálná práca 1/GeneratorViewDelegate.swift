@@ -10,7 +10,7 @@ import Foundation
 
 protocol GeneratorVM: class {
     func setup(viewDelegate: GeneratorViewDelegate)
-    func generateData(regions: Int, properties: Int, persons: Int)
+    func generateData(regions: Int, properties: Int, persons: Int, ownerLists: Int, maxOwnerLists: Int, maxOwnersInList: Int)
 }
 
 protocol GeneratorViewDelegate: class {

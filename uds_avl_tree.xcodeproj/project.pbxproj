@@ -119,6 +119,8 @@
 		16F0941C218478C60075039D /* ChangeOwnerController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F0941B218478C60075039D /* ChangeOwnerController.storyboard */; };
 		16F0941F218480630075039D /* DeleteOwnedListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0941E218480630075039D /* DeleteOwnedListController.swift */; };
 		16F094212184806E0075039D /* DeleteOwnedListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F094202184806E0075039D /* DeleteOwnedListController.storyboard */; };
+		16F0942421849DB90075039D /* DeleteRegionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F0942321849DB90075039D /* DeleteRegionController.swift */; };
+		16F0942621849DBF0075039D /* DeleteRegionController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16F0942521849DBF0075039D /* DeleteRegionController.storyboard */; };
 		99B5155780665B855C374696 /* Pods_uds_avl_tree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49EAE58B02265973BA80036 /* Pods_uds_avl_tree.framework */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +239,8 @@
 		16F0941B218478C60075039D /* ChangeOwnerController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangeOwnerController.storyboard; sourceTree = "<group>"; };
 		16F0941E218480630075039D /* DeleteOwnedListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteOwnedListController.swift; sourceTree = "<group>"; };
 		16F094202184806E0075039D /* DeleteOwnedListController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeleteOwnedListController.storyboard; sourceTree = "<group>"; };
+		16F0942321849DB90075039D /* DeleteRegionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRegionController.swift; sourceTree = "<group>"; };
+		16F0942521849DBF0075039D /* DeleteRegionController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeleteRegionController.storyboard; sourceTree = "<group>"; };
 		55B1154DC2AD20D65288B094 /* Pods-uds_avl_tree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uds_avl_tree.release.xcconfig"; path = "Pods/Target Support Files/Pods-uds_avl_tree/Pods-uds_avl_tree.release.xcconfig"; sourceTree = "<group>"; };
 		A49EAE58B02265973BA80036 /* Pods_uds_avl_tree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uds_avl_tree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96A77F45F9015B4BD762BFB /* Pods-uds_avl_tree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uds_avl_tree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uds_avl_tree/Pods-uds_avl_tree.debug.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +269,7 @@
 		161822EF217BC1CD000666D4 /* ChangeUpdate */ = {
 			isa = PBXGroup;
 			children = (
+				16F0942221849DA00075039D /* DeleteRegion */,
 				16F0941D218480250075039D /* DeleteOwnedList */,
 				16F094182184789E0075039D /* ChangeOwner */,
 				16DAB1B621830E0500FD12E9 /* DeleteProperty */,
@@ -776,6 +781,15 @@
 			name = DeleteOwnedList;
 			sourceTree = "<group>";
 		};
+		16F0942221849DA00075039D /* DeleteRegion */ = {
+			isa = PBXGroup;
+			children = (
+				16F0942321849DB90075039D /* DeleteRegionController.swift */,
+				16F0942521849DBF0075039D /* DeleteRegionController.storyboard */,
+			);
+			name = DeleteRegion;
+			sourceTree = "<group>";
+		};
 		45245C3DC8B08022698BA39C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -866,6 +880,7 @@
 				161822F3217BC1FE000666D4 /* UpdateOptionsController.storyboard in Resources */,
 				1654975121634FF500D423FC /* Assets.xcassets in Resources */,
 				166707B9217B4CDF0033CF43 /* SettingsController.storyboard in Resources */,
+				16F0942621849DBF0075039D /* DeleteRegionController.storyboard in Resources */,
 				168DE4C9217A415900F68FE4 /* OptionCell.xib in Resources */,
 				1654974F21634FF400D423FC /* Main.storyboard in Resources */,
 				16F075CC217DE4160072287E /* AddRegionController.storyboard in Resources */,
@@ -1011,6 +1026,7 @@
 				16DC2D02217B90090036FA62 /* ListingOptionsViewDelegate.swift in Sources */,
 				16D7B905217CC66F00A19243 /* PropertyShareCell.swift in Sources */,
 				1660436E21738D8400333CD8 /* Database.swift in Sources */,
+				16F0942421849DB90075039D /* DeleteRegionController.swift in Sources */,
 				16DC2D0F217B967F0036FA62 /* ListViewModel.swift in Sources */,
 				167FB9D5217DB44C0037A390 /* AddPropertyToOwnListController.swift in Sources */,
 				161822F5217BC20A000666D4 /* UpdateOptionsViewDelegate.swift in Sources */,

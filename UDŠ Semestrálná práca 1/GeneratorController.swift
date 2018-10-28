@@ -15,43 +15,51 @@ class GeneratorController: UIViewController {
     
     @IBOutlet weak var ownedListSliderView: SliderView!
     @IBOutlet weak var personSliderView: SliderView!
+    @IBOutlet weak var maxOwnedListsSliderView: SliderView!
+    @IBOutlet weak var maxOwnedPropertiesSliderView: SliderView!
     
-    @IBOutlet weak var generateButton: UIButton!
-    @IBOutlet weak var regionTextfield: UITextField!
-    @IBOutlet weak var propertiesTextField: UITextField!
     @IBOutlet weak var waitingWrapperView: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var personsTextField: UITextField!
+    
+    
+        @IBOutlet weak var generateButton: UIButton!
+    
     
     fileprivate var viewModel = GeneratorViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        regionSliderView.step = 50
-        propertySliderview.step = 1000
-        ownedListSliderView.step = 100
-        personSliderView.step = 500
+        regionSliderView.step = 2
+        propertySliderview.step = 100
+        ownedListSliderView.step = 10
+        personSliderView.step = 100
+        
+        maxOwnedListsSliderView.step = 5
+        maxOwnedPropertiesSliderView.step = 5
 
         hideKeyboardWhenTappedAround()
-//        waitingWrapperView.alpha = 0.0
+        waitingWrapperView.alpha = 0.0
         viewModel.setup(viewDelegate: self)
     }
     
     @IBAction func generateDataButtonPressed(_ sender: Any) {
-//        setWrapper {
-//            DispatchQueue.main.asyncAfter(seconds: 0.2) { [weak self] in
-//                if let regionCount = Int(self?.regionTextfield.text ?? ""), let propertiesCount = Int(self?.propertiesTextField.text ?? ""),
-//                    let personsCount = Int(self?.personsTextField.text ?? "") {
-//                    self?.viewModel.generateData(regions: regionCount, properties: propertiesCount, persons: personsCount)
-//                } else {
-//                    self?.indicator.stopAnimating()
-//                    self?.waitingWrapperView.alpha = 0.0
-//                }
-//            }
-//        }
-        
-        self.viewModel.generateData(regions: 10, properties: 100, persons: 1000)
+        setWrapper {
+            DispatchQueue.main.asyncAfter(seconds: 0.2) { [weak self] in
+                
+                let regionCount = Int(self?.regionSliderView.slider.value ?? 0)
+                let propertiesCount = Int(self?.propertySliderview.slider.value ?? 0)
+                let ownedListsCount = Int(self?.ownedListSliderView.slider.value ?? 0)
+                let personsCount = Int(self?.personSliderView.slider.value ?? 0)
+                let maxOwnedListsCount = Int(self?.maxOwnedListsSliderView.slider.value ?? 0)
+                let maxOwnedPropertiesCount = Int(self?.maxOwnedPropertiesSliderView.slider.value ?? 0)
+                
+                self?.viewModel.generateData(regions: regionCount, properties: propertiesCount, persons: personsCount, ownerLists: ownedListsCount, maxOwnerLists: maxOwnedPropertiesCount, maxOwnersInList: maxOwnedListsCount)
+                
+            }
+            
+        }
+    
     }
     
     private func setWrapper(completion: @escaping () -> ()) {

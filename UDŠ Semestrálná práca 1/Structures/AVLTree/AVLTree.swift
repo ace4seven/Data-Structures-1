@@ -114,6 +114,19 @@ extension AVLTree {
         return nil
     }
     
+    public func max() -> Element? {
+        guard let root = self.root else {
+            return nil
+        }
+        
+        var current: AVLNode<Element>? = root
+        while current?.rightChild != nil {
+            current = current?.rightChild
+        }
+        
+        return current?.value
+    }
+    
 }
 
 // MARK: - Fileprivates

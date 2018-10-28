@@ -46,6 +46,7 @@
                         <segue destination="3UG-Zn-Zt9" kind="show" identifier="DeletePropertyController" id="eAJ-Ge-aB1"/>
                         <segue destination="PYq-f1-Ory" kind="show" identifier="ChangeOwnerController" id="xGT-Kd-8Zj"/>
                         <segue destination="6e2-OL-nuQ" kind="show" identifier="DeleteOwnedListController" id="9Jb-Sd-p9U"/>
+                        <segue destination="f0X-Ml-wya" kind="show" identifier="DeleteRegionController" id="Zwu-Fn-3YH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dVA-c9-Irs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,6 +156,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcx-YR-bdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="553" y="218"/>
+        </scene>
+        <!--DeleteRegionController-->
+        <scene sceneID="UQ5-KO-tlC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DeleteRegionController" id="f0X-Ml-wya" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcp-a0-Vxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="218"/>
         </scene>
     </scenes>
     <resources>

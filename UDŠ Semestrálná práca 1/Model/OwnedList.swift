@@ -10,7 +10,7 @@ import Foundation
 
 public class OwnedList {
     
-    private let _id: UInt
+    private var _id: UInt
     
     private var _region: Region
     private var _properties: AVLTree<Property>
@@ -25,8 +25,8 @@ public class OwnedList {
         self._shares = AVLTree<Share>(Share.comparator)
     }
     
-    static func random(region: Region, properties: AVLTree<Property>? = nil) -> OwnedList {
-        return OwnedList(id: DataSeeder.ownedListID(),
+    static func random(region: Region, id: UInt? = nil, properties: AVLTree<Property>? = nil) -> OwnedList {
+        return OwnedList(id: id ?? DataSeeder.ownedListID(),
                          region: region)
     }
     
@@ -111,6 +111,10 @@ extension OwnedList {
     
     func increasePercentate(value: Double) {
         self._percentShareSum += value
+    }
+    
+    func changeID(newID: UInt) {
+        self._id = newID
     }
     
 }

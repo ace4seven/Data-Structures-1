@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2ss-CM-FDX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Delete Region Controller-->
+        <scene sceneID="loa-v9-ZIg">
+            <objects>
+                <viewController id="2ss-CM-FDX" customClass="DeleteRegionController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aqh-CZ-0ve">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Da9-xv-dgd">
+                                <rect key="frame" x="15" y="30" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katastrálne územie - ID (mazané)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dt-tB-rIB">
+                                        <rect key="frame" x="22" y="0.0" width="301.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-GM-igd">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ob5-GM-igd" secondAttribute="trailing" id="1m6-Ua-gbo"/>
+                                    <constraint firstItem="ob5-GM-igd" firstAttribute="leading" secondItem="Da9-xv-dgd" secondAttribute="leading" id="EsZ-pj-iLN"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Q7b-IA-YPS">
+                                <rect key="frame" x="15" y="119.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Katastrálne územie - ID (presun)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6m-Il-Gqk">
+                                        <rect key="frame" x="26.5" y="0.0" width="292.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5n3-oC-2Nw">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5n3-oC-2Nw" firstAttribute="leading" secondItem="Q7b-IA-YPS" secondAttribute="leading" id="5Hq-Pw-UGH"/>
+                                    <constraint firstAttribute="trailing" secondItem="5n3-oC-2Nw" secondAttribute="trailing" id="kzg-vf-0Dw"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-sV-D2c">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="iw3-4N-lhV"/>
+                                </constraints>
+                                <state key="normal" title="Vymazanie katastrálneho územia">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="2ss-CM-FDX" eventType="touchUpInside" id="eWs-Z2-1A8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Q7b-IA-YPS" firstAttribute="top" secondItem="Da9-xv-dgd" secondAttribute="bottom" constant="20" id="1wC-Ua-cm2"/>
+                            <constraint firstItem="5i1-EV-4MF" firstAttribute="trailing" secondItem="Q7b-IA-YPS" secondAttribute="trailing" constant="15" id="2Dz-Yk-v5P"/>
+                            <constraint firstItem="PVS-sV-D2c" firstAttribute="leading" secondItem="5i1-EV-4MF" secondAttribute="leading" id="3b3-jj-uim"/>
+                            <constraint firstItem="Da9-xv-dgd" firstAttribute="leading" secondItem="5i1-EV-4MF" secondAttribute="leading" constant="15" id="ADc-G5-RDq"/>
+                            <constraint firstItem="5i1-EV-4MF" firstAttribute="trailing" secondItem="Da9-xv-dgd" secondAttribute="trailing" constant="15" id="WL8-ar-dRj"/>
+                            <constraint firstItem="Q7b-IA-YPS" firstAttribute="leading" secondItem="5i1-EV-4MF" secondAttribute="leading" constant="15" id="agf-a5-UgA"/>
+                            <constraint firstItem="Da9-xv-dgd" firstAttribute="top" secondItem="5i1-EV-4MF" secondAttribute="top" constant="10" id="muO-gH-72F"/>
+                            <constraint firstItem="PVS-sV-D2c" firstAttribute="trailing" secondItem="5i1-EV-4MF" secondAttribute="trailing" id="oXf-25-adf"/>
+                            <constraint firstItem="5i1-EV-4MF" firstAttribute="bottom" secondItem="PVS-sV-D2c" secondAttribute="bottom" id="vpO-Bi-M1S"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5i1-EV-4MF"/>
+                    </view>
+                    <connections>
+                        <outlet property="deletedRegionIDTextField" destination="ob5-GM-igd" id="kb5-hQ-N7w"/>
+                        <outlet property="movedRegionIDTextField" destination="5n3-oC-2Nw" id="nnL-aI-Jlz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVD-Tf-5Lg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-73" y="27"/>
+        </scene>
+    </scenes>
+</document>

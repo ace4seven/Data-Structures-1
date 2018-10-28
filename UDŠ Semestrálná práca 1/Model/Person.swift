@@ -111,6 +111,10 @@ extension Person {
         return self._ownedLists.remove(ownedList)
     }
     
+    func removeHome() {
+        self._home = nil
+    }
+    
 }
 
 // MARK: - Custom comparator

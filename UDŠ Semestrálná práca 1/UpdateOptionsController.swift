@@ -87,6 +87,8 @@ extension UpdateOptionsController: UITableViewDelegate, UITableViewDataSource {
             performSegue(withIdentifier: String(describing: DeletePropertyController.self), sender: nil)
         case .task21:
             performSegue(withIdentifier: String(describing: AddRegionController.self), sender: nil)
+        case .task22:
+            performSegue(withIdentifier: String(describing: DeleteRegionController.self), sender: nil)
         default: break
         }
         tableView.deselectRow(at: indexPath, animated: false)

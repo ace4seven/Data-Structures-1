@@ -10,7 +10,7 @@ import Foundation
 
 public class Property {
     
-    private let _id: UInt
+    private var _id: UInt
     private let _address: String
     private let _desc: String
     
@@ -33,8 +33,8 @@ public class Property {
         self._persons = AVLTree<Person>(Person.comparator)
     }
     
-    static func random(persons: AVLTree<Person>? = nil, ownedList: OwnedList) -> Property {
-        return Property(id: DataSeeder.propertyID(),
+    static func random(persons: AVLTree<Person>? = nil, id: UInt? = nil, ownedList: OwnedList) -> Property {
+        return Property(id: id ?? DataSeeder.propertyID(),
                         address: DataSeeder.propertyAddress(),
                         desc: DataSeeder.propertyDesc(),
                         ownedList: ownedList)
@@ -83,6 +83,10 @@ extension Property {
     
     func changeOwnerList(ownerList: OwnedList) {
         self._ownedList = ownerList
+    }
+    
+    func changeID(newID: UInt) {
+        self._id = newID
     }
     
 }

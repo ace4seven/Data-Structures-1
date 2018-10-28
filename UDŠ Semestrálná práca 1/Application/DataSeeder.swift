@@ -15,6 +15,7 @@ class DataSeeder {
     public static var regionCount: UInt = 0
     public static var propertyCount: UInt = 0
     public static var ownedListCount: UInt = 0
+    public static var personIDCount: UInt = 1111111111111111
     
     // MARK: - Person model seeder
     
@@ -32,19 +33,21 @@ class DataSeeder {
     }
     
     public static func personPersonalID() -> String {
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var result = ""
+//        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+//        var result = ""
+//
+//        var addedLetters = 0
+//
+//        while addedLetters < 16 {
+//            let rand = arc4random_uniform(UInt32(letters.length))
+//            var nextChar = letters.character(at: Int(rand))
+//            result += NSString(characters: &nextChar, length: 1) as String
+//            addedLetters += 1
+//        }
+        let result = personIDCount
+        personIDCount += 1
         
-        var addedLetters = 0
-        
-        while addedLetters < 16 {
-            let rand = arc4random_uniform(UInt32(letters.length))
-            var nextChar = letters.character(at: Int(rand))
-            result += NSString(characters: &nextChar, length: 1) as String
-            addedLetters += 1
-        }
-        
-        return result
+        return "\(result)"
     }
     
     // MARK: - Region model seeder

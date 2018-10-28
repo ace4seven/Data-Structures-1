@@ -238,7 +238,83 @@ extension Database {
             return nil
         }
         
-        return ownedList.removeProperty(property: Property(id: propertyID))
+        let deletedProperty = ownedList.removeProperty(property: Property(id: propertyID))
+        
+        deletedProperty?.persons.inOrder() { person in
+            person.removeHome()
+        }
+        
+        return deletedProperty
+    }
+    
+    func deleteRegion(deletedRegionID: UInt, movedRegionID: UInt) -> Region? { // TASK 22
+        
+        if deletedRegionID == movedRegionID {
+            return nil
+        }
+        
+        guard let region = _regionsByID.findBy(element: Region(regionID: movedRegionID, regionName: "")) else {
+            return nil
+        }
+        
+        guard let deletedRegion = _regionsByID.remove(Region(regionID: deletedRegionID, regionName: "")) else {
+            return nil
+        }
+        
+        _regionsByName.remove(deletedRegion)
+        
+        var noUniqueOwnedLists = [OwnedList]()
+        var noUniqueProperties = [Property]()
+        
+        deletedRegion.ownedLists.inOrder() { ownedList in
+            
+            ownedList.setRegion(region: region)
+            
+            if !region.addOwnedList(list: ownedList) {
+                noUniqueOwnedLists.append(ownedList)
+            }
+            
+            ownedList.properties.inOrder() { property in
+                if !region.addProperty(property: property) {
+                    noUniqueProperties.append(property)
+                }
+            }
+        }
+        
+        for noUniqueOwnedList in noUniqueOwnedLists {
+            var newID = UInt(region.ownedLists.max()?.id ?? noUniqueOwnedList.id)
+            
+            while region.ownedLists.findBy(element: OwnedList(id: newID, region: region)) != nil {
+                newID += 1
+            }
+            
+            noUniqueOwnedList.shares.inOrder() { share in
+                share.person.ownedLists.remove(noUniqueOwnedList)
+            }
+
+            noUniqueOwnedList.changeID(newID: newID)
+
+            region.addOwnedList(list: noUniqueOwnedList)
+            noUniqueOwnedList.shares.inOrder() { share in
+                share.person.addOwnedList(ownedList: noUniqueOwnedList)
+            }
+        }
+        
+        for noUniqueProperty in noUniqueProperties {
+            var newID = UInt(region.properties.max()?.id ?? noUniqueProperty.id)
+            
+            while region.properties.findBy(element: Property(id: newID)) != nil {
+                newID += 1
+            }
+            
+            noUniqueProperty.ownedList.removeProperty(property: noUniqueProperty)
+
+            noUniqueProperty.changeID(newID: newID)
+            noUniqueProperty.ownedList.properties.insert(noUniqueProperty)
+            region.addProperty(property: noUniqueProperty)
+        }
+        
+        return deletedRegion
     }
     
     
@@ -383,6 +459,97 @@ extension Database {
 // DATA GENERATION
 
 extension Database {
+    
+    public func generateDatabase(regionsCount: Int, propertiesCount: Int, personsCount: Int, ownedListsCount: Int, maxOwnerPropertiesCount: Int, maxOwnerInListCount: Int) {
+        
+        var personsArray = [Person]()
+        personsArray.reserveCapacity(personsCount)
+        
+        var regionsArray = [Region]()
+        regionsArray.reserveCapacity(regionsCount)
+        
+        var propertiesArray = [Property]()
+        propertiesArray.reserveCapacity(propertiesCount)
+        
+        var ownedListsArray = [OwnedList]()
+        ownedListsArray.reserveCapacity(ownedListsCount)
+        
+        var regionIndex = 0
+        while regionIndex < regionsCount {
+            let region = Region.random()
+            if _regionsByID.insert(region) {
+                if !_regionsByName.insert(region) {
+                    regionIndex -= 1
+                    "WARNING - Region podla NAME: \(region.regionName) bol vymazaný z dôvodu duplicity".debugMessage()
+                    _regionsByID.remove(region)
+                    continue
+                }
+            } else {
+                "WARNING - Region podla ID: \(region.regionID) bol vymazaný z dôvodu duplicity".debugMessage()
+                regionIndex -= 1
+                continue
+            }
+            
+            regionsArray.append(region)
+            regionIndex += 1
+        }
+        
+        var personIndex = 0
+        while personIndex < personsCount {
+            let person = Person.random()
+            _persons.insert(person)
+            personsArray.append(person)
+            personIndex += 1
+        }
+        
+        var ownedListIndex = 0
+        while ownedListIndex < ownedListsCount {
+            guard let region = regionsArray.randomItem() else { break }
+            let ownedList = OwnedList.random(region: region, id: UInt(region.ownedLists.count + 1), properties: nil)
+            region.addOwnedList(list: ownedList)
+            ownedListsArray.append(ownedList)
+            ownedListIndex += 1
+        }
+        
+        var propertiesIndex = 0
+        for region in regionsArray {
+            region.ownedLists.inOrder() { ownerList in
+                for _ in 0..<maxOwnerPropertiesCount {
+                    if propertiesIndex >= propertiesCount {
+                        break
+                    }
+                    if Int.random(in: 0..<100) > 60 {
+                        let property = Property.random(persons: nil, id: UInt(region.properties.count + 1), ownedList: ownerList)
+                        region.addProperty(property: property)
+                        ownerList.addProperty(property: property)
+                        region.addOwnedList(list: ownerList)
+                        propertiesArray.append(property)
+                        propertiesIndex += 1
+                    }
+                }
+                for _ in 0..<maxOwnerInListCount {
+                    if let randomPerson = personsArray.randomItem() {
+                        if ownerList.percentShareSum < 100.0 {
+                            if ownerList.addNewOwner(owner: randomPerson, share: Double.random(in: 0.0...(1.0 - ownerList.percentShareSum))) {
+                                randomPerson.addOwnedList(ownedList: ownerList)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Nastavenie trvaleho bydliska
+        
+        for person in personsArray {
+            if let property = propertiesArray.randomItem() {
+                if property.addPerson(person: person) {
+                    person.setHome(property: property)
+                }
+            }
+        }
+        
+    }
     
     public func generateDatabase(regionCount: Int, propertyCount: Int, persons: Int ,completion: () -> ()) {
         for var i in 0..<regionCount {
