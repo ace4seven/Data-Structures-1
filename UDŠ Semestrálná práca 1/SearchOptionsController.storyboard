@@ -33,10 +33,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Vyhľadávanie" image="magnificier_tab_ico" id="NAQ-gx-pzs"/>
                     <navigationItem key="navigationItem" id="gSV-pQ-rxS">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cog_ico" id="hVD-Zm-2Po">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="cog_ico" id="Fx0-z4-jbI">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="Whu-um-Vn4" kind="show" id="YfN-li-VT4"/>
+                                <segue destination="Whu-um-Vn4" kind="show" id="gXW-70-Y4h"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

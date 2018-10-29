@@ -369,6 +369,10 @@ extension Database {
         completion(ownedList)
     }
     
+    func getAllPersons() -> [Person] {
+        return _persons.inOrderToArray()
+    }
+    
     func getPerson(id: String) -> Person? {
         return _persons.findBy(element: Person(id: id, firstName: "", lastName: "", dateOfBirth: 0))
     }
