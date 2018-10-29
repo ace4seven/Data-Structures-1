@@ -354,6 +354,8 @@ extension AVLTree {
 
 extension AVLTree {
     
+    // MARK: - INORDER
+    
     func inOrder(value:  (Element) -> Void) {
         var stack = Stack<AVLNode<Element>>()
         var current = self.root
@@ -381,6 +383,29 @@ extension AVLTree {
         }
     }
     
+    // MARK: - LEVELORDER
+    
+    func levelOrder(value: (Element) -> Void) {
+        guard let root = self.root else {
+            return
+        }
+        
+        var queue = [AVLNode<Element>]()
+        queue.append(root)
+        while !queue.isEmpty {
+            let node = queue.removeFirst()
+            value(node.value)
+            
+            if let leftChild = node.leftChild {
+                queue.append(leftChild)
+            }
+            
+            if let rightChild = node.rightChild {
+                queue.append(rightChild)
+            }
+        }
+    }
+    
 }
 
 // MARK: - ARRAY TRANSFORM
@@ -391,6 +416,15 @@ extension AVLTree {
         var result = [Element]()
         result.reserveCapacity(self._count)
         self.inOrder() { value in
+            result.append(value)
+        }
+        return result
+    }
+    
+    func levelOrderToArray() -> [Element] {
+        var result = [Element]()
+        result.reserveCapacity(self._count)
+        self.levelOrder() { value in
             result.append(value)
         }
         return result

@@ -35,14 +35,15 @@ class TestStructureController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testData(
-            testHardnes: .soft,
-            values: 10000,
-            range: 1..<100000000,
-            removePropability: 0.4,
-            drawConsoleTree: false
-        )
+//        testData(
+//            testHardnes: .soft,
+//            values: 10000,
+//            range: 1..<100000000,
+//            removePropability: 0.4,
+//            drawConsoleTree: false
+//        )
      
+        testLevelOrder()
     }
     
 }
@@ -141,6 +142,20 @@ extension TestStructureController {
         if drawConsoleTree {
             print(tree)
         }
+    }
+    
+    fileprivate func testLevelOrder() {
+        let tree = AVLTree<Int>(Int.comparator)
+        for i in 1..<50 {
+            tree.insert(i)
+        }
+        
+        tree.levelOrder() { value in
+            print(value)
+        }
+        
+        print(tree)
+        
     }
     
 }
