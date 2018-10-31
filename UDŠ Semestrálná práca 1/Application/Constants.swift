@@ -15,7 +15,7 @@ enum C {
         static let TEST_STRUCTURE = true
     }
     
-    static let separator = "👌"
+    static let separator = "🤮"
     static let newLine = "\n"
 }
 

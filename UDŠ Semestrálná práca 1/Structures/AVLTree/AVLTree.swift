@@ -384,7 +384,6 @@ extension AVLTree {
     }
     
     // MARK: - LEVELORDER
-    
     func levelOrder(value: (Element) -> Void) {
         guard let root = self.root else {
             return
@@ -409,7 +408,6 @@ extension AVLTree {
 }
 
 // MARK: - ARRAY TRANSFORM
-
 extension AVLTree {
     
     func inOrderToArray() -> [Element] {

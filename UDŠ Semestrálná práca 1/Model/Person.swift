@@ -22,7 +22,7 @@ public class Person {
     }
     
     private var _home: Property?
-    private var _ownedLists: AVLTree<OwnedList>
+    private var _ownedLists: AVLTree<OwnedList>!
     
     init(id: String, firstName: String, lastName: String, dateOfBirth: Int) {
         self._id = id
@@ -39,6 +39,11 @@ public class Person {
         self._dateOfBirth = 0
         self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
     }
+    
+//    deinit {
+//        _home = nil
+//        _ownedLists = nil
+//    }
     
     var id: String {
         get {
@@ -140,7 +145,7 @@ extension Person {
 extension Person: Exportable {
     
     public func toString() -> String {
-        return "\(_id) \(C.separator) \(_firstName) \(C.separator) \(_lastName) \(C.separator) \(_dateOfBirth) \(C.newLine)"
+        return "\(_id)\(C.separator)\(_firstName)\(C.separator)\(_lastName)\(C.separator)\(_dateOfBirth)\(C.newLine)"
     }
     
 }

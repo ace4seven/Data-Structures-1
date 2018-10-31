@@ -14,8 +14,8 @@ public class Property {
     private let _address: String
     private let _desc: String
     
-    private var _ownedList: OwnedList
-    private var _persons: AVLTree<Person>
+    private var _ownedList: OwnedList!
+    private var _persons: AVLTree<Person>!
     
     init(id: UInt, address: String, desc: String, ownedList: OwnedList) {
         self._id = id
@@ -32,6 +32,11 @@ public class Property {
         self._ownedList = OwnedList(id: 0, region: Region(regionID: 0, regionName: ""))
         self._persons = AVLTree<Person>(Person.comparator)
     }
+    
+//    deinit {
+//        self._ownedList = nil
+//        self._persons = nil
+//    }
     
     static func random(persons: AVLTree<Person>? = nil, id: UInt? = nil, ownedList: OwnedList) -> Property {
         return Property(id: id ?? DataSeeder.propertyID(),
@@ -106,6 +111,18 @@ extension Property {
             return ComparisonResult.orderedDescending
         }
         
+    }
+    
+}
+
+extension Property: Exportable {
+    
+    public func toString() -> String {
+        let personsID: String = self._persons.levelOrderToArray().map{ $0.id }.joined(separator: " ")
+        if personsID.trimmingCharacters(in: .whitespaces) == "" {
+            return "\(_id)\(C.separator)\(_address)\(C.separator)\(_desc)\(C.newLine)"
+        }
+        return "\(_id)\(C.separator)\(_address)\(C.separator)\(_desc)\(C.separator)\(personsID)\(C.newLine)"
     }
     
 }

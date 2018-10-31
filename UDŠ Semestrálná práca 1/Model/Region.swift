@@ -15,8 +15,8 @@ public class Region {
     fileprivate let _regionID: UInt
     fileprivate let _regionName: String
     
-    private var _ownedLists: AVLTree<OwnedList>
-    private var _properties: AVLTree<Property>
+    private var _ownedLists: AVLTree<OwnedList>!
+    private var _properties: AVLTree<Property>!
     
     init(regionID: UInt, regionName: String) {
         self._regionID = regionID
@@ -25,6 +25,11 @@ public class Region {
         self._properties = AVLTree<Property>(Property.comparator)
         self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
     }
+    
+//    deinit {
+//        self._ownedLists = nil
+//        self._properties = nil
+//    }
     
     static func random(
         properties: AVLTree<Property>? = nil
@@ -103,6 +108,16 @@ extension Region {
             return ComparisonResult.orderedDescending
         }
         
+    }
+    
+}
+
+// MARK: - Exportable
+
+extension Region: Exportable {
+    
+    public func toString() -> String {
+          return "\(_regionID)\(C.separator)\(_regionName) \(C.newLine)"
     }
     
 }

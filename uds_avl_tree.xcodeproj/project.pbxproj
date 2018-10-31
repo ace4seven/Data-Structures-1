@@ -37,6 +37,8 @@
 		16441DEA217F3F16001D1199 /* SearchPropertyController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16441DE9217F3F16001D1199 /* SearchPropertyController.storyboard */; };
 		16441DEC217F40A9001D1199 /* SearchPropertyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16441DEB217F40A9001D1199 /* SearchPropertyViewModel.swift */; };
 		16441DEE217F40B0001D1199 /* SearchPropertyViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16441DED217F40B0001D1199 /* SearchPropertyViewDelegate.swift */; };
+		1647306A2189F4770097DA30 /* ImportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164730692189F4770097DA30 /* ImportController.swift */; };
+		1647306C2189F4800097DA30 /* ImportController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1647306B2189F4800097DA30 /* ImportController.storyboard */; };
 		1653DA772186EF500040EC91 /* ControlOwnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653DA762186EF500040EC91 /* ControlOwnerCell.swift */; };
 		1653DA7A218727060040EC91 /* ControlPersonListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653DA79218727060040EC91 /* ControlPersonListController.swift */; };
 		1653DA7C218727100040EC91 /* ControlPersonListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1653DA7B218727100040EC91 /* ControlPersonListController.storyboard */; };
@@ -179,6 +181,8 @@
 		16441DE9217F3F16001D1199 /* SearchPropertyController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchPropertyController.storyboard; sourceTree = "<group>"; };
 		16441DEB217F40A9001D1199 /* SearchPropertyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPropertyViewModel.swift; sourceTree = "<group>"; };
 		16441DED217F40B0001D1199 /* SearchPropertyViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPropertyViewDelegate.swift; sourceTree = "<group>"; };
+		164730692189F4770097DA30 /* ImportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportController.swift; sourceTree = "<group>"; };
+		1647306B2189F4800097DA30 /* ImportController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImportController.storyboard; sourceTree = "<group>"; };
 		1653DA762186EF500040EC91 /* ControlOwnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlOwnerCell.swift; sourceTree = "<group>"; };
 		1653DA79218727060040EC91 /* ControlPersonListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPersonListController.swift; sourceTree = "<group>"; };
 		1653DA7B218727100040EC91 /* ControlPersonListController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ControlPersonListController.storyboard; sourceTree = "<group>"; };
@@ -413,6 +417,15 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		164730682189F4580097DA30 /* ImportData */ = {
+			isa = PBXGroup;
+			children = (
+				164730692189F4770097DA30 /* ImportController.swift */,
+				1647306B2189F4800097DA30 /* ImportController.storyboard */,
+			);
+			name = ImportData;
+			sourceTree = "<group>";
+		};
 		1653DA78218726D40040EC91 /* ControlPersons */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +597,7 @@
 		166707B5217B4B5E0033CF43 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				164730682189F4580097DA30 /* ImportData */,
 				160B2B4F2187881C0024CB97 /* ExportData */,
 				166707BA217B501D0033CF43 /* DataGenerator */,
 				166707B6217B4CD70033CF43 /* SettingsController.swift */,
@@ -990,6 +1004,7 @@
 				16DC2D1F217BA30D0036FA62 /* FormRegionNameController.storyboard in Resources */,
 				164364922180AAAE00B1A50A /* SearchPersonController.storyboard in Resources */,
 				160B2B53218788470024CB97 /* ExportController.storyboard in Resources */,
+				1647306C2189F4800097DA30 /* ImportController.storyboard in Resources */,
 				16D7B906217CC66F00A19243 /* PropertyShareCell.xib in Resources */,
 				167FB9D2217DACD20037A390 /* AddOwnedListController.storyboard in Resources */,
 				16DAB1B52182205500FD12E9 /* DeleteShareController.storyboard in Resources */,
@@ -1167,6 +1182,7 @@
 				1688C2BF2186667D00C2E477 /* ControlOwnerListController.swift in Sources */,
 				1660436E21738D8400333CD8 /* Database.swift in Sources */,
 				1688C2C72186670500C2E477 /* ControlPropertyCell.swift in Sources */,
+				1647306A2189F4770097DA30 /* ImportController.swift in Sources */,
 				16F0942421849DB90075039D /* DeleteRegionController.swift in Sources */,
 				16DC2D0F217B967F0036FA62 /* ListViewModel.swift in Sources */,
 				1653DA7A218727060040EC91 /* ControlPersonListController.swift in Sources */,

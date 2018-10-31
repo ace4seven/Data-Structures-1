@@ -28,9 +28,9 @@ public final class Database { // SINGLETON
         self.migration = ImportExport()
     }
     
-    private var _persons = AVLTree<Person>(Person.comparator)
-    private var _regionsByID = AVLTree<Region>(Region.comparatorByID)
-    private var _regionsByName = AVLTree<Region>(Region.comparatorByName)
+    private var _persons: AVLTree<Person>! = AVLTree<Person>(Person.comparator)
+    private var _regionsByID: AVLTree<Region>! = AVLTree<Region>(Region.comparatorByID)
+    private var _regionsByName: AVLTree<Region>! = AVLTree<Region>(Region.comparatorByName)
     
     fileprivate let migration: ImportExport
 }
@@ -666,11 +666,162 @@ extension Database {
     func exportData(completion: @escaping () -> ()) {
         migration.prepareForExport()
         
-        
+        migration.write(headerType: .persons(count: _persons.count))
         _persons.levelOrder() { [weak self] person in
             self?.migration.write(line: person.toString())
+
         }
         
+        _regionsByID.levelOrder() { [weak self] region in
+            migration.write(headerType: .regions(count: _regionsByID.count))
+            migration.write(line: region.toString())
+            
+            // Owned lists in region
+            
+            region.ownedLists.levelOrder() { ownedList in
+                self?.migration.write(headerType: .ownedLists(count: region.ownedLists.count))
+                self?.migration.write(line: ownedList.toString())
+            
+                // Properties in owned list
+                ownedList.properties.levelOrder() { property in
+                    self?.migration.write(headerType: .properties(count: ownedList.properties.count))
+                    self?.migration.write(line: property.toString())
+                }
+                
+                // Shares in owned lists
+                ownedList.shares.levelOrder() { share in
+                    self?.migration.write(headerType: .shares(count: ownedList.shares.count))
+                    self?.migration.write(line: share.toString())
+                }
+            }
+        }
+        completion()
+    }
+    
+    func importData(completion: @escaping () -> ()) {
+        migration.prepareForImport()
+        
+        var personSaving = false
+        var regionsSaving = false
+        var ownedListSaving = false
+        var propertySaving = false
+        var shareSaving = false
+        
+        var region: Region!
+        var ownedList: OwnedList!
+        
+//        var regionIndex = 0
+//        var personIndex = 0
+//        var ownedListIndex = 0
+//        var propertyIndex = 0
+//        var shareIndex = 0
+        var skip = false
+        
+        migration.readCSV { [weak self] component in
+            if let component = component {
+                
+                if component[0] == "SHARES" {
+                    personSaving = false
+                    regionsSaving = false
+                    ownedListSaving = false
+                    propertySaving = false
+                    shareSaving = true
+//                    shareIndex = Int(component[1])!
+                    
+                    skip = true
+                }
+                
+                if component[0] == "PROPERTIES" {
+                    personSaving = false
+                    regionsSaving = false
+                    ownedListSaving = false
+                    propertySaving = true
+                    shareSaving = false
+                    
+                    skip = true
+//                    propertyIndex = Int(component[1])!
+                }
+                
+                if component[0] == "OWNEDLISTS" {
+                    personSaving = false
+                    regionsSaving = false
+                    ownedListSaving = true
+                    propertySaving = false
+                    shareSaving = false
+                    skip = true
+//                    ownedListIndex = Int(component[1])!
+                }
+                
+                if component[0] == "REGIONS" {
+                    personSaving = false
+                    regionsSaving = true
+                    ownedListSaving = false
+                    propertySaving = false
+                    shareSaving = false
+                    skip = true
+//                    regionIndex = Int(component[1])!
+                }
+                
+                if component[0] == "PERSONS" {
+                    personSaving = true
+                    regionsSaving = false
+                    ownedListSaving = false
+                    propertySaving = false
+                    shareSaving = false
+                    skip = true
+//                    personIndex = Int(component[1])!
+                }
+                
+                if !skip {
+                    if personSaving {
+                        let person = Person(id: component[0], firstName: component[1], lastName: component[2], dateOfBirth: Int(component[3])!)
+                        self?._persons.insert(person)
+                        //                    personIndex -= 1
+                    }
+                    
+                    if regionsSaving {
+                        region = Region(regionID: UInt(component[0])!, regionName: component[1])
+                        self?._regionsByID.insert(region)
+                        self?._regionsByName.insert(region)
+                        //                    regionIndex -= 1
+                    }
+                    
+                    if ownedListSaving {
+                        ownedList = OwnedList(id: UInt(component[0])!, region: region)
+                        //                    ownedList.increasePercentate(value: Double(component[1])!)
+                        region.ownedLists.insert(ownedList)
+                        //                    ownedListIndex -= 1
+                    }
+                    
+                    if propertySaving {
+                        let property = Property(id: UInt(component[0])!, address: component[1], desc: component[2], ownedList: ownedList)
+                        
+                        if component.indices.contains(3) {
+                            let personIDs = component[3].components(separatedBy: " ")
+                            for personID in personIDs {
+                                let person: Person! = self?._persons.findBy(element: Person(id: personID))!
+                                person.setHome(property: property)
+                                property.addPerson(person: person)
+                            }
+                        }
+            
+                        ownedList.addProperty(property: property)
+                        region.addProperty(property: property)
+                        //                    propertyIndex -= 1
+                    }
+                    
+                    if shareSaving {
+                        let person: Person! = self?._persons.findBy(element: Person(id: component[0]))
+                        ownedList.addNewOwner(owner: person, share: Double(component[1])!)
+                        person.addOwnedList(ownedList: ownedList)
+                        //                    shareIndex -= 1
+                    }
+                } else {
+                    skip = false
+                }
+                
+            }
+        }
         completion()
     }
     

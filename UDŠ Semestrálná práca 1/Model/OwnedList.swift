@@ -12,10 +12,10 @@ public class OwnedList {
     
     private var _id: UInt
     
-    private var _region: Region
-    private var _properties: AVLTree<Property>
+    private var _region: Region!
+    private var _properties: AVLTree<Property>!
     
-    private var _shares: AVLTree<Share>
+    private var _shares: AVLTree<Share>!
     private var _percentShareSum: Double = 0.0
     
     init(id: UInt, region: Region) {
@@ -24,6 +24,12 @@ public class OwnedList {
         self._properties = AVLTree<Property>(Property.comparator)
         self._shares = AVLTree<Share>(Share.comparator)
     }
+    
+//    deinit {
+//        self._region = nil
+//        self._properties = nil
+//        self._shares = nil
+//    }
     
     static func random(region: Region, id: UInt? = nil, properties: AVLTree<Property>? = nil) -> OwnedList {
         return OwnedList(id: id ?? DataSeeder.ownedListID(),
@@ -134,6 +140,14 @@ extension OwnedList {
             return ComparisonResult.orderedDescending
         }
         
+    }
+    
+}
+
+extension OwnedList: Exportable {
+    
+    public func toString() -> String {
+          return "\(_id)\(C.separator)\(_percentShareSum)\(C.newLine)"
     }
     
 }

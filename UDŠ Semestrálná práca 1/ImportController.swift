@@ -1,23 +1,23 @@
 //
-//  ExportController.swift
+//  ImportController.swift
 //  uds_avl_tree
 //
-//  Created by Juraj Macák on 10/29/18.
+//  Created by Juraj Macák on 10/31/18.
 //  Copyright © 2018 Juraj Macák. All rights reserved.
 //
 
 import UIKit
 
-class ExportController: UIViewController {
+class ImportController: UIViewController {
     
     @IBOutlet weak var waitingScreenView: UIView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "Export databázy"
+        
+        title = "Import databázy"
         
         waitingScreenView.alpha = 0.0
         indicator.stopAnimating()
@@ -26,11 +26,11 @@ class ExportController: UIViewController {
     @IBAction func exportButtonPressed(_ sender: Any) {
         setWrapper {
             DispatchQueue.main.asyncAfter(seconds: 0.3, handler: {
-                Database.shared.exportData() { [weak self] in
+                Database.shared.importData() { [weak self] in
                     self?.waitingScreenView.alpha = 0.0
                     self?.indicator.stopAnimating()
                     
-                    self?.composeAlert(title: "Export dokonceny", message: "Databaza bola úspešne migrovaná na disk") { _ in
+                    self?.composeAlert(title: "Import dokonceny", message: "Dáta boli úspešne importované") { _ in
                         self?.navigationController?.popViewController(animated: true)
                     }
                 }
