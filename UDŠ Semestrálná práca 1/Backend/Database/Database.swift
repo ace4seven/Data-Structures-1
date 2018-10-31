@@ -79,7 +79,7 @@ extension Database {
         completion(person)
     }
     
-    // MARK: - TASK 4
+    // MARK: - TASK 4 6
     
     func searchOwnedList(key: RegionSearchKey, ownedListID: UInt) -> OwnedListData? {
         var tempRegion: Region?
@@ -107,7 +107,9 @@ extension Database {
     
     // MARK: - Data modificators
     
-    func changeAddHome(for personID: String, regionName: String, propertyID: UInt) -> Person? { // TASK 10
+    // MARK: - TASK 10
+    
+    func changeAddHome(for personID: String, regionName: String, propertyID: UInt) -> Person? {
         guard let person = _persons.findBy(element: Person(id: personID)) else {
             return nil
         }
@@ -145,7 +147,6 @@ extension Database {
                 return false
         }
         
-        // TODO: Property ID custom form
         let property = Property(id: DataSeeder.propertyID(), address: address, desc: desc, ownedList: ownerList)
         return ownerList.addProperty(property: property) && region.addProperty(property: property)
     }
@@ -154,7 +155,9 @@ extension Database {
         return region.addOwnedList(list: OwnedList(id: ownerListID, region: region))
     }
     
-    func changePropertyOwner(oldPersonID: String, newPersonID: String, regionID: UInt, propertyID: UInt) -> Bool { // TASK 11
+    // MARK: - TASK 11
+    
+    func changePropertyOwner(oldPersonID: String, newPersonID: String, regionID: UInt, propertyID: UInt) -> Bool {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             return false
         }
@@ -231,6 +234,8 @@ extension Database {
         guard let person = _persons.findBy(element: Person(id: personID)) else {
             return nil
         }
+        
+        
         
         if let ownedList = person.ownedLists.remove(OwnedList(id: ownerListID, region: region)) {
             if ownedList.shares.remove(Share(person: person, shareCount: 0.0)) != nil {
@@ -372,7 +377,9 @@ extension Database {
         completion(nil)
     }
     
-    func getOwnerList(regionID: UInt, ownerListID: UInt, completion: @escaping (OwnedList?) -> ()) {
+    // MARK: - TASK 12
+    
+    func changeShare(regionID: UInt, ownerListID: UInt, personID: String, completion: @escaping (OwnedList?) -> ()) {
         guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             completion(nil)
             return
@@ -382,19 +389,18 @@ extension Database {
             return
         }
         
+        guard let person = _persons.findBy(element: Person(id: personID, firstName: "", lastName: "", dateOfBirth: 0)) else {
+            completion(nil)
+            return
+        }
+        
+        ownedList.addNewOwner(owner: person, share: 0.0)
+        
         completion(ownedList)
     }
     
     func getAllPersons() -> [Person] {
         return _persons.inOrderToArray()
-    }
-    
-    func getPerson(id: String) -> Person? {
-        return _persons.findBy(element: Person(id: id, firstName: "", lastName: "", dateOfBirth: 0))
-    }
-    
-    func savePersonToOwnerList(ownedList: OwnedList, person: Person) -> Bool {
-        return ownedList.addNewOwner(owner: person, share: 0.0)
     }
     
     // MARK: - TASK 9
@@ -710,11 +716,6 @@ extension Database {
         var region: Region!
         var ownedList: OwnedList!
         
-//        var regionIndex = 0
-//        var personIndex = 0
-//        var ownedListIndex = 0
-//        var propertyIndex = 0
-//        var shareIndex = 0
         var skip = false
         
         migration.readCSV { [weak self] component in
@@ -726,8 +727,6 @@ extension Database {
                     ownedListSaving = false
                     propertySaving = false
                     shareSaving = true
-//                    shareIndex = Int(component[1])!
-                    
                     skip = true
                 }
                 
@@ -739,7 +738,6 @@ extension Database {
                     shareSaving = false
                     
                     skip = true
-//                    propertyIndex = Int(component[1])!
                 }
                 
                 if component[0] == "OWNEDLISTS" {
@@ -749,7 +747,6 @@ extension Database {
                     propertySaving = false
                     shareSaving = false
                     skip = true
-//                    ownedListIndex = Int(component[1])!
                 }
                 
                 if component[0] == "REGIONS" {
@@ -759,7 +756,6 @@ extension Database {
                     propertySaving = false
                     shareSaving = false
                     skip = true
-//                    regionIndex = Int(component[1])!
                 }
                 
                 if component[0] == "PERSONS" {
@@ -769,28 +765,23 @@ extension Database {
                     propertySaving = false
                     shareSaving = false
                     skip = true
-//                    personIndex = Int(component[1])!
                 }
                 
                 if !skip {
                     if personSaving {
                         let person = Person(id: component[0], firstName: component[1], lastName: component[2], dateOfBirth: Int(component[3])!)
                         self?._persons.insert(person)
-                        //                    personIndex -= 1
                     }
                     
                     if regionsSaving {
                         region = Region(regionID: UInt(component[0])!, regionName: component[1])
                         self?._regionsByID.insert(region)
                         self?._regionsByName.insert(region)
-                        //                    regionIndex -= 1
                     }
                     
                     if ownedListSaving {
                         ownedList = OwnedList(id: UInt(component[0])!, region: region)
-                        //                    ownedList.increasePercentate(value: Double(component[1])!)
                         region.ownedLists.insert(ownedList)
-                        //                    ownedListIndex -= 1
                     }
                     
                     if propertySaving {
@@ -807,14 +798,12 @@ extension Database {
             
                         ownedList.addProperty(property: property)
                         region.addProperty(property: property)
-                        //                    propertyIndex -= 1
                     }
                     
                     if shareSaving {
                         let person: Person! = self?._persons.findBy(element: Person(id: component[0]))
                         ownedList.addNewOwner(owner: person, share: Double(component[1])!)
                         person.addOwnedList(ownedList: ownedList)
-                        //                    shareIndex -= 1
                     }
                 } else {
                     skip = false

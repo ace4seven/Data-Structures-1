@@ -57,35 +57,14 @@ class FormChangeShare: UIViewController {
                 return
         }
         
-        Database.shared.getOwnerList(regionID: regionID, ownerListID: ownerListID) { [weak self] oList in
-            guard let ownedList = oList else {
+        Database.shared.changeShare(regionID: regionID, ownerListID: ownerListID, personID: personalID) { [weak self] list in
+            guard let ownedList = list else {
                 self?.indicator.alpha = 0.0
                 self?.indicator.stopAnimating()
                 self?.composeAlert(title: "List vlastníctva sa nenašiel", message: "Skontrlujte, či ste zadali správne číslo katastrálneho územia, alebo číslo vlastníctva", completion: { _ in
                 })
                 return
             }
-            
-            guard let person = Database.shared.getPerson(id: personalID) else {
-                self?.composeAlert(title: "Osoba nenájdená", message: "Osoba s daným rodným číslom sa nenašla", completion: { _ in })
-                
-                self?.indicator.alpha = 0.0
-                self?.indicator.stopAnimating()
-                
-                return
-            }
-            
-            if Database.shared.savePersonToOwnerList(ownedList: ownedList, person: person) {
-                self?.composeAlert(title: "Osoba pridaná", message: "Osoba úspešne pridaná do listu vlastníctva", completion: { _ in })
-                
-                self?.indicator.alpha = 0.0
-                self?.indicator.stopAnimating()
-            }
-            
-            
-            
-            self?.indicator.alpha = 0.0
-            self?.indicator.stopAnimating()
             self?.performSegue(withIdentifier: String(describing: ConfirmNewSharesController.self), sender: ownedList)
         }
     }
