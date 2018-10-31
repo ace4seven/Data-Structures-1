@@ -29,7 +29,7 @@ public class Person {
         self._firstName = firstName
         self._lastName = lastName
         self._dateOfBirth = dateOfBirth
-        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparatorComposite)
     }
     
     init(id: String) {
@@ -37,7 +37,7 @@ public class Person {
         self._firstName = ""
         self._lastName = ""
         self._dateOfBirth = 0
-        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparatorComposite)
     }
     
 //    deinit {

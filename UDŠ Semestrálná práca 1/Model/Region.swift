@@ -23,7 +23,7 @@ public class Region {
         self._regionName = regionName
         
         self._properties = AVLTree<Property>(Property.comparator)
-        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparatorByID)
     }
     
 //    deinit {

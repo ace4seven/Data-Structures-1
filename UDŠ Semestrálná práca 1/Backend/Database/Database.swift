@@ -126,9 +126,13 @@ extension Database {
         return person
     }
     
+    // MARK: - TASK 16
+    
     func addPerson(personalID: String, name: String, surname: String, dateOfBirth: Int) -> Bool {
         return _persons.insert(Person(id: personalID, firstName: name, lastName: surname, dateOfBirth: dateOfBirth))
     }
+    
+    // MARK: - TASK 22
     
     func addRegion(name: String) -> Bool {
         let regionID: UInt = UInt(_regionsByID.count + 1)
@@ -141,15 +145,17 @@ extension Database {
         return false
     }
     
-    func addProperty(regionID: UInt, ownerListID: UInt, address: String, desc: String) -> Bool {
+    func addProperty(regionID: UInt, ownerListID: UInt, propertyID: UInt, address: String, desc: String) -> Bool {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: ""))
             , let ownerList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) else {
                 return false
         }
         
-        let property = Property(id: DataSeeder.propertyID(), address: address, desc: desc, ownedList: ownerList)
+        let property = Property(id:propertyID, address: address, desc: desc, ownedList: ownerList)
         return ownerList.addProperty(property: property) && region.addProperty(property: property)
     }
+    
+    // MARK: - TASK 17
     
     func addNewOwnerList(ownerListID: UInt, for region: Region) -> Bool {
         return region.addOwnedList(list: OwnedList(id: ownerListID, region: region))
@@ -188,6 +194,8 @@ extension Database {
         return false
     }
     
+    // MARK - TASK 19
+    
     func removeOwnedList(oldOwnerListID: UInt, newOnwerListID: UInt, regionID: UInt) -> OwnedList? { // TASK 19
         
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
@@ -225,8 +233,9 @@ extension Database {
         return newOwnerList
     }
     
+    // MARK: - TASK 13
     
-    func deletePersonShare(personID: String, regionID: UInt, ownerListID: UInt) -> OwnedList? { // TASK 13
+    func deletePersonShare(personID: String, regionID: UInt, ownerListID: UInt) -> OwnedList? {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             return nil
         }
@@ -235,18 +244,17 @@ extension Database {
             return nil
         }
         
-        
-        
-        if let ownedList = person.ownedLists.remove(OwnedList(id: ownerListID, region: region)) {
+        if let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) {
             if ownedList.shares.remove(Share(person: person, shareCount: 0.0)) != nil {
+                person.ownedLists.remove(ownedList)
                 return ownedList
-            } else {
-                print("Chyba v nastaveni smernika - DELETE PERSON TASK 13")
             }
         }
         
         return nil
     }
+    
+    // MARK: - TASK 20
     
     func deletePropertyFromOwnedList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> Property? { // TASK 20
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
@@ -265,6 +273,8 @@ extension Database {
         
         return deletedProperty
     }
+    
+    // MARK: - TASK 22
     
     func deleteRegion(deletedRegionID: UInt, movedRegionID: UInt) -> Region? { // TASK 22
         
@@ -287,10 +297,10 @@ extension Database {
         
         deletedRegion.ownedLists.inOrder() { ownedList in
             
-            ownedList.setRegion(region: region)
-            
             if !region.addOwnedList(list: ownedList) {
                 noUniqueOwnedLists.append(ownedList)
+            } else {
+                ownedList.setRegion(region: region)
             }
             
             ownedList.properties.inOrder() { property in
@@ -311,6 +321,7 @@ extension Database {
                 share.person.ownedLists.remove(noUniqueOwnedList)
             }
 
+            noUniqueOwnedList.setRegion(region: region)
             noUniqueOwnedList.changeID(newID: newID)
 
             region.addOwnedList(list: noUniqueOwnedList)
@@ -357,6 +368,8 @@ extension Database {
         completion(regions)
     }
     
+    // MARK: - TASK 15
+    
     func getRegions(key: SortKey) -> [Region] {
         switch key {
         case .id:
@@ -384,6 +397,7 @@ extension Database {
             completion(nil)
             return
         }
+        
         guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) else {
             completion(nil)
             return
@@ -562,9 +576,7 @@ extension Database {
                 for _ in 0..<maxOwnerInListCount {
                     if let randomPerson = personsArray.randomItem() {
                         if ownerList.percentShareSum < 100.0 {
-                            if ownerList.addNewOwner(owner: randomPerson, share: Double.random(in: 0.0...(1.0 - ownerList.percentShareSum))) {
-                                randomPerson.addOwnedList(ownedList: ownerList)
-                            }
+                            ownerList.addNewOwner(owner: randomPerson, share: Double.random(in: 0.0...(1.0 - ownerList.percentShareSum)))
                         }
                     }
                 }

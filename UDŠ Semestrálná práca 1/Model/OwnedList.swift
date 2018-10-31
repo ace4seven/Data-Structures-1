@@ -129,12 +129,28 @@ extension OwnedList {
 
 extension OwnedList {
     
-    static let comparator: Comparator = { lhs, rhs in
+    static let comparatorByID: Comparator = { lhs, rhs in
         guard let p1 = lhs as? OwnedList, let p2 = rhs as? OwnedList else { return ComparisonResult.orderedSame }
         
         if p1.id == p2.id {
             return ComparisonResult.orderedSame
         } else if p1.id < p2.id {
+            return ComparisonResult.orderedAscending
+        } else {
+            return ComparisonResult.orderedDescending
+        }
+        
+    }
+    
+    static let comparatorComposite: Comparator = { lhs, rhs in
+        guard let p1 = lhs as? OwnedList, let p2 = rhs as? OwnedList else { return ComparisonResult.orderedSame }
+        
+        let cp1 = "\(p1.region.regionID) : \(p1._id)"
+        let cp2 = "\(p2.region.regionID) : \(p2._id)"
+        
+        if cp1 == cp2 {
+            return ComparisonResult.orderedSame
+        } else if cp1 < cp2 {
             return ComparisonResult.orderedAscending
         } else {
             return ComparisonResult.orderedDescending

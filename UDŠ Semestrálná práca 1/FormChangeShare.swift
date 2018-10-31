@@ -47,21 +47,21 @@ class FormChangeShare: UIViewController {
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        indicator.alpha = 1.0
-        indicator.startAnimating()
+//        indicator.alpha = 1.0
+//        indicator.startAnimating()
         
         guard let regionID = UInt(regionIDTextfield.text ?? ""), let personalID = personalIDTextfield.text,
             let ownerListID = UInt(self.ownerListIdTextField.text ?? "") else {
-                indicator.alpha = 0.0
-                indicator.stopAnimating()
+//                indicator.alpha = 0.0
+//                indicator.stopAnimating()
                 return
         }
         
         Database.shared.changeShare(regionID: regionID, ownerListID: ownerListID, personID: personalID) { [weak self] list in
             guard let ownedList = list else {
-                self?.indicator.alpha = 0.0
-                self?.indicator.stopAnimating()
-                self?.composeAlert(title: "List vlastníctva sa nenašiel", message: "Skontrlujte, či ste zadali správne číslo katastrálneho územia, alebo číslo vlastníctva", completion: { _ in
+//                self?.indicator.alpha = 0.0
+//                self?.indicator.stopAnimating()
+                self?.composeAlert(title: "List vlastníctva sa nenašiel", message: "Skontrolujte, či ste zadali správne číslo katastrálneho územia, alebo číslo vlastníctva", completion: { _ in
                 })
                 return
             }
