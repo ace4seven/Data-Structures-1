@@ -136,10 +136,11 @@ extension Person {
     
 }
 
-extension Person: Hashable {
+
+extension Person: Exportable {
     
-    public static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.id == rhs.id
+    public func toString() -> String {
+        return "\(_id) \(C.separator) \(_firstName) \(C.separator) \(_lastName) \(C.separator) \(_dateOfBirth) \(C.newLine)"
     }
     
 }

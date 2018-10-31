@@ -24,11 +24,15 @@ typealias OwnedListData = (ownedList: OwnedList, properties: [Property], shares:
 
 public final class Database { // SINGLETON
     public static let shared = Database()
-    private init() {}
+    private init() {
+        self.migration = ImportExport()
+    }
     
     private var _persons = AVLTree<Person>(Person.comparator)
     private var _regionsByID = AVLTree<Region>(Region.comparatorByID)
     private var _regionsByName = AVLTree<Region>(Region.comparatorByName)
+    
+    fileprivate let migration: ImportExport
 }
 
 // MARK: - Database operations
@@ -37,13 +41,45 @@ extension Database {
     
     // MARK: - Search operations
     
+    // MARK: - TASK 1, 5
+    
+    func searchProperty(key: RegionSearchKey, propertyID: UInt, completion: ((Property)?) -> ()) {
+        var tempRegion: Region?
+        
+        // LOG(n)
+        switch key {
+        case .id(let id):
+            tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
+        case .name(let name):
+            tempRegion = _regionsByName.findBy(element: Region.init(regionID: 0, regionName: name))
+        }
+        
+        guard let region = tempRegion else {
+            completion(nil)
+            return
+        }
+        
+        // LOG(m)
+        guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
+            completion(nil)
+            return
+        }
+        
+        completion(property)
+    }
+    
+    // MARK: - TASK 2
+    
     func searchPerson(personID: String, completion: (Person?) -> Void) {
+        // LOG(n)
         guard let person = _persons.findBy(element: Person(id: personID)) else {
             completion(nil)
             return
         }
         completion(person)
     }
+    
+    // MARK: - TASK 4
     
     func searchOwnedList(key: RegionSearchKey, ownedListID: UInt) -> OwnedListData? {
         var tempRegion: Region?
@@ -52,7 +88,7 @@ extension Database {
             tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
         case .name(let name):
             tempRegion = _regionsByName.findBy(element: Region.init(regionID: 0, regionName: name))
-        }
+        } // O(log(n))
         
         guard let region = tempRegion else {
             return nil
@@ -60,35 +96,13 @@ extension Database {
         
         guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownedListID, region: region)) else {
             return nil
-        }
+        } // O(log(m))
         
         return (
             ownedList: ownedList,
-            properties: ownedList.properties.inOrderToArray(),
-            shares: ownedList.shares.inOrderToArray()
+            properties: ownedList.properties.inOrderToArray(), // O(K)
+            shares: ownedList.shares.inOrderToArray() // O(S)
         )
-    }
-    
-    func searchProperty(key: RegionSearchKey, propertyID: UInt, completion: ((Property)?) -> ()) {
-        var tempRegion: Region?
-        switch key {
-        case .id(let id):
-            tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
-        case .name(let name):
-            tempRegion = _regionsByName.findBy(element: Region.init(regionID: 0, regionName: name))
-        }
-        
-        guard let region = tempRegion else {
-            completion(nil)
-            return
-        }
-        
-        guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
-            completion(nil)
-            return
-        }
-        
-        completion(property)
     }
     
     // MARK: - Data modificators
@@ -347,9 +361,11 @@ extension Database {
         }
     }
     
+    // MARK: - TASK 7
+    
     func getProperties(regionName: String, completion: @escaping ([Property]?) -> ()) {
-        if let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) {
-            let properties = region.properties.inOrderToArray()
+        if let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) { // O(Log(n))
+            let properties = region.properties.inOrderToArray() //(O(m))
             completion(properties)
             return
         }
@@ -381,10 +397,12 @@ extension Database {
         return ownedList.addNewOwner(owner: person, share: 0.0)
     }
     
-    func listOwnerProperties(personalID: String, regionID: UInt? = nil) -> [PropertyShare]? { // TASK 9
+    // MARK: - TASK 9
+    
+    func listOwnerProperties(personalID: String, regionID: UInt? = nil) -> [PropertyShare]? {
         guard let person = _persons.findBy(element: Person(id: personalID)) else {
             return nil
-        }
+        } // O(Log(n))
         
         var result = [PropertyShare]()
         person.ownedLists.inOrder() { list in
@@ -398,8 +416,10 @@ extension Database {
             }
         }
         
-        return result
+        return result // O(m*Log(n*p))
     }
+    
+    // MARK: - Task 8
     
     func listOwnerProperties(personalID: String, regionID: UInt, completion: @escaping ([PropertyShare]?) -> ()) {
         
@@ -407,16 +427,16 @@ extension Database {
         guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             completion(nil)
             return
-        }
+        } // O(log(n))
         var result = [PropertyShare]()
-        region.ownedLists.inOrder() { ownedList in
-            if let share = ownedList.shares.findBy(element: Share(person: tempPerson, shareCount: 0))?.shareCount {
-                ownedList.properties.inOrder() { property in
+        region.ownedLists.inOrder() { ownedList in // O(m)
+            if let share = ownedList.shares.findBy(element: Share(person: tempPerson, shareCount: 0))?.shareCount { // O(log(s))
+                ownedList.properties.inOrder() { property in // O(p)
                     result.append((property: property, share: share))
                 }
             }
         }
-        completion(result)
+        completion(result) // O(m*p*log(n*s))
     }
     
     func getRegions(sortedBy type: RegionSearchKey) -> AVLTree<Region> {
@@ -442,20 +462,22 @@ extension Database {
     
     // MARK: - Listing
     
+    // MARK: - TASK 3
+    
     func getPersonList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> [Person]? {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             return nil
-        }
+        } // LOG(N)
         
         guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
             return nil
-        }
+        } // LOG(M)
         
-        if property.ownedList.id !=  ownedListID {
+        if property.ownedList.id != ownedListID {
             return nil
         }
         
-        return property.persons.inOrderToArray()
+        return property.persons.inOrderToArray() // O(K)
     }
     
 }
@@ -632,6 +654,21 @@ extension Database {
                 }
                 
             }
+        }
+        
+        completion()
+    }
+    
+}
+
+extension Database {
+    
+    func exportData(completion: @escaping () -> ()) {
+        migration.prepareForExport()
+        
+        
+        _persons.levelOrder() { [weak self] person in
+            self?.migration.write(line: person.toString())
         }
         
         completion()

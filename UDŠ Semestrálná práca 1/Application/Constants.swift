@@ -14,6 +14,9 @@ enum C {
         static let DEBUGMODE = false
         static let TEST_STRUCTURE = true
     }
+    
+    static let separator = "👌"
+    static let newLine = "\n"
 }
 
 // MARK: - Enums

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160B2B512187883B0024CB97 /* ExportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160B2B502187883B0024CB97 /* ExportController.swift */; };
+		160B2B53218788470024CB97 /* ExportController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160B2B52218788470024CB97 /* ExportController.storyboard */; };
 		160F0F2D217667BA00782AF9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F0F2C217667BA00782AF9 /* Extensions.swift */; };
 		160F0F2F2177707800782AF9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F0F2E2177707800782AF9 /* Protocols.swift */; };
 		161822F1217BC1F6000666D4 /* UpdateOptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161822F0217BC1F6000666D4 /* UpdateOptionsController.swift */; };
@@ -41,6 +43,8 @@
 		1653DA7E2187271C0040EC91 /* ControlPersonListViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653DA7D2187271C0040EC91 /* ControlPersonListViewDelegate.swift */; };
 		1653DA80218727350040EC91 /* ControlPersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653DA7F218727350040EC91 /* ControlPersonListViewModel.swift */; };
 		1653DA82218728360040EC91 /* ControlPersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653DA81218728360040EC91 /* ControlPersonCell.swift */; };
+		1653DA84218763EF0040EC91 /* ImportExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1653DA83218763EF0040EC91 /* ImportExport.swift */; };
+		1653DA89218774F50040EC91 /* datasource.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1653DA88218774F40040EC91 /* datasource.csv */; };
 		1654974A21634FF400D423FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974921634FF400D423FC /* AppDelegate.swift */; };
 		1654974C21634FF400D423FC /* TestStructureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654974B21634FF400D423FC /* TestStructureController.swift */; };
 		1654974F21634FF400D423FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1654974D21634FF400D423FC /* Main.storyboard */; };
@@ -145,6 +149,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160B2B502187883B0024CB97 /* ExportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportController.swift; sourceTree = "<group>"; };
+		160B2B52218788470024CB97 /* ExportController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExportController.storyboard; sourceTree = "<group>"; };
 		160F0F2C217667BA00782AF9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		160F0F2E2177707800782AF9 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		161822F0217BC1F6000666D4 /* UpdateOptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateOptionsController.swift; sourceTree = "<group>"; };
@@ -179,6 +185,8 @@
 		1653DA7D2187271C0040EC91 /* ControlPersonListViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPersonListViewDelegate.swift; sourceTree = "<group>"; };
 		1653DA7F218727350040EC91 /* ControlPersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPersonListViewModel.swift; sourceTree = "<group>"; };
 		1653DA81218728360040EC91 /* ControlPersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPersonCell.swift; sourceTree = "<group>"; };
+		1653DA83218763EF0040EC91 /* ImportExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportExport.swift; sourceTree = "<group>"; };
+		1653DA88218774F40040EC91 /* datasource.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = datasource.csv; sourceTree = "<group>"; };
 		1654974621634FF400D423FC /* uds_avl_tree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uds_avl_tree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1654974921634FF400D423FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1654974B21634FF400D423FC /* TestStructureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStructureController.swift; sourceTree = "<group>"; };
@@ -306,6 +314,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		160B2B4F2187881C0024CB97 /* ExportData */ = {
+			isa = PBXGroup;
+			children = (
+				160B2B502187883B0024CB97 /* ExportController.swift */,
+				160B2B52218788470024CB97 /* ExportController.storyboard */,
+			);
+			name = ExportData;
+			sourceTree = "<group>";
+		};
 		161822EF217BC1CD000666D4 /* ChangeUpdate */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +446,7 @@
 		1654974821634FF400D423FC /* UDŠ Semestrálná práca 1 */ = {
 			isa = PBXGroup;
 			children = (
+				1653DA88218774F40040EC91 /* datasource.csv */,
 				1660436A21738D5700333CD8 /* Backend */,
 				1654975F2163584B00D423FC /* Structures */,
 				1654975E216357FC00D423FC /* Application */,
@@ -487,6 +505,7 @@
 				16C1EED7217A0722009CEFF5 /* DataSeeder.swift */,
 				16DC2CFB217B89EA0036FA62 /* Constants.swift */,
 				16D7B901217CC10B00A19243 /* Formatters.swift */,
+				1653DA83218763EF0040EC91 /* ImportExport.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -565,6 +584,7 @@
 		166707B5217B4B5E0033CF43 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				160B2B4F2187881C0024CB97 /* ExportData */,
 				166707BA217B501D0033CF43 /* DataGenerator */,
 				166707B6217B4CD70033CF43 /* SettingsController.swift */,
 				166707B8217B4CDF0033CF43 /* SettingsController.storyboard */,
@@ -969,6 +989,7 @@
 				16DAB1B821830E2500FD12E9 /* DeletePropertyController.storyboard in Resources */,
 				16DC2D1F217BA30D0036FA62 /* FormRegionNameController.storyboard in Resources */,
 				164364922180AAAE00B1A50A /* SearchPersonController.storyboard in Resources */,
+				160B2B53218788470024CB97 /* ExportController.storyboard in Resources */,
 				16D7B906217CC66F00A19243 /* PropertyShareCell.xib in Resources */,
 				167FB9D2217DACD20037A390 /* AddOwnedListController.storyboard in Resources */,
 				16DAB1B52182205500FD12E9 /* DeleteShareController.storyboard in Resources */,
@@ -986,6 +1007,7 @@
 				16F0942621849DBF0075039D /* DeleteRegionController.storyboard in Resources */,
 				168DE4C9217A415900F68FE4 /* OptionCell.xib in Resources */,
 				1654974F21634FF400D423FC /* Main.storyboard in Resources */,
+				1653DA89218774F50040EC91 /* datasource.csv in Resources */,
 				16F075CC217DE4160072287E /* AddRegionController.storyboard in Resources */,
 				1654976921635A0A00D423FC /* TestStructureController.storyboard in Resources */,
 				16DC2D16217B9C560036FA62 /* PropertyCell.xib in Resources */,
@@ -1101,6 +1123,7 @@
 				167FB9D0217DACC50037A390 /* AddOwnedListController.swift in Sources */,
 				169BC65E21737E98005C1696 /* Person.swift in Sources */,
 				164364AB2180BBD000B1A50A /* SearchOwnedListViewDelegate.swift in Sources */,
+				1653DA84218763EF0040EC91 /* ImportExport.swift in Sources */,
 				160F0F2F2177707800782AF9 /* Protocols.swift in Sources */,
 				16D7B909217CD43900A19243 /* FormChangeShare.swift in Sources */,
 				16D7B912217CD75A00A19243 /* ConfirmNewSharesViewModel.swift in Sources */,
@@ -1122,6 +1145,7 @@
 				169B68AB217FAAFE003BE2B9 /* PropertyDetailViewDelegate.swift in Sources */,
 				16664E372181D88A00B6EADA /* ListingOwnerPropertiesController.swift in Sources */,
 				1688C2C5218666A200C2E477 /* ControlOwnerListViewModel.swift in Sources */,
+				160B2B512187883B0024CB97 /* ExportController.swift in Sources */,
 				16D7B8FF217CC06400A19243 /* PersonCell.swift in Sources */,
 				16C1EEDC217A1CDC009CEFF5 /* PropertyDescStorage.swift in Sources */,
 				166707C0217B50530033CF43 /* GeneratorViewDelegate.swift in Sources */,
