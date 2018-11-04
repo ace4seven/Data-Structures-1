@@ -13,9 +13,7 @@ import Foundation
 public class AVLTree<Element> {
     
     private let comparator: Comparator
-    
     public private(set) var root: AVLNode<Element>?
-    
     private var _count = 0
     
     var count:Int {
@@ -384,7 +382,6 @@ extension AVLTree {
     }
     
     // MARK: - LEVELORDER
-    
     func levelOrder(value: (Element) -> Void) {
         guard let root = self.root else {
             return
@@ -409,7 +406,6 @@ extension AVLTree {
 }
 
 // MARK: - ARRAY TRANSFORM
-
 extension AVLTree {
     
     func inOrderToArray() -> [Element] {

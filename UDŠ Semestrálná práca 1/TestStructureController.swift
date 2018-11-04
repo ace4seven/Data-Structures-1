@@ -43,7 +43,9 @@ class TestStructureController: UIViewController {
 //            drawConsoleTree: false
 //        )
      
-        testLevelOrder()
+//        testLevelOrder()
+        
+        testCSV()
     }
     
 }
@@ -156,6 +158,11 @@ extension TestStructureController {
         
         print(tree)
         
+    }
+    
+    fileprivate func testCSV() {
+        let importExport = ImportExport()
+        importExport.prepareForExport()
     }
     
 }

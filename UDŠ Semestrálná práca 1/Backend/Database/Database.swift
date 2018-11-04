@@ -24,11 +24,15 @@ typealias OwnedListData = (ownedList: OwnedList, properties: [Property], shares:
 
 public final class Database { // SINGLETON
     public static let shared = Database()
-    private init() {}
+    private init() {
+        self.migration = ImportExport()
+    }
     
-    private var _persons = AVLTree<Person>(Person.comparator)
-    private var _regionsByID = AVLTree<Region>(Region.comparatorByID)
-    private var _regionsByName = AVLTree<Region>(Region.comparatorByName)
+    private var _persons: AVLTree<Person>! = AVLTree<Person>(Person.comparator)
+    private var _regionsByID: AVLTree<Region>! = AVLTree<Region>(Region.comparatorByID)
+    private var _regionsByName: AVLTree<Region>! = AVLTree<Region>(Region.comparatorByName)
+    
+    fileprivate let migration: ImportExport
 }
 
 // MARK: - Database operations
@@ -37,40 +41,12 @@ extension Database {
     
     // MARK: - Search operations
     
-    func searchPerson(personID: String, completion: (Person?) -> Void) {
-        guard let person = _persons.findBy(element: Person(id: personID)) else {
-            completion(nil)
-            return
-        }
-        completion(person)
-    }
-    
-    func searchOwnedList(key: RegionSearchKey, ownedListID: UInt) -> OwnedListData? {
-        var tempRegion: Region?
-        switch key {
-        case .id(let id):
-            tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
-        case .name(let name):
-            tempRegion = _regionsByName.findBy(element: Region.init(regionID: 0, regionName: name))
-        }
-        
-        guard let region = tempRegion else {
-            return nil
-        }
-        
-        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownedListID, region: region)) else {
-            return nil
-        }
-        
-        return (
-            ownedList: ownedList,
-            properties: ownedList.properties.inOrderToArray(),
-            shares: ownedList.shares.inOrderToArray()
-        )
-    }
+    // MARK: - TASK 1, 5
     
     func searchProperty(key: RegionSearchKey, propertyID: UInt, completion: ((Property)?) -> ()) {
         var tempRegion: Region?
+        
+        // LOG(n)
         switch key {
         case .id(let id):
             tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
@@ -83,6 +59,7 @@ extension Database {
             return
         }
         
+        // LOG(m)
         guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
             completion(nil)
             return
@@ -91,9 +68,48 @@ extension Database {
         completion(property)
     }
     
+    // MARK: - TASK 2
+    
+    func searchPerson(personID: String, completion: (Person?) -> Void) {
+        // LOG(n)
+        guard let person = _persons.findBy(element: Person(id: personID)) else {
+            completion(nil)
+            return
+        }
+        completion(person)
+    }
+    
+    // MARK: - TASK 4 6
+    
+    func searchOwnedList(key: RegionSearchKey, ownedListID: UInt) -> OwnedListData? {
+        var tempRegion: Region?
+        switch key {
+        case .id(let id):
+            tempRegion = _regionsByID.findBy(element: Region.init(regionID: id, regionName: ""))
+        case .name(let name):
+            tempRegion = _regionsByName.findBy(element: Region.init(regionID: 0, regionName: name))
+        } // O(log(n))
+        
+        guard let region = tempRegion else {
+            return nil
+        }
+        
+        guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownedListID, region: region)) else {
+            return nil
+        } // O(log(m))
+        
+        return (
+            ownedList: ownedList,
+            properties: ownedList.properties.inOrderToArray(), // O(K)
+            shares: ownedList.shares.inOrderToArray() // O(S)
+        )
+    }
+    
     // MARK: - Data modificators
     
-    func changeAddHome(for personID: String, regionName: String, propertyID: UInt) -> Person? { // TASK 10
+    // MARK: - TASK 10
+    
+    func changeAddHome(for personID: String, regionName: String, propertyID: UInt) -> Person? {
         guard let person = _persons.findBy(element: Person(id: personID)) else {
             return nil
         }
@@ -110,9 +126,13 @@ extension Database {
         return person
     }
     
+    // MARK: - TASK 16
+    
     func addPerson(personalID: String, name: String, surname: String, dateOfBirth: Int) -> Bool {
         return _persons.insert(Person(id: personalID, firstName: name, lastName: surname, dateOfBirth: dateOfBirth))
     }
+    
+    // MARK: - TASK 22
     
     func addRegion(name: String) -> Bool {
         let regionID: UInt = UInt(_regionsByID.count + 1)
@@ -125,22 +145,25 @@ extension Database {
         return false
     }
     
-    func addProperty(regionID: UInt, ownerListID: UInt, address: String, desc: String) -> Bool {
+    func addProperty(regionID: UInt, ownerListID: UInt, propertyID: UInt, address: String, desc: String) -> Bool {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: ""))
             , let ownerList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) else {
                 return false
         }
         
-        // TODO: Property ID custom form
-        let property = Property(id: DataSeeder.propertyID(), address: address, desc: desc, ownedList: ownerList)
+        let property = Property(id:propertyID, address: address, desc: desc, ownedList: ownerList)
         return ownerList.addProperty(property: property) && region.addProperty(property: property)
     }
+    
+    // MARK: - TASK 17
     
     func addNewOwnerList(ownerListID: UInt, for region: Region) -> Bool {
         return region.addOwnedList(list: OwnedList(id: ownerListID, region: region))
     }
     
-    func changePropertyOwner(oldPersonID: String, newPersonID: String, regionID: UInt, propertyID: UInt) -> Bool { // TASK 11
+    // MARK: - TASK 11
+    
+    func changePropertyOwner(oldPersonID: String, newPersonID: String, regionID: UInt, propertyID: UInt) -> Bool {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             return false
         }
@@ -170,6 +193,8 @@ extension Database {
         
         return false
     }
+    
+    // MARK - TASK 19
     
     func removeOwnedList(oldOwnerListID: UInt, newOnwerListID: UInt, regionID: UInt) -> OwnedList? { // TASK 19
         
@@ -208,8 +233,9 @@ extension Database {
         return newOwnerList
     }
     
+    // MARK: - TASK 13
     
-    func deletePersonShare(personID: String, regionID: UInt, ownerListID: UInt) -> OwnedList? { // TASK 13
+    func deletePersonShare(personID: String, regionID: UInt, ownerListID: UInt) -> OwnedList? {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             return nil
         }
@@ -218,16 +244,17 @@ extension Database {
             return nil
         }
         
-        if let ownedList = person.ownedLists.remove(OwnedList(id: ownerListID, region: region)) {
+        if let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) {
             if ownedList.shares.remove(Share(person: person, shareCount: 0.0)) != nil {
+                person.ownedLists.remove(ownedList)
                 return ownedList
-            } else {
-                print("Chyba v nastaveni smernika - DELETE PERSON TASK 13")
             }
         }
         
         return nil
     }
+    
+    // MARK: - TASK 20
     
     func deletePropertyFromOwnedList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> Property? { // TASK 20
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
@@ -246,6 +273,8 @@ extension Database {
         
         return deletedProperty
     }
+    
+    // MARK: - TASK 22
     
     func deleteRegion(deletedRegionID: UInt, movedRegionID: UInt) -> Region? { // TASK 22
         
@@ -268,10 +297,10 @@ extension Database {
         
         deletedRegion.ownedLists.inOrder() { ownedList in
             
-            ownedList.setRegion(region: region)
-            
             if !region.addOwnedList(list: ownedList) {
                 noUniqueOwnedLists.append(ownedList)
+            } else {
+                ownedList.setRegion(region: region)
             }
             
             ownedList.properties.inOrder() { property in
@@ -292,6 +321,7 @@ extension Database {
                 share.person.ownedLists.remove(noUniqueOwnedList)
             }
 
+            noUniqueOwnedList.setRegion(region: region)
             noUniqueOwnedList.changeID(newID: newID)
 
             region.addOwnedList(list: noUniqueOwnedList)
@@ -338,6 +368,8 @@ extension Database {
         completion(regions)
     }
     
+    // MARK: - TASK 15
+    
     func getRegions(key: SortKey) -> [Region] {
         switch key {
         case .id:
@@ -347,24 +379,36 @@ extension Database {
         }
     }
     
+    // MARK: - TASK 7
+    
     func getProperties(regionName: String, completion: @escaping ([Property]?) -> ()) {
-        if let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) {
-            let properties = region.properties.inOrderToArray()
+        if let region = _regionsByName.findBy(element: Region(regionID: 0, regionName: regionName)) { // O(Log(n))
+            let properties = region.properties.inOrderToArray() //(O(m))
             completion(properties)
             return
         }
         completion(nil)
     }
     
-    func getOwnerList(regionID: UInt, ownerListID: UInt, completion: @escaping (OwnedList?) -> ()) {
+    // MARK: - TASK 12
+    
+    func changeShare(regionID: UInt, ownerListID: UInt, personID: String, completion: @escaping (OwnedList?) -> ()) {
         guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             completion(nil)
             return
         }
+        
         guard let ownedList = region.ownedLists.findBy(element: OwnedList(id: ownerListID, region: region)) else {
             completion(nil)
             return
         }
+        
+        guard let person = _persons.findBy(element: Person(id: personID, firstName: "", lastName: "", dateOfBirth: 0)) else {
+            completion(nil)
+            return
+        }
+        
+        ownedList.addNewOwner(owner: person, share: 0.0)
         
         completion(ownedList)
     }
@@ -373,18 +417,12 @@ extension Database {
         return _persons.inOrderToArray()
     }
     
-    func getPerson(id: String) -> Person? {
-        return _persons.findBy(element: Person(id: id, firstName: "", lastName: "", dateOfBirth: 0))
-    }
+    // MARK: - TASK 9
     
-    func savePersonToOwnerList(ownedList: OwnedList, person: Person) -> Bool {
-        return ownedList.addNewOwner(owner: person, share: 0.0)
-    }
-    
-    func listOwnerProperties(personalID: String, regionID: UInt? = nil) -> [PropertyShare]? { // TASK 9
+    func listOwnerProperties(personalID: String, regionID: UInt? = nil) -> [PropertyShare]? {
         guard let person = _persons.findBy(element: Person(id: personalID)) else {
             return nil
-        }
+        } // O(Log(n))
         
         var result = [PropertyShare]()
         person.ownedLists.inOrder() { list in
@@ -398,8 +436,10 @@ extension Database {
             }
         }
         
-        return result
+        return result // O(m*Log(n*p))
     }
+    
+    // MARK: - Task 8
     
     func listOwnerProperties(personalID: String, regionID: UInt, completion: @escaping ([PropertyShare]?) -> ()) {
         
@@ -407,16 +447,16 @@ extension Database {
         guard let region = self._regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             completion(nil)
             return
-        }
+        } // O(log(n))
         var result = [PropertyShare]()
-        region.ownedLists.inOrder() { ownedList in
-            if let share = ownedList.shares.findBy(element: Share(person: tempPerson, shareCount: 0))?.shareCount {
-                ownedList.properties.inOrder() { property in
+        region.ownedLists.inOrder() { ownedList in // O(m)
+            if let share = ownedList.shares.findBy(element: Share(person: tempPerson, shareCount: 0))?.shareCount { // O(log(s))
+                ownedList.properties.inOrder() { property in // O(p)
                     result.append((property: property, share: share))
                 }
             }
         }
-        completion(result)
+        completion(result) // O(m*p*log(n*s))
     }
     
     func getRegions(sortedBy type: RegionSearchKey) -> AVLTree<Region> {
@@ -442,20 +482,22 @@ extension Database {
     
     // MARK: - Listing
     
+    // MARK: - TASK 3
+    
     func getPersonList(regionID: UInt, ownedListID: UInt, propertyID: UInt) -> [Person]? {
         guard let region = _regionsByID.findBy(element: Region(regionID: regionID, regionName: "")) else {
             return nil
-        }
+        } // LOG(N)
         
         guard let property = region.properties.findBy(element: Property(id: propertyID)) else {
             return nil
-        }
+        } // LOG(M)
         
-        if property.ownedList.id !=  ownedListID {
+        if property.ownedList.id != ownedListID {
             return nil
         }
         
-        return property.persons.inOrderToArray()
+        return property.persons.inOrderToArray() // O(K)
     }
     
 }
@@ -534,9 +576,7 @@ extension Database {
                 for _ in 0..<maxOwnerInListCount {
                     if let randomPerson = personsArray.randomItem() {
                         if ownerList.percentShareSum < 100.0 {
-                            if ownerList.addNewOwner(owner: randomPerson, share: Double.random(in: 0.0...(1.0 - ownerList.percentShareSum))) {
-                                randomPerson.addOwnedList(ownedList: ownerList)
-                            }
+                            ownerList.addNewOwner(owner: randomPerson, share: Double.random(in: 0.0...(1.0 - ownerList.percentShareSum)))
                         }
                     }
                 }
@@ -634,6 +674,154 @@ extension Database {
             }
         }
         
+        completion()
+    }
+    
+}
+
+extension Database {
+    
+    func exportData(completion: @escaping () -> ()) {
+        migration.prepareForExport()
+        
+        migration.write(headerType: .persons(count: _persons.count))
+        _persons.levelOrder() { [weak self] person in
+            self?.migration.write(line: person.toString())
+
+        }
+        
+        _regionsByID.levelOrder() { [weak self] region in
+            migration.write(headerType: .regions(count: _regionsByID.count))
+            migration.write(line: region.toString())
+            
+            // Owned lists in region
+            region.ownedLists.levelOrder() { ownedList in
+                self?.migration.write(headerType: .ownedLists(count: region.ownedLists.count))
+                self?.migration.write(line: ownedList.toString())
+            
+                // Properties in owned list
+                ownedList.properties.levelOrder() { property in
+                    self?.migration.write(headerType: .properties(count: ownedList.properties.count))
+                    self?.migration.write(line: property.toString())
+                }
+                
+                // Shares in owned lists
+                ownedList.shares.levelOrder() { share in
+                    self?.migration.write(headerType: .shares(count: ownedList.shares.count))
+                    self?.migration.write(line: share.toString())
+                }
+            }
+        }
+        completion()
+    }
+    
+    func importData(completion: @escaping () -> ()) {
+        migration.prepareForImport()
+        
+        var personSaving = false
+        var regionsSaving = false
+        var ownedListSaving = false
+        var propertySaving = false
+        var shareSaving = false
+        
+        var region: Region!
+        var ownedList: OwnedList!
+        
+        var skip = false
+        
+        migration.readCSV { [weak self] component in
+            if let component = component {
+                
+                if component[0] == "SHARES" {
+                    personSaving = false
+                    regionsSaving = false
+                    ownedListSaving = false
+                    propertySaving = false
+                    shareSaving = true
+                    skip = true
+                }
+                
+                if component[0] == "PROPERTIES" {
+                    personSaving = false
+                    regionsSaving = false
+                    ownedListSaving = false
+                    propertySaving = true
+                    shareSaving = false
+                    
+                    skip = true
+                }
+                
+                if component[0] == "OWNEDLISTS" {
+                    personSaving = false
+                    regionsSaving = false
+                    ownedListSaving = true
+                    propertySaving = false
+                    shareSaving = false
+                    skip = true
+                }
+                
+                if component[0] == "REGIONS" {
+                    personSaving = false
+                    regionsSaving = true
+                    ownedListSaving = false
+                    propertySaving = false
+                    shareSaving = false
+                    skip = true
+                }
+                
+                if component[0] == "PERSONS" {
+                    personSaving = true
+                    regionsSaving = false
+                    ownedListSaving = false
+                    propertySaving = false
+                    shareSaving = false
+                    skip = true
+                }
+                
+                if !skip {
+                    if personSaving {
+                        let person = Person(id: component[0], firstName: component[1], lastName: component[2], dateOfBirth: Int(component[3])!)
+                        self?._persons.insert(person)
+                    }
+                    
+                    if regionsSaving {
+                        region = Region(regionID: UInt(component[0])!, regionName: component[1])
+                        self?._regionsByID.insert(region)
+                        self?._regionsByName.insert(region)
+                    }
+                    
+                    if ownedListSaving {
+                        ownedList = OwnedList(id: UInt(component[0])!, region: region)
+                        region.ownedLists.insert(ownedList)
+                    }
+                    
+                    if propertySaving {
+                        let property = Property(id: UInt(component[0])!, address: component[1], desc: component[2], ownedList: ownedList)
+                        
+                        if component.indices.contains(3) {
+                            let personIDs = component[3].components(separatedBy: "-")
+                            for personID in personIDs {
+                                let person: Person! = self?._persons.findBy(element: Person(id: personID))!
+                                person.setHome(property: property)
+                                property.addPerson(person: person)
+                            }
+                        }
+            
+                        ownedList.addProperty(property: property)
+                        region.addProperty(property: property)
+                    }
+                    
+                    if shareSaving {
+                        let person: Person! = self?._persons.findBy(element: Person(id: component[0]))
+                        ownedList.addNewOwner(owner: person, share: Double(component[1])!)
+                        person.addOwnedList(ownedList: ownedList)
+                    }
+                } else {
+                    skip = false
+                }
+                
+            }
+        }
         completion()
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 class AddPropertyToOwnListController: UIViewController {
     
+    @IBOutlet weak var propertyIDTextField: UITextField!
     @IBOutlet weak var regionIDTextField: UITextField!
     @IBOutlet weak var ownerListIDTextField: UITextField!
     @IBOutlet weak var adressTextField: UITextField!
@@ -25,13 +26,14 @@ class AddPropertyToOwnListController: UIViewController {
         guard
             let regionID = UInt(regionIDTextField.text ?? ""),
             let ownerListID = UInt(ownerListIDTextField.text ?? ""),
+            let propertyID = UInt(propertyIDTextField.text ?? ""),
             let address = adressTextField.text,
             let desc = descTextView.text else {
             composeAlert(title: "Chyba", message: "Vyplňte všetky polia") { _ in }
             return
         }
         
-        if Database.shared.addProperty(regionID: regionID, ownerListID: ownerListID, address: address, desc: desc) {
+        if Database.shared.addProperty(regionID: regionID, ownerListID: ownerListID, propertyID: propertyID, address: address, desc: desc) {
             composeAlert(title: "Úspech", message: "Nehnuteľnosť úspešne zapísaná") { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }

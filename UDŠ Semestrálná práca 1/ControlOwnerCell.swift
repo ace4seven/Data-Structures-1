@@ -26,7 +26,7 @@ class ControlOwnerCell: UITableViewCell {
     func setupCell(ownedList: OwnedList) {
         self.ownedList = ownedList
         
-        ownerListIDLabel.text = "\(ownedList.id)"
+        ownerListIDLabel.text = "\(ownedList.id) (Kat. ú. č: \(ownedList.region.regionID))"
         propertyCountLabel.text = "\(ownedList.properties.count)"
         sharesCountLabel.text = "\(ownedList.shares.count)"
     }

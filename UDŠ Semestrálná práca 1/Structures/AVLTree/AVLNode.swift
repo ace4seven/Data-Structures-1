@@ -1,9 +1,7 @@
 public class AVLNode<Element> {
     
     public var height = 1
-    
     public var value: Element
-    
     public var parrent: AVLNode?
     public var leftChild: AVLNode?
     public var rightChild: AVLNode?
@@ -35,14 +33,6 @@ extension AVLNode {
         return rightChild?.height ?? 0
     }
     
-}
-
-extension AVLNode: CustomStringConvertible {
-    
-    public var description: String {
-        return diagram(for: self)
-    }
-    
     private func diagram(for node: AVLNode?,
                          _ top: String = "",
                          _ root: String = "",
@@ -56,6 +46,14 @@ extension AVLNode: CustomStringConvertible {
         return diagram(for: node.rightChild, top + " ", top + "┌──", top + "│ ")
             + root + "\(node.value) b:\(node.balanceFactor) h:\(node.height)\n"
             + diagram(for: node.leftChild, bottom + "│ ", bottom + "└──", bottom + " ")
+    }
+    
+}
+
+extension AVLNode: CustomStringConvertible {
+    
+    public var description: String {
+        return diagram(for: self)
     }
     
 }

@@ -15,3 +15,7 @@ public protocol CustomComparable: Comparable {
     static func == (lhs: Any, rhs: Self) -> Bool
     
 }
+
+public protocol Exportable {
+    func toString() -> String
+}

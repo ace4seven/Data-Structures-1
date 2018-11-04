@@ -16,20 +16,15 @@ public class Person {
     private let _firstName: String
     private let _lastName: String
     private let _dateOfBirth: Int
-    
-    public var hashValue: Int {
-        return id.hashValue
-    }
-    
     private var _home: Property?
-    private var _ownedLists: AVLTree<OwnedList>
+    private var _ownedLists: AVLTree<OwnedList>!
     
     init(id: String, firstName: String, lastName: String, dateOfBirth: Int) {
         self._id = id
         self._firstName = firstName
         self._lastName = lastName
         self._dateOfBirth = dateOfBirth
-        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparatorComposite)
     }
     
     init(id: String) {
@@ -37,7 +32,7 @@ public class Person {
         self._firstName = ""
         self._lastName = ""
         self._dateOfBirth = 0
-        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparator)
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparatorComposite)
     }
     
     var id: String {
@@ -136,10 +131,11 @@ extension Person {
     
 }
 
-extension Person: Hashable {
+
+extension Person: Exportable {
     
-    public static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.id == rhs.id
+    public func toString() -> String {
+        return "\(_id)\(C.separator)\(_firstName)\(C.separator)\(_lastName)\(C.separator)\(_dateOfBirth)\(C.newLine)"
     }
     
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 public class Share {
-    private var _person: Person
+    private var _person: Person!
     private var _shareCount: Double
     
     init(person: Person, shareCount: Double) {
@@ -58,6 +58,14 @@ extension Share {
             return ComparisonResult.orderedDescending
         }
         
+    }
+    
+}
+
+extension Share: Exportable {
+    
+    public func toString() -> String {
+        return "\(person.id)\(C.separator)\(shareCount)\(C.newLine)"
     }
     
 }
