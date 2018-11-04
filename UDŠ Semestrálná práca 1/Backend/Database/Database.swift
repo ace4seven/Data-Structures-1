@@ -475,8 +475,8 @@ extension Database {
             ownedList.shares.inOrder() { share in
                 share.updateShareCount(value: newShares[index])
                 ownedList.increasePercentate(value:  newShares[index])
+                index += 1
             }
-            index += 1
         }
     }
     

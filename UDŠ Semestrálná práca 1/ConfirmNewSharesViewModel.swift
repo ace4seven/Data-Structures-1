@@ -43,7 +43,7 @@ extension ConfirmNewSharesViewModel: ConfirmNewSharesVM {
         if sum > 1.0 {
             viewDelegate?.errorSaveMessage()
         } else {
-            Database.shared.updateSharesInOwnedList(ownedList: self.ownedList, newShares: shares )
+            Database.shared.updateSharesInOwnedList(ownedList: self.ownedList, newShares: shares)
             viewDelegate?.confirmSuccessMessage()
         }
     }
