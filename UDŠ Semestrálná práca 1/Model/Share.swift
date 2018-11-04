@@ -10,9 +10,9 @@ import Foundation
 
 public class Share {
     private var _person: Person!
-    private var _shareCount: Double
+    private var _shareCount: Float
     
-    init(person: Person, shareCount: Double) {
+    init(person: Person, shareCount: Float) {
         self._person = person
         self._shareCount = shareCount
     }
@@ -23,7 +23,7 @@ public class Share {
         }
     }
     
-    var shareCount: Double {
+    var shareCount: Float {
         get {
             return self._shareCount
         }
@@ -33,7 +33,7 @@ public class Share {
 
 extension Share {
     
-    func updateShareCount(value: Double) {
+    func updateShareCount(value: Float) {
         self._shareCount = value
     }
     

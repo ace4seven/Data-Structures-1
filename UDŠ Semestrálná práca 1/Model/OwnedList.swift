@@ -16,7 +16,7 @@ public class OwnedList {
     private var _properties: AVLTree<Property>!
     
     private var _shares: AVLTree<Share>!
-    private var _percentShareSum: Double = 0.0
+    private var _percentShareSum: Float = 0.0
     
     init(id: UInt, region: Region) {
         self._id = id
@@ -60,7 +60,7 @@ public class OwnedList {
         }
     }
     
-    var percentShareSum: Double {
+    var percentShareSum: Float {
         get {
             return self._percentShareSum
         }
@@ -79,7 +79,7 @@ extension OwnedList {
     }
     
     @discardableResult
-    func addNewOwner(owner: Person, share: Double) -> Bool {
+    func addNewOwner(owner: Person, share: Float) -> Bool {
         if percentShareSum + share > 1.0 {
             return false
         } else {
@@ -112,10 +112,10 @@ extension OwnedList {
     }
     
     func nullPercentage() {
-        self._percentShareSum = 0
+        self._percentShareSum = 0.0
     }
     
-    func increasePercentate(value: Double) {
+    func increasePercentate(value: Float) {
         self._percentShareSum += value
     }
     

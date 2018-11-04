@@ -9,7 +9,7 @@
 import UIKit
 
 protocol EditShareCellDelegate {
-    func editShare(value: Double, index: Int)
+    func editShare(value: Float, index: Int)
 }
 
 class EditShareCell: UITableViewCell {
@@ -33,7 +33,7 @@ class EditShareCell: UITableViewCell {
     }
     @IBAction func sliderValueChanged(_ sender: Any) {
         percentLabel.text = Double(slider.value).roundString(makePercent: true)
-        delegate?.editShare(value: Double(slider.value), index: self.index)
+        delegate?.editShare(value: slider.value, index: self.index)
     }
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias PropertyShare = (property: Property, share: Double)
+typealias PropertyShare = (property: Property, share: Float)
 
 enum RegionSearchKey {
     case id(UInt)
@@ -217,7 +217,7 @@ extension Database {
         }
         
         deletedOwnerList.shares.inOrder { share in
-            let incrementShare = share.shareCount + newOwnerList.percentShareSum <= 1
+            let incrementShare = share.shareCount + newOwnerList.percentShareSum <= 1.0
             if newOwnerList.shares.insert(incrementShare ? share : Share(person: share.person, shareCount: 0.0)) { 
                 share.person.ownedLists.insert(newOwnerList)
             } else {
@@ -468,7 +468,7 @@ extension Database {
         }
     }
     
-    func updateSharesInOwnedList(ownedList: OwnedList, newShares: [Double]) {
+    func updateSharesInOwnedList(ownedList: OwnedList, newShares: [Float]) {
         var index = 0
         if ownedList.shares.count == newShares.count {
             ownedList.nullPercentage()
@@ -576,7 +576,7 @@ extension Database {
                 for _ in 0..<maxOwnerInListCount {
                     if let randomPerson = personsArray.randomItem() {
                         if ownerList.percentShareSum < 100.0 {
-                            ownerList.addNewOwner(owner: randomPerson, share: Double.random(in: 0.0...(1.0 - ownerList.percentShareSum)))
+                            ownerList.addNewOwner(owner: randomPerson, share: Float.random(in: 0.0...1.0))
                         }
                     }
                 }
@@ -665,7 +665,7 @@ extension Database {
                     }
                     
                     if Int.random(in: 1...1000) < 10 {
-                        property.ownedList.addNewOwner(owner: person, share: Double.random(in: 0.0...1.0))
+                        property.ownedList.addNewOwner(owner: person, share: Float.random(in: 0.0...1.0))
                     }
                     
                     propertyIndex += 1
@@ -813,7 +813,7 @@ extension Database {
                     
                     if shareSaving {
                         let person: Person! = self?._persons.findBy(element: Person(id: component[0]))
-                        ownedList.addNewOwner(owner: person, share: Double(component[1])!)
+                        ownedList.addNewOwner(owner: person, share: Float(component[1])!)
                         person.addOwnedList(ownedList: ownedList)
                     }
                 } else {

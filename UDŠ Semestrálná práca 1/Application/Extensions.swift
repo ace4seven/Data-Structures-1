@@ -70,10 +70,23 @@ extension String {
     
 }
 
+extension Float {
+    
+    func roundString(makePercent: Bool) -> String {
+        return String(format: "%.2f", makePercent ? self * 100 : self)
+    }
+    
+}
+
 extension Double {
     
     func roundString(makePercent: Bool) -> String {
         return String(format: "%.2f", makePercent ? self * 100 : self)
+    }
+    
+    func roundTo(places:Int = 2) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
     
 }

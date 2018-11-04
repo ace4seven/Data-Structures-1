@@ -11,7 +11,7 @@ import Foundation
 class ConfirmNewSharesViewModel {
     
     fileprivate weak var viewDelegate: ConfirmNewSharesViewDelegate?
-    fileprivate var shares = [Double]()
+    fileprivate var shares = [Float]()
     fileprivate var ownedList: OwnedList
     
     init(ownedList: OwnedList) {
@@ -25,7 +25,7 @@ class ConfirmNewSharesViewModel {
 
 extension ConfirmNewSharesViewModel: ConfirmNewSharesVM {
     
-    func editShare(value: Double, index: Int) {
+    func editShare(value: Float, index: Int) {
         shares[index] = value
     }
     
@@ -36,14 +36,14 @@ extension ConfirmNewSharesViewModel: ConfirmNewSharesVM {
     }
     
     func save() {
-        var sum = 0.0
+        var sum: Float = 0.0
         for share in shares {
             sum += share
         }
         if sum > 1.0 {
             viewDelegate?.errorSaveMessage()
         } else {
-            Database.shared.updateSharesInOwnedList(ownedList: self.ownedList, newShares: shares)
+            Database.shared.updateSharesInOwnedList(ownedList: self.ownedList, newShares: shares )
             viewDelegate?.confirmSuccessMessage()
         }
     }

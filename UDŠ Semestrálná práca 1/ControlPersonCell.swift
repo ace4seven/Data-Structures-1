@@ -27,7 +27,7 @@ class ControlPersonCell: UITableViewCell {
     
     weak var delegate: ControlPersonCellDelegate?
     
-    func setupCell(person: Person, share: Double? = nil) {
+    func setupCell(person: Person, share: Float? = nil) {
         self.person = person
         
         if let share = share {
