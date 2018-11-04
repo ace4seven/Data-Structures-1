@@ -126,6 +126,7 @@
                         <outlet property="addressLabel" destination="RZP-ro-Rrc" id="lKt-c6-5jz"/>
                         <outlet property="descLabel" destination="6d8-cp-Tv6" id="BGS-cQ-kAx"/>
                         <outlet property="ownerListIDLabel" destination="8jv-uB-uzp" id="a7V-fk-mhK"/>
+                        <outlet property="propertiesCountLabel" destination="lwQ-nW-4Gw" id="qYs-xx-HSY"/>
                         <outlet property="propertyIDLabel" destination="aSU-8n-OtL" id="dcK-Wi-FGV"/>
                         <outlet property="tableHeaderView" destination="ttK-Ee-eXq" id="S7F-jE-mu7"/>
                         <outlet property="tableView" destination="Hqq-qj-unT" id="Z0b-u9-GC2"/>
@@ -219,22 +220,41 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="842-B6-sqn">
+                            <rect key="frame" x="15" y="188" width="345" height="12"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Počet nehnuteľností" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGg-VS-sgp">
+                                    <rect key="frame" x="0.0" y="0.0" width="152" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwQ-nW-4Gw">
+                                    <rect key="frame" x="193" y="0.0" width="152" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="gBE-YS-cmM" firstAttribute="trailing" secondItem="ywy-69-90r" secondAttribute="trailing" constant="15" id="1CC-Oc-iqf"/>
-                        <constraint firstItem="79n-hy-2PP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ywy-69-90r" secondAttribute="bottom" constant="20" id="2Vf-lc-Wk0"/>
                         <constraint firstItem="Fd6-ut-Tpe" firstAttribute="top" secondItem="gBE-YS-cmM" secondAttribute="top" constant="15" id="3fF-97-wQW"/>
                         <constraint firstItem="6d8-cp-Tv6" firstAttribute="leading" secondItem="gBE-YS-cmM" secondAttribute="leading" constant="15" id="6JB-Gj-OuZ"/>
+                        <constraint firstItem="842-B6-sqn" firstAttribute="leading" secondItem="gBE-YS-cmM" secondAttribute="leading" constant="15" id="A6h-OU-Rol"/>
                         <constraint firstItem="AyT-F5-KkO" firstAttribute="leading" secondItem="gBE-YS-cmM" secondAttribute="leading" constant="15" id="NfW-wZ-T0O"/>
                         <constraint firstItem="gBE-YS-cmM" firstAttribute="trailing" secondItem="Sic-Cb-On5" secondAttribute="trailing" constant="15" id="X9s-cm-HpE"/>
                         <constraint firstItem="YYl-d5-Wh0" firstAttribute="top" secondItem="6d8-cp-Tv6" secondAttribute="bottom" constant="20" id="XQs-Jp-Oyc"/>
                         <constraint firstItem="YYl-d5-Wh0" firstAttribute="leading" secondItem="gBE-YS-cmM" secondAttribute="leading" constant="15" id="Y1Y-GQ-KW1"/>
                         <constraint firstItem="MH0-HY-PE8" firstAttribute="top" secondItem="AyT-F5-KkO" secondAttribute="bottom" constant="10" id="YW3-Zw-QzA"/>
+                        <constraint firstItem="gBE-YS-cmM" firstAttribute="trailing" secondItem="842-B6-sqn" secondAttribute="trailing" constant="15" id="dPh-CI-rla"/>
                         <constraint firstItem="gBE-YS-cmM" firstAttribute="bottom" secondItem="79n-hy-2PP" secondAttribute="bottom" constant="15" id="fPF-lf-Vrt"/>
                         <constraint firstItem="Fd6-ut-Tpe" firstAttribute="leading" secondItem="AyT-F5-KkO" secondAttribute="trailing" constant="15" id="g0z-uk-HPI"/>
                         <constraint firstItem="AyT-F5-KkO" firstAttribute="top" secondItem="gBE-YS-cmM" secondAttribute="top" constant="15" id="gBy-qr-4hM"/>
                         <constraint firstItem="ywy-69-90r" firstAttribute="leading" secondItem="gBE-YS-cmM" secondAttribute="leading" constant="15" id="gZ8-78-jq9"/>
+                        <constraint firstItem="842-B6-sqn" firstAttribute="top" secondItem="ywy-69-90r" secondAttribute="bottom" constant="10" id="kiJ-zo-aJx"/>
                         <constraint firstItem="gBE-YS-cmM" firstAttribute="trailing" secondItem="6d8-cp-Tv6" secondAttribute="trailing" constant="15" id="l7b-Ke-zpA"/>
                         <constraint firstItem="gBE-YS-cmM" firstAttribute="trailing" secondItem="Fd6-ut-Tpe" secondAttribute="trailing" constant="15" id="lFQ-fy-OAJ"/>
                         <constraint firstItem="Sic-Cb-On5" firstAttribute="leading" secondItem="AyT-F5-KkO" secondAttribute="trailing" constant="15" id="o3v-kg-eYl"/>
@@ -245,6 +265,7 @@
                         <constraint firstItem="gBE-YS-cmM" firstAttribute="trailing" secondItem="YYl-d5-Wh0" secondAttribute="trailing" constant="15" id="tML-UI-kr2"/>
                         <constraint firstItem="Sic-Cb-On5" firstAttribute="top" secondItem="Fd6-ut-Tpe" secondAttribute="bottom" constant="10" id="tOI-oe-soe"/>
                         <constraint firstItem="ywy-69-90r" firstAttribute="top" secondItem="YYl-d5-Wh0" secondAttribute="bottom" constant="10" id="u6G-Lg-ATR"/>
+                        <constraint firstItem="79n-hy-2PP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="842-B6-sqn" secondAttribute="bottom" constant="20" id="vqh-bm-BpO"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="gBE-YS-cmM"/>
                 </view>

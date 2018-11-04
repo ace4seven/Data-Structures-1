@@ -13,9 +13,7 @@ import Foundation
 public class AVLTree<Element> {
     
     private let comparator: Comparator
-    
     public private(set) var root: AVLNode<Element>?
-    
     private var _count = 0
     
     var count:Int {

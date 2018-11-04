@@ -17,10 +17,6 @@ public class Share {
         self._shareCount = shareCount
     }
     
-//    deinit {
-//        _person = nil
-//    }
-    
     var person: Person {
         get {
             return self._person

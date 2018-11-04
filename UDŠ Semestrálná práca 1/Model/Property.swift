@@ -118,7 +118,7 @@ extension Property {
 extension Property: Exportable {
     
     public func toString() -> String {
-        let personsID: String = self._persons.levelOrderToArray().map{ $0.id }.joined(separator: " ")
+        let personsID: String = self._persons.levelOrderToArray().map{ $0.id }.joined(separator: "-")
         if personsID.trimmingCharacters(in: .whitespaces) == "" {
             return "\(_id)\(C.separator)\(_address)\(C.separator)\(_desc)\(C.newLine)"
         }

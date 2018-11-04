@@ -15,6 +15,7 @@ class PropertyDetailController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var ownerListIDLabel: UILabel!
+    @IBOutlet weak var propertiesCountLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -63,6 +64,8 @@ extension PropertyDetailController: PropertyDetailViewDelegate {
         addressLabel.text = property.address
         descLabel.text = property.desc
         ownerListIDLabel.text = property.ownedList.id.toString
+        propertiesCountLabel.text = "\(property.ownedList.properties.count)"
+        
         
         items = property.ownedList.shares.inOrderToArray()
         

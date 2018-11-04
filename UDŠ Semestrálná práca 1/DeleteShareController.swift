@@ -43,8 +43,6 @@ class DeleteShareController: UIViewController {
     }
     
     @IBAction func actionButtonPressed(_ sender: UIButton) {
-        actionButton.isEnabled = false
-        
         guard let regionID = UInt(regionIDTextfield.text ?? ""), let personalID = personalIDTextfield.text,
             let ownerListID = UInt(self.ownerListIdTextField.text ?? "") else {
                 composeAlert(title: "Chyba", message: "Formulár zle vyplnený", completion: { _ in })
@@ -52,7 +50,6 @@ class DeleteShareController: UIViewController {
         }
         
         if let ownerList = Database.shared.deletePersonShare(personID: personalID, regionID: regionID, ownerListID: ownerListID) {
-         
              self.performSegue(withIdentifier: String(describing: ConfirmNewSharesController.self), sender: ownerList)
             return
         }

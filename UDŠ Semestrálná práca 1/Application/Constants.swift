@@ -12,10 +12,10 @@ enum C {
     
     enum Settings {
         static let DEBUGMODE = false
-        static let TEST_STRUCTURE = true
+        static let TEST_STRUCTURE = false
     }
     
-    static let separator = "🤮"
+    static let separator = ";"
     static let newLine = "\n"
 }
 

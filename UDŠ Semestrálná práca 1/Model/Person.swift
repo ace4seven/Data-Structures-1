@@ -16,11 +16,6 @@ public class Person {
     private let _firstName: String
     private let _lastName: String
     private let _dateOfBirth: Int
-    
-    public var hashValue: Int {
-        return id.hashValue
-    }
-    
     private var _home: Property?
     private var _ownedLists: AVLTree<OwnedList>!
     
@@ -39,11 +34,6 @@ public class Person {
         self._dateOfBirth = 0
         self._ownedLists = AVLTree<OwnedList>(OwnedList.comparatorComposite)
     }
-    
-//    deinit {
-//        _home = nil
-//        _ownedLists = nil
-//    }
     
     var id: String {
         get {

@@ -695,7 +695,6 @@ extension Database {
             migration.write(line: region.toString())
             
             // Owned lists in region
-            
             region.ownedLists.levelOrder() { ownedList in
                 self?.migration.write(headerType: .ownedLists(count: region.ownedLists.count))
                 self?.migration.write(line: ownedList.toString())
@@ -800,7 +799,7 @@ extension Database {
                         let property = Property(id: UInt(component[0])!, address: component[1], desc: component[2], ownedList: ownedList)
                         
                         if component.indices.contains(3) {
-                            let personIDs = component[3].components(separatedBy: " ")
+                            let personIDs = component[3].components(separatedBy: "-")
                             for personID in personIDs {
                                 let person: Person! = self?._persons.findBy(element: Person(id: personID))!
                                 person.setHome(property: property)
