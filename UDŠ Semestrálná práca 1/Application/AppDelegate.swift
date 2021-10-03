@@ -16,6 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        if let path = Bundle.main.path(forResource: "datasource", ofType: "csv") {
+            print("CSV PATH:")
+            print(path)
+        }
         
         return true
     }

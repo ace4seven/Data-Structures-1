@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SgG-XO-U1C">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Owned List Controller-->
+        <scene sceneID="pgE-4q-yNI">
+            <objects>
+                <viewController id="SgG-XO-U1C" customClass="AddOwnedListController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XnF-Pt-ePs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-EU-Q2F">
+                                <rect key="frame" x="15" y="129.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Názov katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86o-jl-h9G">
+                                        <rect key="frame" x="45" y="0.0" width="255" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OO1-xb-95k">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="OO1-xb-95k" firstAttribute="leading" secondItem="gyq-EU-Q2F" secondAttribute="leading" id="N06-z8-jOa"/>
+                                    <constraint firstAttribute="trailing" secondItem="OO1-xb-95k" secondAttribute="trailing" id="sX3-xo-PaF"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1M-dp-gsK">
+                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="PZC-f1-vfi"/>
+                                </constraints>
+                                <state key="normal" title="Pridať list vlastníctva">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPressed:" destination="SgG-XO-U1C" eventType="touchUpInside" id="MFJ-3K-BhO"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="g2V-II-zxP">
+                                <rect key="frame" x="15" y="50" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID listu vlastníctva" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ud-VG-Xdx">
+                                        <rect key="frame" x="90.5" y="0.0" width="164.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-si-r3U">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cDX-si-r3U" firstAttribute="leading" secondItem="g2V-II-zxP" secondAttribute="leading" id="K7J-Vh-sef"/>
+                                    <constraint firstAttribute="trailing" secondItem="cDX-si-r3U" secondAttribute="trailing" id="NFM-WD-UBH"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="g2V-II-zxP" firstAttribute="leading" secondItem="iRt-lD-Ca2" secondAttribute="leading" constant="15" id="8Jq-KP-K6e"/>
+                            <constraint firstItem="g2V-II-zxP" firstAttribute="top" secondItem="iRt-lD-Ca2" secondAttribute="top" constant="30" id="BbD-8o-JT2"/>
+                            <constraint firstItem="O1M-dp-gsK" firstAttribute="trailing" secondItem="iRt-lD-Ca2" secondAttribute="trailing" id="IGo-et-EPB"/>
+                            <constraint firstItem="gyq-EU-Q2F" firstAttribute="top" secondItem="g2V-II-zxP" secondAttribute="bottom" constant="10" id="MXB-RK-rlB"/>
+                            <constraint firstItem="O1M-dp-gsK" firstAttribute="leading" secondItem="iRt-lD-Ca2" secondAttribute="leading" id="YUW-8l-rlG"/>
+                            <constraint firstItem="iRt-lD-Ca2" firstAttribute="trailing" secondItem="gyq-EU-Q2F" secondAttribute="trailing" constant="15" id="hk7-97-hpX"/>
+                            <constraint firstItem="iRt-lD-Ca2" firstAttribute="trailing" secondItem="g2V-II-zxP" secondAttribute="trailing" constant="15" id="l0v-FD-lYR"/>
+                            <constraint firstItem="iRt-lD-Ca2" firstAttribute="bottom" secondItem="O1M-dp-gsK" secondAttribute="bottom" id="tk9-sT-AE0"/>
+                            <constraint firstItem="gyq-EU-Q2F" firstAttribute="leading" secondItem="iRt-lD-Ca2" secondAttribute="leading" constant="15" id="ynW-9u-oQa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iRt-lD-Ca2"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qsJ-QV-Tla">
+                        <barButtonItem key="rightBarButtonItem" image="person_menu_ico" id="wuM-le-oHH">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ownerListIDTextField" destination="cDX-si-r3U" id="1Aj-xh-34t"/>
+                        <outlet property="regionNameTextField" destination="OO1-xb-95k" id="1wT-3u-znG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cj-5c-5qV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person_menu_ico" width="25" height="25"/>
+    </resources>
+</document>

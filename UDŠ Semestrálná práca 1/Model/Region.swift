@@ -10,25 +10,114 @@
 
 import Foundation
 
-struct Region {
+public class Region {
     
-    let id: UInt
-    let name: String
+    fileprivate let _regionID: UInt
+    fileprivate let _regionName: String
+    
+    private var _ownedLists: AVLTree<OwnedList>!
+    private var _properties: AVLTree<Property>!
+    
+    init(regionID: UInt, regionName: String) {
+        self._regionID = regionID
+        self._regionName = regionName
+        
+        self._properties = AVLTree<Property>(Property.comparator)
+        self._ownedLists = AVLTree<OwnedList>(OwnedList.comparatorByID)
+    }
+    
+//    deinit {
+//        self._ownedLists = nil
+//        self._properties = nil
+//    }
+    
+    static func random(
+        properties: AVLTree<Property>? = nil
+        ) -> Region {
+        return Region(regionID: DataSeeder.regionRegionID(),
+                      regionName: DataSeeder.regionRegionName())
+    }
+    
+    var regionID: UInt {
+        get {
+            return self._regionID
+        }
+    }
+    
+    var regionName: String {
+        get {
+            return self._regionName
+        }
+    }
+    
+    var ownedLists: AVLTree<OwnedList> {
+        get {
+            return self._ownedLists
+        }
+    }
+    
+    var properties: AVLTree<Property> {
+        get {
+            return self._properties
+        }
+    }
     
 }
 
-extension Region: Comparable {
+// MARK: - Public
+
+extension Region {
     
-    static func < (lhs: Region, rhs: Region) -> Bool {
-        return lhs.id < rhs.id
+    @discardableResult
+    func addProperty(property: Property) -> Bool {
+        return _properties.insert(property)
     }
     
-    static func > (lhs: Region, rhs: Region) -> Bool {
-        return lhs.id > rhs.id
+    @discardableResult
+    func addOwnedList(list: OwnedList) -> Bool {
+        return _ownedLists.insert(list)
     }
     
-    static func == (lhs: Region, rhs: Region) -> Bool {
-        return lhs.id == rhs.id
+}
+
+// MARK: - Comparators
+
+extension Region {
+    
+    static let comparatorByID: Comparator = { lhs, rhs in
+        guard let p1 = lhs as? Region, let p2 = rhs as? Region else { return ComparisonResult.orderedSame }
+        
+        if p1._regionID == p2._regionID {
+            return ComparisonResult.orderedSame
+        } else if p1._regionID < p2._regionID {
+            return ComparisonResult.orderedAscending
+        } else {
+            return ComparisonResult.orderedDescending
+        }
+        
+    }
+    
+    static let comparatorByName: Comparator = { lhs, rhs in
+        guard let p1 = lhs as? Region, let p2 = rhs as? Region else { return ComparisonResult.orderedSame }
+        
+        if p1._regionName == p2._regionName {
+            return ComparisonResult.orderedSame
+        } else if p1._regionName < p2._regionName {
+            return ComparisonResult.orderedAscending
+        } else {
+            return ComparisonResult.orderedDescending
+        }
+        
+    }
+    
+}
+
+// MARK: - Exportable
+
+extension Region: Exportable {
+    
+    public func toString() -> String {
+          return "\(_regionID)\(C.separator)\(_regionName) \(C.newLine)"
     }
     
 }

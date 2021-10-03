@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RN0-VX-Tdp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Form Owner Properties Controller-->
+        <scene sceneID="PeQ-yh-dEN">
+            <objects>
+                <viewController id="RN0-VX-Tdp" customClass="FormOwnerPropertiesController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NBk-dr-QSl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fGz-AJ-HWu">
+                                <rect key="frame" x="15" y="299" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Číslo katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xO-kv-LG1">
+                                        <rect key="frame" x="51" y="0.0" width="243.5" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c3w-K4-iC0">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="c3w-K4-iC0" firstAttribute="leading" secondItem="fGz-AJ-HWu" secondAttribute="leading" id="Vwh-Wl-hsl"/>
+                                    <constraint firstAttribute="trailing" secondItem="c3w-K4-iC0" secondAttribute="trailing" id="ewt-Im-rTo"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqh-ON-OZe">
+                                <rect key="frame" x="60" y="398.5" width="255" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="6qd-HJ-1ZF"/>
+                                </constraints>
+                                <state key="normal" title="Vypísať nehnuteľnosti">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPressed:" destination="RN0-VX-Tdp" eventType="touchUpInside" id="H8t-b7-CI6"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="z3U-AU-IXv">
+                                <rect key="frame" x="177.5" y="145" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="48b-Gi-6Zf">
+                                <rect key="frame" x="15" y="219.5" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rodné číslo občana" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEj-Mp-KFf">
+                                        <rect key="frame" x="83.5" y="0.0" width="178" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-d5-M2b">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="VU5-d5-M2b" secondAttribute="trailing" id="Ihb-XM-kUi"/>
+                                    <constraint firstItem="VU5-d5-M2b" firstAttribute="leading" secondItem="48b-Gi-6Zf" secondAttribute="leading" id="a25-dQ-sp7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fGz-AJ-HWu" firstAttribute="centerY" secondItem="NBk-dr-QSl" secondAttribute="centerY" id="GJd-ZC-Zjl"/>
+                            <constraint firstItem="z3U-AU-IXv" firstAttribute="centerY" secondItem="NBk-dr-QSl" secondAttribute="centerY" constant="-178.5" id="HRr-22-NTv"/>
+                            <constraint firstItem="fGz-AJ-HWu" firstAttribute="leading" secondItem="79O-dK-AHZ" secondAttribute="leading" constant="15" id="KJy-Bw-0dx"/>
+                            <constraint firstItem="fGz-AJ-HWu" firstAttribute="top" secondItem="48b-Gi-6Zf" secondAttribute="bottom" constant="10" id="aAu-0V-Wr0"/>
+                            <constraint firstItem="48b-Gi-6Zf" firstAttribute="leading" secondItem="79O-dK-AHZ" secondAttribute="leading" constant="15" id="bnK-W7-GWj"/>
+                            <constraint firstItem="79O-dK-AHZ" firstAttribute="trailing" secondItem="fGz-AJ-HWu" secondAttribute="trailing" constant="15" id="cQM-vr-E4N"/>
+                            <constraint firstItem="79O-dK-AHZ" firstAttribute="trailing" secondItem="48b-Gi-6Zf" secondAttribute="trailing" constant="15" id="dhj-P5-7ym"/>
+                            <constraint firstItem="Iqh-ON-OZe" firstAttribute="top" secondItem="fGz-AJ-HWu" secondAttribute="bottom" constant="30" id="esJ-BH-uzs"/>
+                            <constraint firstItem="79O-dK-AHZ" firstAttribute="trailing" secondItem="Iqh-ON-OZe" secondAttribute="trailing" constant="60" id="oJd-7q-FzQ"/>
+                            <constraint firstItem="Iqh-ON-OZe" firstAttribute="leading" secondItem="79O-dK-AHZ" secondAttribute="leading" constant="60" id="og8-Z7-Qyv"/>
+                            <constraint firstItem="z3U-AU-IXv" firstAttribute="centerX" secondItem="NBk-dr-QSl" secondAttribute="centerX" id="qoK-JJ-ycJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="79O-dK-AHZ"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="xcp-2p-635">
+                        <barButtonItem key="leftBarButtonItem" title="Občania" image="person_menu_ico" id="Ou3-X9-Kfy">
+                            <connections>
+                                <action selector="personListButtonPressed:" destination="RN0-VX-Tdp" id="OCl-cy-of9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="region_menu_ico" id="OHT-FQ-xra">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="regionListButtonPressed:" destination="RN0-VX-Tdp" id="cfT-W8-uR8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="actionButton" destination="Iqh-ON-OZe" id="9UY-ft-XEG"/>
+                        <outlet property="indicator" destination="z3U-AU-IXv" id="lfH-CO-sAy"/>
+                        <outlet property="personalIDTextfield" destination="VU5-d5-M2b" id="nqg-IS-Mgr"/>
+                        <outlet property="regionIDTextfield" destination="c3w-K4-iC0" id="f4R-E3-wkq"/>
+                        <segue destination="L6r-MO-ZKd" kind="show" identifier="ListController" id="D2E-EI-N6T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clb-On-PO6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+        <!--ListController-->
+        <scene sceneID="mEi-bb-1zg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListController" id="L6r-MO-ZKd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIx-sn-z0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1465" y="35"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person_menu_ico" width="25" height="25"/>
+        <image name="region_menu_ico" width="25" height="25"/>
+    </resources>
+</document>

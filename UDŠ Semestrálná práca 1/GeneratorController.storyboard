@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RfR-ZX-PaU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Title-->
+        <scene sceneID="iOL-eL-h9c">
+            <objects>
+                <viewController id="RfR-ZX-PaU" customClass="GeneratorController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qwH-tS-byh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHE-Cd-db5">
+                                <rect key="frame" x="0.0" y="563" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Beg-dS-jLr"/>
+                                </constraints>
+                                <state key="normal" title="Generovať dáta">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="generateDataButtonPressed:" destination="RfR-ZX-PaU" eventType="touchUpInside" id="leY-2k-VQF"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMW-yC-GzH" customClass="SliderView" customModule="uds_avl_tree" customModuleProvider="target">
+                                <rect key="frame" x="15" y="169" width="345" height="57"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="100" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="Pag-3j-lvj">
+                                        <rect key="frame" x="-2" y="27" width="349" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="slider:" destination="yMW-yC-GzH" eventType="valueChanged" id="6Mf-G3-tkA"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Počet listov vlastníctva" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZO-b4-C4g">
+                                        <rect key="frame" x="0.0" y="0.0" width="148" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8C-mO-rIz">
+                                        <rect key="frame" x="300.5" y="0.0" width="44.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="yZO-b4-C4g" firstAttribute="top" secondItem="yMW-yC-GzH" secondAttribute="top" id="4sO-dZ-Fl2"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pag-3j-lvj" secondAttribute="bottom" id="5tU-pL-k4A"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pag-3j-lvj" secondAttribute="trailing" id="6R1-1q-tNr"/>
+                                    <constraint firstAttribute="trailing" secondItem="S8C-mO-rIz" secondAttribute="trailing" id="6vw-9J-iW3"/>
+                                    <constraint firstItem="Pag-3j-lvj" firstAttribute="top" secondItem="yZO-b4-C4g" secondAttribute="bottom" constant="10" id="867-Eg-8MQ"/>
+                                    <constraint firstItem="yZO-b4-C4g" firstAttribute="leading" secondItem="yMW-yC-GzH" secondAttribute="leading" id="8zQ-hg-ygo"/>
+                                    <constraint firstItem="S8C-mO-rIz" firstAttribute="top" secondItem="yMW-yC-GzH" secondAttribute="top" id="ISq-Mr-80l"/>
+                                    <constraint firstItem="Pag-3j-lvj" firstAttribute="leading" secondItem="yMW-yC-GzH" secondAttribute="leading" id="WG3-9I-5Vg"/>
+                                    <constraint firstItem="S8C-mO-rIz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yZO-b4-C4g" secondAttribute="trailing" constant="10" id="cnM-pW-SQs"/>
+                                    <constraint firstItem="Pag-3j-lvj" firstAttribute="top" secondItem="S8C-mO-rIz" secondAttribute="bottom" constant="10" id="ltC-QG-MoD"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="lcd-yn-8cN"/>
+                                <connections>
+                                    <outlet property="count" destination="S8C-mO-rIz" id="V6f-Hj-LIj"/>
+                                    <outlet property="slider" destination="Pag-3j-lvj" id="aIQ-Mb-0EO"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CaM-78-cbO" customClass="SliderView" customModule="uds_avl_tree" customModuleProvider="target">
+                                <rect key="frame" x="15" y="102" width="345" height="57"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100000" minValue="1000" maxValue="1000000" translatesAutoresizingMaskIntoConstraints="NO" id="M0X-FM-4D6">
+                                        <rect key="frame" x="-2" y="27" width="349" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="slider:" destination="CaM-78-cbO" eventType="valueChanged" id="lIp-7X-X7e"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Počet nehnuteľností" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgi-07-TiJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="129.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMt-LA-Uwi">
+                                        <rect key="frame" x="293.5" y="0.0" width="51.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="LMt-LA-Uwi" secondAttribute="trailing" id="9vh-38-m1X"/>
+                                    <constraint firstItem="fgi-07-TiJ" firstAttribute="leading" secondItem="CaM-78-cbO" secondAttribute="leading" id="KB2-EG-aOO"/>
+                                    <constraint firstItem="LMt-LA-Uwi" firstAttribute="top" secondItem="CaM-78-cbO" secondAttribute="top" id="LfN-hM-jse"/>
+                                    <constraint firstItem="M0X-FM-4D6" firstAttribute="top" secondItem="LMt-LA-Uwi" secondAttribute="bottom" constant="10" id="VJ9-kP-Laf"/>
+                                    <constraint firstItem="M0X-FM-4D6" firstAttribute="top" secondItem="fgi-07-TiJ" secondAttribute="bottom" constant="10" id="X5d-bF-w2b"/>
+                                    <constraint firstItem="M0X-FM-4D6" firstAttribute="leading" secondItem="CaM-78-cbO" secondAttribute="leading" id="i9w-rM-Cgg"/>
+                                    <constraint firstItem="LMt-LA-Uwi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fgi-07-TiJ" secondAttribute="trailing" constant="10" id="m1H-XM-7P4"/>
+                                    <constraint firstAttribute="bottom" secondItem="M0X-FM-4D6" secondAttribute="bottom" id="omm-cA-hJ6"/>
+                                    <constraint firstItem="fgi-07-TiJ" firstAttribute="top" secondItem="CaM-78-cbO" secondAttribute="top" id="peB-gl-CEG"/>
+                                    <constraint firstAttribute="trailing" secondItem="M0X-FM-4D6" secondAttribute="trailing" id="t6q-Ax-mGR"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="AHc-4y-7s8"/>
+                                <connections>
+                                    <outlet property="count" destination="LMt-LA-Uwi" id="kXc-SC-qC6"/>
+                                    <outlet property="slider" destination="M0X-FM-4D6" id="WZG-at-o7q"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ng1-G7-itk" customClass="SliderView" customModule="uds_avl_tree" customModuleProvider="target">
+                                <rect key="frame" x="15" y="35" width="345" height="57"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="2" maxValue="1000" translatesAutoresizingMaskIntoConstraints="NO" id="x8d-zG-TCl">
+                                        <rect key="frame" x="-2" y="27" width="349" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="slider:" destination="ng1-G7-itk" eventType="valueChanged" id="dY3-8z-NOj"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Počet katastrálnych územii" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g14-1G-mVz">
+                                        <rect key="frame" x="0.0" y="0.0" width="173" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6e-AY-WsG">
+                                        <rect key="frame" x="329" y="0.0" width="16" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="x8d-zG-TCl" secondAttribute="bottom" id="6HC-kz-aZt"/>
+                                    <constraint firstItem="U6e-AY-WsG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g14-1G-mVz" secondAttribute="trailing" constant="10" id="E5b-o6-AE1"/>
+                                    <constraint firstItem="x8d-zG-TCl" firstAttribute="top" secondItem="g14-1G-mVz" secondAttribute="bottom" constant="10" id="GeB-ar-KoY"/>
+                                    <constraint firstAttribute="trailing" secondItem="x8d-zG-TCl" secondAttribute="trailing" id="PAs-Rc-bgc"/>
+                                    <constraint firstItem="x8d-zG-TCl" firstAttribute="top" secondItem="U6e-AY-WsG" secondAttribute="bottom" constant="10" id="QGT-cO-r7P"/>
+                                    <constraint firstItem="U6e-AY-WsG" firstAttribute="top" secondItem="ng1-G7-itk" secondAttribute="top" id="UH1-FH-lWR"/>
+                                    <constraint firstItem="x8d-zG-TCl" firstAttribute="leading" secondItem="ng1-G7-itk" secondAttribute="leading" id="UlT-5j-zCr"/>
+                                    <constraint firstItem="g14-1G-mVz" firstAttribute="leading" secondItem="ng1-G7-itk" secondAttribute="leading" id="WAU-4I-iHw"/>
+                                    <constraint firstAttribute="trailing" secondItem="U6e-AY-WsG" secondAttribute="trailing" id="bE6-Ie-vD6"/>
+                                    <constraint firstItem="g14-1G-mVz" firstAttribute="top" secondItem="ng1-G7-itk" secondAttribute="top" id="xYC-3B-asR"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="count" destination="U6e-AY-WsG" id="C41-Ow-Xye"/>
+                                    <outlet property="slider" destination="x8d-zG-TCl" id="t3U-V2-UbA"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ywP-ub-MzD" customClass="SliderView" customModule="uds_avl_tree" customModuleProvider="target">
+                                <rect key="frame" x="15" y="236" width="345" height="57"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="1000" maxValue="1000000" translatesAutoresizingMaskIntoConstraints="NO" id="2pX-kb-UQ0">
+                                        <rect key="frame" x="-2" y="27" width="349" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="slider:" destination="ywP-ub-MzD" eventType="valueChanged" id="SLs-7Z-jK6"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Počet obyvateľov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Weg-0X-rr7">
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rV-yc-Wu5">
+                                        <rect key="frame" x="311.5" y="0.0" width="33.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2pX-kb-UQ0" secondAttribute="bottom" id="8ht-73-g2U"/>
+                                    <constraint firstItem="4rV-yc-Wu5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Weg-0X-rr7" secondAttribute="trailing" constant="10" id="QJP-zS-cS4"/>
+                                    <constraint firstAttribute="trailing" secondItem="2pX-kb-UQ0" secondAttribute="trailing" id="R7c-I1-6rx"/>
+                                    <constraint firstItem="Weg-0X-rr7" firstAttribute="leading" secondItem="ywP-ub-MzD" secondAttribute="leading" id="Sc8-ks-46V"/>
+                                    <constraint firstItem="Weg-0X-rr7" firstAttribute="top" secondItem="ywP-ub-MzD" secondAttribute="top" id="Z33-Fg-7aR"/>
+                                    <constraint firstItem="2pX-kb-UQ0" firstAttribute="leading" secondItem="ywP-ub-MzD" secondAttribute="leading" id="f9v-8Z-znm"/>
+                                    <constraint firstItem="2pX-kb-UQ0" firstAttribute="top" secondItem="Weg-0X-rr7" secondAttribute="bottom" constant="10" id="foX-q6-Scb"/>
+                                    <constraint firstItem="2pX-kb-UQ0" firstAttribute="top" secondItem="4rV-yc-Wu5" secondAttribute="bottom" constant="10" id="ha4-cR-SIJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="4rV-yc-Wu5" secondAttribute="trailing" id="rHf-3W-hW5"/>
+                                    <constraint firstItem="4rV-yc-Wu5" firstAttribute="top" secondItem="ywP-ub-MzD" secondAttribute="top" id="zcj-vG-qft"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="nfU-4C-IoL"/>
+                                <connections>
+                                    <outlet property="count" destination="4rV-yc-Wu5" id="H0w-Vc-28x"/>
+                                    <outlet property="slider" destination="2pX-kb-UQ0" id="hNg-gB-aeT"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5P3-fi-EcN" customClass="SliderView" customModule="uds_avl_tree" customModuleProvider="target">
+                                <rect key="frame" x="15" y="303" width="345" height="57"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Ck0-dg-rZ7">
+                                        <rect key="frame" x="-2" y="27" width="349" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="slider:" destination="5P3-fi-EcN" eventType="valueChanged" id="BSB-eq-8Xk"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maximálny počet vlastníkov na liste" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kms-cy-Fw6">
+                                        <rect key="frame" x="0.0" y="0.0" width="227" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUU-ym-y2w">
+                                        <rect key="frame" x="336" y="0.0" width="9" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OUU-ym-y2w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kms-cy-Fw6" secondAttribute="trailing" constant="10" id="5xl-PB-hrd"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ck0-dg-rZ7" secondAttribute="trailing" id="6DL-jb-lg6"/>
+                                    <constraint firstAttribute="trailing" secondItem="OUU-ym-y2w" secondAttribute="trailing" id="E7K-9d-DDN"/>
+                                    <constraint firstItem="Ck0-dg-rZ7" firstAttribute="top" secondItem="kms-cy-Fw6" secondAttribute="bottom" constant="10" id="Gud-oR-oI8"/>
+                                    <constraint firstItem="kms-cy-Fw6" firstAttribute="top" secondItem="5P3-fi-EcN" secondAttribute="top" id="NYe-LJ-YYS"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ck0-dg-rZ7" secondAttribute="bottom" id="Ufh-Xd-DZH"/>
+                                    <constraint firstItem="Ck0-dg-rZ7" firstAttribute="top" secondItem="OUU-ym-y2w" secondAttribute="bottom" constant="10" id="UpJ-Oe-yJY"/>
+                                    <constraint firstItem="Ck0-dg-rZ7" firstAttribute="leading" secondItem="5P3-fi-EcN" secondAttribute="leading" id="hQ9-Kw-ZW7"/>
+                                    <constraint firstItem="kms-cy-Fw6" firstAttribute="leading" secondItem="5P3-fi-EcN" secondAttribute="leading" id="i3A-lz-TSY"/>
+                                    <constraint firstItem="OUU-ym-y2w" firstAttribute="top" secondItem="5P3-fi-EcN" secondAttribute="top" id="wsb-CA-k4z"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="e8i-eg-Lbi"/>
+                                <connections>
+                                    <outlet property="count" destination="OUU-ym-y2w" id="5CC-Oi-aXb"/>
+                                    <outlet property="slider" destination="Ck0-dg-rZ7" id="B6y-2j-3hD"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIX-26-EJG" customClass="SliderView" customModule="uds_avl_tree" customModuleProvider="target">
+                                <rect key="frame" x="15" y="370" width="345" height="57"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Q1q-H0-7Xb">
+                                        <rect key="frame" x="-2" y="27" width="349" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="slider:" destination="qIX-26-EJG" eventType="valueChanged" id="TZo-NM-hKS"/>
+                                        </connections>
+                                    </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max počet nehnuteľností vo vlastníctve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMS-es-1iM">
+                                        <rect key="frame" x="0.0" y="0.0" width="252.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-lC-U08">
+                                        <rect key="frame" x="329" y="0.0" width="16" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QTp-lC-U08" secondAttribute="trailing" id="1lm-TW-acd"/>
+                                    <constraint firstItem="Q1q-H0-7Xb" firstAttribute="top" secondItem="QTp-lC-U08" secondAttribute="bottom" constant="10" id="8bJ-Mc-oSA"/>
+                                    <constraint firstItem="Q1q-H0-7Xb" firstAttribute="leading" secondItem="qIX-26-EJG" secondAttribute="leading" id="TcS-2F-UrV"/>
+                                    <constraint firstItem="GMS-es-1iM" firstAttribute="top" secondItem="qIX-26-EJG" secondAttribute="top" id="a5J-8U-qCi"/>
+                                    <constraint firstItem="Q1q-H0-7Xb" firstAttribute="top" secondItem="GMS-es-1iM" secondAttribute="bottom" constant="10" id="jIL-C3-dbC"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q1q-H0-7Xb" secondAttribute="bottom" id="s0e-V4-liU"/>
+                                    <constraint firstItem="QTp-lC-U08" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GMS-es-1iM" secondAttribute="trailing" constant="10" id="vlD-D5-ged"/>
+                                    <constraint firstAttribute="trailing" secondItem="Q1q-H0-7Xb" secondAttribute="trailing" id="yS0-cn-gqr"/>
+                                    <constraint firstItem="GMS-es-1iM" firstAttribute="leading" secondItem="qIX-26-EJG" secondAttribute="leading" id="zKv-MY-i48"/>
+                                    <constraint firstItem="QTp-lC-U08" firstAttribute="top" secondItem="qIX-26-EJG" secondAttribute="top" id="zWZ-Yt-9Z6"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="xgS-ed-0fm"/>
+                                <connections>
+                                    <outlet property="count" destination="QTp-lC-U08" id="Fqy-xB-yOd"/>
+                                    <outlet property="slider" destination="Q1q-H0-7Xb" id="RHd-nH-2zu"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13a-LN-oi0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cu7-Bs-TFh">
+                                        <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generujem, prosím, čakajte" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvA-Gp-Ypy">
+                                        <rect key="frame" x="15" y="363.5" width="345" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cu7-Bs-TFh" firstAttribute="centerX" secondItem="13a-LN-oi0" secondAttribute="centerX" id="JhY-0j-63c"/>
+                                    <constraint firstItem="cu7-Bs-TFh" firstAttribute="centerY" secondItem="13a-LN-oi0" secondAttribute="centerY" id="PZX-iv-Rgk"/>
+                                    <constraint firstAttribute="trailing" secondItem="FvA-Gp-Ypy" secondAttribute="trailing" constant="15" id="bTj-PZ-27B"/>
+                                    <constraint firstItem="FvA-Gp-Ypy" firstAttribute="leading" secondItem="13a-LN-oi0" secondAttribute="leading" constant="15" id="dMg-4a-O06"/>
+                                    <constraint firstItem="FvA-Gp-Ypy" firstAttribute="top" secondItem="cu7-Bs-TFh" secondAttribute="bottom" constant="20" id="uQS-bB-9PY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="trailing" secondItem="5P3-fi-EcN" secondAttribute="trailing" constant="15" id="046-0V-38i"/>
+                            <constraint firstItem="yMW-yC-GzH" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" constant="15" id="3Fd-dY-1zA"/>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="trailing" secondItem="13a-LN-oi0" secondAttribute="trailing" id="3nr-dJ-Ge3"/>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="bottom" secondItem="vHE-Cd-db5" secondAttribute="bottom" id="5Py-38-Vqe"/>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="trailing" secondItem="yMW-yC-GzH" secondAttribute="trailing" constant="15" id="9qR-y3-kDm"/>
+                            <constraint firstItem="5P3-fi-EcN" firstAttribute="top" secondItem="ywP-ub-MzD" secondAttribute="bottom" constant="10" id="AFe-fq-F6e"/>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="trailing" secondItem="CaM-78-cbO" secondAttribute="trailing" constant="15" id="F9o-zV-GpC"/>
+                            <constraint firstItem="5P3-fi-EcN" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" constant="15" id="Gjs-zg-THn"/>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="trailing" secondItem="qIX-26-EJG" secondAttribute="trailing" constant="15" id="JMb-ea-eR9"/>
+                            <constraint firstItem="vHE-Cd-db5" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" id="Mlr-qI-sSp"/>
+                            <constraint firstItem="13a-LN-oi0" firstAttribute="top" secondItem="qwH-tS-byh" secondAttribute="top" id="SBn-Vp-rJt"/>
+                            <constraint firstItem="ng1-G7-itk" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" constant="15" id="U8p-Ih-MbD"/>
+                            <constraint firstItem="CaM-78-cbO" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" constant="15" id="aPk-Zn-psI"/>
+                            <constraint firstItem="vHE-Cd-db5" firstAttribute="trailing" secondItem="hqz-q0-IUX" secondAttribute="trailing" id="c6l-mk-G96"/>
+                            <constraint firstItem="yMW-yC-GzH" firstAttribute="top" secondItem="CaM-78-cbO" secondAttribute="bottom" constant="10" id="djF-h7-pwB"/>
+                            <constraint firstItem="ywP-ub-MzD" firstAttribute="top" secondItem="yMW-yC-GzH" secondAttribute="bottom" constant="10" id="eTq-r3-w9c"/>
+                            <constraint firstAttribute="bottom" secondItem="13a-LN-oi0" secondAttribute="bottom" id="f9X-el-yrP"/>
+                            <constraint firstItem="CaM-78-cbO" firstAttribute="top" secondItem="ng1-G7-itk" secondAttribute="bottom" constant="10" id="ho0-eE-VQG"/>
+                            <constraint firstItem="13a-LN-oi0" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" id="njF-5T-g2p"/>
+                            <constraint firstItem="qIX-26-EJG" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" constant="15" id="oe0-YD-WcC"/>
+                            <constraint firstItem="qIX-26-EJG" firstAttribute="top" secondItem="5P3-fi-EcN" secondAttribute="bottom" constant="10" id="qFN-jT-NmD"/>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="trailing" secondItem="ng1-G7-itk" secondAttribute="trailing" constant="15" id="qWJ-RA-b6L"/>
+                            <constraint firstItem="ng1-G7-itk" firstAttribute="top" secondItem="hqz-q0-IUX" secondAttribute="top" constant="15" id="rpR-LP-zig"/>
+                            <constraint firstItem="hqz-q0-IUX" firstAttribute="trailing" secondItem="ywP-ub-MzD" secondAttribute="trailing" constant="15" id="tOm-Co-jRZ"/>
+                            <constraint firstItem="ywP-ub-MzD" firstAttribute="leading" secondItem="hqz-q0-IUX" secondAttribute="leading" constant="15" id="wGj-CN-ORX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hqz-q0-IUX"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="Wq8-pi-nfx"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="generateButton" destination="vHE-Cd-db5" id="LDw-TE-R01"/>
+                        <outlet property="indicator" destination="cu7-Bs-TFh" id="kOG-bW-e1N"/>
+                        <outlet property="maxOwnedListsSliderView" destination="5P3-fi-EcN" id="tFf-Ka-wYr"/>
+                        <outlet property="maxOwnedPropertiesSliderView" destination="qIX-26-EJG" id="hPQ-U9-P9X"/>
+                        <outlet property="ownedListSliderView" destination="yMW-yC-GzH" id="oow-dX-WDC"/>
+                        <outlet property="personSliderView" destination="ywP-ub-MzD" id="hPk-Xv-SL3"/>
+                        <outlet property="propertySliderview" destination="CaM-78-cbO" id="gvZ-C9-5to"/>
+                        <outlet property="regionSliderView" destination="ng1-G7-itk" id="6kV-bl-whs"/>
+                        <outlet property="waitingWrapperView" destination="13a-LN-oi0" id="ujd-hX-lUL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pQ-K9-7UD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589.60000000000002" y="-293.70314842578711"/>
+        </scene>
+    </scenes>
+</document>

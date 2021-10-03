@@ -1,16 +1,21 @@
 public class AVLNode<Element> {
     
-    public var height = 0
-    
+    public var height = 1
     public var value: Element
-    
     public var parrent: AVLNode?
     public var leftChild: AVLNode?
     public var rightChild: AVLNode?
     
+    var min: AVLNode {
+        get {
+            return leftChild?.min ?? self
+        }
+    }
+    
     public init(value: Element) {
         self.value = value
     }
+    
 }
 
 // MARK: - Balance Factor
@@ -21,42 +26,11 @@ extension AVLNode {
         return leftHeight - rightHeight
     }
     public var leftHeight: Int {
-        return leftChild?.height ?? -1
+        return leftChild?.height ?? 0
     }
+    
     public var rightHeight: Int {
-        return rightChild?.height ?? -1
-    }
-    
-}
-
-// MARK: - Tree Traversions
-
-//extension AVLNode {
-//
-//    public func traverseInOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-//        leftChild?.traverseInOrder(visit: visit)
-//        visit(value)
-//        rightChild?.traverseInOrder(visit: visit)
-//    }
-//
-//    public func traversePreOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-//        visit(value)
-//        leftChild?.traversePreOrder(visit: visit)
-//        rightChild?.traversePreOrder(visit: visit)
-//    }
-//
-//    public func traversePostOrder(visit: (Element) -> Void) { // prerobit, rekurzia
-//        leftChild?.traversePostOrder(visit: visit)
-//        rightChild?.traversePostOrder(visit: visit)
-//        visit(value)
-//    }
-//
-//}
-
-extension AVLNode: CustomStringConvertible {
-    
-    public var description: String {
-        return diagram(for: self)
+        return rightChild?.height ?? 0
     }
     
     private func diagram(for node: AVLNode?,
@@ -72,6 +46,14 @@ extension AVLNode: CustomStringConvertible {
         return diagram(for: node.rightChild, top + " ", top + "┌──", top + "│ ")
             + root + "\(node.value) b:\(node.balanceFactor) h:\(node.height)\n"
             + diagram(for: node.leftChild, bottom + "│ ", bottom + "└──", bottom + " ")
+    }
+    
+}
+
+extension AVLNode: CustomStringConvertible {
+    
+    public var description: String {
+        return diagram(for: self)
     }
     
 }

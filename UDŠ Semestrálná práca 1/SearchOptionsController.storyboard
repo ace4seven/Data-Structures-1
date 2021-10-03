@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ctd-P6-I29">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Vyhľadávanie-->
+        <scene sceneID="BCB-c9-MTr">
+            <objects>
+                <viewController id="cax-U1-AZA" customClass="SearchOptionsController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pWD-8C-j1N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vtc-VT-MNa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v2M-6w-E9f" firstAttribute="bottom" secondItem="Vtc-VT-MNa" secondAttribute="bottom" id="O2h-xf-m5X"/>
+                            <constraint firstItem="v2M-6w-E9f" firstAttribute="trailing" secondItem="Vtc-VT-MNa" secondAttribute="trailing" id="oQK-6X-aSi"/>
+                            <constraint firstItem="Vtc-VT-MNa" firstAttribute="top" secondItem="v2M-6w-E9f" secondAttribute="top" id="qLF-y3-1je"/>
+                            <constraint firstItem="Vtc-VT-MNa" firstAttribute="leading" secondItem="v2M-6w-E9f" secondAttribute="leading" id="xSX-Z6-uzb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v2M-6w-E9f"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Vyhľadávanie" image="magnificier_tab_ico" id="NAQ-gx-pzs"/>
+                    <navigationItem key="navigationItem" id="gSV-pQ-rxS">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="cog_ico" id="Fx0-z4-jbI">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="Whu-um-Vn4" kind="show" id="gXW-70-Y4h"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Vtc-VT-MNa" id="AgJ-yT-m0h"/>
+                        <segue destination="znR-rA-1jt" kind="show" identifier="SearchPropertyController" id="GAU-OI-DKY"/>
+                        <segue destination="JoK-9b-8h3" kind="show" identifier="SearchPersonController" id="MmL-dk-uG0"/>
+                        <segue destination="Jew-UT-EHH" kind="show" identifier="SearchOwnedListController" id="02H-pT-laN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w6k-BL-kJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="874" y="-564"/>
+        </scene>
+        <!--SettingsController-->
+        <scene sceneID="wTy-77-FXO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingsController" id="Whu-um-Vn4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cke-kf-RCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1474" y="-827"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PdQ-ke-cmt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ctd-P6-I29" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kHX-vk-CAW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.59280736056612904" blue="0.27223655172633709" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cax-U1-AZA" kind="relationship" relationship="rootViewController" id="I64-DU-2wx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQJ-jh-kiz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69.599999999999994" y="-564.46776611694156"/>
+        </scene>
+        <!--SearchPropertyController-->
+        <scene sceneID="U3r-hW-aCP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchPropertyController" id="znR-rA-1jt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mW-KM-J2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510" y="-780"/>
+        </scene>
+        <!--SearchPersonController-->
+        <scene sceneID="adc-5C-7B3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchPersonController" id="JoK-9b-8h3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uwu-NQ-LTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1500" y="-739"/>
+        </scene>
+        <!--SearchOwnedListController-->
+        <scene sceneID="T1Z-Kx-LUM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchOwnedListController" id="Jew-UT-EHH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWT-hr-g5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="-547"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cog_ico" width="25" height="25"/>
+        <image name="magnificier_tab_ico" width="25" height="25"/>
+    </resources>
+</document>

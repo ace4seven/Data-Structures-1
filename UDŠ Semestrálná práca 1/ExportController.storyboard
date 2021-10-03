@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Myd-h4-wB3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Export Controller-->
+        <scene sceneID="a9M-LX-XAQ">
+            <objects>
+                <viewController id="Myd-h4-wB3" customClass="ExportController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="afZ-8i-YEA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zZ-rP-s04">
+                                <rect key="frame" x="15" y="318.5" width="345" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Export databázy do CSV"/>
+                                <connections>
+                                    <action selector="exportButtonPressed:" destination="Myd-h4-wB3" eventType="touchUpInside" id="44Y-Bp-pj1"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zpm-BC-t2d">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exportujem, prosím čakajte" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfE-hY-Ehs">
+                                        <rect key="frame" x="83.5" y="313" width="208" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cv8-DV-T9j">
+                                        <rect key="frame" x="177.5" y="273" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="cv8-DV-T9j" firstAttribute="centerX" secondItem="zpm-BC-t2d" secondAttribute="centerX" id="Sa5-A0-RpC"/>
+                                    <constraint firstItem="qfE-hY-Ehs" firstAttribute="centerX" secondItem="zpm-BC-t2d" secondAttribute="centerX" id="Smq-Ab-gdg"/>
+                                    <constraint firstItem="qfE-hY-Ehs" firstAttribute="top" secondItem="cv8-DV-T9j" secondAttribute="bottom" constant="20" id="bYX-wh-gtw"/>
+                                    <constraint firstItem="qfE-hY-Ehs" firstAttribute="centerY" secondItem="zpm-BC-t2d" secondAttribute="centerY" id="fcn-2N-Sfj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zpm-BC-t2d" firstAttribute="top" secondItem="fOS-dh-Q4t" secondAttribute="top" id="4bu-mu-VDy"/>
+                            <constraint firstItem="fOS-dh-Q4t" firstAttribute="trailing" secondItem="4zZ-rP-s04" secondAttribute="trailing" constant="15" id="4o8-hg-nk5"/>
+                            <constraint firstItem="4zZ-rP-s04" firstAttribute="centerY" secondItem="afZ-8i-YEA" secondAttribute="centerY" id="5UL-2M-feP"/>
+                            <constraint firstItem="zpm-BC-t2d" firstAttribute="leading" secondItem="fOS-dh-Q4t" secondAttribute="leading" id="JVE-fd-8zc"/>
+                            <constraint firstItem="fOS-dh-Q4t" firstAttribute="bottom" secondItem="zpm-BC-t2d" secondAttribute="bottom" id="MtQ-hq-3qV"/>
+                            <constraint firstItem="4zZ-rP-s04" firstAttribute="leading" secondItem="fOS-dh-Q4t" secondAttribute="leading" constant="15" id="Xdr-f9-LZE"/>
+                            <constraint firstItem="fOS-dh-Q4t" firstAttribute="trailing" secondItem="zpm-BC-t2d" secondAttribute="trailing" id="raD-t2-b1v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fOS-dh-Q4t"/>
+                    </view>
+                    <connections>
+                        <outlet property="indicator" destination="cv8-DV-T9j" id="bfr-dj-eFD"/>
+                        <outlet property="waitingScreenView" destination="zpm-BC-t2d" id="8oA-jC-FJk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TB9-Db-eC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.80000000000000004" y="88.605697151424295"/>
+        </scene>
+    </scenes>
+</document>

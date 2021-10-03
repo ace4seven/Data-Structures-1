@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e5a-dA-q2R">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Úpravy-->
+        <scene sceneID="OJ4-p4-l73">
+            <objects>
+                <viewController id="l91-jm-IUN" customClass="UpdateOptionsController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="giK-Pb-Pmd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z9U-sa-LEi">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OPu-fB-7UJ" firstAttribute="trailing" secondItem="z9U-sa-LEi" secondAttribute="trailing" id="Fn0-Kc-wnM"/>
+                            <constraint firstItem="z9U-sa-LEi" firstAttribute="top" secondItem="OPu-fB-7UJ" secondAttribute="top" id="Owg-VQ-bGG"/>
+                            <constraint firstItem="z9U-sa-LEi" firstAttribute="leading" secondItem="OPu-fB-7UJ" secondAttribute="leading" id="q82-2x-ThW"/>
+                            <constraint firstItem="OPu-fB-7UJ" firstAttribute="bottom" secondItem="z9U-sa-LEi" secondAttribute="bottom" id="vBJ-f8-bdd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OPu-fB-7UJ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Úpravy" image="update_tab_ico" id="BYE-iv-ADW"/>
+                    <navigationItem key="navigationItem" id="MMq-3h-nHN"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="z9U-sa-LEi" id="bf5-cl-lOj"/>
+                        <segue destination="x62-6d-icU" kind="show" identifier="FormChangeShare" id="gOs-aj-3hN"/>
+                        <segue destination="b9L-9e-Tee" kind="show" identifier="AddPersonController" id="Aac-JU-upk"/>
+                        <segue destination="cgr-k8-NO8" kind="show" identifier="AddOwnedListController" id="UY0-uW-daQ"/>
+                        <segue destination="reZ-Mn-bXA" kind="show" identifier="AddPropertyToOwnListController" id="UG2-v4-3Mu"/>
+                        <segue destination="yZ5-hJ-VOZ" kind="show" identifier="AddRegionController" id="vrZ-P4-wT1"/>
+                        <segue destination="iuG-LH-8AE" kind="show" identifier="PersonNewHomeController" id="rVV-9k-CF0"/>
+                        <segue destination="7IA-zM-DX3" kind="show" identifier="DeleteShareController" id="E5g-4F-CPp"/>
+                        <segue destination="3UG-Zn-Zt9" kind="show" identifier="DeletePropertyController" id="eAJ-Ge-aB1"/>
+                        <segue destination="PYq-f1-Ory" kind="show" identifier="ChangeOwnerController" id="xGT-Kd-8Zj"/>
+                        <segue destination="6e2-OL-nuQ" kind="show" identifier="DeleteOwnedListController" id="9Jb-Sd-p9U"/>
+                        <segue destination="f0X-Ml-wya" kind="show" identifier="DeleteRegionController" id="Zwu-Fn-3YH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dVA-c9-Irs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="92" y="-262.21889055472263"/>
+        </scene>
+        <!--FormChangeShare-->
+        <scene sceneID="XKa-nu-eBz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FormChangeShare" id="x62-6d-icU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jHC-Rv-94s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="751" y="-374"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bbJ-PC-ydo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e5a-dA-q2R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Chj-rz-WE5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="l91-jm-IUN" kind="relationship" relationship="rootViewController" id="2in-k5-kQd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOO-Qu-BeU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-769" y="-262"/>
+        </scene>
+        <!--AddPersonController-->
+        <scene sceneID="H4Y-Na-u0F">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddPersonController" id="b9L-9e-Tee" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybC-Hx-K2d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="762" y="-324"/>
+        </scene>
+        <!--AddOwnedListController-->
+        <scene sceneID="mdA-jT-22g">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddOwnedListController" id="cgr-k8-NO8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cO-IB-DOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="781" y="-263"/>
+        </scene>
+        <!--AddPropertyToOwnListController-->
+        <scene sceneID="buy-jf-KoP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddPropertyToOwnListController" id="reZ-Mn-bXA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8H-Ru-3vJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="-211"/>
+        </scene>
+        <!--AddRegionController-->
+        <scene sceneID="KXL-CD-YWN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddRegionController" id="yZ5-hJ-VOZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mR1-Nm-Eqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821" y="-146"/>
+        </scene>
+        <!--PersonNewHomeController-->
+        <scene sceneID="OFE-Rd-VDD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PersonNewHomeController" id="iuG-LH-8AE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggK-jw-nJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="822" y="-74"/>
+        </scene>
+        <!--DeleteShareController-->
+        <scene sceneID="nGh-Hu-hRh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DeleteShareController" id="7IA-zM-DX3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOb-Lx-wWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="793" y="0.0"/>
+        </scene>
+        <!--DeletePropertyController-->
+        <scene sceneID="Bv9-rM-FL8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DeletePropertyController" id="3UG-Zn-Zt9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nu4-Q2-FlU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-245" y="218"/>
+        </scene>
+        <!--ChangeOwnerController-->
+        <scene sceneID="xYK-vs-zC9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChangeOwnerController" id="PYq-f1-Ory" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zzd-8L-VLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="218"/>
+        </scene>
+        <!--DeleteOwnedListController-->
+        <scene sceneID="zHc-7S-0ea">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DeleteOwnedListController" id="6e2-OL-nuQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qcx-YR-bdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="553" y="218"/>
+        </scene>
+        <!--DeleteRegionController-->
+        <scene sceneID="UQ5-KO-tlC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DeleteRegionController" id="f0X-Ml-wya" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcp-a0-Vxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="218"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="update_tab_ico" width="24" height="25"/>
+    </resources>
+</document>

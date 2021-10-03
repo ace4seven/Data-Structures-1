@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BIO-Gq-Ft4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Form Region Name Controller-->
+        <scene sceneID="vFA-Sl-jlg">
+            <objects>
+                <viewController id="BIO-Gq-Ft4" customClass="FormRegionNameController" customModule="uds_avl_tree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rCS-Pe-vF4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SNM-eo-hVp">
+                                <rect key="frame" x="15" y="299" width="345" height="69.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Názov katastrálneho územia" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7f-rD-VIT">
+                                        <rect key="frame" x="45" y="0.0" width="255" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hoo-nf-KR9">
+                                        <rect key="frame" x="0.0" y="45.5" width="345" height="24"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Hoo-nf-KR9" firstAttribute="leading" secondItem="SNM-eo-hVp" secondAttribute="leading" id="iJy-8h-3up"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hoo-nf-KR9" secondAttribute="trailing" id="j31-6Y-SC0"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5Q-Ec-j9w">
+                                <rect key="frame" x="60" y="398.5" width="255" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="bkQ-5w-yRH"/>
+                                </constraints>
+                                <state key="normal" title="Vypísať nehnuteľnosti">
+                                    <color key="titleColor" red="1" green="0.59280736060000006" blue="0.2722365517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPressed:" destination="BIO-Gq-Ft4" eventType="touchUpInside" id="zbm-jc-EOz"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4iA-wr-Ob5">
+                                <rect key="frame" x="177.5" y="145" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SNM-eo-hVp" firstAttribute="centerY" secondItem="rCS-Pe-vF4" secondAttribute="centerY" id="CBT-4C-2eM"/>
+                            <constraint firstItem="4iA-wr-Ob5" firstAttribute="centerX" secondItem="rCS-Pe-vF4" secondAttribute="centerX" id="LEx-RY-Vpp"/>
+                            <constraint firstItem="BHB-b5-PMt" firstAttribute="trailing" secondItem="SNM-eo-hVp" secondAttribute="trailing" constant="15" id="O6y-OK-trv"/>
+                            <constraint firstItem="BHB-b5-PMt" firstAttribute="trailing" secondItem="k5Q-Ec-j9w" secondAttribute="trailing" constant="60" id="OIm-y4-wMj"/>
+                            <constraint firstItem="k5Q-Ec-j9w" firstAttribute="leading" secondItem="BHB-b5-PMt" secondAttribute="leading" constant="60" id="YnU-Ed-Au8"/>
+                            <constraint firstItem="SNM-eo-hVp" firstAttribute="leading" secondItem="BHB-b5-PMt" secondAttribute="leading" constant="15" id="bzm-gZ-bga"/>
+                            <constraint firstItem="k5Q-Ec-j9w" firstAttribute="top" secondItem="SNM-eo-hVp" secondAttribute="bottom" constant="30" id="d5k-jh-HiY"/>
+                            <constraint firstItem="4iA-wr-Ob5" firstAttribute="centerY" secondItem="rCS-Pe-vF4" secondAttribute="centerY" constant="-178.5" id="u9o-TL-hPV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BHB-b5-PMt"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="NpB-SJ-h5j">
+                        <barButtonItem key="rightBarButtonItem" image="region_menu_ico" id="wbF-jL-9Yp">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="regionListButtonPressed:" destination="BIO-Gq-Ft4" id="caJ-gm-2nZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="actionButton" destination="k5Q-Ec-j9w" id="EvS-Xf-mE7"/>
+                        <outlet property="indicator" destination="4iA-wr-Ob5" id="wv8-3k-DGl"/>
+                        <outlet property="nameTextField" destination="Hoo-nf-KR9" id="II3-qd-ior"/>
+                        <segue destination="1vk-lB-kZs" kind="show" identifier="ListController" id="YFF-im-Ycd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8WE-Wc-81m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.20000000000005" y="35.532233883058474"/>
+        </scene>
+        <!--ListController-->
+        <scene sceneID="kkE-IJ-ftu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ListController" id="1vk-lB-kZs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PKK-et-732" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1480" y="35"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="region_menu_ico" width="25" height="25"/>
+    </resources>
+</document>
